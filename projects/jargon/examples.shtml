@@ -1,0 +1,106 @@
+
+<!--#set var="TITLE" value="Jargon Examples"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<ul>
+	<li><a href="#hello">Hello World</a></li>
+	<li><a href="#bubble">Generic Bubble Sort</a></li>
+</ul>
+
+<h2 id="hello">Hello World</h2>
+<pre>
+   <span class="keyword">import</span> Jargon;
+
+   <span class="keyword">module</span> Main;
+      <span class="keyword">handler</span> [main <span class="keyword">string</span>[] args];
+         [Jargon:print <span class="literal">"Hello World\n"</span>];
+         <span class="keyword">return</span> <span class="literal">0</span>;
+      <span class="keyword">end</span>;
+   <span class="keyword">end</span>;
+</pre>
+
+<h2 id="bubble">Generic Bubble Sort</h2>
+<pre>
+
+   <span class="keyword">import</span> Jargon;
+
+   <span class="comment">-- A module to perform Bubble Sort.
+   -- Note that objects must implement a compare handler to use this.</span>
+   <span class="keyword">module</span> BubbleSort;
+      <span class="comment">-- Perform the sort.</span>
+      <span class="keyword">handler</span> [sort <span class="keyword">object</span>[] list];
+         <span class="keyword">int</span> x, y;
+         <span class="keyword">for</span> x = <span class="literal">0</span> <span class="keyword">upto</span> list'length - <span class="literal">2</span>;
+            <span class="keyword">for</span> y = x + <span class="literal">1</span> <span class="keyword">upto</span> list'length - <span class="literal">1</span>;
+               <span class="keyword">if</span> [list[x]:compare list[y]] &lt; <span class="literal">0</span>;
+                  [swap list, x, y];
+               <span class="keyword">end</span>;
+            <span class="keyword">end</span>;
+         <span class="keyword">end</span>;
+      <span class="keyword">end</span>;
+
+      <span class="comment">-- Swap two objects.</span>
+      <span class="keyword">handler</span> [swap <span class="keyword">object</span>[] list, <span class="keyword">int</span> x, <span class="keyword">int</span> y];
+         <span class="keyword">object</span> temp;
+         temp = list[x];
+         list[x] = list[y];
+         list[y] = temp;
+      <span class="keyword">end</span>;
+   <span class="keyword">end</span>;
+
+
+   <span class="comment">-- Container for floats.</span>
+   <span class="keyword">module</span> Float;
+      <span class="keyword">float</span> value;
+
+      <span class="keyword">handler</span> [set <span class="keyword">float</span> v];
+         value = v;
+      <span class="keyword">end</span>;
+
+      <span class="keyword">handler</span> [get];
+         <span class="keyword">return</span> value;
+      <span class="keyword">end</span>;
+
+      <span class="keyword">handler</span> [compare <span class="keyword">object</span> o];
+         <span class="keyword">return</span> value - [o:get];
+      <span class="keyword">end</span>;
+
+   <span class="keyword">end</span>;
+
+   <span class="keyword">module</span> Main;
+      <span class="keyword">handler</span> [main <span class="keyword">string</span>[] args];
+         <span class="keyword">object</span>[] list;
+         <span class="keyword">int</span> x;
+
+         <span class="comment">-- Read floats from the argument list.</span>
+         list = <span class="keyword">new</span> Float[args'length];
+         <span class="keyword">for</span> x = <span class="literal">0</span> <span class="keyword">upto</span> list'length - <span class="literal">1</span>;
+            [list[x]:set [Jargon:parseFloat args[x]]];
+         <span class="keyword">end</span>;
+
+         [BubbleSort list];   <span class="comment">-- Sort the floats.</span>
+
+         <span class="comment">-- Display the sorted floats.</span>
+         <span class="keyword">for</span> x = <span class="literal">0</span> <span class="keyword">upto</span> list'length - <span class="literal">1</span>;
+            [Jargon:print [list[x]:get]];
+            [Jargon:print <span class="literal">"\n"</span>];
+         <span class="keyword">end</span>;
+
+         <span class="comment">-- Clean up and exit.</span>
+         <span class="keyword">delete</span> list;
+         <span class="keyword">return</span> <span class="literal">0</span>;
+      <span class="keyword">end</span>;
+   <span class="keyword">end</span>;
+
+</pre>
+
+<p>
+<a href="../../index.shtml">Home</a> /
+<a href="../index.shtml">Projects</a> /
+<a href="index.shtml">Jargon</a>
+</p>
+
+<!--#include virtual="/tail.shtml"-->
+

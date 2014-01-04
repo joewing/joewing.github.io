@@ -1,0 +1,138 @@
+
+<!--#set var="TITLE" value="JWM Cursors"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+   JWM uses core X11 cursors and, therefore, JWM does not control
+   cursor themes.  However, JWM does use different cursors over different
+   parts of a window, which can be customized.
+   The default X11 cursors are usually pretty ugly and, unfortunately, this
+   can reflect poorly on JWM, which simply uses the cursors X11 provides.
+   So here I provide some information on changing the defaults.
+</p>
+<p>
+   Typically, the system cursor themes will be installed in
+   <span>/usr/share/icons</span> and per-user cursor themes in
+   <span>$HOME/.icons</span>, though these can vary by distribution.
+   Inside of each of these directories will be a directory for each
+   icon theme.  Each theme will have a <span>cursors</span> sub-directory
+   containing the cursor icons.  Note that there can be directories without
+   the cursors sub-directory, such themes are not considered here.
+   To change the icon theme, the <span>Xcursor.theme</span> resource must
+   be set to the name of the theme, which is the name of the directory
+   under either <span>/usr/share/icons</span> or <span>$HOME/.icons</span>.
+   X resources are usually loaded from either <span>$HOME/.Xdefaults</span>
+   or <span>$HOME/.Xresources</span> when the X server starts and you
+   can load them manually using the xrdb program.
+</p>
+
+<p>
+   The following table shows the cursors that JWM uses.
+</p>
+<table class="listing">
+
+   <tr class="head">
+      <th>Cursor</th><th>JWM Use</th>
+   </tr>
+
+   <tr class="listing">
+      <td>left_ptr</td>
+      <td>The default cursor.</td>
+   </tr>
+   <tr class="listing">
+      <td>fleur</td>
+      <td>Cursor used when moving a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>top_side</td>
+      <td>Cursor used when resizing the top of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>bottom_side</td>
+      <td>Cursor used when resizing the bottom of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>left_side</td>
+      <td>Cursor used when resizing the left side of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>right_side</td>
+      <td>Cursor used when resizing the right side of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>top_right_corner</td>
+      <td>Cursor used when resizing the top-right corner of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>top_left_corner</td>
+      <td>Cursor used when resizing the top-left corner of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>bottom_right_corner</td>
+      <td>Cursor used when resizing the bottom-right corner of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>bottom_left_corner</td>
+      <td>Cursor used when resizing the bottom-left corner of a window.</td>
+   </tr>
+   <tr class="listing">
+      <td>tcross</td>
+      <td>Cursor used when selecting a window.</td>
+   </tr>
+
+</table>
+
+<p>
+   Here's an illustration of how one might copy an existing theme and
+   modify it to use a different cursor icon for selecting a window.
+   First, create a custom theme and copy the theme you want to use as a
+   starting point (here we use whiteglass):
+</p>
+<div class="code">
+   mkdir -p $HOME/.icons/mytheme/cursors<br />
+   cp /usr/share/icons/whiteglass/cursors $HOME/.icons/mytheme/cursors
+</div>
+<p>
+   Change the icon used for selecting a window (we set it to the left pointer):
+</p>
+<div class="code">
+   cp $HOME/.icons/mytheme/cursors/left_ptr $HOME/.icons/mytheme/tcross
+</div>
+<p>
+   Set the X resource to use the new theme:
+</p>
+<div class="code">
+   echo "Xcursor.theme: mytheme" &gt;&gt; $HOME/.Xdefaults
+</div>
+<p>
+   Finally, load the X resources and restart JWM:
+<p>
+<div class="code">
+   xrdb $HOME/.Xdefaults<br />
+   jwm -restart
+</div>
+<p>
+   Now your new cursor theme should be used instead of the old ones.
+   Note that loading the X resources should be done for you when the X
+   server starts the next time, but if it's not, you may need to check the
+   documentation for your distribution to determine how to set X server
+   resources.
+</p>
+
+<p>
+   For more information on creating X11 cursors, see the man page for
+   Xcursor.  For more information on X server resources, see the man
+   page for xrdb.
+</p>
+
+
+<div class="location">
+   <a href="../../index.shtml">Home</a> /
+   <a href="../index.shtml">Projects</a> /
+   <a href="index.shtml">JWM</a> /
+   <a href="config.shtml">Configuration</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->

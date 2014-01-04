@@ -1,0 +1,36 @@
+
+<!--#set var="TITLE" value="JavaScript Programs"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+This is a collection of some programs I wrote in JavaScript.
+These run in the web browser.
+</p>
+
+<table class="listing">
+   <tr class="head">
+      <th>Name</th>
+      <th>Description</th>
+   </tr>
+   <tr class="listing">
+      <td><a href="landmine.shtml">Landmine</a></td>
+      <td>Landmine (aka Minesweeper).</td>
+   </tr>
+   <tr class="listing">
+      <td><a href="maze.shtml">Maze</a></td>
+      <td>A maze generator.</td>
+   </tr>
+   <tr class="listing">
+      <td><a href="tetris.shtml">Tetris</a></td>
+      <td>Tetris.</td>
+   </tr>
+</table>
+
+<p>
+   <a href="../../index.shtml">Home</a> /
+   <a href="../index.shtml">Projects</a>
+</p>
+
+<!--#include virtual="/tail.shtml"-->

@@ -1,0 +1,224 @@
+
+<!--#set var="TITLE" value="JWM Setup Guide"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+This is a quick guide to getting JWM installed and running.  This guide
+is intended as a high-level guide to getting started with JWM.
+See the <a href="config.shtml">JWM configuration page</a>
+for a comprehensive JWM configuration reference.
+</p>
+
+<h2>Installation</h2>
+<p>
+JWM is distributed in source form (<a href="index.shtml">available here</a>),
+however, several distributions make JWM available as a binary package.
+Note that pre-compiled versions of JWM are often older than the newest
+version available here.
+To check the version of JWM, run
+<span class="nobr">&quot;jwm&nbsp;-v&quot;</span> from a command line.
+</p>
+<p>
+Assuming you are installing JWM from source, after downloading and
+expanding the file, run the &quot;configure&quot; script.
+</p>
+<div class="code">
+./configure
+</div>
+<p>
+The configure script will configure JWM for your system.  By default, it
+will enable all options provided it can find the appropriate libraries.
+You may need to install the &quot;development headers&quot;
+for some libraries to compile JWM.  Simply re-run the configure script
+after installing any necessary packages.  If you are missing a necessary
+library, the configure script will either fail (if the library is
+required) or tell you that some feature is disabled.  JWM is installed to
+&quot;/usr/local/bin&quot; by default.  The prefix where JWM is installed
+(&quot;/usr/local&quot; by default) can be changed using the configure script
+if desired using the &quot;--prefix&quot; option.
+Run <span class="nobr">&quot;./configure&nbsp;--help&quot;</span> to display
+the available configuration options.
+</p>
+<p>
+After successfully running configure, compile JWM by running &quot;make&quot;.
+Once JWM is compiled, you can install it by running
+<span class="nobr">&quot;make install&quot;</span>
+as root (<span class="nobr">&quot;sudo make install&quot;</span>).
+</p>
+
+<h2>Starting JWM</h2>
+<p>
+The preferred method for starting JWM varies depending on distribution
+and the display manager used to login.  A common approach is to add the
+following line to either &quot;$HOME/.xsession&quot; or
+&quot;$HOME/.Xinitrc&quot;:
+</p>
+<div class="code">
+exec /usr/local/bin/jwm
+</div>
+
+<p>
+This will typically cause JWM to load immediately when X starts (if you
+are not using a login manager) or when the &quot;user-defined&quot; login
+is selected.
+</p>
+
+<h2>Configuration</h2>
+<p>
+JWM is configured via an <a href="http://en.wikipedia.org/wiki/Xml">XML</a>
+configuration file.  By default, this file is located in
+&quot;/usr/local/etc/system.jwmrc&quot;.  To customize JWM, copy
+this file to &quot;$HOME/.jwmrc&quot; and then modify it using your
+favorite text editor.
+Although somewhat verbose, XML (which looks much like HTML) provides
+a convenient way to represent hierarchical configuration, such as menus.
+In addition, XML fairly easy to edit either by hand or programmatically.
+</p>
+<p>
+Some distributions divide up the JWM configuration file into multiple
+files.  Further, at least on distribution,
+<a href="http://puppylinux.org">Puppy Linux</a>, provides tools to
+modify the JWM configuration though a graphical interface.
+</p>
+<p>
+The rest of this document will describe how the various sections
+of the JWM configuration file work.  Note that the order of
+the sections in the configuration file is not important.  However,
+it is possible to override settings by specifying them multiple times,
+in which case the last setting will be used.
+</p>
+<p>
+Within the JWM configuration file, the top-most &quot;tag&quot;
+must be <span class="tag">JWM</span>.  A tag is the thing
+that starts with a &quot;&lt;&quot; and ends with a &quot;&gt;&quot;.
+All tags must be &quot;closed&quot;, this means that there is
+either an end tag (a tag starting with &quot;&lt;/&quot;) following it
+or the tag is an &quot;empty-element&quot; tag, meaning it ends with
+a &quot;/&gt;&quot;.
+All configuration options are nested within the
+<span class="tag">JWM</span> tag.
+</p>
+
+<h2>Root Menu Configuration</h2>
+<p>
+JWM can provide one or more &quot;root&quot; menus.  These menus
+provide a way for one to start programs.  In the default configuration
+distributed with JWM, the root menu can be accessed by clicking on the
+desktop or by clicking the &quot;JWM&quot; button in the lower-left
+corner of the screen.  Note that you may have a different configuration
+if you installed JWM from a binary distribution, such as through
+apt or yum.
+</p>
+<p>
+The root menu in the default JWM configuration has several programs in
+it, but you will likely want to customize this menu by adding your own
+programs.  A root menu is found in the configuration file inside the
+<span class="tag">RootMenu</span> tag.  For example, it should look
+something like this:
+</p>
+<div class="code">
+   &lt;<span class="tag">RootMenu</span>&nbsp;<span class="attribute">onroot</span>=<span class="literal">&quot;12&quot;</span>&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&lt;<span class="tag">Program</span>&nbsp;<span class="attribute">icon</span>=<span class="literal">&quot;terminal.png&quot;</span> <span class="attribute">label</span>=<span class="literal">&quot;Terminal&quot;</span>&gt;xterm&lt;/<span class="tag">Program</span>&gt;<br />
+      &nbsp;&nbsp;&nbsp;&lt;<span class="tag">Menu</span> <span class="attribute">icon</span>=<span class="literal">&quot;folder.png&quot;</span> <span class="attribute">label</span>=<span class="literal">&quot;Applications&quot;</span>&gt;<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">Program</span> <span class="attribute">icon</span>=<span class="literal">&quot;calc.png&quot;</span> <span class="attribute">label</span>=<span class="literal">&quot;Calculator&quot;</span>&gt;xcalc&lt;/<span class="tag">Program</span>&gt;<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">Program</span> <span class="attribute">icon</span>=<span class="literal">&quot;web-browser.png&quot;</span> <span class="attribute">label</span>=<span class="literal">&quot;Midori&quot;</span>&gt;midori&lt;/<span class="tag">Program</span>&gt;<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">Program</span> <span class="attribute">icon</span>=<span class="literal">&quot;text-editor.png&quot;</span> <span class="attribute">label</span>=<span class="literal">&quot;XEdit&quot;</span>&gt;xedit&lt;/<span class="tag">Program</span>&gt;<br />
+      &nbsp;&nbsp;&nbsp;&lt;/<span class="tag">Menu</span>&gt;<br />
+   &nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- more stuff here --&gt;</span><br />
+   &lt;/<span class="tag">RootMenu</span>&gt;
+</div>
+
+<p>
+Note that &quot;<span class="comment">more stuff here</span>&quot; is an
+XML comment, that is, JWM will ignore everything between &quot;&lt;!--&quot;
+and &quot;--&gt;&quot;.  Also note that I only included the first part of the
+menu here.
+</p>
+<p>
+As shown, the root menu has one program (xterm) that shows up on the main
+part of the menu.  The <span class="attribute">icon</span>
+&quot;attribute&quot; sets an optional icon to show beside the menu
+item.  The <span class="attribute">label</span> attribute sets the label
+to use.  If no label is provided, the name of the program is used directly.
+Finally, the text inside the &quot;tag&quot; (in this case, &quot;xterm&quot;)
+provides the program to run when the menu is clicked.
+</p>
+<p>
+Submenus can also be created.  In the example above, there is one submenu,
+introduced by the <span class="tag">Menu</span> tag.  Like programs,
+submenus can have an icon and label.  Within the submenu, additional
+programs and submenus can be inserted.
+</p>
+<p>
+The look of menus is controlled by the
+<span class="tag">MenuStyle</span> section.
+See the <a href="config.shtml">configuration page</a> for details.
+</p>
+
+<h2>Trays</h2>
+<p>
+The default configuration includes a &quot;tray&quot; at the bottom
+of the screen.  This tray has a button to display the root menu and
+a button show the desktop.  It also contains a pager, which shows
+the virtual desktops, a task list, a clock, and a swallowed application
+(xload).
+It is possible to change the position and layout of this tray.  In
+addition, it is possible to create additional trays or completely remove
+the tray.  The section in the configuration file in the
+<span class="tag">Tray</span> tag defines the default tray.  To add
+another tray, simply add another <span class="tag">Tray</span> tag
+and set the position as appropriate.
+</p>
+<p>
+The look of the trays is controlled primarily by the
+<span class="tag">TrayStyle</span> section.  The look of the tray buttons
+can be refined using the <span class="tag">TrayButtonStyle</span> tag.
+The look of the pager can be refined using the
+<span class="tag">PagerStyle</span> tag.  The look of the task list
+can be refined using the <span class="tag">TaskListStyle</span> tag.
+Finally, the look of the clock can be refined using the
+<span class="tag">ClockStyle</span> tag.
+</p>
+
+<h2>Focus Model</h2>
+<p>
+JWM supports two focus models: click and sloppy.  The default
+focus model is sloppy.  Sloppy focus means that the window the mouse
+is over determines which window has focus.  Click focus means that windows
+behave as in Windows or Mac OS X, where you must click the window to give
+it focus.  To change the focus model, modify the
+<span class="tag">FocusModel</span> setting.
+</p>
+
+<h2>Desktops</h2>
+<p>
+The number of desktops is controlled by the <span class="tag">Desktops</span>
+tag.  The <span class="attribute">width</span> attribute determines
+how many desktops are available horizontally and the
+<span class="attribute">height</span> attribute determines how many desktops
+are available vertically.
+</p>
+<p>
+In the <span class="tag">Desktops</span> section it is possible to
+specify a background for all desktops or each individually.  Further,
+it is possible to set names for each desktop.
+</p>
+
+<h2>Groups</h2>
+<p>
+JWM allows one to customize the behavior of windows based upon their
+name or &quot;class&quot;.  This is controlled via &quot;groups&quot;.
+You can have as many groups as you want.  Each group is introduced by
+the <span class="tag">Group</span> tag.
+</p>
+
+<div class="location">
+   <a href="../../index.shtml">Home</a> /
+   <a href="../index.shtml">Projects</a> /
+   <a href="index.shtml">JWM</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->
+

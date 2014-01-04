@@ -1,0 +1,166 @@
+
+<!--#set var="TITLE" value="Resume"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1>Joe Wingbermuehle</h1>
+
+<h2>Education</h2>
+<ul class="nobullet">
+   <li>2011 to present: Washington University in St. Louis.
+      <ul class="nobullet">
+         <li>Computer Science Doctoral Student</li>
+      </ul>
+   </li>
+   <li>2000 to 2004: University of Missouri - Rolla.
+      <ul class="nobullet">
+         <li>B.S. Computer Science</li>
+         <li>B.S. Applied Mathematics</li>
+      </ul>
+   </li>
+</ul>
+
+<h2>Experience</h2>
+<ul class="nobullet">
+
+   <li>
+      <span>Contractor</span>
+      <span class="right">2013-present</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>Observable Networks; St. Louis, Missouri</i></li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Contractor</span>
+      <span class="right">2011-2013</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>Exegy Inc.; St. Louis, Missouri</i></li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Senior Software Engineer</span>
+      <span class="right">2008-2011</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>Exegy Inc.; St. Louis, Missouri</i></li>
+         <li>Designed and implemented a high-performance, multi-threaded
+         system to maintain order books from millions of messages per
+         second.</li>
+         <li>Implemented a Linux kernel module extension to forward network
+         packets from a NIC to user-land to bypass the network stack thereby
+         reducing latencies to under a microsecond.</li>
+         <li>Used Infiniband RDMA as an interconnect for connecting clients
+         and expanding system capacity by sharing work among multiple compute
+         nodes.</li>
+         <li>Debugged hardware problems with custom FPGA accelerator
+         boards.</li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Software Engineer</span>
+      <span class="right">2005-2008</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>Exegy Inc.; St. Louis, Missouri</i></li>
+         <li>Implemented pre- and post-processing for a hardware-accelerated
+         search engine in C++.</li>
+         <li>Designed and implemented a customer-facing API for interacting
+         with the hardware/FPGA search solution in C.<li>
+         <li>Designed and implemented a system for interfacing with a
+         hardware-accelerated last-value-cache for high-performance
+         proprietary trading by customers.</li>
+         <li>Developed the software for configuring a hardware-accelerated
+         order-book solution.</li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Associate Analyst</span>
+      <span class="right">2004-2005</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>SBC Services, Inc.; St. Louis, Missouri</i></li>
+         <li>Assisted with the design, development, and testing of an
+         enterprise logging and auditing facility utilizing Java, JMS, PL/SQL,
+         Jakarta Struts, and XML.</li>
+         <li>Provided support to other developers for internal middleware
+         products.</li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Intern</span>
+      <span class="right">2003-2004</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>USGS; Rolla, Missouri</i></li>
+         <li>Built a PNG conversion web service using Java, JNI, and C to
+         support alpha transparency.</li>
+         <li>Wrote a Java Swing program utilizing Xerces and Xalan to connect
+         to map web services.</li>
+         <li>Developed a map viewer in Java, which connected to a SQL
+         database to get a list of relevant map services to contact.</li>
+         <li>Implemented web services in Java to work with Styled Layer
+         Descriptors.</li>
+         <li>Wrote an ArcIMS/OGC connector in Java.</li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Grader</span>
+      <span class="right">2002-2003</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>University of Missouri - Rolla; Rolla, Missouri</i></li>
+         <li>Grader for Programming Languages and Translators (CS 236).</li>
+      </ul>
+   </li>
+
+   <li>
+      <span>Intern</span>
+      <span class="right">2001-2002</span>
+      <br/>
+      <ul class="nobullet">
+         <li><i>SBC Services, Inc.; St. Louis, Missouri</i></li>
+         <li>Developed a unit test suite for a middleware library in C++.</li>
+         <li>Developed web pages and applications using CFML, SQL, HTML, CSS,
+         and JavaScript.</li>
+      </ul>
+   </li>
+
+</ul>
+
+<h2>Software</h2>
+<ul class="nobullet">
+   <li>Created Knockout. Knockout is a game for the iPhone written in
+   Objective-C.</li>
+   <li>Implemented an Altair 680 system on an FPGA. The Altair 680 is a
+   computer system from the mid-1970s based on a Motorola 6800 microprocessor.
+   I implemented the processor, keyboard driver, graphics driver, and UART in
+   Verilog to run on a Spartan-3 FPGA.</li>
+   <li>Created and continue to develop JWM. JWM (Joe's Window Manager) is a
+   window manager for the X Window System written in C and included in
+   several Linux distributions.</li>
+</ul>
+
+<h2>Languages</h2>
+<ul class="nobullet">
+   <li>C, C++, Java, Objective-C, Ada, Verilog, Perl, Assembly (various types),
+   Haskell</li>
+</ul>
+
+<h2>Platforms</h2>
+<ul class="nobullet">
+   <li>Linux, UNIX (various flavors), Mac OS X, Windows</li>
+</ul>
+
+<div class="location">
+   <a href="index.shtml">Home</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->
+

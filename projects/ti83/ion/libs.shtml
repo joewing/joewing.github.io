@@ -1,0 +1,192 @@
+
+<!--#set var="TITLE" value="Ion Libraries"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+<p>
+Ion has eight built-in library routines to make programs smaller and easier to
+write. The function names are included in ion.inc and you may call them or
+jump to them at any time in your program provided that your program does not
+alter the data directly following your program. If you need memory allocation,
+I recommend creating a temporary program and deleting it after your program is
+finished. You may also use _insertmem (and _deletemem). However, if you use
+_insertmem and _deletemem, the library vector table may be destroyed thereby
+making it impossible to call a library function in your program. It is
+possible to restore the vector table, but this would require some effort. See
+the Ion source code if you need to see how the vector table works.
+</p>
+
+<h2>Library Functions</h2>
+
+<ul>
+   <li><a href="#version">ionVersion</a></li>
+   <li><a href="#random">ionRandom</a></li>
+   <li><a href="#putsprite">ionPutSprite</a></li>
+   <li><a href="#largesprite">ionLargeSprite</a></li>
+   <li><a href="#getpixel">ionGetPixel</a></li>
+   <li><a href="#fastcopy">ionFastCopy</a></li>
+   <li><a href="#detect">ionDetect</a></li>
+   <li><a href="#decompress">ionDecompress</a></li>
+</ul>
+<p />
+
+<h3 id="version">ionVersion</h3>
+<pre>
+ionVersion:
+   Returns version and compatibility numbers.
+   Input:   nothing
+   Output: hl=Ion version number (e.g 256=1.0)
+      a=Ion compatibility number
+      d=Library compatibility number
+      e=number of library routines
+   Destroys: a de hl
+</pre>
+<p></p>
+
+<h3 id="random">ionRandom</h3>
+<pre>
+ionRandom:
+   Generates an eight-bit random number.
+   Input:   b=upper bound
+   Output: a=answer (between 0 and b-1)
+      b=0
+   Destroys af b
+</pre>
+<p />
+
+<h3 id="putsprite">ionPutSprite</h3>
+<pre>
+ionPutSprite:
+   Draw a sprite to the graph buffer (XOR).
+   Input:   b=sprite height
+      a=x coordinate
+      l=y coordinate
+      ix-&gt;sprite
+   Output:   Sprite is XORed to the graph buffer.
+      ix-&gt;next sprite
+   Destroys: af bc de hl ix
+</pre>
+<p></p>
+
+<h3 id="largesprite">ionLargeSprite</h3>
+<pre>
+ionLargeSprite:
+   Draw a variable width sprite to the graph buffer (XOR).
+   Input:   ix-&gt;sprite
+      a=x coordinate
+      l=y coordinate
+      b=sprite height
+      c=sprite width (in bytes, so divide by 8)
+   Output:   sprite is XORed to the graph buffer
+      ix-&gt;next sprite
+   Destroys: af bc de hl ix af'
+</pre>
+<p />
+
+<h3 id="getpixel">ionGetPixel</h3>
+<pre>
+ionGetPixel:
+   Get pixel offset and mask.
+   Input:   a=x coordinate
+      e=y coordinate
+   Output:   a=pixel mask
+      hl-&gt;offset (in the graph buffer)
+   Destroys: af bc de hl
+</pre>
+<p />
+
+<h3 id="fastcopy">ionFastCopy</h3>
+<pre>
+ionFastCopy:
+   Copy the graph buffer to the screen, FAST!
+   Input:   nothing
+   Output:   graph buffer is copied to the screen
+   Destroys: af bc de hl
+</pre>
+<p />
+
+<h3 id="detect">ionDetect</h3>
+<pre>
+ionDetect:
+   Find a file in the VAT.
+   Input:   hl=place to begin search
+      ix-&gt;detection string (zero terminated)
+   Output:   de=place stopped + 1
+      hl-&gt;program data (after detection string)
+      z=0 for success, z=1 if failed
+   Destroys: af bc de hl
+</pre>
+<p />
+
+<h3 id="decompress">ionDecompress</h3>
+<pre>
+ionDecompress:
+   Decompress data.
+   Input:   hl-&gt;compressed data
+      de-&gt;place to load uncompressed data
+      b=length of compressed data
+      c=compression factor {1,3,15}
+   Output:   data is decompressed
+      hl-&gt;next byte of compressed data
+   Destroys: af bc de hl
+</pre>
+<p></p>
+
+<h2 id="history">History</h2>
+<ul>
+   <li>Version 1.0 (libCompatibility 0)
+      <ul>
+         <li>First Release</li>
+         <li>Eight routines</li>
+      </ul>
+   </li>
+   <li>Version 1.1 (libCompatibility 0)
+      <ul>
+         <li>The ionDetect routine should work properly on the
+            TI-83 Plus now.</li>
+         <li>I slowed down the ionFastCopy routine so that it would
+            no cause the screen to become distored, which happened on
+            some calculators.</li>
+      </ul>
+   </li>
+   <li>Version 1.2 (libCompatibility 0)
+      <ul>
+         <li>No changes.</li>
+      </ul>
+   </li>
+   <li>Version 1.3 (libCompatibility 0)
+      <ul>
+         <li>Improved ionDetect.</li>
+      </ul>
+   </li>
+   <li>Version 1.4 (libCompatibility 0)
+      <ul>
+         <li>No changes.</li>
+      </ul>
+   </li>
+   <li>Version 1.5 (libCompatibility 0)
+      <ul>
+         <li>TI-83 Plus: ionDetect can now detect programs in Flash
+            ROM. Note that any data written to an external file stored
+            in Flash will be lost next time the file is detected.</li>
+      </ul>
+   </li>
+   <li>Version 1.6 (libCompatibility 0)
+      <ul>
+         <li>TI-83 Plus: Fixed a bug in ionDetect that caused
+            some programs to crash (due to the v1.5 change).</li>
+         <li>A few minor optimizations.</li>
+      </ul>
+   </li>
+</ul>
+
+<p>
+<a href="../../../index.shtml">Home</a> /
+<a href="../../index.shtml">Projects</a> /
+<a href="../index.shtml">TI-83</a> /
+<a href="index.shtml">Ion</a> /
+<a href="devel.shtml">Developer</a>
+</p>
+
+<!--#include virtual="/tail.shtml"-->
+

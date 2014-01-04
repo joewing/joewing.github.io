@@ -1,0 +1,74 @@
+
+<!--#set var="TITLE" value="About Me"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+My name is Joe Wingbermuehle.
+I graduated from <a href="http://www.mst.edu">UMR</a> in May 2004 with a BS
+in Computer Science and a BS in Applied Mathematics.  After school I worked
+for <a href="http://www.att.com/">SBC</a> for a year and then
+<a href="http://exegy.com/">Exegy</a> for five years.
+I am currently a doctoral student at <a href="http://wustl.edu/">WUSTL</a>
+in the <a href="http://sbs.wustl.edu/">SBS research group</a>.
+</p>
+<p>
+In the past, I've written many TI calculator programs, mostly in z80
+assembly language for the <a href="projects/ti83/">TI-83</a>, but also
+in 68000 assembly language for both the <a href="projects/ti89/">TI-89</a>
+and the <a href="projects/ti92/">TI-92</a>.  More recently, I
+wrote a window manager called <a href="projects/jwm/">JWM</a> to
+run on the X window system.  I've also built a computer system out of
+discrete bipolar transistors called the <a href="projects/q1/">Q1</a>.
+See my <a href="projects/">projects</a> page and my
+<a href="https://github.com/joewing">GitHub</a> page for some of my other
+projects.
+</p>
+<p>
+My interests include just about everything related to computers,
+particularly computer architecture and programming languages.
+I also enjoy working with more &quot;vintage&quot; UNIX hardware, such
+as <a href="http://en.wikipedia.org/wiki/Silicon_Graphics">SGI</a>
+(<a href="http://en.wikipedia.org/wiki/Irix">IRIX</a> on
+<a href="http://en.wikipedia.org/wiki/MIPS_architecture">MIPS</a>),
+<a href="http://en.wikipedia.org/wiki/Sun_Microsystems">Sun</a>
+(<a href="http://www.oracle.com/solaris">Solaris</a> on
+<a href="http://en.wikipedia.org/wiki/SPARC">SPARC</a>), and
+<a href="http://www.hp.com/">HP</a>
+(<a href="http://www.hp.com/go/hpux/">HP-UX</a> on
+<a href="http://en.wikipedia.org/wiki/PA-RISC">PA-RISC</a>) systems.
+In fact, using an
+<a href="http://en.wikipedia.org/wiki/SGI_Octane">SGI Octane</a> as my
+desktop in college led me to write JWM in an attempt to have a fast
+window manager that was a little more up-to-date than
+<a href="http://en.wikipedia.org/wiki/4Dwm">4Dwm</a>.
+The SGI Octane is one of my favorite systems and I still have one that I use
+occasionally.
+</p>
+
+<h2>Contact Information</h2>
+<ul>
+   <li>
+      Email: <a href="mailto:joewing@joewing.net">joewing@joewing.net</a>
+   </li>
+   <li>AIM: jw1ng00</li>
+   <li>ICQ: 6740089</li>
+   <li>HTTP: <a href="http://joewing.net">joewing.net</a></li>
+   <li>LinkedIn: <a href="http://www.linkedin.com/in/joewing">joewing</a></li>
+   <li>Twitter:
+   <a href="https://twitter.com/jwingbermuehle">@jwingbermuehle</a></li>
+</ul>
+
+<h2>Site Statistics</h2>
+<ul>
+   <li><a href="/webalizer/">
+      Webalizer</a></li>
+</ul>
+
+<div class="location">
+   <a href="index.shtml">Home</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->
+

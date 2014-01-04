@@ -1,0 +1,383 @@
+
+<!--#set var="TITLE" value="Tetris"-->
+<!--#include virtual="/head.shtml"-->
+
+<h2><!--#echo var="TITLE"--></h2>
+<p>
+Use the arrow keys to move (left, right, and down).
+Space rotates the block.
+<a href="tetris.shtml">Refresh</a> to start a new game.
+</p>
+
+<div style="text-align:center; background-color:#000;">
+<canvas id="screen" width="400" height="384">
+   Not supported.
+</canvas>
+</div>
+
+<script type="text/javascript">
+<!-- --> <![CDATA[ /> <!--
+   // Tetris
+   // by Joe Wingbermuehle
+   // http://joewing.net
+   // 2013-04-14
+
+   var width   = 12;    // Board width
+   var height  = 21;    // Board height
+   var bsize   = 16;    // Block size
+   var spacing = 2;     // Space between blocks.
+
+   var canvas = document.getElementById('screen');
+   var context = canvas.getContext('2d');
+   var timer;
+
+   var level   = 1;
+   var score   = 0;
+   var lines   = 0;
+
+   var board;        // Game board.
+   var currentBlock  = -1; // Current block type.
+   var nextBlock     = -1; // Next block type.
+   var rotation      = 0;  // Rotation of the current block.
+   var posx          = 0;  // X coordinate of the current block.
+   var posy          = 0;  // Y coordinate of the current block.
+   var gameOver      = false;
+
+   // Mapping of color indicies to color names.
+   var colorMap = [
+      '#000',  // 0 - Black
+      '#F00',  // 1 - Red
+      '#FF0',  // 2 - Yellow
+      '#F0F',  // 3 - Magenta
+      '#0FF',  // 4 - Cyan
+      '#00F',  // 5 - Blue
+      '#0F0',  // 6 - Green
+      '#AAA',  // 7 - Grey
+      '#FFF'   // 8 - White
+   ];
+
+   // Blocks (7 types).
+   var blocks = [
+      [     // 0 - I
+         0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+         0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0
+      ], [  // 1 - L
+         0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0,
+         0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0,
+         0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+      ], [  // 2 - J
+         0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+         0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+         0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0
+      ], [  // 3 - O
+         0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0
+      ], [  // 4 - T
+         0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0,
+         1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+         1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0
+      ], [  // 5 - Z
+         0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+         0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+         0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0
+      ], [  // 6 - S
+         0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0,
+         1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0,
+         1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+      ]
+   ];
+
+   // Draw a block.
+   // X and Y are in block coordinates on the screen.
+   function DrawBlock(x, y, c) {
+      var px = x * bsize;
+      var py = y * bsize;
+      context.fillStyle = colorMap[c];
+      context.fillRect(px, py, bsize - spacing, bsize - spacing);
+   }
+
+   // Draw the board.
+   function DrawBoard() {
+      var offsetx = 1;
+      var offsety = 2;
+      for(var y = 0; y < height; y++) {
+         for(var x = 0; x < width; x++) {
+            var index = y * width + x;
+            DrawBlock(offsetx + x, offsety + y, board[index]);
+         }
+      }
+      if(!gameOver) {
+         var block = blocks[currentBlock];
+         var color = currentBlock + 1;
+         for(var y = 0; y < 4; y++) {
+            var by = y + posy;
+            for(var x = 0; x < 4; x++) {
+               var bx = x + posx;
+               if(block[y * 4 + x + rotation * 16] > 0) {
+                  DrawBlock(offsetx + bx, offsety + by, color);
+               }
+            }
+         }
+      }
+   }
+
+   // Draw the score board.
+   function DrawScore() {
+      var x = (width + 4) * bsize;
+      var y = 4 * bsize;
+      var w = 128;
+      var h = 64;
+      context.fillStyle = '#000';
+      context.fillRect(x, y, w, h);
+      context.font = '16px Courier';
+      context.fillStyle = '#FFF';
+      context.fillText('Level:', x + 2, y + 16)
+      context.fillText(level, x + 70, y + 16);
+      context.fillText('Score:', x + 2, y + 34)
+      context.fillText(score, x + 70, y + 34);
+      context.fillText('Lines:', x + 2, y + 52)
+      context.fillText(lines, x + 70, y + 52);
+   }
+
+   // Draw the next block.
+   function DrawNext() {
+      var xoffset = width + 5;
+      var yoffset = 15;
+      var block = blocks[nextBlock];
+      var color = nextBlock + 1;
+      for(var y = 0; y < 4; y++) {
+         var by = y + yoffset;
+         for(var x = 0; x < 4; x++) {
+            var bx = x + xoffset;
+            if(block[y * 4 + x] > 0) {
+               DrawBlock(bx, by, color);
+            } else {
+               DrawBlock(bx, by, 0);
+            }
+         }
+      }
+   }
+
+   // Redraw everything.
+   function Redraw() {
+      DrawBoard();
+      DrawScore();
+      DrawNext();
+   }
+
+   // Show the game over message.
+   function ShowGameOver() {
+      var x = (width + 4) * bsize;
+      var y = 9 * bsize;
+      context.fillStyle = '#FFF';
+      context.font = '16px Courier';
+      context.fillText("Game Over", x, y);
+   }
+
+   // Clear any lines that are full.
+   function ClearLines() {
+      var y = height - 2;
+      var cleared = 0;
+      while(y > 0) {
+
+         // Should this line be cleared?
+         var shouldClear = true;
+         for(var x = 1; x < width - 1; x++) {
+            if(board[y * width + x] == 0) {
+               shouldClear = false;
+               break;
+            }
+         }
+
+         if(shouldClear) {
+            cleared += 1;
+            lines += 1;
+            if((lines % 10) == 0) {
+               level += 1;
+               window.clearInterval(timer);
+               window.setInterval("Tick()", 1000 / level);
+            }
+            for(var z = y; z > 0; z--) {
+               for(var x = 1; x < width - 1; x++) {
+                  board[z * width + x] = board[(z - 1) * width + x];
+               }
+            }
+            for(var x = 1; x < width - 1; x++) {
+               board[0 * width + x] = 0;
+            }
+         } else {
+            y -= 1;
+         }
+
+      }
+      if(cleared > 0) {
+         score += 100 * (1 << (cleared - 1));
+      }
+   }
+
+   // Check if the current block position is valid.
+   function CheckOverlap() {
+      var block = blocks[currentBlock];
+      for(var y = 0; y < 4; y++) {
+         var by = y + posy;
+         for(var x = 0; x < 4; x++) {
+            var bx = x + posx;
+            if(block[y * 4 + x + rotation * 16] > 0) {
+               if(board[by * width + bx] > 0) {
+                  return true;
+               }
+            }
+         }
+      }
+      return false;
+   }
+
+   // Start a new block.
+   function NewBlock() {
+
+      // Copy the existing block to the board.
+      if(currentBlock >= 0) {
+         var color = currentBlock + 1;
+         var block = blocks[currentBlock];
+         for(var y = 0; y < 4; y++) {
+            var by = y + posy;
+            for(var x = 0; x < 4; x++) {
+               var bx = x + posx;
+               if(block[y * 4 + x + rotation * 16] > 0) {
+                  board[by * width + bx] = color;
+               }
+            }
+         }
+      }
+
+      // Update the score.
+      score += 1;
+
+      // Clear any lines.
+      ClearLines();
+
+      currentBlock   = nextBlock;
+      nextBlock      = Math.floor(Math.random() * 7);
+      rotation       = 0;
+      posx           = width / 2 - 4 / 2;;
+      posy           = 0;
+
+      // Check if the game is over.
+      gameOver = CheckOverlap();
+      if(gameOver) {
+         window.clearInterval(timer);
+         ShowGameOver();
+      }
+
+   }
+
+   // Move the current block down.
+   function MoveDown() {
+      posy += 1;
+      if(CheckOverlap()) {
+         posy -= 1;
+         NewBlock();
+      }
+   }
+
+   // Move the current block right.
+   function MoveRight() {
+      posx += 1;
+      if(CheckOverlap()) {
+         posx -= 1;
+      }
+   }
+
+   // Move the current block left.
+   function MoveLeft() {
+      posx -= 1;
+      if(CheckOverlap()) {
+         posx += 1;
+      }
+   }
+
+   // Rotate the current block.
+   function Rotate() {
+      var oldRotation = rotation;
+      rotation = (rotation + 1) % 4;
+      if(CheckOverlap()) {
+         rotation = oldRotation;
+      }
+   }
+
+   // Update the game.
+   function Tick() {
+      if(gameOver) {
+         return;
+      }
+      MoveDown();
+      Redraw();
+   }
+
+   function ProcessKeyPress(e) {
+      if(gameOver) {
+         return;
+      }
+      switch(e.keyCode) {
+      case 38:    // Up
+         break;
+      case 40:    // Down
+         MoveDown();
+         break;
+      case 37:    // Left
+         MoveLeft();
+         break;
+      case 39:    // Right
+         MoveRight();
+         break;
+      case 32:    // Space
+         Rotate();
+         break;
+      default:
+         break;
+      }
+      Redraw();
+   }
+
+   // Initialize.
+   context.fillStyle = '#000';
+   context.fillRect(0, 0, canvas.width, canvas.height);
+   board = new Array();
+   for(var y = 0; y < height - 1; y++) {
+      board[y * width + 0] = 8;
+      board[y * width + (width - 1)] = 8;
+      for(var x = 1; x < width - 1; x++) {
+         board[y * width + x] = 0;
+      }
+   }
+   for(var x = 0; x < width; x++) {
+      board[(height - 1) * width + x] = 8;
+   }
+   nextBlock = Math.floor(Math.random() * 7);
+   NewBlock();
+   Redraw();
+
+   // Start the game.
+   window.addEventListener('keydown', ProcessKeyPress, false);
+   timer = window.setInterval("Tick()", 1000);
+
+// --> <! ]]>
+</script>
+
+<p>
+<a href="../../index.shtml">Home</a> /
+<a href="../index.shtml">Projects</a> /
+<a href="index.shtml">JavaScript</a>
+</p>
+
+<!--#include virtual="/tail.shtml"-->
+

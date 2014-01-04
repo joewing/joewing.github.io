@@ -1,0 +1,102 @@
+
+<!--#set var="TITLE" value="Maze"-->
+<!--#include virtual="/head.shtml"-->
+
+<h2>Maze</h2>
+<p></p>
+
+<div style="text-align:center;">
+<canvas id="maze" width="820" height="420">
+   Not supported.
+</canvas>
+</div>
+
+<script type="text/javascript">
+<!-- --> <![CDATA[ /> <!--
+
+   // Maze generator in JavaScript
+   // Joe Wingbermuehle
+   // 19971123 <> 20130106
+   // http://joewing.net
+
+   // Width and height of the maze, must be odd.
+   var width  = 41;
+   var height = 21;
+
+   // Get the canvas.
+   var canvas = document.getElementById('maze');
+   var context = canvas.getContext('2d');
+   var blockWidth = Math.floor(canvas.width / width);
+   var blockHeight = Math.floor(canvas.height / height);
+
+   // Initialize the maze array.
+   var x, y;
+   var m = new Object();
+   for(x = 0; x < width * height; x++) {
+      m[x] = 1;
+   }
+
+   // Function to draw a square.
+   function DrawElement(x, y) {
+      if(m[y * width + x]) {
+         context.fillStyle = 'black';
+      } else {
+         context.fillStyle = 'white';
+      }
+      context.fillRect(x * blockWidth, y * blockHeight,
+                       blockWidth, blockHeight);
+   }
+
+   // Function to carve the maze at x, y.
+   function CarveMaze(x, y) {
+      var d = Math.round(Math.random() * 4);
+      var c = 0;
+      var dx, dy;
+      var x1, y1;
+      var x2, y2;
+      while(c < 4) {
+         dx = 0; dy = 0;
+         switch(d) {
+         case 0:     dx =  1; break;
+         case 1:     dy =  1; break;
+         case 2:     dx = -1; break;
+         default:    dy = -1; break;
+         }
+         x1 = x  + dx; y1 = y  + dy;
+         x2 = x1 + dx; y2 = y1 + dy;
+         if(x2 > 0 && x2 < width && y2 > 0 && y2 < height) {
+            if(m[y1 * width + x1] == 1 && m[y2 * width + x2] == 1) {
+               m[y1 * width + x1] = 0;
+               m[y2 * width + x2] = 0;
+               CarveMaze(x2, y2);
+            }
+         }
+         c += 1;
+         d = (d + 1) % 4;
+      }
+   }
+
+   m[1 * width + 1] = 0;
+   CarveMaze(1, 1);
+   m[1 * width + 0] = 0;
+   m[(height - 2) * width + (width - 1)] = 0;
+   for(y = 0; y < height; y++) {
+      for(x = 0; x < width; x++) {
+         DrawElement(x, y);
+      }
+   }
+// --> <! ]]>
+</script>
+
+<p>
+<a href="maze.shtml">Refresh</a> for a new maze.
+</p>
+
+<p>
+<a href="../../index.shtml">Home</a> /
+<a href="../index.shtml">Projects</a> /
+<a href="index.shtml">JavaScript</a>
+</p>
+
+<!--#include virtual="/tail.shtml"-->
+

@@ -1,0 +1,262 @@
+
+<!--#set var="TITLE" value="Maze Generators"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+I've written maze generators using many different programming languages.
+They are available on <a href="https://github.com/joewing/maze/">GitHub</a>.
+Here's a list of the languages used as well as a link to the specific
+compiler or interpreter.
+</p>
+
+<table class="listing">
+
+   <tr class="head">
+      <th>Language</th>
+      <th>File</th>
+      <th>Compiler</th>
+   </tr>
+
+   <tr class="listing">
+      <td>Ada</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.adb">
+      maze.adb</a></td>
+      <td><a href="http://gcc.gnu.org">GCC</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Bash</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.sh">
+      maze.sh</a></td>
+      <td><a href="http://www.gnu.org/software/bash/">GNU Bash</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>BASIC</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.bas">
+      maze.bas</a></td>
+      <td><a href="http://www.moria.de/~michael/bas/">Bas</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>C</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.c">
+      maze.c</a></td>
+      <td><a href="http://gcc.gnu.org">GCC</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Clojure</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.clj">
+      maze.clj</a></td>
+      <td><a href="http://clojure.org">Clojure</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>COBOL</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.cob">
+      maze.cob</a></td>
+      <td><a href="http://www.opencobol.org/">OpenCOBOL</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Coq</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.v">
+      maze.v</a></td>
+      <td><a href="http://coq.inria.fr/">Coq</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>D</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.d">
+      maze.d</a></td>
+      <td><a href="http://dlang.org/">D</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Erlang</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.erl">
+      maze.erl</a></td>
+      <td><a href="http://www.erlang.org/">Erlang</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Forth</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.4th">
+      maze.4th</a></td>
+      <td><a href="http://http://www.jwdt.com/~paysan/gforth.html">
+      Gforth</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Fortran</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.f90">
+      maze.f90</a></td>
+      <td><a href="http://gcc.gnu.org">GCC</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Go</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.go">
+      maze.go</a></td>
+      <td><a href="http://golang.org">Go</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Haskell</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.hs">
+      maze.hs</a></td>
+      <td><a href="http://www.haskell.org/ghc/">GHC</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>io</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.io">
+      maze.io</a></td>
+      <td><a href="http://iolanguage.com/">io</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Java</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.java">
+      maze.java</a></td>
+      <td><a href="http://www.oracle.com/technetwork/java/index.html">
+      Java</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>JavaScript</td>
+      <td><a href="../javascript/maze.shtml">maze.shtml</a></td>
+      <td>N/A (Firefox, etc.)</td>
+   </tr>
+
+   <tr class="listing">
+      <td>Lisp</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.lisp">
+      maze.lisp</a></td>
+      <td><a href="http://clisp.sourceforge.net/">CLISP</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Nimrod</td>
+      <td><a href="https://github.com/joewing/maze/blob/master/maze.nim">
+      maze.nim</a></td>
+      <td><a href="http://nimrod-code.org">Nimrod</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>OCaml</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.ml">
+      maze.ml</a></td>
+      <td><a href="http://caml.inria.fr/">OCaml</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Pascal</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.pas">
+      maze.pas</a></td>
+      <td><a href="http://www.gnu-pascal.de/gpc/h-index.html">GPC</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Perl</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.pl">
+      maze.pl</a></td>
+      <td><a href="http://www.perl.org/">Perl</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>PL/1</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.pli">
+      maze.pli</a></td>
+      <td><a href="http://www.iron-spring.com/">Iron Spring PL/1</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Prolog</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.pl">
+      maze.pl</a></td>
+      <td><a href="http://www.swi-prolog.org">SWI-Prolog</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Python</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.py">
+      maze.py</a></td>
+      <td><a href="http://www.python.org/">Python</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>R</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.r">
+      maze.r</a></td>
+      <td><a href="http://www.r-project.org">R</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Ruby</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.rb">
+      maze.rb</a></td>
+      <td><a href="http://www.ruby-lang.org/">Ruby</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Scala</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.scala">
+      maze.scala</a></td>
+      <td><a href="http://www.scala-lang.org/">Scala</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>Smalltalk</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.st">
+      maze.st</a></td>
+      <td><a href="http://smalltalk.gnu.org/">GNU Smalltalk</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>SML</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.sml">
+      maze.sml</a></td>
+      <td><a href="http://www.smlnj.org/">Standard ML of New Jersy</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>SNOBOL4</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.sno">
+      maze.sno</a></td>
+      <td><a href="http://www.snobol4.org/">CSNOBOL</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>TCL</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.tcl">
+      maze.tcl</a></td>
+      <td><a href="http://www.tcl.tk/">TCL</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>VIM</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.vim">
+      maze.vim</a></td>
+      <td><a href="http://www.vim.org/">VIM</a></td>
+   </tr>
+
+   <tr class="listing">
+      <td>x86-64 Assembly Language</td>
+      <td><a href="https://raw.github.com/joewing/maze/master/maze.s">
+      maze.s</a></td>
+      <td><a href="http://gcc.gnu.org/">GCC</a></td>
+   </tr>
+
+</table>
+
+<p>
+<a href="../../index.shtml">Home</a> /
+<a href="../index.shtml">Projects</a>
+</p>
+
+<!--#include virtual="/tail.shtml"-->
+

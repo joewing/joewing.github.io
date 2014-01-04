@@ -1,0 +1,11 @@
+
+<!--#set var="title" value="Error 401"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+Authorization required.
+</p>
+
+<!--#include virtual="/tail.shtml"-->

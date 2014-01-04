@@ -1,0 +1,86 @@
+
+<!--#set var="TITLE" value="Links"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<h2>News</h2>
+<ul>
+   <li><a href="http://news.ycombinator.com">Hacker News</a></li>
+   <li><a href="http://osnews.com">OSNews.com</a></li>
+   <li><a href="http://reddit.com">reddit</a></li>
+   <li><a href="http://slashdot.org">Slashdot.org</a></li>
+   <li><a href="http://ticalc.org">ticalc.org</a></li>
+</ul>
+
+<h2>Reference</h2>
+<ul>
+   <li><a href="http://www.lispworks.com/reference/HyperSpec/Front/index.htm">
+      The Common Lisp HyperSpec</a></li>
+   <li><a href="http://www.google.com">Google</a></li>
+   <li><a href="http://java.sun.com/apis.html">Java</a>
+      - The javadoc for the standard Java API's.
+   </li>
+   <li><a href="http://mathworld.wolfram.com">MathWorld</a></li>
+   <li><a href="http://www.wikipedia.org">Wikipedia</a></li>
+</ul>
+
+<h2>Programs</h2>
+<ul>
+   <li><a href="http://www.xwinman.org">Window Managers for X</a>
+      - List of window managers for X11.
+   </li>
+</ul>
+
+<h2>Programming Languages</h2>
+<ul>
+   <li><a href="http://caml.inria.fr">The Caml Language</a></li>
+   <li><a href="http://www.opendylan.org">Dylan: Overview</a>
+      - A Dylan compiler.
+   </li>
+   <li><a href="http://www.haskell.org">The Haskell Home Page</a></li>
+   <li><a href="http://java.sun.com">Java Technology</a></li>
+   <li><a href="http://nice.sourceforge.net">The Nice Programming Language</a>
+      - Nice is an interesting Java-like language.
+   </li>
+   <li><a href="http://www.perl.com">Perl.com: The Source for Perl</a></li>
+   <li><a href="http://www.php.net">PHP: Hypertext Preprocessor</a></li>
+   <li><a href="http://www.python.org">Python Programming Language</a></li>
+   <li><a href="http://scala-lang.org">The Scala Programming Language</a></li>
+   <li><a href="http://www.smlnj.org">Standard ML of New Jersey</a>
+      - A compiler for SML.
+   </li>
+</ul>
+
+<h2>Programming Related</h2>
+<ul>
+   <li><a href="http://github.com/">GitHub</a></li>
+   <li><a href="http://hyperpolyglot.org">Hyperpolyglot</a>
+      - Side-by-side comparison of programming languages.
+   </li>
+   <li><a href="http://lambda-the-ultimate.org">Lambda the Ultimate</a></li>
+   <li><a href="http://www.nekochan.net">Neckochan Net</a>
+      - Information on SGI computers and IRIX.
+   </li>
+   <li><a href="http://www.artima.com/weblogs/index.jsp?blogger=beckel">
+      Computing Thoughts</a>
+      - Bruce Eckel's blog. Many programming related articles.
+   </li>
+   <li><a href="http://www.paulgraham.com">Paul Graham</a>
+      - Essays on programming and related topics.
+   </li>
+</ul>
+
+<h2>Miscellaneous</h2>
+<ul>
+   <li><a href="http://www.apple.com">Apple</a></li>
+   <li><a href="http://www.sgi.com">SGI</a></li>
+   <li><a href="http://www.sun.com">Sun Microsystems</a></li>
+</ul>
+
+<div class="location">
+   <a href="index.shtml">Home</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->
+

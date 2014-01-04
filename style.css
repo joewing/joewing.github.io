@@ -1,0 +1,741 @@
+
+html, body {
+   text-align: left;
+   padding: 0;
+   margin: 0;
+   background-color: white;
+   color: black;
+   font: normal 12px Arial, Helvetica, sans-serif;
+   line-height: 17px;
+}
+
+#header {
+   background: black url(headbg.png) repeat;
+   position: absolute;
+   width: 100%;
+
+   padding-top: 15px;
+   text-shadow: none;
+   text-align: left;
+   font-size: 34px;
+
+   height: 60px;
+   voice-family: "\"}\"";
+   voice-family: inherit;
+   height: 45px;
+
+}
+
+#links {
+   position: absolute;
+   background-color: #EED;
+   border: 1px dashed #888;
+   top: 60px;
+   left: 0px;
+   margin: 8px 8px 8px 8px;
+   padding: 4px 4px 4px 4px;
+
+   /* 108 - 8 - 8 - 4 - 4 = 84 */
+   width: 84px;
+   voice-family: "\"}\"";
+   voice-family: inherit;
+   width: 108px;
+
+}
+
+#links p {
+   margin-left: 0.2em;
+   margin-top: 0em;
+   margin-bottom: 0em;
+}
+
+#content {
+   position: absolute;
+   top: 60px;
+   left: 128px;
+   right: 0;
+   text-align: justify;
+   margin-top: 8px;
+   margin: 8px 8px 8px 8px;
+   padding: 4px 4px 4px 4px;
+   max-width: 60em;
+}
+
+.location {
+   font-size: 0.9em;
+}
+
+#foot {
+   margin-top: 1em;
+   font-size: 0.8em;
+   text-align: right;
+}
+
+a {
+   color: #04B;
+   text-decoration: none;
+   border-bottom: dotted #999 1px;
+}
+
+a:hover {
+   color: #B44;
+   text-decoration: none;
+   border-bottom: solid #B44 1px;
+}
+
+#header a {
+   color: white;
+   border-bottom: none;
+}
+
+#header a:hover {
+   border-bottom: solid white 2px;
+}
+
+h1 {
+   font-size: 1.6em;
+   color: black;
+   border-width: 0;
+   padding: 0;
+   text-align: left;
+   margin: 0 0 0.5em 0;
+   border-bottom: solid black 1px;
+   text-shadow: none;
+}
+
+h2 {
+   font-size: 1.2em;
+   color: black;
+   border-width: 0;
+   padding: 0;
+   text-align: left;
+   margin: 0;
+   text-decoration: underline;
+   text-shadow: none;
+}
+
+h3 {
+   font-size: 12px;
+   color: black;
+   border-width: 0;
+   padding: 0;
+   text-align: left;
+   margin: 0;
+}
+
+div.date {
+   color: navy;
+   font-family: courier;
+   text-align: left;
+}
+
+div.newsitem {
+   margin-left: 32px;
+   margin-bottom: 16px;
+}
+
+div.code {
+   border: dashed black 1px;
+   padding: 2px 5px 2px 5px;
+   font-family: courier;
+   color: black;
+   background-color: #EEE;
+   white-space:nowrap;
+}
+
+tr.head {
+   background: #248;
+   color: white;
+}
+
+tr.listing {
+   background: #DDD;
+   color: black;
+}
+
+td {
+   text-align: left;
+}
+
+span.code {
+   font-family: courier;
+}
+
+span.comment {
+   font-family: courier;
+   color: blue;
+}
+
+span.keyword {
+   font-family: courier;
+   color: green;
+}
+
+span.literal {
+   font-family: courier;
+   color: red;
+}
+
+span.tag {
+   font-family: courier;
+   color: #060;
+}
+
+span.attribute {
+   font-family: courier;
+   color: #060;
+}
+
+span.right {
+   position:   absolute;
+   right:      0;
+}
+
+span.left {
+   position:   absolute;
+   left:       0;
+}
+
+div.first {
+   position:   absolute;
+   left:       64pt;
+}
+
+div.entry {
+   position:   relative;
+}
+
+ul.nobullet {
+   list-style-type: none;
+}
+
+.nobr {
+   white-space:nowrap;
+}
+
+/* Doxygen stuff follows. */
+
+div.tabs {
+   float            : left;
+   border-bottom    : 1px solid #84B0C7;
+   background       : #FFF;
+   margin-bottom    : 4px;
+}
+
+div.tabs ul {
+   margin           : 0px;
+   padding-left     : 10px;
+   list-style       : none;
+}
+
+div.tabs li, div.tabs form {
+   display          : inline;
+   margin           : 0px;
+   padding          : 0px;
+}
+
+div.tabs form {
+   float            : right;
+}
+
+div.tabs a {
+   float            : left;
+   background       : #FFF;
+   border-bottom    : 0px solid #84B0C7;
+   font-size        : small;
+   font-weight      : bold;
+   text-decoration  : none;
+}
+
+div.tabs a:hover {
+   background-position: 100% -150px;
+}
+
+div.tabs a:link, div.tabs a:visited,
+div.tabs a:active, div.tabs a:hover {
+       color: #1A419D;
+}
+
+div.tabs span {
+   float            : left;
+   display          : block;
+   background       : #FFF;
+   padding          : 5px 9px;
+   white-space      : nowrap;
+}
+
+div.tabs input {
+   float            : right;
+   display          : inline;
+   font-size        : 1em;
+}
+
+div.tabs td {
+   font-size        : x-small;
+   font-weight      : bold;
+   text-decoration  : none;
+}
+
+
+div.tabs span {
+   float : none;
+}
+
+div.tabs a:hover span {
+   background-position: 0% -150px;
+}
+
+div.tabs li#current a {
+   background-position: 100% -150px;
+   border-width     : 0px;
+}
+
+div.tabs li#current span {
+   background-position: 0% -150px;
+   padding-bottom   : 6px;
+}
+
+div.nav {
+   background       : none;
+   border           : none;
+   border-bottom    : 1px solid #84B0C7;
+}
+
+caption {
+   font-weight: bold
+}
+
+div.qindex {
+   background-color: #e8eef2;
+   border: 1px solid #84b0c7;
+   text-align: center;
+   margin: 2px;
+   padding: 2px;
+   line-height: 140%;
+}
+
+div.nav {
+   background-color: #e8eef2;
+   border: 1px solid #84b0c7;
+   text-align: center;
+   margin: 2px;
+   padding: 2px;
+   line-height: 140%;
+}
+
+div.navtab {
+   background-color: #e8eef2;
+   border: 1px solid #84b0c7;
+   text-align: center;
+   margin: 2px;
+   margin-right: 15px;
+   padding: 2px;
+}
+
+td.navtab {
+   font-size: 70%;
+}
+
+a.qindex {
+   text-decoration: none;
+   font-weight: bold;
+   color: #1A419D;
+}
+
+a.qindex:visited {
+   text-decoration: none;
+   font-weight: bold;
+   color: #1A419D
+}
+
+a.qindex:hover {
+   text-decoration: none;
+   background-color: #ddddff;
+}
+
+a.qindexHL {
+   text-decoration: none;
+   font-weight: bold;
+   background-color: #6666cc;
+   color: #ffffff;
+   border: 1px double #9295C2;
+}
+
+a.qindexHL:hover {
+   text-decoration: none;
+   background-color: #6666cc;
+   color: #ffffff;
+}
+
+a.qindexHL:visited {
+   text-decoration: none;
+   background-color: #6666cc;
+   color: #ffffff
+}
+
+a.el {
+   text-decoration: none;
+   font-weight: bold
+}
+
+a.elRef {
+   font-weight: bold
+}
+
+a.code:link {
+   text-decoration: none;
+   font-weight: normal;
+   color: #0000FF
+}
+
+a.code:visited {
+   text-decoration: none;
+   font-weight: normal;
+   color: #0000FF
+}
+
+a.codeRef:link {
+   font-weight: normal;
+   color: #0000FF
+}
+
+a.codeRef:visited {
+   font-weight: normal;
+   color: #0000FF
+}
+
+dl.el {
+   margin-left: -1cm
+}
+
+.fragment {
+   font-family: monospace, fixed;
+   font-size: 95%;
+}
+
+pre.fragment {
+   border: 1px solid #CCCCCC;
+   background-color: #f5f5f5;
+   margin-top: 4px;
+   margin-bottom: 4px;
+   margin-left: 2px;
+   margin-right: 8px;
+   padding-left: 6px;
+   padding-right: 6px;
+   padding-top: 4px;
+   padding-bottom: 4px;
+}
+
+div.ah {
+   background-color: black;
+   font-weight: bold;
+   color: #ffffff;
+   margin-bottom: 3px;
+   margin-top: 3px
+}
+
+div.groupHeader {
+   margin-left: 16px;
+   margin-top: 12px;
+   margin-bottom: 6px;
+   font-weight: bold;
+}
+
+div.groupText {
+   margin-left: 16px;
+   font-style: italic;
+   font-size: 90%
+}
+
+td.indexkey {
+   background-color: #e8eef2;
+   font-weight: bold;
+   padding-right  : 10px;
+   padding-top    : 2px;
+   padding-left   : 10px;
+   padding-bottom : 2px;
+   margin-left    : 0px;
+   margin-right   : 0px;
+   margin-top     : 2px;
+   margin-bottom  : 2px;
+   border: 1px solid #CCCCCC;
+}
+
+td.indexvalue {
+   background-color: #e8eef2;
+   font-style: italic;
+   padding-right  : 10px;
+   padding-top    : 2px;
+   padding-left   : 10px;
+   padding-bottom : 2px;
+   margin-left    : 0px;
+   margin-right   : 0px;
+   margin-top     : 2px;
+   margin-bottom  : 2px;
+   border: 1px solid #CCCCCC;
+}
+
+tr.memlist {
+   background-color: #f0f0f0; 
+}
+
+p.formulaDsp { text-align: center; }
+
+img {
+   border: 0;
+}
+
+img.formulaDsp {
+}
+
+img.formulaInl {
+   vertical-align: middle;
+}
+
+span.keyword       { color: #008000 }
+span.keywordtype   { color: #604020 }
+span.keywordflow   { color: #e08000 }
+span.comment       { color: #800000 }
+span.preprocessor  { color: #806020 }
+span.stringliteral { color: #002080 }
+span.charliteral   { color: #008080 }
+
+.mdescLeft {
+   padding: 0px 8px 4px 8px;
+   font-size: 80%;
+   font-style: italic;
+   background-color: #FAFAFA;
+   border-top: 1px none #E0E0E0;
+   border-right: 1px none #E0E0E0;
+   border-bottom: 1px none #E0E0E0;
+   border-left: 1px none #E0E0E0;
+   margin: 0px;
+}
+
+.mdescRight {
+   padding: 0px 8px 4px 8px;
+   font-size: 80%;
+   font-style: italic;
+   background-color: #FAFAFA;
+   border-top: 1px none #E0E0E0;
+   border-right: 1px none #E0E0E0;
+   border-bottom: 1px none #E0E0E0;
+   border-left: 1px none #E0E0E0;
+   margin: 0px;
+}
+
+.memItemLeft {
+   padding: 1px 0px 0px 8px;
+   margin: 4px;
+   border-top-width: 1px;
+   border-right-width: 1px;
+   border-bottom-width: 1px;
+   border-left-width: 1px;
+   border-top-color: #E0E0E0;
+   border-right-color: #E0E0E0;
+   border-bottom-color: #E0E0E0;
+   border-left-color: #E0E0E0;
+   border-top-style: solid;
+   border-right-style: none;
+   border-bottom-style: none;
+   border-left-style: none;
+   background-color: #FAFAFA;
+   font-size: 80%;
+}
+
+.memItemRight {
+   padding: 1px 8px 0px 8px;
+   margin: 4px;
+   border-top-width: 1px;
+   border-right-width: 1px;
+   border-bottom-width: 1px;
+   border-left-width: 1px;
+   border-top-color: #E0E0E0;
+   border-right-color: #E0E0E0;
+   border-bottom-color: #E0E0E0;
+   border-left-color: #E0E0E0;
+   border-top-style: solid;
+   border-right-style: none;
+   border-bottom-style: none;
+   border-left-style: none;
+   background-color: #FAFAFA;
+   font-size: 80%;
+}
+
+.memTemplItemLeft {
+   padding: 1px 0px 0px 8px;
+   margin: 4px;
+   border-top-width: 1px;
+   border-right-width: 1px;
+   border-bottom-width: 1px;
+   border-left-width: 1px;
+   border-top-color: #E0E0E0;
+   border-right-color: #E0E0E0;
+   border-bottom-color: #E0E0E0;
+   border-left-color: #E0E0E0;
+   border-top-style: none;
+   border-right-style: none;
+   border-bottom-style: none;
+   border-left-style: none;
+   background-color: #FAFAFA;
+   font-size: 80%;
+}
+
+.memTemplItemRight {
+   padding: 1px 8px 0px 8px;
+   margin: 4px;
+   border-top-width: 1px;
+   border-right-width: 1px;
+   border-bottom-width: 1px;
+   border-left-width: 1px;
+   border-top-color: #E0E0E0;
+   border-right-color: #E0E0E0;
+   border-bottom-color: #E0E0E0;
+   border-left-color: #E0E0E0;
+   border-top-style: none;
+   border-right-style: none;
+   border-bottom-style: none;
+   border-left-style: none;
+   background-color: #FAFAFA;
+   font-size: 80%;
+}
+
+.memTemplParams {
+   padding: 1px 0px 0px 8px;
+   margin: 4px;
+   border-top-width: 1px;
+   border-right-width: 1px;
+   border-bottom-width: 1px;
+   border-left-width: 1px;
+   border-top-color: #E0E0E0;
+   border-right-color: #E0E0E0;
+   border-bottom-color: #E0E0E0;
+   border-left-color: #E0E0E0;
+   border-top-style: solid;
+   border-right-style: none;
+   border-bottom-style: none;
+   border-left-style: none;
+   color: #606060;
+   background-color: #FAFAFA;
+   font-size: 80%;
+}
+
+.search {
+   color: #003399;
+   font-weight: bold;
+}
+
+form.search {
+   margin-bottom: 0px;
+   margin-top: 0px;
+}
+
+input.search {
+   font-size: 75%;
+   color: #000080;
+   font-weight: normal;
+   background-color: #e8eef2;
+}
+
+td.tiny {
+   font-size: 75%;
+}
+
+.dirtab {
+   padding: 4px;
+   border-collapse: collapse;
+   border: 1px solid #84b0c7;
+}
+
+th.dirtab {
+   background: #e8eef2;
+   font-weight: bold;
+}
+
+.memtemplate {
+  font-size: 80%;
+  color: #606060;
+  font-weight: normal;
+} 
+
+.memnav { 
+  background-color: #e8eef2;
+  border: 1px solid #84b0c7;
+  text-align: center;
+  margin: 2px;
+  margin-right: 15px;
+  padding: 2px;
+}
+
+.memitem {
+  padding: 4px;
+  background-color: #eef3f5;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dedeee;
+}
+
+.memname {
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.memdoc {
+  padding-left: 10px;
+}
+
+.memproto {
+  background-color: #d5e1e8;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #84b0c7;
+  font-weight: bold;
+}
+
+.paramkey {
+  text-align: right;
+}
+
+.paramtype {
+  white-space: nowrap;
+}
+
+.paramname {
+  color: #602020;
+  font-style: italic;
+}
+
+.ftvtree {
+   font-family: sans-serif;
+   margin:0.5em;
+}
+
+.directory {
+   font-size: 9pt;
+   font-weight: bold;
+}
+
+.directory h3 {
+   margin: 0px;
+   margin-top: 1em;
+   font-size: 11pt;
+}
+
+.directory > h3 {
+   margin-top: 0;
+}
+
+.directory p {
+   margin: 0px;
+   white-space: nowrap;
+}
+
+.directory div {
+   display: none;
+   margin: 0px;
+}
+
+.directory img {
+   vertical-align: -30%;
+}
+

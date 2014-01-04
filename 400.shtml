@@ -1,0 +1,11 @@
+
+<!--#set var="TITLE" value="Error 400"-->
+<!--#include file="head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+Bad request.
+</p>
+
+<!--#include file="tail.shtml"-->

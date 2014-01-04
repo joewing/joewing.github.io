@@ -1,0 +1,25 @@
+
+<!--#set var="TITLE" value="JL API Reference"-->
+<!--#include virtual="/head.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+To embed JL in a C or C++ program, simply include &quot;jl.h&quot;
+in the source and link against either the statically linked library
+(&quot;jl.a&quot;) or the dynamically linked library
+(&quot;libjl.so&quot;).  See the source for the JL REPL
+(<a href="https://github.com/joewing/jl/blob/master/src/jli.c">jli.c</a>)
+for an example.
+</p>
+
+<p>
+</p>
+
+<div class="location">
+   <a href="../../index.shtml">Home</a> /
+   <a href="../index.shtml">Projects</a> /
+   <a href="index.shtml">JL</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->
