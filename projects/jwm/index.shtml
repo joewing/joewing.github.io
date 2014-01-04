@@ -1,7 +1,8 @@
 
 <!--#set var="TITLE" value="JWM (Joe's Window Manager)"-->
 <!--#include virtual="/head.shtml"-->
-<!--#include file="svnversion.shtml"-->
+<!--#include file="snapshot-inc.shtml"-->
+<!--#include file="release-inc.shtml"-->
 
 <h1><!--#echo var="TITLE"--></h1>
 
@@ -54,11 +55,13 @@ JWM attempts to conform to the
    The currently released version is getting quite old, so I recommend
    downloading the latest development snapshot instead.  A new release
    should be available soon.<br/>
-   Current release: <a href="releases/jwm-2.1.0.tar.bz2">JWM v2.1.0</a>
+   Current release:
+      <a href="releases/jwm-<!--#echo var="RELEASE">.tar.bz2">JWM
+      v<!--#echo var="RELEASE"--></a>
       (<a href="releases/">Older releases</a>)<br/>
    Latest development snapshot:
-      <a href="snapshots/jwm-<!--#echo var="SVNVERSION"-->.tar.bz2">JWM
-      snapshot <!--#echo var="SVNVERSION"--></a>
+      <a href="snapshots/jwm-<!--#echo var="SNAPSHOT"-->.tar.bz2">JWM
+      snapshot <!--#echo var="SNAPSHOT"--></a>
       (<a href="snapshots/">Older snapshots</a>)<br/>
    See the <a href="snapshots/ChangeLog">ChangeLog</a> for details
    on what has changed (versions and snapshots are tagged).
