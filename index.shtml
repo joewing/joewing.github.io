@@ -52,7 +52,7 @@ is ready, which is when I plan on switching to the new configuration.
    <p>
    I'm hoping to make a stable 2.2 release of JWM very soon, so I encourage
    you to try the
-   <a href="projects/jwm/snapshots/jwm-current.tar.bz2">latest snapshot</a>
+   <a href="projects/jwm/snapshots/">latest snapshot</a>
    of JWM and report any bugs either to me
    <a href="about.shtml">directly</a> or on the
    <a href="https://github.com/joewing/jwm">GitHub page for JWM</a>.
@@ -71,7 +71,7 @@ is ready, which is when I plan on switching to the new configuration.
    that affect the configuration.
    </p>
    <p>With the latest
-   <a href="projects/jwm/snapshots/jwm-current.tar.bz2">snapshot</a>,
+   <a href="projects/jwm/snapshots/">snapshot</a>,
    the number of user-configurable layers has been reduced to
    three (&quot;above&quot;, &quot;normal&quot;, and &quot;below&quot;).
    In addition, there is now a configuration option (the &quot;border&quot;
@@ -94,7 +94,7 @@ is ready, which is when I plan on switching to the new configuration.
    I finally got around to working on <a href="projects/jwm/">JWM</a>
    a bit and fixed a long-standing bug that's affected users of xcompmgr.
    The latest
-   <a href="http://joewing.net/projects/jwm/snapshots/jwm-current.tar.bz2">
+   <a href="http://joewing.net/projects/jwm/snapshots/">
    snapshot</a> has the fix.
 </div>
 
@@ -149,7 +149,7 @@ is ready, which is when I plan on switching to the new configuration.
    Since I now own the server behind
    <a href="http://joewing.net/">joewing.net</a> and have the ability to
    add more stuff, I've added a nightly
-   <a href="projects/jwm/snapshots/jwm-current.tar.bz2">JWM SVN snapshot</a>.
+   <a href="projects/jwm/snapshots/">JWM SVN snapshot</a>.
    This snapshot comes from my local subversion repository (not the one
    on <a href="http://sourceforge.net/projects/jwm">SourceForge</a>).
    I've also added

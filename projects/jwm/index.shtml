@@ -56,11 +56,11 @@ JWM attempts to conform to the
    downloading the latest development snapshot instead.  A new release
    should be available soon.<br/>
    Current release:
-      <a href="releases/jwm-<!--#echo var="RELEASE"-->.tar.bz2">JWM
+      <a href="releases/jwm-<!--#echo var="RELEASE"-->.tar.xz">JWM
       v<!--#echo var="RELEASE"--></a>
       (<a href="releases/">Older releases</a>)<br/>
    Latest development snapshot:
-      <a href="snapshots/jwm-<!--#echo var="SNAPSHOT"-->.tar.bz2">JWM
+      <a href="snapshots/jwm-<!--#echo var="SNAPSHOT"-->.tar.xz">JWM
       snapshot <!--#echo var="SNAPSHOT"--></a>
       (<a href="snapshots/">Older snapshots</a>)<br/>
    See the <a href="snapshots/ChangeLog">ChangeLog</a> for details
