@@ -52,9 +52,6 @@ JWM attempts to conform to the
 
 <h2 id="download">Download</h2>
 <p>
-   The currently released version is getting quite old, so I recommend
-   downloading the latest development snapshot instead.  A new release
-   should be available soon.<br/>
    Current release:
       <a href="releases/jwm-<!--#echo var="RELEASE"-->.tar.xz">JWM
       v<!--#echo var="RELEASE"--></a>
