@@ -61,7 +61,7 @@ JWM attempts to conform to the
       snapshot <!--#echo var="SNAPSHOT"--></a>
       (<a href="snapshots/">Older snapshots</a>)<br/>
    See the <a href="snapshots/ChangeLog">ChangeLog</a> for details
-   on what has changed (versions and snapshots are tagged).
+   on what has changed (releases and snapshots are tagged).
 </p>
 
 <h2 id="documentation">Documentation</h2>
