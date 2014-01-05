@@ -4,6 +4,17 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">20140105</div>
+<div class="newsitem">
+<p>
+I released <a href="projects/jwm/releases/jwm-2.2.0.tar.xz">JWM v2.2.0</a>
+today.  See the <a href="projects/jwm/release-2.2.shtml">release notes</a>
+for a list of changes.  This marks over two years since the last release!
+I hope to make releases more often going forward rather than having a
+hopelessly out-of-date release.
+</p>
+</div>
+
 <div class="date">20130901</div>
 <div class="newsitem">
 <p>
