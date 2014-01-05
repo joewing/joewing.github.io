@@ -1,13 +1,11 @@
 
-
 <!--#set var="TITLE" value="JWM v2.2 Release Notes"-->
 <!--#include virtual="/head.shtml"-->
 
 <h1><!--#echo var="TITLE"--></h1>
 
 <p>
-This is a collection of major changes between JWM v2.1 and the upcoming
-JWM v2.2 release.
+This is a collection of major changes between JWM v2.1 and JWM v2.2.
 </p>
 
 <h2>New Features</h2>
