@@ -1,11 +1,15 @@
 
 <!--#set var="TITLE" value="JWM v2.2 Release Notes"-->
 <!--#include virtual="/head.shtml"-->
+<!--#include virtual="release-inc.shtml"-->
 
 <h1><!--#echo var="TITLE"--></h1>
 
 <p>
 This is a collection of major changes between JWM v2.1 and JWM v2.2.
+You can download the lastest version of JWM here:
+<a href="releases/jwm-<!--#echo var="RELEASE"-->.tar.xz">
+jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
 </p>
 
 <h2>New Features</h2>
