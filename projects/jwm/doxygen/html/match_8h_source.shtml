@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -39,4 +39,4 @@
 <div class="ttc" id="match_8h_shtml_aed66fcad9145eaa9ca837886e496cabd"><div class="ttname"><a href="match_8h.shtml#aed66fcad9145eaa9ca837886e496cabd">Match</a></div><div class="ttdeci">char Match(const char *pattern, const char *expression)</div><div class="ttdoc">Check if an expression matches a pattern. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -48,4 +48,4 @@
 <div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_B">B</a>&#160;|&#160;<a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_M">M</a>&#160;|&#160;<a class="qindex" href="#letter_S">S</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a></div>
 </div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

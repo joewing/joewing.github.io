@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -48,4 +48,4 @@
 <div class="ttc" id="error_8h_shtml_acdeb93d7904335506c7ec937d82f6746"><div class="ttname"><a href="error_8h.shtml#acdeb93d7904335506c7ec937d82f6746">FatalError</a></div><div class="ttdeci">void FatalError(const char *str,...)</div><div class="ttdoc">Display and error message and terminate the program. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

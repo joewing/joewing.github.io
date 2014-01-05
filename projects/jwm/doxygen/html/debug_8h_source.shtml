@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -129,4 +129,4 @@
 <div class="ttc" id="debug_8h_shtml_a5b06ec36be346d7cb361b2fbb79363ea"><div class="ttname"><a href="debug_8h.shtml#a5b06ec36be346d7cb361b2fbb79363ea">Debug</a></div><div class="ttdeci">void Debug(const char *str,...)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

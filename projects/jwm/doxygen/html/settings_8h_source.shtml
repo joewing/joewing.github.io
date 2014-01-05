@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -128,4 +128,4 @@
 <div class="ttc" id="structSettings_shtml_ad9e5073401f628804fded7a847e7ca4e"><div class="ttname"><a href="structSettings.shtml#ad9e5073401f628804fded7a847e7ca4e">Settings::snapMode</a></div><div class="ttdeci">SnapModeType snapMode</div><div class="ttdef"><b>Definition:</b> <a href="settings_8h_source.shtml#l00062">settings.h:62</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

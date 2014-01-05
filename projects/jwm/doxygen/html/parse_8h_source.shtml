@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -39,4 +39,4 @@
 <div class="ttc" id="parse_8h_shtml_a9ad579d03c948619ccb1272ed58a015b"><div class="ttname"><a href="parse_8h.shtml#a9ad579d03c948619ccb1272ed58a015b">ParseConfig</a></div><div class="ttdeci">void ParseConfig(const char *fileName)</div><div class="ttdoc">Parse a configuration file. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

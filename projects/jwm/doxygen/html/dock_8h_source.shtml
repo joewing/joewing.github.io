@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -69,4 +69,4 @@
 <div class="ttc" id="dock_8h_shtml_a9846dbed0b04cc81bfe120185e6a9358"><div class="ttname"><a href="dock_8h.shtml#a9846dbed0b04cc81bfe120185e6a9358">HandleDockSelectionClear</a></div><div class="ttdeci">char HandleDockSelectionClear(const XSelectionClearEvent *event)</div><div class="ttdoc">Handle a selection clear event. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

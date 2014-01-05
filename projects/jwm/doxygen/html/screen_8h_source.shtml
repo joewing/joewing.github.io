@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -68,4 +68,4 @@
 <div class="ttc" id="structScreenType_shtml_af0066d9a7f8b976766d329df199c27a9"><div class="ttname"><a href="structScreenType.shtml#af0066d9a7f8b976766d329df199c27a9">ScreenType::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">The location of this screen. </div><div class="ttdef"><b>Definition:</b> <a href="screen_8h_source.shtml#l00020">screen.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

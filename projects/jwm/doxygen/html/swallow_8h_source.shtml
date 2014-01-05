@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -59,4 +59,4 @@
 <div class="ttc" id="swallow_8h_shtml_a9f928e99496a6cfd7458f3bb59935e30"><div class="ttname"><a href="swallow_8h.shtml#a9f928e99496a6cfd7458f3bb59935e30">ProcessSwallowEvent</a></div><div class="ttdeci">char ProcessSwallowEvent(const XEvent *event)</div><div class="ttdoc">Process an event on a swallowed window. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

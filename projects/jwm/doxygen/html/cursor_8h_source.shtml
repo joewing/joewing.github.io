@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -79,4 +79,4 @@
 <div class="ttc" id="structClientNode_shtml_a245584ab25f9d6101ef95d2f9b58db31"><div class="ttname"><a href="structClientNode.shtml#a245584ab25f9d6101ef95d2f9b58db31">ClientNode::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="client_8h_source.shtml#l00104">client.h:104</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

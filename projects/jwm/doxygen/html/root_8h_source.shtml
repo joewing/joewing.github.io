@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -71,4 +71,4 @@
 <div class="ttc" id="root_8h_shtml_a7a5a49c5c853d6fbc5f13fe0202fa10f"><div class="ttname"><a href="root_8h.shtml#a7a5a49c5c853d6fbc5f13fe0202fa10f">ShowRootMenu</a></div><div class="ttdeci">char ShowRootMenu(int index, int x, int y)</div><div class="ttdoc">Show a root menu. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

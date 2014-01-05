@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -49,4 +49,4 @@
 <div class="ttc" id="popup_8h_shtml_a61ff06edabfe76b7c8d5b72c0bc7800f"><div class="ttname"><a href="popup_8h.shtml#a61ff06edabfe76b7c8d5b72c0bc7800f">ShowPopup</a></div><div class="ttdeci">void ShowPopup(int x, int y, const char *text)</div><div class="ttdoc">Show a popup window. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

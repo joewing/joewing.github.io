@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -94,4 +94,4 @@
 <div class="ttc" id="structBoundingBox_shtml_a6acc42fdb1fc8ad325d309dc7ff7f806"><div class="ttname"><a href="structBoundingBox.shtml#a6acc42fdb1fc8ad325d309dc7ff7f806">BoundingBox::width</a></div><div class="ttdeci">int width</div><div class="ttdoc">Width of the bounding box. </div><div class="ttdef"><b>Definition:</b> <a href="place_8h_source.shtml#l00021">place.h:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

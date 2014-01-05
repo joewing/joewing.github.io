@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -296,4 +296,4 @@
 <div class="ttc" id="client_8h_shtml_abb1faba4aaee98b897b569e36ac603ff"><div class="ttname"><a href="client_8h.shtml#abb1faba4aaee98b897b569e36ac603ff">DeleteClient</a></div><div class="ttdeci">void DeleteClient(ClientNode *np)</div><div class="ttdoc">Tell a client to exit. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

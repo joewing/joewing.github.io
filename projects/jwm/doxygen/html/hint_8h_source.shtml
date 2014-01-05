@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -329,4 +329,4 @@
 <div class="ttc" id="hint_8h_shtml_afbdaaaed5e2c164e69c9124a2deda568"><div class="ttname"><a href="hint_8h.shtml#afbdaaaed5e2c164e69c9124a2deda568">SetCardinalAtom</a></div><div class="ttdeci">void SetCardinalAtom(Window window, AtomType atom, unsigned long value)</div><div class="ttdoc">Set a cardinal atom. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

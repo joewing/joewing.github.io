@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -50,4 +50,4 @@
 <div class="ttc" id="resize_8h_shtml_ab0686e632b1e631e47df3f9052a612c7"><div class="ttname"><a href="resize_8h.shtml#ab0686e632b1e631e47df3f9052a612c7">ResizeClientKeyboard</a></div><div class="ttdeci">void ResizeClientKeyboard(struct ClientNode *np)</div><div class="ttdoc">Resize a client window using the keyboard (mouse optional). </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

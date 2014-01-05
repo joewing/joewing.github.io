@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -45,4 +45,4 @@
 <div class="ttc" id="help_8h_shtml_a182b0e5fe46275021b78a9f392d989a3"><div class="ttname"><a href="help_8h.shtml#a182b0e5fe46275021b78a9f392d989a3">DisplayHelp</a></div><div class="ttdeci">void DisplayHelp(void)</div><div class="ttdoc">Display all help. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

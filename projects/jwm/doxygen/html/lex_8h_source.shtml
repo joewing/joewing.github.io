@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -232,4 +232,4 @@
 <div class="ttc" id="lex_8h_shtml_ae566235344a4c9e701759379703c2078"><div class="ttname"><a href="lex_8h.shtml#ae566235344a4c9e701759379703c2078">TokenNode</a></div><div class="ttdeci">struct TokenNode TokenNode</div><div class="ttdoc">Structure to represent an XML tag. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

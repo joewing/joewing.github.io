@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -154,4 +154,4 @@
 <div class="ttc" id="structMenu_shtml_a93365a6ee34c1a5bff69a41503b700d1"><div class="ttname"><a href="structMenu.shtml#a93365a6ee34c1a5bff69a41503b700d1">Menu::parent</a></div><div class="ttdeci">struct Menu * parent</div><div class="ttdoc">The parent menu (or NULL). </div><div class="ttdef"><b>Definition:</b> <a href="menu_8h_source.shtml#l00090">menu.h:90</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

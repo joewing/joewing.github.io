@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -56,4 +56,4 @@
 <div class="ttc" id="winmenu_8h_shtml_a58aefe67706c33e3aa54d980891437aa"><div class="ttname"><a href="winmenu_8h.shtml#a58aefe67706c33e3aa54d980891437aa">ChooseWindow</a></div><div class="ttdeci">void ChooseWindow(const MenuAction *action)</div><div class="ttdoc">Grab the mouse to select a window. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

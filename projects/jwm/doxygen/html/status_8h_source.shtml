@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -57,4 +57,4 @@
 <div class="ttc" id="status_8h_shtml_a7cbdb048193fd178bb2c49af00c46ef9"><div class="ttname"><a href="status_8h.shtml#a7cbdb048193fd178bb2c49af00c46ef9">UpdateMoveWindow</a></div><div class="ttdeci">void UpdateMoveWindow(struct ClientNode *np)</div><div class="ttdoc">Update a move status window. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

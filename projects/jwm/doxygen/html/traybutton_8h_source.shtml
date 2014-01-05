@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -61,4 +61,4 @@
 <div class="ttc" id="traybutton_8h_shtml_a860f50532af1dcbdd1d33833be2d258e"><div class="ttname"><a href="traybutton_8h.shtml#a860f50532af1dcbdd1d33833be2d258e">DestroyTrayButtons</a></div><div class="ttdeci">void DestroyTrayButtons(void)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -54,4 +54,4 @@
 <div class="ttc" id="structTrayComponentType_shtml_a20ee318741a384fda48c3063be720993"><div class="ttname"><a href="structTrayComponentType.shtml#a20ee318741a384fda48c3063be720993">TrayComponentType::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">Actual height. </div><div class="ttdef"><b>Definition:</b> <a href="tray_8h_source.shtml#l00068">tray.h:68</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

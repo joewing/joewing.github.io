@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -104,4 +104,4 @@
 <div class="ttc" id="key_8h_shtml_a52b046519fa62e0df0225faf0f4e90b8"><div class="ttname"><a href="key_8h.shtml#a52b046519fa62e0df0225faf0f4e90b8">ShowKeyMenu</a></div><div class="ttdeci">void ShowKeyMenu(const XKeyEvent *event)</div><div class="ttdoc">Show a root menu caused by a key binding. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->

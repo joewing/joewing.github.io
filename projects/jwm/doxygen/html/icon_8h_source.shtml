@@ -1,6 +1,6 @@
 
 <!--#set var="TITLE" value="JWM Source Documentation"-->
-<!--#include virtual="../../../../head.shtml"-->
+<!--#include virtual="/head.shtml"-->
 <h1><!--#echo var="TITLE"--></h1>
 <p/>
 <div>
@@ -125,4 +125,4 @@
 <div class="ttc" id="icon_8h_shtml_a53f307231aa590fda70695952c587c62"><div class="ttname"><a href="icon_8h.shtml#a53f307231aa590fda70695952c587c62">LoadNamedIcon</a></div><div class="ttdeci">IconNode * LoadNamedIcon(const char *name, char save)</div><div class="ttdoc">Load an icon. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 
-<!--#include virtual="../../../../tail.shtml"-->
+<!--#include virtual="/tail.shtml"-->
