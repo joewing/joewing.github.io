@@ -49,7 +49,7 @@ compiler or interpreter.
 
     <tr class="listing">
         <td>C++</td>
-        <td><a href="https://github.com/joewing/maze/blob/master/maze.cpp">
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.cpp">
         maze.cpp</a></td>
         <td><a href="http://gcc.gnu.org">GCC</a></td>
     </tr>
@@ -84,14 +84,14 @@ compiler or interpreter.
 
     <tr class="listing">
         <td>Dylan</td>
-        <td><a href="https://github.com/joewing/maze/blob/master/maze.dylan">
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.dylan">
         maze.dylan</a></td>
         <td><a href="http://opendylan.org">Open Dylan</a></td>
     </tr>
 
     <tr class="listing">
         <td>Eiffel</td>
-        <td><a href="https://github.com/joewing/maze/blob/master/maze.e">
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.e">
         maze.e</a></td>
         <td><a href="http://www.gnu.org/software/liberty-eiffel/">
         Liberty Eiffel</a></td>
@@ -156,7 +156,7 @@ compiler or interpreter.
 
     <tr class="listing">
         <td>JL</td>
-        <td><a href="https://github.com/joewing/maze/blob/master/maze.jl">
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.jl">
         maze.jl</a></td>
         <td><a href="http://joewing.net/projects/jl/">JL</a></td>
     </tr>
@@ -170,7 +170,7 @@ compiler or interpreter.
 
     <tr class="listing">
         <td>Nimrod</td>
-        <td><a href="https://github.com/joewing/maze/blob/master/maze.nim">
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.nim">
         maze.nim</a></td>
         <td><a href="http://nimrod-code.org">Nimrod</a></td>
     </tr>
