@@ -70,9 +70,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3fc643e588db3ca17dcdf2aeb2a14245"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="place_8h.shtml#a3fc643e588db3ca17dcdf2aeb2a14245">GetGravityDelta</a> (const struct <a class="el" href="structClientNode.shtml">ClientNode</a> *np, int *x, int *y)</td></tr>
 <tr class="memdesc:a3fc643e588db3ca17dcdf2aeb2a14245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the x and y deltas for gravitating a client.  <a href="#a3fc643e588db3ca17dcdf2aeb2a14245">More...</a><br/></td></tr>
 <tr class="separator:a3fc643e588db3ca17dcdf2aeb2a14245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab025ba5e5c84d6dd5818c173729ef67f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="place_8h.shtml#ab025ba5e5c84d6dd5818c173729ef67f">ConstrainSize</a> (struct <a class="el" href="structClientNode.shtml">ClientNode</a> *np)</td></tr>
-<tr class="memdesc:ab025ba5e5c84d6dd5818c173729ef67f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrain the size of a client.  <a href="#ab025ba5e5c84d6dd5818c173729ef67f">More...</a><br/></td></tr>
-<tr class="separator:ab025ba5e5c84d6dd5818c173729ef67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc83a85e83eeea25dbe2274b3b07be3"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="place_8h.shtml#aefc83a85e83eeea25dbe2274b3b07be3">ConstrainSize</a> (struct <a class="el" href="structClientNode.shtml">ClientNode</a> *np)</td></tr>
+<tr class="memdesc:aefc83a85e83eeea25dbe2274b3b07be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrain the size of a client.  <a href="#aefc83a85e83eeea25dbe2274b3b07be3">More...</a><br/></td></tr>
+<tr class="separator:aefc83a85e83eeea25dbe2274b3b07be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0eeeeda372b7cd72bc4226efad0d760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="place_8h.shtml#ae0eeeeda372b7cd72bc4226efad0d760">ConstrainPosition</a> (struct <a class="el" href="structClientNode.shtml">ClientNode</a> *np)</td></tr>
 <tr class="memdesc:ae0eeeeda372b7cd72bc4226efad0d760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrain the position of a client.  <a href="#ae0eeeeda372b7cd72bc4226efad0d760">More...</a><br/></td></tr>
 <tr class="separator:ae0eeeeda372b7cd72bc4226efad0d760"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,12 +172,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab025ba5e5c84d6dd5818c173729ef67f"></a>
+<a class="anchor" id="aefc83a85e83eeea25dbe2274b3b07be3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ConstrainSize </td>
+          <td class="memname">char ConstrainSize </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structClientNode.shtml">ClientNode</a> *&#160;</td>
           <td class="paramname"><em>np</em></td><td>)</td>
@@ -193,6 +193,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if the size changed, 0 otherwise. </dd></dl>
 
 </div>
 </div>
