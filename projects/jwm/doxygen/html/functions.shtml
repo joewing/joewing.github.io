@@ -86,6 +86,9 @@
 <li>baseWidth
 : <a class="el" href="structClientNode.shtml#ae1023a1ade973433ccbaf18f0f8ac760">ClientNode</a>
 </li>
+<li>bitmap
+: <a class="el" href="structImageNode.shtml#a5001e46f81bf73e99a20f619b566118d">ImageNode</a>
+</li>
 <li>border
 : <a class="el" href="structButtonNode.shtml#a12811dba4ec5894da9f3f2ebf1862961">ButtonNode</a>
 , <a class="el" href="structClientState.shtml#a7387c80193438b001c521d4c7c9938bb">ClientState</a>
@@ -174,6 +177,9 @@
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>fg
+: <a class="el" href="structScaledIconNode.shtml#a737f740f71fb91a326fcb363e1469c58">ScaledIconNode</a>
+</li>
 <li>fileName
 : <a class="el" href="structTokenNode.shtml#a5228fc1caafc39a4a4c7c56044999277">TokenNode</a>
 </li>

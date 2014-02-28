@@ -62,9 +62,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab18aa9605ee9e7fb2705228fd8a59021"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icon_8h.shtml#ab18aa9605ee9e7fb2705228fd8a59021">AddIconPath</a> (char *path)</td></tr>
 <tr class="memdesc:ab18aa9605ee9e7fb2705228fd8a59021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an icon path.  <a href="#ab18aa9605ee9e7fb2705228fd8a59021">More...</a><br/></td></tr>
 <tr class="separator:ab18aa9605ee9e7fb2705228fd8a59021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af75824a15a87d36431d660617bb10f22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icon_8h.shtml#af75824a15a87d36431d660617bb10f22">PutIcon</a> (<a class="el" href="structIconNode.shtml">IconNode</a> *icon, Drawable d, int x, int y, int width, int height)</td></tr>
-<tr class="memdesc:af75824a15a87d36431d660617bb10f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render an icon.  <a href="#af75824a15a87d36431d660617bb10f22">More...</a><br/></td></tr>
-<tr class="separator:af75824a15a87d36431d660617bb10f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a742b92a501cf42c05b7ded608ad519af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icon_8h.shtml#a742b92a501cf42c05b7ded608ad519af">PutIcon</a> (<a class="el" href="structIconNode.shtml">IconNode</a> *icon, Drawable d, long fg, int x, int y, int width, int height)</td></tr>
+<tr class="memdesc:a742b92a501cf42c05b7ded608ad519af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render an icon.  <a href="#a742b92a501cf42c05b7ded608ad519af">More...</a><br/></td></tr>
+<tr class="separator:a742b92a501cf42c05b7ded608ad519af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6930c3c9b9246c6e625fac6946393bcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icon_8h.shtml#a6930c3c9b9246c6e625fac6946393bcd">LoadIcon</a> (struct <a class="el" href="structClientNode.shtml">ClientNode</a> *np)</td></tr>
 <tr class="memdesc:a6930c3c9b9246c6e625fac6946393bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load an icon for a client.  <a href="#a6930c3c9b9246c6e625fac6946393bcd">More...</a><br/></td></tr>
 <tr class="separator:a6930c3c9b9246c6e625fac6946393bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -266,7 +266,7 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af75824a15a87d36431d660617bb10f22"></a>
+<a class="anchor" id="a742b92a501cf42c05b7ded608ad519af"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -281,6 +281,12 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">Drawable&#160;</td>
           <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>fg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -320,6 +326,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">icon</td><td>The icon to render. </td></tr>
     <tr><td class="paramname">d</td><td>The drawable on which to place the icon. </td></tr>
+    <tr><td class="paramname">fg</td><td>The foreground color. </td></tr>
     <tr><td class="paramname">x</td><td>The x offset on the drawable to render the icon. </td></tr>
     <tr><td class="paramname">y</td><td>The y offset on the drawable to render the icon. </td></tr>
     <tr><td class="paramname">width</td><td>The width of the icon to display. </td></tr>

@@ -44,12 +44,31 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a35fb297f91277c58370d53c1f0d88ccc"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImageNode.shtml#a35fb297f91277c58370d53c1f0d88ccc">data</a></td></tr>
 <tr class="memdesc:a35fb297f91277c58370d53c1f0d88ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image data.  <a href="#a35fb297f91277c58370d53c1f0d88ccc">More...</a><br/></td></tr>
 <tr class="separator:a35fb297f91277c58370d53c1f0d88ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5001e46f81bf73e99a20f619b566118d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImageNode.shtml#a5001e46f81bf73e99a20f619b566118d">bitmap</a></td></tr>
+<tr class="memdesc:a5001e46f81bf73e99a20f619b566118d"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 if a bitmap, 0 otherwise.  <a href="#a5001e46f81bf73e99a20f619b566118d">More...</a><br/></td></tr>
+<tr class="separator:a5001e46f81bf73e99a20f619b566118d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure to represent an image. </p>
 
 <p>Definition at line <a class="el" href="image_8h_source.shtml#l00014">14</a> of file <a class="el" href="image_8h_source.shtml">image.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a5001e46f81bf73e99a20f619b566118d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char ImageNode::bitmap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>1 if a bitmap, 0 otherwise. </p>
+
+<p>Definition at line <a class="el" href="image_8h_source.shtml#l00019">19</a> of file <a class="el" href="image_8h_source.shtml">image.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a35fb297f91277c58370d53c1f0d88ccc"></a>
 <div class="memitem">
 <div class="memproto">
