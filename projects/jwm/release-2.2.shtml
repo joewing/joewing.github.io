@@ -112,6 +112,22 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="v2.2.1">Changes in 2.2.1</h2>
+<div>
+<ul>
+    <li>JWM no longer waits for an X11 event when exiting.  This
+    fixes an issue where Control+C didn't cause JWM to exit
+    immediately (issue #104).</li>
+    <li>Fixed a crash if a window went away while a JWM confirm
+    dialog was active for the window.</li>
+    <li>Fixed some issues related to aspect ratios (issue #106).</li>
+    <li>Fixed handling of window gravity for _NET_MOVERESIZE_WINDOW.</li>
+    <li>Added support for XBM icons (issue #107).</li>
+    <li>Fixed an issue with resizing of dock icons.</li>
+    <li>Fixed an issue with command line argument parsing.</li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.
