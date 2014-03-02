@@ -80,10 +80,7 @@ line after installing JWM).
 <h2 id="develop">Developer Information</h2>
 <p>
 JWM is hosted on <a href="http://github.com/joewing/jwm/">GitHub</a>.
-Please feel free to contribute bug reports, suggestions, and patches.<br/>
-There is also <a href="doxygen/html">source documentation</a>
-available, which is generated from the latest snapshot using
-<a href="http://doxygen.org/">Doxygen</a>.
+Please feel free to contribute bug reports, suggestions, and patches.<br />
 </p>
 
 <h2 id="support">Support</h2>
