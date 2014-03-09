@@ -134,6 +134,8 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
     <li>More efficient handling of gradient backgrounds.</li>
     <li>Fixed an issue _NET_WM_STATE not being updated (issue #109).</li>
     <li>Improved the performance of moving/resizing windows.</li>
+    <li>Made it possible to switch desktops immediately while dragging a
+    window if mod1 is pressed (issue #12).</li>
     <li>Fixed an issue with windows mapping behind other windows
     (issue #110).</li>
     <li>Fixed an issue where JWM would attempt to process the last
