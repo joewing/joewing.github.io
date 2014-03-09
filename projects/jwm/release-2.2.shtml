@@ -137,7 +137,7 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
     <li>Fixed an issue with windows mapping behind other windows
     (issue #110).</li>
     <li>Fixed an issue where JWM would attempt to process the last
-    X event multiple times before exiting or restarting.<li>
+    X event multiple times before exiting or restarting.</li>
     <li>Made newer desktop background settings override older settings.</li>
     <li>Fixed a memory leak with invalid configuration files.</li>
 </ul>
