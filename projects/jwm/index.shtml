@@ -55,7 +55,8 @@ JWM attempts to conform to the
    Current release:
       <a href="releases/jwm-<!--#echo var="RELEASE"-->.tar.xz">JWM
       v<!--#echo var="RELEASE"--></a>
-      (<a href="releases/">Older releases</a>)<br/>
+      (<a href="release-2.2.shtml">release notes</a>,
+       <a href="releases/">older releases</a>)<br/>
    Latest development snapshot:
       <a href="snapshots/jwm-<!--#echo var="SNAPSHOT"-->.tar.xz">JWM
       snapshot <!--#echo var="SNAPSHOT"--></a>

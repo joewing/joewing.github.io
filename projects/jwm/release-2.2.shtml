@@ -128,6 +128,21 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="v2.2.2">Changes in 2.2.2</h2>
+<div>
+<ul>
+    <li>More efficient handling of gradient backgrounds.</li>
+    <li>Fixed an issue _NET_WM_STATE not being updated (issue #109).</li>
+    <li>Improved the performance of moving/resizing windows.</li>
+    <li>Fixed an issue with windows mapping behind other windows
+    (issue #110).</li>
+    <li>Fixed an issue where JWM would attempt to process the last
+    X event multiple times before exiting or restarting.<li>
+    <li>Made newer desktop background settings override older settings.</li>
+    <li>Fixed a memory leak with invalid configuration files.</li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.
