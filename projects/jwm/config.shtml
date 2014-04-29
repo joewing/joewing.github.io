@@ -5,7 +5,7 @@
 <h1><!--#echo var="TITLE"--></h1>
 
 <p>
-Configuration settings for the upcoming JWM v2.2 release.<br/>
+Configuration settings for JWM v2.2.<br/>
 For JWM v2.1, see <a href="config-2.1.shtml">JWM v2.1 Configuration</a>.
 For a list of changes since JWM v2.1, see the
 <a href="release-2.2.shtml">JWM v2.2 Release Notes</a>.
@@ -1221,6 +1221,11 @@ For a list of changes since JWM v2.1, see the
    <tr class="listing">
       <td><span class="literal">exit</span></td>
       <td>Key to exit JWM.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">showtray</span></td>
+      <td>Key to show trays.</td>
       <td>Yes</td>
    </tr>
 
