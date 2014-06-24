@@ -5,6 +5,13 @@
 <h1><!--#echo var="TITLE"--></h1>
 
 <p>
+    Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain,
+    &quot;<a href="wcc14.pdf">Superoptimization of Memory Subsystems</a>,&quot;
+    in <i>Proc. of ACM SIGPLAN Conference on Languages, Compilers, and Tools
+    for Embedded Systems</i> (LCTES), June 2014, pp 145-154.
+</p>
+
+<p>
    Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain,
    &quot;<a href="http://dx.doi.org/10.1016/j.sysarc.2013.05.021">
    Compiling for Power with ScalaPipe</a>,&quot;
