@@ -30,7 +30,7 @@ if available:
    <li>libXext for the shape extension</li>
    <li>libXext for the render extension</li>
    <li>libXmu for drawing rounded windows (shape extension also needed)</li>
-   <li>libXinerama for Xinerama support</li>
+   <li>libXinerama for Xinerama (multi-monitor) support</li>
    <li>libXpm for XPM backgrounds and icons</li>
    <li><a href="http://www.ijg.org">libjpeg</a> for JPEG backgrounds
    and icons</li>
