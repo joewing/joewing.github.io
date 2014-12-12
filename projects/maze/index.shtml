@@ -261,7 +261,7 @@ compiler or interpreter.
 
     <tr class="listing">
         <td>Swift</td>
-        <td><a href="https://raw.github.com/joewing/maze/master/maze.sno">
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.swift">
         maze.swift</a></td>
         <td><a href="https://developer.apple.com/swift/">Swift</a></td>
     </tr>
