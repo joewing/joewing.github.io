@@ -260,6 +260,13 @@ compiler or interpreter.
     </tr>
 
     <tr class="listing">
+        <td>Swift</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.sno">
+        maze.swift</a></td>
+        <td><a href="https://developer.apple.com/swift/">Swift</a></td>
+    </tr>
+
+    <tr class="listing">
         <td>TCL</td>
         <td><a href="https://raw.github.com/joewing/maze/master/maze.tcl">
         maze.tcl</a></td>
