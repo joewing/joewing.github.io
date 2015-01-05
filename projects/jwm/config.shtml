@@ -755,7 +755,7 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Active</span><br/>
       The colors/opacity used for the active window.
-      Within this tag the following tags are supported.
+      Within this tag, the following tags are supported:
       <ul>
          <li><span class="tag">Text</span><br/>
             The color of text on the title bar.
@@ -817,15 +817,18 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Active</span><br/>
       Colors active items on the tray.
-      <li><span class="tag">Background</span><br/>
-         The default active background color for items on the tray.
-         See <a href="#colors">Colors</a>.
-      </li>
-      <li><span class="tag">Foreground</span><br/>
-         The default active foreground color for items on the tray.
-         See <a href="#colors">Colors</a>.
-      </li>
-   <li>
+      Within this tag, the following tags are supported:
+      <ul>
+          <li><span class="tag">Background</span><br/>
+             The default active background color for items on the tray.
+             See <a href="#colors">Colors</a>.
+          </li>
+          <li><span class="tag">Foreground</span><br/>
+             The default active foreground color for items on the tray.
+             See <a href="#colors">Colors</a>.
+          </li>
+      </ul>
+   </li>
    <li><span class="tag">Opacity</span><br/>
       The opacity of the window. This is a floating point value between 0.0
       and 1.0. Note that a composite manager, such as xcompmgr, is
@@ -871,6 +874,7 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Active</span><br/>
       Colors for active items in the task list.
+      Within this tag, the following tags are supported:
       <ul>
          <li><span class="tag">Foreground</span><br/>
             The foreground color of an active item on the task list.
@@ -913,6 +917,7 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Active</span><br/>
       Colors for pressed tray buttons.
+      Within this tag, the following tags are supported:
       <ul>
          <li><span class="tag">Foreground</span><br/>
             The foreground color of pressed tray buttons.
@@ -951,6 +956,7 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Active</span><br/>
       Colors for active windows shown in the pager.
+      Within this tag, the following tags are supported:
       <ul>
          <li><span class="tag">Foreground</span><br/>
             The color of active windows shown in the pager.
@@ -987,6 +993,7 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Active</span><br/>
       Colors for active menu items.
+      Within this tag, the following tags are supported:
       <ul>
          <li><span class="tag">Foreground</span><br/>
             The text color of active menu items.
