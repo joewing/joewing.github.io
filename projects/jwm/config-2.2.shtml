@@ -5,10 +5,10 @@
 <h1><!--#echo var="TITLE"--></h1>
 
 <p>
-Configuration settings for JWM v2.3.<br/>
-For JWM v2.2, see <a href="config-2.2.shtml">JWM v2.2 Configuration</a>.<br/>
-For a list of changes since JWM v2.2, see the
-<a href="release-2.3.shtml">JWM v2.3 Release Notes</a>.
+Configuration settings for JWM v2.2.<br/>
+For JWM v2.1, see <a href="config-2.1.shtml">JWM v2.1 Configuration</a>.
+For a list of changes since JWM v2.1, see the
+<a href="release-2.2.shtml">JWM v2.2 Release Notes</a>.
 </p>
 
 <h2>Contents</h2>
@@ -651,26 +651,6 @@ For a list of changes since JWM v2.2, see the
       <td>Disallows shading for windows in this group.</td>
    </tr>
    <tr class="listing">
-      <td><span class="literal">nomax</span></td>
-      <td>Disallows maximization for windows in this group.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">nomin</span></td>
-      <td>Disallows minimization for windows in this group.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">noclose</span></td>
-      <td>Hides the close button for windows in this group.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">nomove</span></td>
-      <td>Prevents windows in this group from being moved.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">noresize</span></td>
-      <td>Prevents windows in this group from being resized.</td>
-   </tr>
-   <tr class="listing">
       <td><span class="literal">notitle</span></td>
       <td>Disables the title bar for windows in this group.</td>
    </tr>
@@ -736,25 +716,9 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">2</span>, and the maximum is
       <span class="literal">256</span>.
    </li>
-   <li><span class="tag">Text</span><br/>
-      The color of text on the title bar.
-      See <a href="#colors">Colors</a>.
-   </li>
-   <li><span class="tag">Title</span><br/>
-      The color of the title bar (gradients are supported).
-      See <a href="#colors">Colors</a>.
-   </li>
-   <li><span class="tag">Opacity</span><br/>
-      The opacity of the window. This is a floating point value between
-      0.0 and 1.0. Note that a composite manager, such as xcompmgr, is
-      required for this.
-   </li>
-   <li><span class="tag">Outline</span><br/>
-      The color of the window outline.
-      See <a href="#colors">Colors</a>.
-   </li>
    <li><span class="tag">Active</span><br/>
       The colors/opacity used for the active window.
+      See <a href="#colors">Colors</a>.
       Within this tag the following tags are supported.
       <ul>
          <li><span class="tag">Text</span><br/>
@@ -772,6 +736,10 @@ For a list of changes since JWM v2.2, see the
             The color of the window outline.
          </li>
       </ul>
+   </li>
+   <li><span class="tag">Inactive</span><br/>
+      The colors/opacity used for inactive windows. The tags supported here
+      are the same as those supported for <span class="tag">Active</span>.
    </li>
 </ul>
 </div>
@@ -815,17 +783,14 @@ For a list of changes since JWM v2.2, see the
    <li><span class="tag">Foreground</span><br/>
       The default foreground color. See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Active</span><br/>
-      Colors active items on the tray.
-      <li><span class="tag">Background</span><br/>
-         The default active background color for items on the tray.
-         See <a href="#colors">Colors</a>.
-      </li>
-      <li><span class="tag">Foreground</span><br/>
-         The default active foreground color for items on the tray.
-         See <a href="#colors">Colors</a>.
-      </li>
-   <li>
+   <li><span class="tag">ActiveBackground</span><br/>
+      The default active background color for items on the tray.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">ActiveForeground</span><br/>
+      The default active foreground color for items on the tray.
+      See <a href="#colors">Colors</a>.
+   </li>
    <li><span class="tag">Opacity</span><br/>
       The opacity of the window. This is a floating point value between 0.0
       and 1.0. Note that a composite manager, such as xcompmgr, is
@@ -869,21 +834,16 @@ For a list of changes since JWM v2.2, see the
       Inherited from <span class="tag">TrayStyle</span> by default.
       See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Active</span><br/>
-      Colors for active items in the task list.
-      <ul>
-         <li><span class="tag">Foreground</span><br/>
-            The foreground color of an active item on the task list.
-            Inherited from <span class="tag">TrayStyle</span> by default.
-            See <a href="#colors">Colors</a>.
-         </li>
-         <li><span class="tag">Background</span><br/>
-            The background color of an active item on the task list.
-            Gradients are supported.
-            Inherited from <span class="tag">TrayStyle</span> by default.
-            See <a href="#colors">Colors</a>.
-         </li>
-      </ul>
+   <li><span class="tag">ActiveForeground</span><br/>
+      The foreground color of an active item on the task list.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">ActiveBackground</span><br/>
+      The background color of an active item on the task list.
+      Gradients are supported.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
    </li>
 </ul>
 </div>
@@ -911,21 +871,16 @@ For a list of changes since JWM v2.2, see the
       Inherited from <span class="tag">TrayStyle</span> by default.
       See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Active</span><br/>
-      Colors for pressed tray buttons.
-      <ul>
-         <li><span class="tag">Foreground</span><br/>
-            The foreground color of pressed tray buttons.
-            Inherited from <span class="tag">TrayStyle</span> by default.
-            See <a href="#colors">Colors</a>.
-         </li>
-         <li><span class="tag">Background</span><br/>
-            The background color of pressed tray buttons.
-            Gradients are supported.
-            Inherited from <span class="tag">TrayStyle</span> by default.
-            See <a href="#colors">Colors</a>.
-         </li>
-      </ul>
+   <li><span class="tag">ActiveForeground</span><br/>
+      The foreground color of pressed tray buttons.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">ActiveBackground</span><br/>
+      The background color of pressed tray buttons.
+      Gradients are supported.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
    </li>
 </ul>
 </div>
@@ -949,18 +904,13 @@ For a list of changes since JWM v2.2, see the
       The background of inactive desktops shown in the pager.
       See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Active</span><br/>
-      Colors for active windows shown in the pager.
-      <ul>
-         <li><span class="tag">Foreground</span><br/>
-            The color of active windows shown in the pager.
-            See <a href="#colors">Colors</a>.
-         </li>
-         <li><span class="tag">Background</span><br/>
-            The color of active desktops shown in the pager.
-            See <a href="#colors">Colors</a>.
-         </li>
-      </ul>
+   <li><span class="tag">ActiveForeground</span><br/>
+      The color of active windows shown in the pager.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">ActiveBackground</span><br/>
+      The color of active desktops shown in the pager.
+      See <a href="#colors">Colors</a>.
    </li>
 </ul>
 </div>
@@ -985,19 +935,14 @@ For a list of changes since JWM v2.2, see the
       The background color of inactive menu items.
       See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Active</span><br/>
-      Colors for active menu items.
-      <ul>
-         <li><span class="tag">Foreground</span><br/>
-            The text color of active menu items.
-            See <a href="#colors">Colors</a>.
-         </li>
-         <li><span class="tag">Background</span><br/>
-            Text background color of active menu items.
-            Gradients are supported.
-            See <a href="#colors">Colors</a>.
-         </li>
-      </ul>
+   <li><span class="tag">ActiveForeground</span><br/>
+      The text color of active menu items.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">ActiveBackground</span><br/>
+      Text background color of active menu items.
+      Gradients are supported.
+      See <a href="#colors">Colors</a>.
    </li>
    <li><span class="tag">Opacity</span><br/>
       The opacity of the window. This is a floating point value between 0.0

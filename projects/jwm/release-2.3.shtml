@@ -1,0 +1,105 @@
+<!--#set var="TITLE" value="JWM v2.3 Release Notes"-->
+<!--#include virtual="/head.shtml"-->
+<!--#include file="release-inc.shtml"-->
+
+<h1><!--#echo var="TITLE"--></h1>
+
+<p>
+This is a collection of major changes between JWM v2.2 and JWM v2.3.<br/>
+You can download the latest version of JWM here:
+<a href="releases/jwm-<!--#echo var="RELEASE"-->.tar.xz">
+jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
+</p>
+
+<h2>New Features</h2>
+<div>
+<ul>
+    <li>Added support for client requested XRaiseWindow (issue #117).</li>
+    <li>Added native language support for the confirm dialog.</li>
+    <li>Added support for _NET_RESTACK_WINDOW (issue #118).</li>
+    <li>Added key binding to send the current window to a
+    different desktop (issue #119).</li>
+    <li>Support the specification of an alternate configuration
+    file (patch from Brian Bidulock)</li>
+    <li>Added <span class="tag">Radius</span> option to configure the
+    roundedness of windows.</li>
+    <li>Updated the look of borders around menus and trays.</li>
+    <li>Add support for _NET_WM_MOVERESIZE (issue #142).</li>
+    <li>Add the <span class="literal">fullscreen</span>
+    group option (patch from George Shaw).</li>
+    <li>Made window style configuration more consistent (may break
+    old configuration files).</li>
+    <li>Add <span class="literal">scale</span> background type.</li>
+    <li>Added group options:
+        <span class="literal">nomin</span>,
+        <span class="literal">nomax</span>,
+        <span class="literal">noclose</span>,
+        <span class="literal">nomove</span>, and
+        <span class="literal">noresize</span> (issue #152).</li>
+</ul>
+</div>
+
+<h2>Configuration Changes</h2>
+<div>
+<ul>
+    <li>The <span class="tag">ActiveBackground<span> and
+    <span class="tag">ActiveForeground<span> tags have been replaced 
+    by <span class="tag">Background</span> and
+    <span class="tag">Foreground</span> under the
+    <span class="tag">Active</span> tag.  This applies to
+    <span class="tag">TrayStyle</span>,
+    <span class="tag">TaskListStyle</span>,
+    <span class="tag">TrayButtonStyle</span>,
+    <span class="tag">PagerStyle</span>, and
+    <span class="tag">MenuStyle</span>.</li>
+    <li>The <span class="tag">Inactive</span> tag under
+    <span class="tag">WindowStyle</span> has been removed.  The tags
+    that used to go within this tag now go directly under the
+    <span class="tag">WindowStyle</span> tag.</li>
+</ul>
+</div>
+
+<h2>Bug Fixes</h2>
+<div>
+<ul>
+    <li>ICCCM 2.0 WM_S selection compliance (patch from Brian Bidulock).</li>
+    <li>Fixed client window position after maximize/restore (issue #115,
+        patch from Biran Bidulock).</li>
+    <li>Fixed window mapping bug with show desktop (issue #114).</li>
+    <li>Give focus to the top-most window after show desktop (issue #64).</li>
+    <li>Fix uninitialized memory when loading images
+    (patch from Brian Bidulock).</li>
+    <li>Fix overlapping string issue with FriBidi
+    (patch from Brian Bidulock).</li>
+    <li>Fixed non-UTF8 locales (issue #56).</li>
+    <li>Fixed transparency issue with some applications (issue #130).</li>
+    <li>Fixed focus after key events (patch from Brian Bidulock).</li>
+    <li>Fixed loss of focus after restoring windows (issue #131).</li>
+    <li>Fix setting of _NET_WM_STATE_HIDDEN when a window is
+    minimized (issue #133, patch from Brian Bidulock).</li>
+    <li>Grab input focus at startup if not already set (issue #148).</li>
+</ul>
+</div>
+
+<h2>Updated Translations</h2>
+<div>
+<ul>
+    <li>Russian (Aleksandr Samusenko)</li>
+    <li>French (Pierrick)</li>
+    <li>Italian (Flavio aka Man from Mars)</li>
+    <li>Spanish (Pablo Lezaeta)</li>
+</ul>
+</div>
+
+<p>
+See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
+list of changes.
+</p>
+
+<div class="location">
+   <a href="../../index.shtml">Home</a> /
+   <a href="../index.shtml">Projects</a> /
+   <a href="index.shtml">JWM</a>
+</div>
+
+<!--#include virtual="/tail.shtml"-->
