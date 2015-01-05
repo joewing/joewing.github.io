@@ -42,8 +42,8 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
 <h2>Configuration Changes</h2>
 <div>
 <ul>
-    <li>The <span class="tag">ActiveBackground<span> and
-    <span class="tag">ActiveForeground<span> tags have been replaced 
+    <li>The <span class="tag">ActiveBackground</span> and
+    <span class="tag">ActiveForeground</span> tags have been replaced
     by <span class="tag">Background</span> and
     <span class="tag">Foreground</span> under the
     <span class="tag">Active</span> tag.  This applies to
