@@ -815,6 +815,9 @@ For a list of changes since JWM v2.2, see the
    <li><span class="tag">Foreground</span><br/>
       The default foreground color. See <a href="#colors">Colors</a>.
    </li>
+   <li><span class="tag">Border</span><br/>
+      The tray border color. See <a href="#colors">Colors</a>.
+   </li>
    <li><span class="tag">Active</span><br/>
       Colors active items on the tray.
       Within this tag, the following tags are supported:
