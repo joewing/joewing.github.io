@@ -991,6 +991,10 @@ For a list of changes since JWM v2.2, see the
       The background color of inactive menu items.
       See <a href="#colors">Colors</a>.
    </li>
+   <li><span class="tag">Border</span><br/>
+      The border color.
+      See <a href="#colors">Colors</a>.
+   </li>
    <li><span class="tag">Active</span><br/>
       Colors for active menu items.
       Within this tag, the following tags are supported:

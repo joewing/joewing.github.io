@@ -36,6 +36,9 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
         <span class="literal">noclose</span>,
         <span class="literal">nomove</span>, and
         <span class="literal">noresize</span> (issue #152).</li>
+    <li>Added <span class="tag">Border</span> tag to
+        <span class="tag">MenuStyle</span> to specify the color
+        of menu borders (issue #31).</li>
 </ul>
 </div>
 
