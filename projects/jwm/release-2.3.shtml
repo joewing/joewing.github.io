@@ -42,9 +42,9 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
     <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">TrayStyle</span> to specify the color
         of tray outlines.</li>
-    <li>To conform with GNU standards, running &quot;make install&quot;
+    <li>To conform with GNU standards, running &quot;make&nbsp;install&quot;
     no longer strips the executable.  To strip the executable,
-    &quot;make install-strip&quot; can be used instead.</li>
+    &quot;make&nbsp;install&#8209;strip&quot; can be used instead.</li>
 </ul>
 </div>
 
