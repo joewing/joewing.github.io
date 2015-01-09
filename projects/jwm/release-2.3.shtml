@@ -36,12 +36,12 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
         <span class="literal">noclose</span>,
         <span class="literal">nomove</span>, and
         <span class="literal">noresize</span> (issue #152).</li>
-    <li>Added the <span class="tag">Border</span> tag to
+    <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">MenuStyle</span> to specify the color
-        of menu borders (issue #31).</li>
-    <li>Added the <span class="tag">Border</span> tag to
+        of menu outlines (issue #31).</li>
+    <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">TrayStyle</span> to specify the color
-        of tray borders.</li>
+        of tray outlines.</li>
 </ul>
 </div>
 

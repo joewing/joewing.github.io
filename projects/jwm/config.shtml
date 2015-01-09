@@ -815,8 +815,8 @@ For a list of changes since JWM v2.2, see the
    <li><span class="tag">Foreground</span><br/>
       The default foreground color. See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Border</span><br/>
-      The tray border color. See <a href="#colors">Colors</a>.
+   <li><span class="tag">Outline</span><br/>
+      The tray outline color. See <a href="#colors">Colors</a>.
    </li>
    <li><span class="tag">Active</span><br/>
       Colors active items on the tray.
@@ -994,8 +994,8 @@ For a list of changes since JWM v2.2, see the
       The background color of inactive menu items.
       See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Border</span><br/>
-      The border color.
+   <li><span class="tag">Outline</span><br/>
+      The outline color.
       See <a href="#colors">Colors</a>.
    </li>
    <li><span class="tag">Active</span><br/>
