@@ -4,51 +4,7 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
-<p>
-    Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain,
-    &quot;<a href="wcc14.pdf">Superoptimization of Memory Subsystems</a>,&quot;
-    in <i>Proc. of ACM SIGPLAN Conference on Languages, Compilers, and Tools
-    for Embedded Systems</i> (LCTES), June 2014, pp 145-154.
-</p>
-
-<p>
-   Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain,
-   &quot;<a href="http://dx.doi.org/10.1016/j.sysarc.2013.05.021">Compiling
-    for Power with ScalaPipe</a>,&quot;
-   <i>Journal of Systems Architecture</i>, 59(8):615-625, September 2013.
-</p>
-
-<p>
-   Joseph G. Wingbermuehle, Ron K. Cytron, Roger D. Chamberlain,
-   &quot;<a href="http://doi.ieeecomputersociety.org/10.1109/L-CA.2013.7">Optimization of Application-Specific
-   Memories</a>,&quot;<i>IEEE Computer Architecture Letters</i>,
-   online April 2013.
-</p>
-
-<p>
-   Joseph G. Wingbermuehle, Roger D. Chamberlain, and Ron K. Cytron,
-   &quot;<a href="wcc12.pdf">ScalaPipe: A Streaming Application
-   Generator</a>,&quot;
-   in <i>Proc. of Symposium on Application Accelerators
-   in High-Performance Computing</i> (SAAHPC), July 2012.
-</p>
-
-<p>
-   Joseph M. Lancaster, Joseph G. Wingbermuehle, Jonathan C. Beard, and
-   Roger D. Chamberlain,
-   &quot;<a href="lwbc11.pdf">Crosssing Boundaries in TimeTrial: Monitoring
-   Communications Across Architecturally Diverse Computing Platforms</a>,&quot;
-   in <i>Proc. of Ninth IEEE/IFIP International Conference on Embedded and
-   Ubiquitous Computing</i> (EUC), October 2011, pp. 280-287.
-</p>
-
-<p>
-   Joseph M. Lancaster, Joseph G. Wingbermuehle, and Roger D. Chamberlain,
-   &quot;<a href="lwc11.pdf">Asking for Performance: Exploiting Developer
-   Intuition to Guide Instrumentation with TimeTrial</a>,&quot;
-   in <i>Proc. of 13th International Conference on High Performance Computing
-   and Communications</i> (HPCC), September 2011.
-</p>
+<!--#include virtual="publist.shtml"-->
 
 <div class="location">
    <a href="../index.shtml">Home</a>

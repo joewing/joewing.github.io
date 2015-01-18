@@ -209,6 +209,10 @@ ul.nobullet {
    list-style-type: none;
 }
 
+li.spaced {
+   margin-bottom: 8pt;
+}
+
 .nobr {
    white-space:nowrap;
 }
