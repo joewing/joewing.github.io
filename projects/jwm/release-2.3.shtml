@@ -47,6 +47,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     &quot;make&nbsp;install&#8209;strip&quot; can be used instead.</li>
     <li>Added the ability to swallow the same client into a tray
     multiple times.</li>
+    <li>Added the ability to specify where the tray is hidden when
+    auto-hide is enabled (issue #34).</li>
 </ul>
 </div>
 
@@ -67,6 +69,15 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <span class="tag">WindowStyle</span> has been removed.  The tags
     that used to go within this tag now go directly under the
     <span class="tag">WindowStyle</span> tag.</li>
+    <li>The <span class="attribute">autohide</span> attribute in
+    <span class="tag">Tray</span> now determines where the tray should
+    be hidden (<span class="literal">left</span>,
+    <span class="literal">right</span>,
+    <span class="literal">top</span>,
+    <span class="literal">bottom</span>, or
+    <span class="literal">off</span>) instead of
+    <span class="literal">true</span> or <span class="literal">false</span>.
+    </li>
 </ul>
 </div>
 

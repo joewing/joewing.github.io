@@ -330,10 +330,13 @@ For a list of changes since JWM v2.2, see the
 <div>
 <ul>
    <li><span class="attribute">autohide</span><br/>
-      Determine if the tray hides itself when not activated.
-      Either <span class="literal">true</span> or
-      <span class="literal">false</span>.
-      The default is <span class="literal">false</span>.
+      Specify the location to hide the tray when not activated.
+      One of <span class="literal">left</span>,
+     <span class="literal">right</span>,
+     <span class="literal">top</span>,
+     <span class="literal">bottom</span>, or
+     <span class="literal">off</span>.
+      The default is <span class="literal">off</span> to disable hiding.
    </li>
    <li><span class="attribute">x</span><br/>
       The x-coordinate of the tray. This may be negative to indicate an
