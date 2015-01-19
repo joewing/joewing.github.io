@@ -49,6 +49,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     multiple times.</li>
     <li>Added the ability to specify where the tray is hidden when
     auto-hide is enabled (issue #34).</li>
+    <li>Menu <span class="tag">Include</span>s are now loaded
+    dynamically when a menu is shown rather than when JWM starts.</li>
 </ul>
 </div>
 
