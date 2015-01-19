@@ -356,11 +356,6 @@ For a list of changes since JWM v2.2, see the
       the tray should compute an optimal height depending on what it contains
       and the layout. <span class="literal">0</span> is the default.
    </li>
-   <li><span class="attribute">border</span><br/>
-      The width of the border. The default is <span class="literal">1</span>.
-      Valid values are between <span class="literal">0</span> and
-      <span class="literal">32</span> inclusive.
-   </li>
    <li><span class="attribute">layer</span><br/>
       The layer of the tray. The default is
       <span class="literal">above</span>.
