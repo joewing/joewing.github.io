@@ -493,12 +493,6 @@ For a list of changes since JWM v2.2, see the
       Add a button to the tray. This tag supports the
       following attributes:
       <ul>
-         <li><span class="attribute">border</span><br/>
-            Determines if this button has a border.  Either
-            <span class="literal">true</span> or
-            <span class="literal">false</span>.  The default
-            is <span class="literal">true</span>.
-         </li>
          <li><span class="attribute">label</span><br/>
             A label to display. No default.
          </li>
