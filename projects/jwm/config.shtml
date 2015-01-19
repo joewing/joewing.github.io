@@ -433,6 +433,12 @@ For a list of changes since JWM v2.2, see the
    <li><span class="tag">Pager</span><br/>
       Add a pager to the tray. This tag supports the following attributes:
       <ul>
+         <li><span class="attribute">labeled</span><br/>
+            Determine if the name of the desktop is displayed.
+            Possible values are <span class="literal">true</span>
+            and <span class="literal">false</span>. The default is
+            <span class="literal">false</span>.
+         </li>
          <li><span class="attribute">width</span><br/>
             The width of the pager. <span class="literal">0</span>
             indicates that the width should be determined from the tray.
