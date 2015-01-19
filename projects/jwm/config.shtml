@@ -480,14 +480,8 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">TaskList</span><br/>
       Add a task list to the tray. This tag supports the following
-      attributes:
+      attribute:
       <ul>
-         <li><span class="attribute">border</span><br/>
-            Determines if items in the task list have a border.
-            Either <span class="literal">true</span> or
-            <span class="literal">false</span>.  The default
-            is <span class="literal">true</span>.
-         </li>
          <li><span class="attribute">maxwidth</span><br/>
             The maximum width of an item in the task list.
             <span class="literal">0</span> indicates no maximum.
