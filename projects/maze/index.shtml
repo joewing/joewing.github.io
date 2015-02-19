@@ -267,6 +267,13 @@ compiler or interpreter.
     </tr>
 
     <tr class="listing">
+        <td>S360 Assembly Language</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.jcl">
+        maze.jcl</a></td>
+        <td>MVS 3.8j on <a href="http://www.hercules-390.org">Hercules</a></td>
+    </tr>
+
+    <tr class="listing">
         <td>TCL</td>
         <td><a href="https://raw.github.com/joewing/maze/master/maze.tcl">
         maze.tcl</a></td>
