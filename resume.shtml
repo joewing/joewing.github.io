@@ -6,9 +6,9 @@
 
 <h2>Education</h2>
 <ul class="nobullet">
-    <li class="spaced">2011 to present: Washington University in St. Louis.
+    <li class="spaced">2011 to 2015: Washington University in St. Louis.
         <ul class="nobullet">
-            <li>Computer Science Doctoral Student</li>
+            <li>Ph.D. Computer Science</li>
         </ul>
     </li>
     <li class="spaced">2000 to 2004: University of Missouri - Rolla.
@@ -23,8 +23,17 @@
 <ul class="nobullet">
 
     <li class="spaced">
+        <span><b>Senior Software Engineer</b></span>
+        <span class="right">2015-present</span>
+        <br/>
+        <ul class="nobullet">
+            <li><i>VelociData, Inc.; St. Louis, Missouri</i></li>
+        </ul>
+    </li>
+
+    <li class="spaced">
         <span><b>Consultant</b></span>
-        <span class="right">2014-present</span>
+        <span class="right">2014-2015</span>
         <br/>
         <ul class="nobullet">
             <li><i>VelociData, Inc.; St. Louis, Missouri</i></li>
