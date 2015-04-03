@@ -653,6 +653,10 @@ For a list of changes since JWM v2.2, see the
       <td>Prevents windows in this group from being resized.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">nofullscreen</span></td>
+      <td>Prevents windows in this group from being fullscreen.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">notitle</span></td>
       <td>Disables the title bar for windows in this group.</td>
    </tr>
@@ -1204,6 +1208,36 @@ For a list of changes since JWM v2.2, see the
    <tr class="listing">
       <td><span class="literal">maximize</span></td>
       <td>Key to maximize a window.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">maxv</span></td>
+      <td>Key to maximize a window vertically.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">maxh</span></td>
+      <td>Key to maximize a window horizontally.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">maxtop</span></td>
+      <td>Key to maximize a window to the top half of the screen.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">maxbottom</span></td>
+      <td>Key to maximize a window to the bottom half of the screen.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">maxleft</span></td>
+      <td>Key to maximize a window to the left half of the screen.</td>
+      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">maxright</span></td>
+      <td>Key to maximize a window to the right half of the screen.</td>
       <td>Yes</td>
    </tr>
    <tr class="listing">

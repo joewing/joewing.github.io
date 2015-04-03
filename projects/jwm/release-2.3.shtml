@@ -34,8 +34,10 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         <span class="literal">nomin</span>,
         <span class="literal">nomax</span>,
         <span class="literal">noclose</span>,
-        <span class="literal">nomove</span>, and
-        <span class="literal">noresize</span> (issue #152).</li>
+        <span class="literal">nomove</span>,
+        <span class="literal">noresize</span> (issue #152), and
+        <span class="literal">nofullscreen<span> (issue #163).
+    </li>
     <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">MenuStyle</span> to specify the color
         of menu outlines (issue #31).</li>
@@ -51,6 +53,15 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     auto-hide is enabled (issue #34).</li>
     <li>Menu <span class="tag">Include</span>s are now loaded
     dynamically when a menu is shown rather than when JWM starts.</li>
+    <li>Added the
+        <span class="literal">maxh</span>,
+        <span class="literal">maxv</span>,
+        <span class="literal">maxtop</span>,
+        <span class="literal">maxbottom</span>,
+        <span class="literal">maxleft</span> and
+        <span class="literal">maxright</span>
+        key bindings (issues #120 and #157).
+    </li>
 </ul>
 </div>
 
