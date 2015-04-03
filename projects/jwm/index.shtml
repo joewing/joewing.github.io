@@ -60,7 +60,8 @@ JWM attempts to conform to the
    Latest development snapshot:
       <a href="snapshots/jwm-<!--#echo var="SNAPSHOT"-->.tar.xz">JWM
       snapshot <!--#echo var="SNAPSHOT"--></a>
-      (<a href="snapshots/">Older snapshots</a>)<br/>
+      (<a href="release-2.3.shtml">release notes</a>,
+      <a href="snapshots/">Older snapshots</a>)<br/>
    See the <a href="snapshots/ChangeLog">ChangeLog</a> for details
    on what has changed (releases and snapshots are tagged).
 </p>
