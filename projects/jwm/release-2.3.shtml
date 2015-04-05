@@ -66,6 +66,28 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </div>
 
 <h2>Configuration Changes</h2>
+<p>
+    The following XSLT is available to update JWM v2.2 configuration
+    files for use with JWM v2.3:
+    <a href="xslt/jwm-2.3.xslt">jwm-2.3.xslt</a>.
+</p>
+<p>
+    To convert an existing v2.2 configuration file using
+    <a href="http://xmlsoft.org/XSLT/xsltproc2.html">xsltproc</a>,
+    run:
+</p>
+<div class="code">
+    cp ~/.jwmrc ~/.jwmrc.old<br/>
+    xsltproc jwm-2.3.xslt ~/.jwmrc.old &gt; ~/.jwmrc
+</div>
+<p>
+    If you have multiple configuration files, it may be necessary
+    to apply the XSLT to some or all of them depending on what
+    configuration options are stored in the file.
+</p>
+<p>
+    A summary of configuration changes follows.
+</p>
 <div>
 <ul>
     <li>The <span class="tag">ActiveBackground</span> and
