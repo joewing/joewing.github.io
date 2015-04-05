@@ -36,7 +36,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         <span class="literal">noclose</span>,
         <span class="literal">nomove</span>,
         <span class="literal">noresize</span> (issue #152), and
-        <span class="literal">nofullscreen<span> (issue #163).
+        <span class="literal">nofullscreen</span> (issue #163).
     </li>
     <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">MenuStyle</span> to specify the color
@@ -53,6 +53,13 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     auto-hide is enabled (issue #34).</li>
     <li>Menu <span class="tag">Include</span>s are now loaded
     dynamically when a menu is shown rather than when JWM starts.</li>
+    <li>Added the
+        <span class="literal">sendu</span>,
+        <span class="literal">sendd</span>,
+        <span class="literal">sendl</span> and
+        <span class="literal">sendr</span>
+        key bindings to send a window to a different desktop (issue #119).
+    </li>
     <li>Added the
         <span class="literal">maxh</span>,
         <span class="literal">maxv</span>,
