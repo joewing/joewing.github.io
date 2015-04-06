@@ -722,11 +722,15 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">2</span>, and the maximum is
       <span class="literal">256</span>.
    </li>
-   <li><span class="tag">Text</span><br/>
+   <li><span class="tag">Corner</span><br/>
+      The width of the rounded corner in pixels.  The default is 4.
+      The minimum is 0 (square) and the maximum is 5 (very rounded).
+   </li>
+   <li><span class="tag">Foreground</span><br/>
       The color of text on the title bar.
       See <a href="#colors">Colors</a>.
    </li>
-   <li><span class="tag">Title</span><br/>
+   <li><span class="tag">Background</span><br/>
       The color of the title bar (gradients are supported).
       See <a href="#colors">Colors</a>.
    </li>
@@ -743,10 +747,10 @@ For a list of changes since JWM v2.2, see the
       The colors/opacity used for the active window.
       Within this tag, the following tags are supported:
       <ul>
-         <li><span class="tag">Text</span><br/>
+         <li><span class="tag">Foreground</span><br/>
             The color of text on the title bar.
          </li>
-         <li><span class="tag">Title</span><br/>
+         <li><span class="tag">Background</span><br/>
             The color of the title bar (gradients are supported).
          </li>
          <li><span class="tag">Opacity</span><br/>
