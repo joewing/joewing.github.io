@@ -69,8 +69,23 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         <span class="literal">maxright</span>
         key bindings (issues #120 and #157).
     </li>
-    <li>Added the ability to have seperate actions per mouse button for
-    tray buttons (issue #171).</li>
+    <li>
+      Added the ability to have seperate actions per mouse button for
+      tray buttons (issue #171).  This is accomplished using the
+      <span class="tag">Button</span> tag.  For example:
+<div class="code">
+  &lt;<span class="tag">TrayButton</span>&nbsp;<span class="attribute">label</span>=<span class="literal">&quot;My Button&quot;</span>&gt;<br/>
+    &nbsp;&nbsp;&lt;<span class="tag">Button</span>&nbsp;<span class="attribute">mask</span>=<span class="literal">&quot;1&quot;</span>&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;exec:program_for_left_click<br/>
+    &nbsp;&nbsp;&lt;/<span class="tag">Button</span>&gt;<br/>
+    &nbsp;&nbsp;&lt;<span class="tag">Button</span>&nbsp;<span class="attribute">mask</span>=<span class="literal">&quot;45&quot;</span>&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;exec:program_for_scroll_wheel<br/>
+    &nbsp;&nbsp;&lt;/<span class="tag">Button</span>&gt;<br/>
+  &lt;/<span class="tag">TrayButton</span>&gt;<br/>
+</div>
+      The <span class="tag">Button</span> tags are optional.  By default
+      the action will use mouse button mask <span class="literal">123</span>.
+   </li>
 </ul>
 </div>
 
@@ -124,6 +139,10 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     </li>
 </ul>
 </div>
+<p>
+   See the <a href="projects/jwm/config.shtml">configuration documentation</a>
+   for documentation on all configuration options.
+</p>
 
 <h2>Bug Fixes</h2>
 <div>
