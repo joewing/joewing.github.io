@@ -515,6 +515,14 @@ For a list of changes since JWM v2.2, see the
             Show root menu <i>n</i>. The default action is &quot;root:1&quot;.
          </li>
       </ul>
+      Optionally, the <span class="tag">Button</span> tag can be used
+      within this tag to specify the action to take for a particular
+      mouse button.  The text of the tag is the same as for
+      <span class="tag">TrayButton</span>.  The <span class="tag">Button</span>
+      tag supports the <span class="attribute">mask</span> attribute,
+      which specifies which mouse buttons cause the action to be executed.
+      This defaults to <span class="literal">123</span>, for right, middle,
+      and right click.
    </li>
 </ul>
 </div>

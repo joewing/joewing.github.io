@@ -69,6 +69,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         <span class="literal">maxright</span>
         key bindings (issues #120 and #157).
     </li>
+    <li>Added the ability to have seperate actions per mouse button for
+    tray buttons (issue #171).</li>
 </ul>
 </div>
 
