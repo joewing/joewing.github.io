@@ -21,7 +21,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     different desktop (issue #119).</li>
     <li>Support the specification of an alternate configuration
     file (patch from Brian Bidulock)</li>
-    <li>Added <span class="tag">Radius</span> option to configure the
+    <li>Added <span class="tag">Corner</span> option to configure the
     roundedness of windows.</li>
     <li>Updated the look of borders around menus and trays.</li>
     <li>Add support for _NET_WM_MOVERESIZE (issue #142).</li>
