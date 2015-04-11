@@ -731,8 +731,10 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">256</span>.
    </li>
    <li><span class="tag">Corner</span><br/>
-      The width of the rounded corner in pixels.  The default is 4.
-      The minimum is 0 (square) and the maximum is 5 (very rounded).
+      The width of the rounded corner in pixels.  The default is
+      <span class="literla">4</span>.
+      The minimum is <span class="literal">0</span> (square) and the
+      maximum is <span class="literal">5</span> (very rounded).
    </li>
    <li><span class="tag">Foreground</span><br/>
       The color of text on the title bar.
@@ -744,8 +746,10 @@ For a list of changes since JWM v2.2, see the
    </li>
    <li><span class="tag">Opacity</span><br/>
       The opacity of the window. This is a floating point value between
-      0.0 and 1.0. Note that a composite manager, such as xcompmgr, is
-      required for this.
+      <span class="literal">0.0</span> and <span class="literal">1.0</span>.
+      Note that a composite manager, such as
+      <a href="https://github.com/chjj/compton">compton</a>, is required
+      for this.
    </li>
    <li><span class="tag">Outline</span><br/>
       The color of the window outline.
@@ -757,17 +761,23 @@ For a list of changes since JWM v2.2, see the
       <ul>
          <li><span class="tag">Foreground</span><br/>
             The color of text on the title bar.
+            See <a href="#colors">Colors</a>.
          </li>
          <li><span class="tag">Background</span><br/>
             The color of the title bar (gradients are supported).
+            See <a href="#colors">Colors</a>.
          </li>
          <li><span class="tag">Opacity</span><br/>
             The opacity of the window. This is a floating point value between
-            0.0 and 1.0. Note that a composite manager, such as xcompmgr, is
-            required for this.
+            <span class="literal">0.0</span> and
+            <span class="literal">1.0</span>.
+            Note that a composite manager, such as
+            <a href="https://github.com/chjj/compton">compton</a>, is required
+            for this.
          </li>
          <li><span class="tag">Outline</span><br/>
             The color of the window outline.
+            See <a href="#colors">Colors</a>.
          </li>
       </ul>
    </li>
@@ -831,9 +841,11 @@ For a list of changes since JWM v2.2, see the
       </ul>
    </li>
    <li><span class="tag">Opacity</span><br/>
-      The opacity of the window. This is a floating point value between 0.0
-      and 1.0. Note that a composite manager, such as xcompmgr, is
-      required for this.
+      The opacity of the window. This is a floating point value between
+      <span class="literal">0.0</span> and <span class="literal">1.0</span>.
+      Note that a composite manager, such as
+      <a href="https://github.com/chjj/compton">compton</a>, is required
+      for this.
    </li>
 </ul>
 </div>
@@ -1012,9 +1024,12 @@ For a list of changes since JWM v2.2, see the
       </ul>
    </li>
    <li><span class="tag">Opacity</span><br/>
-      The opacity of the window. This is a floating point value between 0.0
-      and 1.0. Note that a composite manager, such as xcompmgr, is
-      required for this.
+      The opacity of the window. This is a floating point value between
+      <span class="literal">0.0</span> and
+      <span class="literal">1.0</span>.
+      Note that a composite manager, such as
+      <a href="https://github.com/chjj/compton">compton</a>, is required
+      for this.
    </li>
 </ul>
 </div>
@@ -1213,7 +1228,7 @@ For a list of changes since JWM v2.2, see the
       <td>Yes</td>
    </tr>
    <tr class="listing">
-      <td><span class="literal">miminize</span></td>
+      <td><span class="literal">minimize</span></td>
       <td>Key to minimize a window.</td>
       <td>Yes</td>
    </tr>
