@@ -65,11 +65,12 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">123</span>. Multiple root menus may be used
       by specifying different buttons to activate them. Valid values in
       this list are <span class="literal">0</span> to
-      <span class="literal">9</span>. The usual mouse buttons are 1 for the
+      <span class="literal">9</span> and <span class="literal">a</span>
+      to <span class="literal">z</span>. The usual mouse buttons are 1 for the
       left button, 2 for the middle button, 3 for the right button,
       and 4 and 5 for the scroll wheel. Therefore, accessing
-      root menus that are assigned to buttons 0, 6, 7, 8, or 9 will
-      typically require the use of a tray button or key binding.
+      root menus that are assigned to buttons 0, 6, 7, 8, 9, or a letter
+      will typically require the use of a tray button or key binding.
    </li>
    <li><span class="attribute">height</span><br/>
       The height of each menu item in pixels. <span class="literal">0</span>
@@ -394,8 +395,7 @@ For a list of changes since JWM v2.2, see the
 <div>
 <ul>
    <li><span class="tag">Clock</span><br/>
-      Add a clock to the tray. The text of this tag may specify a command
-      to run when the clock is clicked. This tag supports the following
+      Add a clock to the tray. This tag supports the following
       attributes:
       <ul>
          <li><span class="attribute">format</span><br/>
@@ -417,6 +417,26 @@ For a list of changes since JWM v2.2, see the
             and the font used. The default is <span class="literal">0</span>.
          </li>
       </ul>
+      The text of this tag determines what the clock does when clicked:
+      <ul>
+         <li><span class="literal">exec:</span><i>program</i><br/>
+            Execute <i>program</i>.
+         </li>
+         <li><span class="literal">showdesktop</span><br/>
+            Minimize all windows on the current desktop.
+         </li>
+         <li><span class="literal">root:</span><i>n</i><br/>
+            Show root menu <i>n</i>.
+         </li>
+      </ul>
+      Optionally, the <span class="tag">Button</span> tag can be used
+      within this tag to specify the action to take for a particular
+      mouse button.  The text of the tag is the same as for
+      <span class="tag">TrayButton</span>.  The <span class="tag">Button</span>
+      tag supports the <span class="attribute">mask</span> attribute,
+      which specifies which mouse buttons cause the action to be executed.
+      This defaults to <span class="literal">123</span>, for right, middle,
+      and right click.
    </li>
    <li><span class="tag">Dock</span><br/>
       Add a dock for system notifications. This can be used by those
@@ -512,7 +532,7 @@ For a list of changes since JWM v2.2, see the
             Minimize all windows on the current desktop.
          </li>
          <li><span class="literal">root:</span><i>n</i><br/>
-            Show root menu <i>n</i>. The default action is &quot;root:1&quot;.
+            Show root menu <i>n</i>.
          </li>
       </ul>
       Optionally, the <span class="tag">Button</span> tag can be used

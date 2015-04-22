@@ -86,6 +86,16 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
       The <span class="tag">Button</span> tags are optional.  By default
       the action will use mouse button mask <span class="literal">123</span>.
    </li>
+   <li>
+      Add the ability to have separate actions per mouse button for
+      clock tray components (issue #171) and the ability to have
+      clock tray components run actions like tray buttons (issue #172).
+   </li>
+   <li>
+      Add support for more than 10 menus. Now 26 additional menus can be
+      defined using the letters <span class="literal">a</span>
+      through <span class="literal">z</span>.
+   </li>
 </ul>
 </div>
 
@@ -137,6 +147,9 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <span class="literal">off</span>) instead of
     <span class="literal">true</span> or <span class="literal">false</span>.
     </li>
+    <li>Now actions in the <span class="tag">Clock</span> tag must be
+    prefixed with <span class="literal">exec:</span> to run an external
+    program.</li>
 </ul>
 </div>
 <p>
