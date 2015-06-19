@@ -4,7 +4,7 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
-<div class="date">201500618</div>
+<div class="date">20150618</div>
 <div class="newsitem">
 <p>
 I finally decided to call <a href="projects/jwm/">JWM</a> v2.3.0 finished.
