@@ -4,6 +4,18 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">201500618</div>
+<div class="newsitem">
+<p>
+I finally decided to call <a href="projects/jwm/">JWM</a> v2.3.0 finished.
+See the <a href="projects/jwm/release-2.3.shtml">release notes</a> for a
+list of changes. In addition, development on JWM v2.3.1 has started
+with an updated task bar that groups windows.  Feel free to try out
+<a href="projects/jwm/index.shtml#download">snapshot</a> and let me know
+what you think!
+</p>
+</div>
+
 <div class="date">20150409</div>
 <div class="newsitem">
 <p>
