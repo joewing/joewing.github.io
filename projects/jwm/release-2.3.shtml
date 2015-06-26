@@ -70,7 +70,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         key bindings (issues #120 and #157).
     </li>
     <li>
-      Added the ability to have seperate actions per mouse button for
+      Added the ability to have separate actions per mouse button for
       tray buttons (issue #171).  This is accomplished using the
       <span class="tag">Button</span> tag.  For example:
 <div class="code">
@@ -186,6 +186,22 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <li>French (Pierrick)</li>
     <li>Italian (Flavio aka Man from Mars)</li>
     <li>Spanish (Pablo Lezaeta)</li>
+</ul>
+</div>
+
+<h2 id="v2.3.1">Changes in 2.3.1</h2>
+<div>
+<ul>
+   <li>Added an option to group windows by class in the task bar.
+   (the <span class="attribute">group</span> attribute of the
+   <span class="tag">TrayStyle</span> tag).</li>
+   <li>Fixed an issue with menus showing up across monitors when
+   Xinerama is enabled.</li>
+   <li>Added the ability to show Motif-style handles on windows
+   (the <span class="attribute">decoration</span> attribute of
+   <span class="tag">WindowStyle</span>).</li>
+   <li>Fixed an issue where the next/prev key bindings would not
+   advance past a window that does not accept input focus.</li>
 </ul>
 </div>
 
