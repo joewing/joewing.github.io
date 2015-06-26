@@ -202,6 +202,12 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <span class="tag">WindowStyle</span>).</li>
    <li>Fixed an issue where the next/prev key bindings would not
    advance past a window that does not accept input focus.</li>
+   <li>Fixed the behavior of the <span class="tag">Include</span>
+   tag within menus so that it no longer creates a submenu.</li>
+   <li>Menus included using <span class="tag">Include</span> are no
+   longer loaded each time the menu is accessed.</li>
+   <li>Added a <span class="tag">Dynamic</span> submenu that will
+   re-load its menu contents each time it is accessed.</li>
 </ul>
 </div>
 
