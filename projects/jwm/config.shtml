@@ -120,14 +120,21 @@ For a list of changes since JWM v2.2, see the
          </li>
       </ul>
    </li>
-   <li><span class="tag">Include</span><br/>
-      Include the contents of a file or the output of a program into the
-      menu structure. The file (or program output) must start with a
+   <li><span class="tag">Dynamic</span><br/>
+      Include the contents of a file or the output of a program as
+      a submenu.  The file (or program output) must start with a
       <span class="tag">JWM</span> tag containing one or more items to be
-      contained within the menu. A file is specified by the text
+      contained within the submenu. A file is specified by the text
       of the tag. If the text starts with
       <span class="literal">exec:</span> then the output of the specified
-      executable is used.
+      executable is used.  Note that the program or file will be
+      read every time the menu is shown.  To include menu items at
+      the same level or to statically include the menu items when
+      the configuration file is parsed, use the
+      <span class="literal">Include</span> tag.
+      This tag supports the same attributes as the
+      <span class="tag">Menu</span> tag.
+      (new in JWM v2.3.1).
    </li>
    <li><span class="tag">Program</span><br/>
       The <span class="tag">Program</span> tag provides a way to start
