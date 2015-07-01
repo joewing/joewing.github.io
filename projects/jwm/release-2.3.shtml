@@ -211,6 +211,19 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="v2.3.2">Changes in 2.3.2</h2>
+<div>
+<ul>
+   <li>Restored the ability to specifiy that windows should not have
+   an icon (using the <span class="literal">"icon:"</span> group
+   option).</li>
+   <li>JWM will now try several common extensions when loading icons.</li>
+   <li>Window names are no longer used when searching for icons.</li>
+   <li>Fixed the height and default label for dynamic menus
+   (issue #188).</li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.
