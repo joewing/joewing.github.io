@@ -4,15 +4,26 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">20150709</div>
+<div class="newsitem">
+<p>
+As you may have noticed, <a href="projects/jwm/">JWM</a> v2.3.1 was
+released on 20150628, which fixes some issues in v2.3.0.  See
+the <a href="projects/jwm/release-2.3.shtml#v2.3.1">release notes</a>
+for more information.  JWM v2.3.2 is in the works and will include
+some minor bug fixes as well as a few style changes.
+</p>
+</div>
+
 <div class="date">20150626</div>
 <div class="newsitem">
 <p>
-Due to an issue discovered in <a href="projects/jwm/">JWM</a> 2.3.0,
+Due to an issue discovered in <a href="projects/jwm/">JWM</a> v2.3.0,
 I am planning to release 2.3.1 in the next couple of days.
 The particular issue is with how menu includes are parsed.
-Prior to 2.3.0, a menu include would include items directly in
-the menu, in 2.3.0, menu includes create an extra submenu.  This behavior
-will be reverted in 2.3.1 (and is already fixed in the latest snapshots).
+Prior to v2.3.0, a menu include would include items directly in
+the menu, in v2.3.0, menu includes create an extra submenu.  This behavior
+will be reverted in v2.3.1 (and is already fixed in the latest snapshots).
 </p>
 </div>
 
