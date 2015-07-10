@@ -37,6 +37,7 @@
         <br/>
         <ul class="nobullet">
             <li><i>VelociData, Inc.; St. Louis, Missouri</i></li>
+            <li>Ported C++ code to z/OS and AIX.</li>
         </ul>
     </li>
 
@@ -46,8 +47,8 @@
         <br/>
         <ul class="nobullet">
             <li><i>Observable Networks; St. Louis, Missouri</i></li>
-            <li>Designed analyses to uncover malicious behavior on
-            networks.</li>
+            <li>Researched and designed analyses to uncover malicious
+            behavior on networks using machine learning techniques.</li>
             <li>Implemented these analyses in Python using Amazon EC2
             and RedShift.</li>
         </ul>
@@ -199,23 +200,35 @@
 <h2>Projects</h2>
 <ul class="nobullet">
     <li class="spaced">
-    Designed and built an 8-bit computer with a 16-bit address bus out of
+    Wrote <a href="https://github.com/joewing/ScalaPipe">ScalaPipe</a>,
+    a domain-specific language embedded in Scala for writing streaming
+    applications targetting FPGAs, GPUs, and multi-core processors.
+    </li>
+    <li class="spaced">
+    Designed and built an <a href="projects/q1/">8-bit computer</a>
+    with a 16-bit address bus out of
     approximately 3,000 discrete bipolar transistors.  I also wrote a
     simulator and assembler in C as well as a Verilog model for the
     computer.
     </li>
     <li class="spaced">
-    Created and continue to maintain JWM. JWM (Joe's Window Manager) is a
+    Created and continue to maintain <a href="projects/jwm/">JWM</a>.
+    JWM (Joe's Window Manager) is a
     window manager for the X Window System written in C and included in
     several Linux distributions.</li>
+    <li class="spaced">
+    Implemented maze generators in
+    <a href="projects/maze/">39 programming languages</a>.
+    </li>
     <li class="spaced"> 
-    Implemented an Altair 680 system on an FPGA. The Altair 680 is a
+    Implemented an <a href="projects/altair680/">Altair 680 system</a>
+    on an FPGA. The Altair 680 is a
     computer system from the mid-1970s based on a Motorola 6800 microprocessor.
     I implemented the processor, keyboard driver, graphics driver, and UART in
     Verilog to run on a Spartan-3 FPGA.</li>
     <li class="spaced">
-    Created Knockout. Knockout is a game for the iPhone written in
-    Objective-C.</li>
+    Created <a href="projects/knockout/">Knockout</a>
+     Knockout is a game for the iPhone written in Objective-C.</li>
     <li class="spaced">
     See <a href="https://github.com/joewing">https://github.com/joewing</a>
     for more.
