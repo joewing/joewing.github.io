@@ -221,6 +221,14 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <li>Window names are no longer used when searching for icons.</li>
    <li>Fixed the height and default label for dynamic menus
    (issue #188).</li>
+   <li>Improved handling of colormaps for pseudo-color displays.</li>
+   <li>Fixed handling of WM_STATE on big-endian machines.</li>
+   <li>Fixed an issue with menus getting stuck open.</li>
+   <li>Removed the <span class="tag">TaskListStyle</span>,
+   <span class="tag">TrayButtonStyle</span>, and
+   <span class="tag">ClockStyle</span> configuration options.
+   These options are now set from <span class="tag">TrayStyle</span>.</li>
+   <li>Added the Hungarian translation (from Hermit).</li>
 </ul>
 </div>
 
