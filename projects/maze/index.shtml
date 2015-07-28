@@ -142,8 +142,8 @@ compiler or interpreter.
 
     <tr class="listing">
         <td>Java</td>
-        <td><a href="https://raw.github.com/joewing/maze/master/maze.java">
-        maze.java</a></td>
+        <td><a href="https://raw.github.com/joewing/maze/master/Maze.java">
+        Maze.java</a></td>
         <td><a href="http://www.oracle.com/technetwork/java/index.html">
         Java</a></td>
     </tr>
