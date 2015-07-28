@@ -198,7 +198,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <li>Fixed an issue with menus showing up across monitors when
    Xinerama is enabled.</li>
    <li>Added the ability to show Motif-style handles on windows
-   (the <span class="attribute">decoration</span> attribute of
+   (the <span class="attribute">decorations</span> attribute of
    <span class="tag">WindowStyle</span>).</li>
    <li>Fixed an issue where the next/prev key bindings would not
    advance past a window that does not accept input focus.</li>
@@ -229,6 +229,11 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <span class="tag">ClockStyle</span> configuration options.
    These options are now set from <span class="tag">TrayStyle</span>.</li>
    <li>Added the Hungarian translation (from Hermit).</li>
+   <li>Added the ability to give a 3D look to menus and trays by specifying
+   <span class="attribute">decorations</span>=&quot;<span
+   class="literal">motif</span>&quot;
+   in <span class="tag">MenuStyle</span> and
+   <span class="tag">TrayStyle</span> respectively.</li>
 </ul>
 </div>
 
