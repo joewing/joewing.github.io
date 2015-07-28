@@ -162,6 +162,13 @@ compiler or interpreter.
     </tr>
 
     <tr class="listing">
+        <td>Kotlin</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/Maze.kt">
+        Maze.kt</a></td>
+        <td><a href="http://kotlinlang.org/">Kotlin</a></td>
+    </tr>
+
+    <tr class="listing">
         <td>Lisp</td>
         <td><a href="https://raw.github.com/joewing/maze/master/maze.lisp">
         maze.lisp</a></td>
