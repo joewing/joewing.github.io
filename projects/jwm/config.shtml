@@ -735,7 +735,21 @@ For a list of changes since JWM v2.2, see the
 <h2 id="window">Window Style</h2>
 <p>
    The <span class="tag">WindowStyle</span> tag controls the look of
-   window borders. Within this tag the following tags are supported.
+   window borders.
+   This tag supports the following attribute:
+</p>
+<div>
+<ul>
+   <li><span class="attribute">decorations</span><br/>
+      Determines the decorations to use for windows.
+      Possible values include <span class="literal">flat</span>
+      and <span class="literal">motif</span>. The default is
+      <span class="literal">flat</span>.
+   </li>
+</ul>
+</div>
+<p>
+   Within this tag the following tags are supported.
 </p>
 <div>
 <ul>
@@ -811,7 +825,26 @@ For a list of changes since JWM v2.2, see the
 <h2 id="tray">Tray Style</h2>
 <p>
    The <span class="tag">TrayStyle</span> tag controls the look of the
-   tray. Within this tag the following tags are supported:
+   tray. This tag supports the following attributes:
+</p>
+<div>
+<ul>
+   <li><span class="attribute">decorations</span><br/>
+      Determines the decorations to use for trays.
+      Possible values include <span class="literal">flat</span>
+      and <span class="literal">motif</span>. The default is
+      <span class="literal">flat</span>.
+   </li>
+   <li><span class="attribute">group</span><br/>
+      Determines if windows are grouped by class when shown in task bars.
+      Possible values are <span class="literal">true</span> and
+      <span class="literal">false</span>. The default is
+      <span class="literal">false</span>.
+   </li>
+</ul>
+</div>
+<p>
+Within this tag the following tags are supported:
 </p>
 <div>
 <ul>
@@ -899,6 +932,19 @@ For a list of changes since JWM v2.2, see the
 <p>
    The <span class="tag">MenuStyle</span> tag controls the look of menus in
    JWM (this includes the root menu and window menus).
+   This tag supports the following attribute:
+</p>
+<div>
+<ul>
+   <li><span class="attribute">decorations</span><br/>
+      Determines the decorations to use for menus.
+      Possible values include <span class="literal">flat</span>
+      and <span class="literal">motif</span>. The default is
+      <span class="literal">flat</span>.
+   </li>
+</ul>
+</div>
+<p>
    Within this tag the following tags are supported:
 </p>
 <div>
