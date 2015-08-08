@@ -81,8 +81,10 @@ line after installing JWM).
 
 <h2 id="develop">Developer Information</h2>
 <p>
-JWM is hosted on <a href="http://github.com/joewing/jwm/">GitHub</a>.
-Please feel free to contribute bug reports, suggestions, and patches.<br />
+JWM is hosted on <a href="http://github.com/joewing/jwm/">GitHub</a>.<br/>
+<a href="doc/">Online source documentation</a> is available for the
+latest snapshot (<!--#echo var="SNAPSHOT"-->).<br/>
+Please feel free to contribute bug reports, suggestions, and patches.<br/>
 </p>
 
 <h2 id="support">Support</h2>
