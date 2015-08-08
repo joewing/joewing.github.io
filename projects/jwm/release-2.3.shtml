@@ -234,6 +234,12 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    class="literal">motif</span>&quot;
    in <span class="tag">MenuStyle</span> and
    <span class="tag">TrayStyle</span> respectively.</li>
+   <li>Fixed an issue where JWM key bindings would not be available
+   to applications (issue #201).</li>
+   <li>JWM now highlights the first menu item when opening a menu
+   with the keyboard (issue #102).</li>
+   <li>Add the ability to selectively enable popups (issue #189).</li>
+   <li>Various other fixes.</li>
 </ul>
 </div>
 
