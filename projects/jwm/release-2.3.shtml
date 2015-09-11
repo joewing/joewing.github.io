@@ -219,7 +219,6 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    an icon (using the <span class="literal">"icon:"</span> group
    option).</li>
    <li>JWM will now try several common extensions when loading icons.</li>
-   <li>Window names are no longer used when searching for icons.</li>
    <li>Fixed the height and default label for dynamic menus
    (issue #188).</li>
    <li>Improved handling of colormaps for pseudo-color displays.</li>
