@@ -212,7 +212,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.3.2">Changes in 2.3.2 (not yet released)</h2>
+<h2 id="v2.3.2">Changes in 2.3.2 (2015-09-13)</h2>
 <div>
 <ul>
    <li>Restored the ability to specifiy that windows should not have

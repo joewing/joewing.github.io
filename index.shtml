@@ -4,6 +4,15 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">20150913</div>
+<div class="newsitem">
+<p>
+<a href="projects/jwm/">JWM</a> v2.3.2 is now available.
+See the <a href="projects/jwm/release-2.3.shtml#v2.3.2">release notes</a>
+for more information.
+</p>
+</div>
+
 <div class="date">20150709</div>
 <div class="newsitem">
 <p>
