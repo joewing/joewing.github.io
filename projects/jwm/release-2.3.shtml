@@ -243,6 +243,13 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="v2.3.3">Changes in 2.3.3 (not yet released)</h2>
+<div>
+<ul>
+   <li>JWM windows now set _NET_WM_WINDOW_TYPE (issue #223).</li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.
