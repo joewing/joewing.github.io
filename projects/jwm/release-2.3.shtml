@@ -247,6 +247,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <div>
 <ul>
    <li>JWM windows now set _NET_WM_WINDOW_TYPE (issue #223).</li>
+   <li>Added the Chinese translation (from Christopher Meng).</li>
 </ul>
 </div>
 
