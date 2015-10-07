@@ -6,12 +6,14 @@
 
 <h2>Education</h2>
 <ul class="nobullet">
-    <li class="spaced">2011 to 2015: Washington University in St. Louis.
+    <li class="spaced">2011 to 2015:
+        <a href="http://wustl.edu/">Washington University in St. Louis</a>.
         <ul class="nobullet">
             <li>Ph.D. Computer Science</li>
         </ul>
     </li>
-    <li class="spaced">2000 to 2004: University of Missouri - Rolla.
+    <li class="spaced">2000 to 2004:
+        <a href="http://mst.edu/">University of Missouri - Rolla</a>.
         <ul class="nobullet">
             <li>B.S. Computer Science</li>
             <li>B.S. Applied Mathematics</li>
@@ -27,7 +29,8 @@
         <span class="right">2015-present</span>
         <br/>
         <ul class="nobullet">
-            <li><i>Observable Networks; St. Louis, Missouri</i></li>
+            <li><i><a href="https://observable.net/">Observable Networks</a>;
+            St. Louis, Missouri</i></li>
         </ul>
     </li>
 
@@ -36,7 +39,8 @@
         <span class="right">2014-2015</span>
         <br/>
         <ul class="nobullet">
-            <li><i>VelociData, Inc.; St. Louis, Missouri</i></li>
+            <li><i><a href="http://velocidata.com/">VelociData, Inc.</a>;
+            St. Louis, Missouri</i></li>
             <li>Ported C++ code to z/OS and AIX.</li>
             <li>Designed and implemented high-performance, multi-threaded
             engines in C++ to perform aggregation and other operations
@@ -49,7 +53,8 @@
         <span class="right">2013-2014</span>
         <br/>
         <ul class="nobullet">
-            <li><i>Observable Networks; St. Louis, Missouri</i></li>
+            <li><i><a href="https://observable.net/">Observable Networks</a>;
+            St. Louis, Missouri</i></li>
             <li>Researched and designed analyses to uncover malicious
             behavior on networks using machine learning techniques.</li>
             <li>Implemented these analyses in Python using Amazon EC2
@@ -62,7 +67,8 @@
         <span class="right">2011-2013</span>
         <br/>
         <ul class="nobullet">
-            <li><i>Exegy Inc.; St. Louis, Missouri</i></li>
+            <li><i><a href="http://exegy.com/">Exegy Inc.</a>;
+            St. Louis, Missouri</i></li>
             <li>Assisted with the design and development of
             improvements to the multi-threaded last-value cache and
             the order-book processor.</li>
@@ -77,7 +83,8 @@
         <span class="right">2008-2011</span>
         <br/>
         <ul class="nobullet">
-            <li><i>Exegy Inc.; St. Louis, Missouri</i></li>
+            <li><i><a href="http://exegy.com/">Exegy Inc.</a>;
+            St. Louis, Missouri</i></li>
             <li>Designed and implemented a high-performance, multi-threaded
             system to maintain order books from millions of messages per
             second.</li>
@@ -97,7 +104,8 @@
         <span class="right">2005-2008</span>
         <br/>
         <ul class="nobullet">
-            <li><i>Exegy Inc.; St. Louis, Missouri</i></li>
+            <li><i><a href="http://exegy.com/">Exegy Inc.</a>;
+            St. Louis, Missouri</i></li>
             <li>Implemented pre- and post-processing for a hardware-accelerated
             search engine in C++.</li>
             <li>Designed and implemented a customer-facing API for interacting
@@ -115,7 +123,8 @@
         <span class="right">2004-2005</span>
         <br/>
         <ul class="nobullet">
-            <li><i>SBC Services, Inc.; St. Louis, Missouri</i></li>
+            <li><i><a href="http://att.com/">SBC Services, Inc.</a>;
+            St. Louis, Missouri</i></li>
             <li>Assisted with the design, development, and testing of an
             enterprise logging and auditing facility utilizing Java, JMS,
             PL/SQL, Jakarta Struts, and XML.</li>
@@ -129,7 +138,7 @@
         <span class="right">2003-2004</span>
         <br/>
         <ul class="nobullet">
-            <li><i>USGS; Rolla, Missouri</i></li>
+            <li><i><a href="http://usgs.gov/">USGS</a>; Rolla, Missouri</i></li>
             <li>Built a PNG conversion web service using Java, JNI, and C to
             support alpha transparency.</li>
             <li>Wrote a Java Swing program utilizing Xerces and Xalan to connect
@@ -147,7 +156,8 @@
         <span class="right">2001-2002</span>
         <br/>
         <ul class="nobullet">
-            <li><i>SBC Services, Inc.; St. Louis, Missouri</i></li>
+            <li><i><a href="http://att.com/">SBC Services, Inc.</a>;
+            St. Louis, Missouri</i></li>
             <li>Developed a unit test suite for a middleware library
             in C++.</li>
             <li>Developed web pages and applications using CFML, SQL, HTML,
