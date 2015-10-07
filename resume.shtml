@@ -23,21 +23,24 @@
 <ul class="nobullet">
 
     <li class="spaced">
-        <span><b>Senior Software Engineer</b></span>
+        <span><b>Software Engineer</b></span>
         <span class="right">2015-present</span>
         <br/>
         <ul class="nobullet">
-            <li><i>VelociData, Inc.; St. Louis, Missouri</i></li>
+            <li><i>Observable Networks; St. Louis, Missouri</i></li>
         </ul>
     </li>
 
     <li class="spaced">
-        <span><b>Consultant</b></span>
+        <span><b>Senior Software Engineer</b></span>
         <span class="right">2014-2015</span>
         <br/>
         <ul class="nobullet">
             <li><i>VelociData, Inc.; St. Louis, Missouri</i></li>
             <li>Ported C++ code to z/OS and AIX.</li>
+            <li>Designed and implemented high-performance, multi-threaded
+            engines in C++ to perform aggregation and other operations
+            on streaming data.</li>
         </ul>
     </li>
 
@@ -202,7 +205,7 @@
     <li class="spaced">
     Wrote <a href="https://github.com/joewing/ScalaPipe">ScalaPipe</a>,
     a domain-specific language embedded in Scala for writing streaming
-    applications targetting FPGAs, GPUs, and multi-core processors.
+    applications targeting FPGAs, GPUs, and multi-core processors.
     </li>
     <li class="spaced">
     Designed and built an <a href="projects/q1/">8-bit computer</a>
