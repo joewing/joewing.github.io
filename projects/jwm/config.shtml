@@ -511,6 +511,12 @@ For a list of changes since JWM v2.2, see the
             <span class="literal">0</span> indicates no maximum.
             The default is <span class="literal">0</span>.
          </li>
+         <li><span class="attribute">height</span><br/>
+            The preferred height of items in the task list.
+            <span class="literal">0</span> for no preference.
+            The default is <span class="literal">0</span>.
+            New in JWM v2.3.3.
+         </li>
       </ul>
    </li>
    <li><span class="tag">TrayButton</span><br/>
