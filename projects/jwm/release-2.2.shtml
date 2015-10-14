@@ -112,7 +112,7 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.2.1">Changes in 2.2.1</h2>
+<h2 id="v2.2.1">Changes in 2.2.1 (20140302)</h2>
 <div>
 <ul>
     <li>JWM no longer waits for an X11 event when exiting.  This
@@ -128,7 +128,7 @@ jwm-<!--#echo var="RELEASE"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.2.2">Changes in 2.2.2</h2>
+<h2 id="v2.2.2">Changes in 2.2.2 (20140315)</h2>
 <div>
 <ul>
     <li>More efficient handling of gradient backgrounds.</li>

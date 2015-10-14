@@ -212,7 +212,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.3.2">Changes in 2.3.2 (2015-09-13)</h2>
+<h2 id="v2.3.2">Changes in 2.3.2 (20150913)</h2>
 <div>
 <ul>
    <li>Restored the ability to specifiy that windows should not have
@@ -250,6 +250,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <li>Added the Chinese translation (from Christopher Meng).</li>
    <li>Added the <span class="attribute">height</span> attribute
    to <span class="tag">TaskList</span> (issue #227).</li>
+   <li>Fixed tray button mouse bindings for the scroll wheel buttons
+   (issue #229).</li>
 </ul>
 </div>
 
