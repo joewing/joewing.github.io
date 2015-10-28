@@ -173,13 +173,9 @@ and set the position as appropriate.
 </p>
 <p>
 The look of the trays is controlled primarily by the
-<span class="tag">TrayStyle</span> section.  The look of the tray buttons
-can be refined using the <span class="tag">TrayButtonStyle</span> tag.
+<span class="tag">TrayStyle</span> section.
 The look of the pager can be refined using the
-<span class="tag">PagerStyle</span> tag.  The look of the task list
-can be refined using the <span class="tag">TaskListStyle</span> tag.
-Finally, the look of the clock can be refined using the
-<span class="tag">ClockStyle</span> tag.
+<span class="tag">PagerStyle</span> tag.
 </p>
 
 <h2>Focus Model</h2>

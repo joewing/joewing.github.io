@@ -131,7 +131,7 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">Include</span> tag.
       This tag supports the same attributes as the
       <span class="tag">Menu</span> tag.
-      (new in JWM v2.3.1).
+      (new as of JWM v2.3.1).
    </li>
    <li><span class="tag">Program</span><br/>
       The <span class="tag">Program</span> tag provides a way to start
@@ -1125,189 +1125,158 @@ Within this tag the following tags are supported:
 </p>
 <table class="listing">
    <tr class="head">
-      <th>Value</th><th>Description</th><th>Grabbed?</th>
+      <th>Value</th><th>Description</th>
    </tr>
 
    <tr class="listing">
       <td><span class="literal">up</span></td>
       <td>Key to move up.</td>
-      <td>No</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">down</span></td>
       <td>Key to move down.</td>
-      <td>No</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">right</span></td>
       <td>Key to move right.</td>
-      <td>No</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">left</span></td>
       <td>Key to move left.</td>
-      <td>No</td>
    </tr>
 
    <tr class="listing">
       <td><span class="literal">escape</span></td>
       <td>Key to stop a move/resize or exit a menu.</td>
-      <td>No</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">select</span></td>
       <td>Key to make a selection.</td>
-      <td>No</td>
    </tr>
 
    <tr class="listing">
       <td><span class="literal">next</span></td>
       <td>Key to move to the next window in the task list.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">nextstacked</span></td>
       <td>Key to move to the next window in the stacking order.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">prev</span></td>
       <td>Key to move to the previous window in the task list.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">prevstacked</span></td>
       <td>Key to move to the previous window in the stacking order.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">close</span></td>
       <td>Key to close a window.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">fullscreen</span></td>
       <td>Key to toggle fullscreen.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">minimize</span></td>
       <td>Key to minimize a window.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maximize</span></td>
       <td>Key to maximize a window.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maxv</span></td>
       <td>Key to maximize a window vertically.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maxh</span></td>
       <td>Key to maximize a window horizontally.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maxtop</span></td>
       <td>Key to maximize a window to the top half of the screen.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maxbottom</span></td>
       <td>Key to maximize a window to the bottom half of the screen.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maxleft</span></td>
       <td>Key to maximize a window to the left half of the screen.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">maxright</span></td>
       <td>Key to maximize a window to the right half of the screen.</td>
-      <td>Yes</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">restore</span></td>
+      <td>Key to restore a maximized or minimized window
+      (new as of version 2.3.3).</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">shade</span></td>
       <td>Key to shade a window.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">move</span></td>
       <td>Key to move a window.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">resize</span></td>
       <td>Key to resize a window.</td>
-      <td>Yes</td>
    </tr>
 
    <tr class="listing">
       <td><span class="literal">root:</span><i>n</i></td>
       <td>Key to show root menu <i>n</i>.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">window</span></td>
       <td>Key to show the window menu for the active window.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">desktop</span><i>#</i></td>
       <td>Key to switch to a specific desktop. To use this, <i>#</i> must
       be specified in the <i>key</i> section. Then numbers from 1 to the 
       number of desktops configured are substituted for <i>#</i>.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">rdesktop</span></td>
       <td>Key to move one desktop to the right.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">ldesktop</span></td>
       <td>Key to move one desktop to the left.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">udesktop</span></td>
       <td>Key to move up one desktop.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">ddesktop</span></td>
       <td>Key to move down one desktop.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">exec:</span><i>command</i></td>
       <td>Key to execute <i>command</i>.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">restart</span></td>
       <td>Key to restart JWM.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">exit</span></td>
       <td>Key to exit JWM.</td>
-      <td>Yes</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">showtray</span></td>
       <td>Key to show trays.</td>
-      <td>Yes</td>
    </tr>
 
 </table>
 <p>
-   The &quot;grabbed&quot; field indications whether or not the key for a
-   specific action will be intercepted by the window manager.<br/>
    Note that any binding not specified in the configuration file will not
    be accessible. Further, it is possible to bind multiple key combinations
    to the same action.
@@ -1331,12 +1300,16 @@ Within this tag the following tags are supported:
       Over the minimize button, clicking minimizes the window.
       Over the maximize button, clicking toggles between maximized
       and normal.  Over the close button, clicking closes the window.
+      Over a task list, raises or minimizes the window.
+      Over a pager, changes the current desktop.
    </li>
    <li>Button 2 (typically the middle button)<br/>
       Over the maximize button, clicking toggles between vertically
       maximized and normal.
       Anywhere else on a window border, dragging while holding button 2
       will move the window.
+      Over a task list, closes the window.
+      Over a pager, changes the current desktop.
    </li>
    <li>Button 3 (typically the right button)<br/>
       Over the border, clicking shows the window menu.
@@ -1344,7 +1317,8 @@ Within this tag the following tags are supported:
       Over the maximize button, clicking toggles between horizontally
       maximized and normal.
       Over the close button, clicking closes the window.
-      Over the pager, dragging with button 3 will move a window.
+      Over a task list, shows the window menu.
+      Over a pager, dragging with button 3 will move a window.
    </li>
 </ul>
 </div>
