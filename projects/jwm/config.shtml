@@ -108,6 +108,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use for this menu. No default.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            A tooltip to use for this menu. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -141,6 +145,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to display. The default is the text of the tag.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use. No default.
          </li>
@@ -159,6 +167,10 @@ For a list of changes since JWM v2.2, see the
             The label to use for the menu. The default is
             <span class="literal">Desktops</span>.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -174,6 +186,10 @@ For a list of changes since JWM v2.2, see the
             The label to use for the menu. The default is
             <span class="literal">SendTo</span>.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -187,6 +203,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use for the menu. The default is
             <span class="literal">Stick</span>.
+         </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -202,6 +222,10 @@ For a list of changes since JWM v2.2, see the
             The label to use for the menu. The default is
             <span class="literal">Maximize</span>.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -215,6 +239,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use for the menu. The default is
             <span class="literal">Minimize</span>.
+         </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -230,6 +258,10 @@ For a list of changes since JWM v2.2, see the
             The label to use for the menu. The default is
             <span class="literal">Shade</span>.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -243,6 +275,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use for the menu. The default is
             <span class="literal">Move</span>.
+         </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -258,6 +294,10 @@ For a list of changes since JWM v2.2, see the
             The label to use for the menu. The default is
             <span class="literal">Resize</span>.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -271,6 +311,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use for the menu. The default is
             <span class="literal">Kill</span>.
+         </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -286,6 +330,10 @@ For a list of changes since JWM v2.2, see the
             The label to use for the menu. The default is
             <span class="literal">Close</span>.
          </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
+         </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
          </li>
@@ -298,6 +346,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use. The default is
             <span class="literal">Restart</span>.
+         </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use. No default.
@@ -313,6 +365,10 @@ For a list of changes since JWM v2.2, see the
          <li><span class="attribute">label</span><br/>
             The label to use. The default is
             <span class="literal">Exit</span>.
+         </li>
+         <li><span class="attribute">tooltip</span><br/>
+            The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use. No default.
@@ -1006,8 +1062,17 @@ Within this tag the following tags are supported:
 <div>
 <ul>
    <li><span class="attribute">enabled</span><br/>
-   Determine if popups are enabled. Possible values are
-   <span class="literal">true</span> and <span class="literal">false</span>.
+   Determine if popups are enabled. This is a comma-separated list of one
+   or more of the following:
+      <ul>
+         <li><span class="literal">true</span> - All enabled</li>
+         <li><span class="literal">false</span> - All disabled</li>
+         <li><span class="literal">button</span> - Tray buttons</li>
+         <li><span class="literal">clock</span> - Clocks</li>
+         <li><span class="literal">menu</span> - Menus</li>
+         <li><span class="literal">pager</span> - Pagers</li>
+         <li><span class="literal">task</span> - Task list items</li>
+      </ul>
    The default is <span class="literal">true</span>.
    </li>
    <li><span class="attribute">delay</span><br/>

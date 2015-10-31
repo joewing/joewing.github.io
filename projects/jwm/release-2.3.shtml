@@ -252,6 +252,11 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    to <span class="tag">TaskList</span> (issue #227).</li>
    <li>Fixed tray button mouse bindings for the scroll wheel buttons
    (issue #229).</li>
+   <li>Added the <span class="literal">restore</span> key binding
+   (issue #233).</li>
+   <li>Made middle-click on a task list item close the window
+   (issue #232).</li>
+   <li>Added support for tooltips in menus (issue #111).</li>
 </ul>
 </div>
 
