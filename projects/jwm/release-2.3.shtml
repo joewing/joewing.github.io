@@ -257,6 +257,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <li>Made middle-click on a task list item close the window
    (issue #232).</li>
    <li>Added support for tooltips in menus (issue #111).</li>
+   <li>Added Portuguese (Brazil) translation (from Holmes).</li>
 </ul>
 </div>
 
