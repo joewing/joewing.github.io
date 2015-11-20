@@ -410,12 +410,16 @@ For a list of changes since JWM v2.2, see the
    <li><span class="attribute">width</span><br/>
       The width of the tray. <span class="literal">0</span> indicates that
       the tray should compute an optimal width depending on what it contains
-      and the layout. <span class="literal">0</span> is the default.
+      and the layout. A negative value indicates that the width should be
+      subtracted from the width of the screen.
+      <span class="literal">0</span> is the default.
    </li>
    <li><span class="attribute">height</span><br/>
       The height of the tray. <span class="literal">0</span> indicates that
       the tray should compute an optimal height depending on what it contains
-      and the layout. <span class="literal">0</span> is the default.
+      and the layout. A negative value indicates that the height should be
+      subtracted from the height of the screen.
+      <span class="literal">0</span> is the default.
    </li>
    <li><span class="attribute">layer</span><br/>
       The layer of the tray. The default is

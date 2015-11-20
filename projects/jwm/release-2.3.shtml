@@ -264,6 +264,14 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="v2.3.4">Changes in 2.3.4 (not yet released)</h2>
+<div>
+<ul>
+   <li>Now a negative tray width/height can be specified to subtract
+   from the screen width/height (issue #250).</li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.
