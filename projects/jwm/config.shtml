@@ -681,6 +681,11 @@ For a list of changes since JWM v2.2, see the
       <td>The desktop on which windows in this group will be started.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">drag</td>
+      <td>Do not pass mouse events to the window. Instead, use the mouse
+      to move/resize the window.  New in v2.3.4.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">hmax</span></td>
       <td>Make windows in this group maximize horizontally by default.</td>
    </tr>
@@ -906,6 +911,13 @@ For a list of changes since JWM v2.2, see the
       Possible values are <span class="literal">true</span> and
       <span class="literal">false</span>. The default is
       <span class="literal">false</span>.
+   </li>
+   <li><span class="attribute">list</span><br/>
+      Determine which windows are shown in task lists.  Possible values
+      are <span class="literal">all</span> (for all windows) and
+      <span class="literal">desktop</span> (for the current desktop).
+      The default is <span class="literal">desktop</span>.
+      New in v2.3.4.
    </li>
 </ul>
 </div>
@@ -1437,6 +1449,9 @@ Within this tag the following tags are supported:
          </li>
          <li><span class="literal">image</span><br/>
             A stretched image.
+         </li>
+         <li><span class="literal">scale</span><br/>
+            A scaled image.
          </li>
          <li><span class="literal">tile</span><br/>
             A tiled image.

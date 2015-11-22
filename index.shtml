@@ -4,13 +4,24 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">20151120</div>
+<div class="newsitem">
+<p>
+Due to a few issues discovered in v2.3.3, today I released
+<a href="projects/jwm/">JWM</a> v2.3.4!  In addition to some bug fixes,
+this version includes a few new features.
+See the <a href="projects/jwm/release-2.3.shtml#v2.3.4">release notes</a>
+for more information.
+</p>
+</div>
+
 <div class="date">20151118</div>
 <div class="newsitem">
 <p>
 Today I released <a href="projects/jwm/">JWM</a> v2.3.3!
 This release includes support for menu tool tips as well
 as several bug fixes.
-See the <a href="projects/jwm/release-2.3.shtml#v2.3.2">release notes</a>
+See the <a href="projects/jwm/release-2.3.shtml#v2.3.3">release notes</a>
 for more information.
 </p>
 </div>

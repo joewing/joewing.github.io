@@ -264,11 +264,21 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.3.4">Changes in 2.3.4 (not yet released)</h2>
+<h2 id="v2.3.4">Changes in 2.3.4 (20151122)</h2>
 <div>
 <ul>
    <li>Now a negative tray width/height can be specified to subtract
    from the screen width/height (issue #250).</li>
+   <li>Added the <span class="attribute">list</span> configuration option
+   to <span class="tag">TrayStyle</span> to allow displaying windows from
+   all desktops (<span class="literal">all</span>) or only the current
+   desktop (the default, <span class="literal">desktop</span>) in task
+   lists.</li>
+   <li>Improved scaling of JPEG and SVG images (issue #253).</li>
+   <li>Fixed the rendering of fixed-aspect background images.</li>
+   <li>Added the <span class="literal">drag</span> group option
+   (issue #235).</li>
+   <li>Fixed rendering of window borders without a title bar.</li>
 </ul>
 </div>
 
