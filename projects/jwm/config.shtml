@@ -681,7 +681,7 @@ For a list of changes since JWM v2.2, see the
       <td>The desktop on which windows in this group will be started.</td>
    </tr>
    <tr class="listing">
-      <td><span class="literal">drag</td>
+      <td><span class="literal">drag</span></td>
       <td>Do not pass mouse events to the window. Instead, use the mouse
       to move/resize the window.  New in v2.3.4.</td>
    </tr>
@@ -1497,6 +1497,14 @@ Within this tag the following tags are supported:
       <td><span class="tag">ButtonMaxActivve</span></td>
       <td>An icon to use for the maximize button on maximized client windows
       instead of the default.</td>
+      <td> </td>
+      <td> </td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">ButtonMenu</span></td>
+      <td>An icon to use for the menu button on client windows instead
+      of the default.  This is used if the client window does not specify
+      an icon.  New in v2.3.5.</td>
       <td> </td>
       <td> </td>
    </tr>
