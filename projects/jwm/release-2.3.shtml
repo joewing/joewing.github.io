@@ -15,17 +15,17 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <h2>New Features</h2>
 <div>
 <ul>
-    <li>Added support for client requested XRaiseWindow (issue #117).</li>
+    <li>Added support for client requested XRaiseWindow (issue <a href="http://github.com/joewing/jwm/issues/117">#117</a>).</li>
     <li>Added native language support for the confirm dialog.</li>
-    <li>Added support for _NET_RESTACK_WINDOW (issue #118).</li>
+    <li>Added support for _NET_RESTACK_WINDOW (issue <a href="http://github.com/joewing/jwm/issues/118">#118</a>).</li>
     <li>Added key binding to send the current window to a
-    different desktop (issue #119).</li>
+    different desktop (issue <a href="http://github.com/joewing/jwm/issues/119">#119</a>).</li>
     <li>Support the specification of an alternate configuration
     file (patch from Brian Bidulock)</li>
     <li>Added <span class="tag">Corner</span> option to configure the
     roundedness of windows.</li>
     <li>Updated the look of borders around menus and trays.</li>
-    <li>Add support for _NET_WM_MOVERESIZE (issue #142).</li>
+    <li>Add support for _NET_WM_MOVERESIZE (issue <a href="http://github.com/joewing/jwm/issues/142">#142</a>).</li>
     <li>Add the <span class="literal">fullscreen</span>
     group option (patch from George Shaw).</li>
     <li>Made window style configuration more consistent (may break
@@ -36,12 +36,12 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         <span class="literal">nomax</span>,
         <span class="literal">noclose</span>,
         <span class="literal">nomove</span>,
-        <span class="literal">noresize</span> (issue #152), and
-        <span class="literal">nofullscreen</span> (issue #163).
+        <span class="literal">noresize</span> (issue <a href="http://github.com/joewing/jwm/issues/152">#152</a>), and
+        <span class="literal">nofullscreen</span> (issue <a href="http://github.com/joewing/jwm/issues/163">#163</a>).
     </li>
     <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">MenuStyle</span> to specify the color
-        of menu outlines (issue #31).</li>
+        of menu outlines (issue <a href="http://github.com/joewing/jwm/issues/31">#31</a>).</li>
     <li>Added the <span class="tag">Outline</span> tag to
         <span class="tag">TrayStyle</span> to specify the color
         of tray outlines.</li>
@@ -51,7 +51,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <li>Added the ability to swallow the same client into a tray
     multiple times.</li>
     <li>Added the ability to specify where the tray is hidden when
-    auto-hide is enabled (issue #34).</li>
+    auto-hide is enabled (issue <a href="http://github.com/joewing/jwm/issues/34">#34</a>).</li>
     <li>Menu <span class="tag">Include</span>s are now loaded
     dynamically when a menu is shown rather than when JWM starts.</li>
     <li>Added the
@@ -59,7 +59,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
         <span class="literal">sendd</span>,
         <span class="literal">sendl</span> and
         <span class="literal">sendr</span>
-        key bindings to send a window to a different desktop (issue #119).
+        key bindings to send a window to a different desktop (issue <a href="http://github.com/joewing/jwm/issues/119">#119</a>).
     </li>
     <li>Added the
         <span class="literal">maxh</span>,
@@ -72,7 +72,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     </li>
     <li>
       Added the ability to have separate actions per mouse button for
-      tray buttons (issue #171).  This is accomplished using the
+      tray buttons (issue <a href="http://github.com/joewing/jwm/issues/171">#171</a>).  This is accomplished using the
       <span class="tag">Button</span> tag.  For example:
 <div class="code">
   &lt;<span class="tag">TrayButton</span>&nbsp;<span class="attribute">label</span>=<span class="literal">&quot;My Button&quot;</span>&gt;<br/>
@@ -89,8 +89,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    </li>
    <li>
       Add the ability to have separate actions per mouse button for
-      clock tray components (issue #171) and the ability to have
-      clock tray components run actions like tray buttons (issue #172).
+      clock tray components (issue <a href="http://github.com/joewing/jwm/issues/171">#171</a>) and the ability to have
+      clock tray components run actions like tray buttons (issue <a href="http://github.com/joewing/jwm/issues/172">#172</a>).
    </li>
    <li>
       Add support for more than 10 menus. Now 26 additional menus can be
@@ -162,21 +162,21 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <div>
 <ul>
     <li>ICCCM 2.0 WM_S selection compliance (patch from Brian Bidulock).</li>
-    <li>Fixed client window position after maximize/restore (issue #115,
+    <li>Fixed client window position after maximize/restore (issue <a href="http://github.com/joewing/jwm/issues/115">#115</a>,
         patch from Biran Bidulock).</li>
-    <li>Fixed window mapping bug with show desktop (issue #114).</li>
-    <li>Give focus to the top-most window after show desktop (issue #64).</li>
+    <li>Fixed window mapping bug with show desktop (issue <a href="http://github.com/joewing/jwm/issues/114">#114</a>).</li>
+    <li>Give focus to the top-most window after show desktop (issue <a href="http://github.com/joewing/jwm/issues/64">#64</a>).</li>
     <li>Fix uninitialized memory when loading images
     (patch from Brian Bidulock).</li>
     <li>Fix overlapping string issue with FriBidi
     (patch from Brian Bidulock).</li>
-    <li>Fixed non-UTF8 locales (issue #56).</li>
-    <li>Fixed transparency issue with some applications (issue #130).</li>
+    <li>Fixed non-UTF8 locales (issue <a href="http://github.com/joewing/jwm/issues/56">#56</a>).</li>
+    <li>Fixed transparency issue with some applications (issue <a href="http://github.com/joewing/jwm/issues/130">#130</a>).</li>
     <li>Fixed focus after key events (patch from Brian Bidulock).</li>
-    <li>Fixed loss of focus after restoring windows (issue #131).</li>
+    <li>Fixed loss of focus after restoring windows (issue <a href="http://github.com/joewing/jwm/issues/131">#131</a>).</li>
     <li>Fix setting of _NET_WM_STATE_HIDDEN when a window is
-    minimized (issue #133, patch from Brian Bidulock).</li>
-    <li>Grab input focus at startup if not already set (issue #148).</li>
+    minimized (issue <a href="http://github.com/joewing/jwm/issues/133">#133</a>, patch from Brian Bidulock).</li>
+    <li>Grab input focus at startup if not already set (issue <a href="http://github.com/joewing/jwm/issues/148">#148</a>).</li>
 </ul>
 </div>
 
@@ -220,7 +220,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    option).</li>
    <li>JWM will now try several common extensions when loading icons.</li>
    <li>Fixed the height and default label for dynamic menus
-   (issue #188).</li>
+   (issue <a href="http://github.com/joewing/jwm/issues/188">#188</a>).</li>
    <li>Improved handling of colormaps for pseudo-color displays.</li>
    <li>Fixed handling of WM_STATE on big-endian machines.</li>
    <li>Fixed an issue with menus getting stuck open.</li>
@@ -235,10 +235,10 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    in <span class="tag">MenuStyle</span> and
    <span class="tag">TrayStyle</span> respectively.</li>
    <li>Fixed an issue where JWM key bindings would not be available
-   to applications (issue #201).</li>
+   to applications (issue <a href="http://github.com/joewing/jwm/issues/201">#201</a>).</li>
    <li>JWM now highlights the first menu item when opening a menu
-   with the keyboard (issue #102).</li>
-   <li>Add the ability to selectively enable popups (issue #189).</li>
+   with the keyboard (issue <a href="http://github.com/joewing/jwm/issues/102">#102</a>).</li>
+   <li>Add the ability to selectively enable popups (issue <a href="http://github.com/joewing/jwm/issues/189">#189</a>).</li>
    <li>Various other fixes.</li>
 </ul>
 </div>
@@ -246,21 +246,21 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <h2 id="v2.3.3">Changes in 2.3.3 (20151118)</h2>
 <div>
 <ul>
-   <li>JWM windows now set _NET_WM_WINDOW_TYPE (issue #223).</li>
+   <li>JWM windows now set _NET_WM_WINDOW_TYPE (issue <a href="http://github.com/joewing/jwm/issues/223">#223</a>).</li>
    <li>Added the Chinese translation (from Christopher Meng).</li>
    <li>Added the <span class="attribute">height</span> attribute
-   to <span class="tag">TaskList</span> (issue #227).</li>
+   to <span class="tag">TaskList</span> (issue <a href="http://github.com/joewing/jwm/issues/227">#227</a>).</li>
    <li>Fixed tray button mouse bindings for the scroll wheel buttons
-   (issue #229).</li>
+   (issue <a href="http://github.com/joewing/jwm/issues/229">#229</a>).</li>
    <li>Added the <span class="literal">restore</span> key binding
-   (issue #233).</li>
+   (issue <a href="http://github.com/joewing/jwm/issues/233">#233</a>).</li>
    <li>Made middle-click on a task list item close the window
-   (issue #232).</li>
-   <li>Added support for tooltips in menus (issue #111).</li>
+   (issue <a href="http://github.com/joewing/jwm/issues/232">#232</a>).</li>
+   <li>Added support for tooltips in menus (issue <a href="http://github.com/joewing/jwm/issues/111">#111</a>).</li>
    <li>Added Portuguese (Brazil) translation (from Holmes).</li>
    <li>Fixed an issue where the dock would change size if its size
-   was not explicitly set (issue #238).</li>
-   <li>Fixed the height calculation of vertical trays (issue #228).</li>
+   was not explicitly set (issue <a href="http://github.com/joewing/jwm/issues/238">#238</a>).</li>
+   <li>Fixed the height calculation of vertical trays (issue <a href="http://github.com/joewing/jwm/issues/228">#228</a>).</li>
 </ul>
 </div>
 
@@ -268,16 +268,16 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <div>
 <ul>
    <li>Now a negative tray width/height can be specified to subtract
-   from the screen width/height (issue #250).</li>
+   from the screen width/height (issue <a href="http://github.com/joewing/jwm/issues/250">#250</a>).</li>
    <li>Added the <span class="attribute">list</span> configuration option
    to <span class="tag">TrayStyle</span> to allow displaying windows from
    all desktops (<span class="literal">all</span>) or only the current
    desktop (the default, <span class="literal">desktop</span>) in task
    lists.</li>
-   <li>Improved scaling of JPEG and SVG images (issue #253).</li>
+   <li>Improved scaling of JPEG and SVG images (issue <a href="http://github.com/joewing/jwm/issues/253">#253</a>).</li>
    <li>Fixed the rendering of fixed-aspect background images.</li>
    <li>Added the <span class="literal">drag</span> group option
-   (issue #235).</li>
+   (issue <a href="http://github.com/joewing/jwm/issues/235">#235</a>).</li>
    <li>Fixed rendering of window borders without a title bar.</li>
 </ul>
 </div>
@@ -285,9 +285,13 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <h2 id="v2.3.5">Changes in 2.3.5 (not yet released)</h2>
 <div>
 <ul>
-   <li>Faster icon loading (issue #258).</li>
+   <li>Faster icon loading (issue <a href="http://github.com/joewing/jwm/issues/258">#258</a>).</li>
    <li>Configurable default window icon via the
-   <span class="tag">ButtonMenu</span> tag (issue #246).</li>
+   <span class="tag">ButtonMenu</span> tag (issue <a href="http://github.com/joewing/jwm/issues/246">#246</a>).</li>
+   <li>Added the <span class="literal">ilist</span> and
+   <span class="literal">ipager</span> group options to ignore
+   program-specified task list and pager settings
+   (issue <a href="https://github.com/joewing/jwm/issues/263">#263</a>).</li>
 </ul>
 </div>
 
