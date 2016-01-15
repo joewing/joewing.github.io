@@ -292,6 +292,14 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <span class="literal">ipager</span> group options to ignore
    program-specified task list and pager settings
    (issue <a href="https://github.com/joewing/jwm/issues/263">#263</a>).</li>
+   <li>Made it so clicking a submenu does not close the menu
+   (issue <a href="https://github.com/joewing/jwm/issues/264">#264</a>).</li>
+   <li>Made the tray respond to clicks at screen edges
+   (issue <a href="https://github.com/joewing/jwm/issues/270">#270</a>).</li>
+   <li>Made tiled window placement (the <span class="literal">tiled</span>
+   group option) minimize overlap if no window position can be found with
+   no overlap (issue
+   <a href="https://github.com/joewing/jwm/issues/269">#269</a>).</li>
 </ul>
 </div>
 
