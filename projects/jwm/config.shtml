@@ -1340,6 +1340,22 @@ Within this tag the following tags are supported:
       <td>Key to move down one desktop.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">sendl</span></td>
+      <td>Send the active window left.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">sendr</span></td>
+      <td>Send the active window right.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">sendu</span></td>
+      <td>Send the active window up.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">sendd</span></td>
+      <td>Send the active window down.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">exec:</span><i>command</i></td>
       <td>Key to execute <i>command</i>.</td>
    </tr>
