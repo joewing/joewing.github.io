@@ -285,9 +285,11 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <h2 id="v2.3.5">Changes in 2.3.5 (not yet released)</h2>
 <div>
 <ul>
-   <li>Faster icon loading (issue <a href="http://github.com/joewing/jwm/issues/258">#258</a>).</li>
+   <li>Faster icon loading (issue
+   <a href="http://github.com/joewing/jwm/issues/258">#258</a>).</li>
    <li>Configurable default window icon via the
-   <span class="tag">ButtonMenu</span> tag (issue <a href="http://github.com/joewing/jwm/issues/246">#246</a>).</li>
+   <span class="tag">ButtonMenu</span> tag (issue
+   <a href="http://github.com/joewing/jwm/issues/246">#246</a>).</li>
    <li>Added the <span class="literal">ilist</span> and
    <span class="literal">ipager</span> group options to ignore
    program-specified task list and pager settings
@@ -300,6 +302,15 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    group option) minimize overlap if no window position can be found with
    no overlap (issue
    <a href="https://github.com/joewing/jwm/issues/269">#269</a>).</li>
+   <li>Removed exit confirmation when exit is invoked from the command
+   line (issue
+   <a href="https://github.com/joewing/jwm/issues/275">#275</a>).</li>
+   <li>Now maximized windows restore when being dragged.</li>
+   <li>Restored the <span class="tag">ClockStyle</span> tag to allow setting
+   a custom font and color for clocks (issue
+   <a href="https://github.com/joewing/jwm/issues/276">#276</a>).</li>
+   <li>Fixed layout and mouse location tracking of tray items for
+   trays with lots of components.</li>
 </ul>
 </div>
 
