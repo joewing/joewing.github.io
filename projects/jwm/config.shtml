@@ -20,6 +20,7 @@ For a list of changes since JWM v2.2, see the
    <li><a href="#trays">Trays</a></li>
    <li><a href="#groups">Group Settings</a></li>
    <li><a href="#window">Window Style</a></li>
+   <li><a href="#clock">Clock Style</a></li>
    <li><a href="#tray">Tray Style</a></li>
    <li><a href="#pager">Pager Style</a></li>
    <li><a href="#menu">Menu Style</a></li>
@@ -889,6 +890,30 @@ For a list of changes since JWM v2.2, see the
             See <a href="#colors">Colors</a>.
          </li>
       </ul>
+   </li>
+</ul>
+</div>
+
+<h2 id="clock">Clock Style</h2>
+<p>
+   The <span class="tag">ClockStyle</span> tag controls the look of clocks
+   on the tray.  New in v2.3.5.
+   Within this tag the following tags are supported:
+</p>
+<div>
+<ul>
+   <li><span class="tag">Font</span><br/>
+      The font to use.
+      See <a href="fonts.shtml">Fonts</a>.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+   </li>
+   <li><span class="tag">Background</span><br/>
+      The background color. See <a href="#colors">Colors</a>.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+   </li>
+   <li><span class="tag">Foreground</span><br/>
+      The text color. See <a href="#colors">Colors</a>.
+      Inherited from <span class="tag">TrayStyle</span> by default.
    </li>
 </ul>
 </div>
