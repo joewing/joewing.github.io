@@ -620,13 +620,16 @@ For a list of changes since JWM v2.2, see the
 
 <h2 id="includes">Includes</h2>
 <p>
-   Other configuration files may be included under the
-   <span class="tag">JWM</span> tag via the
+   Other configuration files or the output of programs may be included under
+   the <span class="tag">JWM</span> tag via the
    <span class="tag">Include</span> tag. The text of this tag
-   specifies the location of additional configuration file. The path
-   may be relative to the location JWM was started or be an absolute
-   path. The file at that location is read. The format of the configuration
-   file is the same as the main configuration file.
+   specifies the location of additional configuration file or a program
+   to execute. The path may be relative to the location JWM was started or
+   be an absolute path. The file at that location is read. If the text
+   starts with <span class="literal">exec:</span>, then the specified
+   program is run.  The format of the configuration
+   file is the same as the main configuration file.<br>
+   The ability to use the output of a program is new as of JWM v2.3.5.
 </p>
 
 <h2 id="groups">Group Settings</h2>

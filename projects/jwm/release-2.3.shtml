@@ -311,6 +311,9 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <a href="https://github.com/joewing/jwm/issues/276">#276</a>).</li>
    <li>Fixed layout and mouse location tracking of tray items for
    trays with lots of components.</li>
+   <li>Added the ability to use the output of a program for
+   <span class="tag">Include</span> (issue
+   <a href="https://github.com/joewing/jwm/issues/291">#291</a>).</li>
 </ul>
 </div>
 
