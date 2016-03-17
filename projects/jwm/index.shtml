@@ -4,6 +4,11 @@
 <!--#include file="snapshot-inc.shtml"-->
 <!--#include file="release-inc.shtml"-->
 
+<p style="text-align:center">
+<img src="jwm-blue.svg" alt="JWM" width="300">
+</p>
+<br>
+
 <h1><!--#echo var="TITLE"--></h1>
 
 <p id="description">
