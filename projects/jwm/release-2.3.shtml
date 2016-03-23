@@ -314,6 +314,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
    <li>Added the ability to use the output of a program for
    <span class="tag">Include</span> (issue
    <a href="https://github.com/joewing/jwm/issues/291">#291</a>).</li>
+   <li>Added the <span class="literal">fixed</span> group option (issue
+   <a href="https://github.com/joewing/jwm/issues/209">#209</a>).</li>
 </ul>
 </div>
 

@@ -690,6 +690,13 @@ For a list of changes since JWM v2.2, see the
       to move/resize the window.  New in v2.3.4.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">fixed</span></td>
+      <td>Fix the windows in this group to the current desktop.
+      This will cause the desktop to change when the window is raised
+      rather than the default behavior of moving the window to the current
+      desktop.  New in v2.3.5.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">hmax</span></td>
       <td>Make windows in this group maximize horizontally by default.</td>
    </tr>
