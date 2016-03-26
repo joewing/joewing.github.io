@@ -282,7 +282,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.3.5">Changes in 2.3.5 (not yet released)</h2>
+<h2 id="v2.3.5">Changes in 2.3.5 (20160326)</h2>
 <div>
 <ul>
    <li>Faster icon loading (issue
