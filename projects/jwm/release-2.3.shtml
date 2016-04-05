@@ -319,6 +319,28 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="2.3.6">Changes in 2.3.6 (not yet released)</h2>
+<div>
+<ul>
+    <li>Auto-maximization of windows when the mouse is brought to the edge
+    of the screen (issue
+    <a href="https://github.com/joewing/jwm/issues/49">#49</a>).  This
+    feature is now enabled by default, but can be disabled via the
+    <span class="literal">noaerosnap</span> group option.
+    </li>
+    <li>Added Traditional Chinese translation (from Jim Tsai).</li>
+    <li>Added the <span class="tag">TaskListStyle</span> and
+    <span class="tag">TrayButtonStyle</span> tags to control the look
+    of task lists and tray buttons.  These were removed in v2.3.0, but
+    are now back (issue
+    <a href="https://github.com/joewing/jwm/issues/276">#276</a>).
+    </li>
+    <li>Fixed rendering of gradient highlights on menus.</li>
+    <li>Changed the default configuration to explicitly set a 24-hour
+    clock format.</li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.

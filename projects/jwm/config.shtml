@@ -22,6 +22,8 @@ For a list of changes since JWM v2.2, see the
    <li><a href="#window">Window Style</a></li>
    <li><a href="#clock">Clock Style</a></li>
    <li><a href="#tray">Tray Style</a></li>
+   <li><a href="#tasklist">Task List Style</a></li>
+   <li><a href="#traybutton">Tray Button Style</a></li>
    <li><a href="#pager">Pager Style</a></li>
    <li><a href="#menu">Menu Style</a></li>
    <li><a href="#popup">Popup Style</a></li>
@@ -726,8 +728,16 @@ For a list of changes since JWM v2.2, see the
       <td>Make windows in this group minimized.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">noaerosnap</span></td>
+      <td>Disable auto-maximization.  New in v2.3.6.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">noborder</span></td>
       <td>Disables the border for windows in this group.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">noclose</span></td>
+      <td>Hides the close button for windows in this group.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">nofocus</span></td>
@@ -735,16 +745,12 @@ For a list of changes since JWM v2.2, see the
       mapped.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">nofullscreen</span></td>
+      <td>Prevents windows in this group from being fullscreen.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">nolist</span></td>
       <td>Causes the tray to ignore windows in this group.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">nopager</span></td>
-      <td>Causes the pager to ignore windows in this group.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">noshade</span></td>
-      <td>Disallows shading for windows in this group.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">nomax</span></td>
@@ -755,20 +761,20 @@ For a list of changes since JWM v2.2, see the
       <td>Disallows minimization for windows in this group.</td>
    </tr>
    <tr class="listing">
-      <td><span class="literal">noclose</span></td>
-      <td>Hides the close button for windows in this group.</td>
-   </tr>
-   <tr class="listing">
       <td><span class="literal">nomove</span></td>
       <td>Prevents windows in this group from being moved.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">nopager</span></td>
+      <td>Causes the pager to ignore windows in this group.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">noresize</span></td>
       <td>Prevents windows in this group from being resized.</td>
    </tr>
    <tr class="listing">
-      <td><span class="literal">nofullscreen</span></td>
-      <td>Prevents windows in this group from being fullscreen.</td>
+      <td><span class="literal">noshade</span></td>
+      <td>Disallows shading for windows in this group.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">notitle</span></td>
@@ -985,6 +991,9 @@ Within this tag the following tags are supported:
              The default active foreground color for items on the tray.
              See <a href="#colors">Colors</a>.
           </li>
+          <li><span class="tag">Outline</span><br/>
+             The active tray outline color. See <a href="#colors">Colors</a>.
+          </li>
       </ul>
    </li>
    <li><span class="tag">Opacity</span><br/>
@@ -993,6 +1002,112 @@ Within this tag the following tags are supported:
       Note that a composite manager, such as
       <a href="https://github.com/chjj/compton">compton</a>, is required
       for this.
+   </li>
+</ul>
+</div>
+
+<h2 id="tasklist">Task List Style</h2>
+<p>
+   The <span class="tag">TaskListStyle</span> tag controls the look
+   of task lists.  New in v2.3.6.
+</p>
+<p>
+   Within this tag the following tags are supported:
+</p>
+<div>
+<ul>
+   <li><span class="tag">Font</span><br/>
+      The font used for program names.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="fonts.shtml">Fonts</a>.
+   </li>
+   <li><span class="tag">Foreground</span><br/>
+      The foreground color of the task list.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">Background</span><br/>
+      The background color of the task list. Gradients are supported.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">Outline</span><br/>
+      The outline color.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">Active</span><br/>
+      Colors for active items in the list.
+      Within this tag, the following tags are supported:
+      <ul>
+          <li><span class="tag">Background</span><br/>
+             The default active background color.
+             Inherited from <span class="tag">TrayStyle</span> by default.
+             See <a href="#colors">Colors</a>.
+          </li>
+          <li><span class="tag">Foreground</span><br/>
+             The default active foreground color.
+             Inherited from <span class="tag">TrayStyle</span> by default.
+             See <a href="#colors">Colors</a>.
+          </li>
+          <li><span class="tag">Outline</span><br/>
+             The outline color for active items.
+             Inherited from <span class="tag">TrayStyle</span> by default.
+             See <a href="#colors">Colors</a>.
+          </li>
+      </ul>
+   </li>
+</ul>
+</div>
+
+<h2 id="traybutton">Tray Button Style</h2>
+<p>
+   The <span class="tag">TrayButtonStyle</span> tag controls the look
+   of tray buttons on the tray.  Within this tag, the following tags
+   are supported.  New in v2.3.6.
+</p>
+<div>
+<ul>
+   <li><span class="tag">Font</span><br/>
+      The font used for tray button labels.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="fonts.shtml">Fonts</a>.
+   </li>
+   <li><span class="tag">Foreground</span><br/>
+      The foreground color for tray button labels.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">Background</span><br/>
+      The background color of tray buttons. Gradients are supported.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">Outline</span><br/>
+      The outline color.
+      Inherited from <span class="tag">TrayStyle</span> by default.
+      See <a href="#colors">Colors</a>.
+   </li>
+   <li><span class="tag">Active</span><br/>
+      Colors for pressed tray buttons.
+      Within this tag, the following tags are supported:
+      <ul>
+          <li><span class="tag">Background</span><br/>
+             The default active background color.
+             Inherited from <span class="tag">TrayStyle</span> by default.
+             See <a href="#colors">Colors</a>.
+          </li>
+          <li><span class="tag">Foreground</span><br/>
+             The default active foreground color.
+             Inherited from <span class="tag">TrayStyle</span> by default.
+             See <a href="#colors">Colors</a>.
+          </li>
+          <li><span class="tag">Outline</span><br/>
+             The active outline color.
+             Inherited from <span class="tag">TrayStyle</span> by default.
+             See <a href="#colors">Colors</a>.
+          </li>
+      </ul>
    </li>
 </ul>
 </div>
