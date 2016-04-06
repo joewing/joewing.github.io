@@ -851,9 +851,9 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">128</span>.
    </li>
    <li><span class="tag">Height</span><br/>
-      The height of window title bars in pixels. The default is
-      <span class="literal">20</span>, the minimum is
-      <span class="literal">2</span>, and the maximum is
+      The height of window title bars in pixels. The size of the
+      title font is used by default.  The minimum is
+      <span class="literal">1</span>, and the maximum is
       <span class="literal">256</span>.
    </li>
    <li><span class="tag">Corner</span><br/>
