@@ -670,6 +670,10 @@ For a list of changes since JWM v2.2, see the
       <th>Option</th><th>Description</th>
    </tr>
    <tr class="listing">
+      <td><span class="literal">aerosnap</span></td>
+      <td>Enable auto-maximization.  New in v2.3.6.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">border</span></td>
       <td>Enables the border on windows in this group.</td>
    </tr>
@@ -726,10 +730,6 @@ For a list of changes since JWM v2.2, see the
    <tr class="listing">
       <td><span class="literal">minimized</span></td>
       <td>Make windows in this group minimized.</td>
-   </tr>
-   <tr class="listing">
-      <td><span class="literal">noaerosnap</span></td>
-      <td>Disable auto-maximization.  New in v2.3.6.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">noborder</span></td>
