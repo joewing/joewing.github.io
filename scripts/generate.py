@@ -100,7 +100,7 @@ def process_dir(dir):
 
 
 def main():
-    process_dir('.')
+    process_dir('..')
 
 
 if __name__ == '__main__':
