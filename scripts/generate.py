@@ -1,12 +1,14 @@
 import os
 import re
+import sys
 
 
 ssi_re = re.compile('(.*)<!--#([^\s]+)\s+(.+)-->(.*)')
 include_re = re.compile('(.+)=\"(.+)\"')
 var_re = re.compile('.*var=\"([^\"]+)\".*')
 value_re = re.compile('.*value=\"([^\"]*)\".*')
-shtml_re = re.compile('(.*)href=\"(.+)\.shtml\">(.*)')
+
+to_rename = set()
 
 
 def get_name(file):
@@ -70,24 +72,17 @@ def process_content(dir, file, vars, dest):
                 dest.write(before)
                 handle_directive(dir, key, value, vars, dest)
                 dest.write(after)
-                continue
-            m = shtml_re.match(line)
-            if m:
-                before = m.group(1)
-                link = m.group(2)
-                after = m.group(3)
-                dest.write(before)
-                dest.write('href=\"{}.html\">'.format(link))
-                dest.write(after)
-                continue
-            dest.write(line)
+            else:
+                dest.write(line)
 
 
 def process_file(dir, file):
     print 'processing {}'.format(file)
     vars = {}
-    with open(get_name(file), 'w') as dest:
+    temp_name = get_name(file)
+    with open(temp_name, 'w') as dest:
         process_content(dir, file, vars, dest)
+    to_rename.add((file, temp_name))
 
 
 def process_dir(dir):
@@ -100,7 +95,10 @@ def process_dir(dir):
 
 
 def main():
-    process_dir('..')
+    process_dir('.')
+    for old, new in to_rename:
+        os.remove(old)
+        os.rename(new, old)
 
 
 if __name__ == '__main__':
