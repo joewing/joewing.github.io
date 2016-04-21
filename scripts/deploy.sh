@@ -27,7 +27,7 @@ cd $DIR
 rm -rf $JWM_BUILD
 
 # Sync with the main website.
-rsync -av --delete $TMPDIR/ $WWWROOT
+rsync -av $TMPDIR/ $WWWROOT
 
 # Clean up
 rm -rf $TMPDIR
