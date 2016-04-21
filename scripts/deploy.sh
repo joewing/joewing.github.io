@@ -28,6 +28,7 @@ rm -rf $JWM_BUILD
 
 # Sync with the main website.
 rsync -av $TMPDIR/ $WWWROOT
+mkdir -p $WWWROOT/stats
 
 # Clean up
 rm -rf $TMPDIR
