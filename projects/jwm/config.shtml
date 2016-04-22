@@ -1682,6 +1682,13 @@ Within this tag the following tags are supported:
       <td> </td>
    </tr>
    <tr class="listing">
+      <td><span class="tag">DefaultIcon</span></td>
+      <td>The default icon to use for windows that do not specify an
+      icon or have one explicitly configured.  New in 2.3.6.</td>
+      <td> </td>
+      <td> </td>
+   </tr>
+   <tr class="listing">
       <td><span class="tag">DoubleClickDelta</span></td>
       <td>The number of pixels the mouse can move during a double click</td>
       <td><span class="literal">2</span></td>

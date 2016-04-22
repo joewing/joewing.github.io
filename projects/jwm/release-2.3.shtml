@@ -342,6 +342,10 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <a href="http://www.openbsd.org/">OpenBSD</a></li>
     <li>Made the default window title height match the font size used
     in window titles.</li>
+    <li>Added the ability to set a default icon using the
+    <span class="tag">DefaultIcon</span> tag (issue
+    <a href="https://github.com/joewing/jwm/issues/310">#310</a>).
+    </li>
 </ul>
 </div>
 
