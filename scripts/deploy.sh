@@ -1,9 +1,6 @@
 #!/bin/sh
 
-set -xe
-
-JWM_REPO=file:///$HOME/devel/jwm
-JWM_BUILD=/tmp/jwm
+set -e
 
 WWWROOT=/var/www/htdocs/joewing.net
 SRCDIR=`pwd`/`dirname $0`/..
@@ -17,17 +14,8 @@ cp -r $SRCDIR/* $TMPDIR
 cd $TMPDIR
 python scripts/generate.py
 
-# Generate JWM documentation
-rm -rf $JWM_BUILD
-git clone $JWM_REPO $JWM_BUILD
-cd $JWM_BUILD
-doxygen
-mv doc/html $TMPDIR/projects/jwm/doc
-cd $DIR
-rm -rf $JWM_BUILD
-
 # Sync with the main website.
-rsync -av $TMPDIR/ $WWWROOT
+cp -r $TMPDIR/* $WWWROOT
 mkdir -p $WWWROOT/stats
 mkdir -p $WWWROOT/snapshots
 
