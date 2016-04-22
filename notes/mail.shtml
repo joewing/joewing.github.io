@@ -58,7 +58,7 @@ remounting the associated file systems (or rebooting).
     from ports:
 </p>
 <pre class="code">
-    doas pkg_add dovecot procmail spampd
+doas pkg_add dovecot procmail spampd
 </pre>
 
 <h2>Generate Keys</h2>
@@ -67,19 +67,19 @@ Run the following commands to generate keys for both smtpd and dovecot.
 Note that the "openssl req" commands may prompt for input.
 </p>
 <pre class="code">
-    doas openssl genrsa -out /etc/ssl/private/smtp.key 4096
-    doas openssl req -new -x509 -key /etc/ssl/private/smtp.key \
-                     -out /etc/ssl/smtp.crt
-    doas chmod 600 /etc/ssl/smtp.crt
-    doas chmod 600 /etc/ssl/private/smtp.key
+doas openssl genrsa -out /etc/ssl/private/smtp.key 4096
+doas openssl req -new -x509 -key /etc/ssl/private/smtp.key \
+                 -out /etc/ssl/smtp.crt
+doas chmod 600 /etc/ssl/smtp.crt
+doas chmod 600 /etc/ssl/private/smtp.key
 
-    doas openssl genrsa -out /etc/ssl/private/dovecot.key 4096
-    doas openssl req -new -x509 -key /etc/ssl/private/dovecot.key \
-                     -out /etc/ssl/dovecot.crt
-    doas chmod 600 /etc/ssl/dovecot.crt
-    doas chmod 600 /etc/ssl/private/dovecot.key
-    doas chown _dovecot /etc/ssl/dovecot.crt
-    doas chown _dovecot /etc/ssl/private/dovecot.key
+doas openssl genrsa -out /etc/ssl/private/dovecot.key 4096
+doas openssl req -new -x509 -key /etc/ssl/private/dovecot.key \
+                 -out /etc/ssl/dovecot.crt
+doas chmod 600 /etc/ssl/dovecot.crt
+doas chmod 600 /etc/ssl/private/dovecot.key
+doas chown _dovecot /etc/ssl/dovecot.crt
+doas chown _dovecot /etc/ssl/private/dovecot.key
 </pre>
 
 <h2>Configure smtpd</h2>
@@ -159,8 +159,8 @@ dovecot:\
 <h2>Enable Services</h2>
 Run the following to start the services at boot:
 <pre class="code">
-    doas rcctl enable dovecot
-    doas rcctl enable spampd
+doas rcctl enable dovecot
+doas rcctl enable spampd
 </pre>
 Note that smtpd is enabled by default.
 
