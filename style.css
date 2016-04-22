@@ -143,6 +143,14 @@ div.code {
    white-space:nowrap;
 }
 
+pre.code {
+   border: dashed black 1px;
+   padding: 2px 5px 2px 5px;
+   font-family: courier;
+   color: black;
+   background-color: #EEE;
+}
+
 tr.head {
    background: #248;
    color: white;
