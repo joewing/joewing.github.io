@@ -63,31 +63,23 @@ doas pkg_add dovecot procmail spampd
 
 <h2>Generate Keys</h2>
 <p>
-Run the following commands to generate keys for both smtpd and dovecot.
-Note that the "openssl req" commands may prompt for input.
+Run the following commands to generate keys for smtpd and dovecot.
+Note that the "openssl req" command may prompt for input.
 </p>
 <pre class="code">
-doas openssl genrsa -out /etc/ssl/private/smtp.key 4096
-doas openssl req -new -x509 -key /etc/ssl/private/smtp.key \
-                 -out /etc/ssl/smtp.crt
-doas chmod 600 /etc/ssl/smtp.crt
-doas chmod 600 /etc/ssl/private/smtp.key
-
-doas openssl genrsa -out /etc/ssl/private/dovecot.key 4096
-doas openssl req -new -x509 -key /etc/ssl/private/dovecot.key \
-                 -out /etc/ssl/dovecot.crt
-doas chmod 600 /etc/ssl/dovecot.crt
-doas chmod 600 /etc/ssl/private/dovecot.key
-doas chown _dovecot /etc/ssl/dovecot.crt
-doas chown _dovecot /etc/ssl/private/dovecot.key
+doas openssl genrsa -out /etc/ssl/private/server.key 4096
+doas openssl req -new -x509 -key /etc/ssl/private/server.key \
+                 -out /etc/ssl/server.crt
+doas chmod 600 /etc/ssl/server.crt
+doas chmod 600 /etc/ssl/private/server.key
 </pre>
 
 <h2>Configure smtpd</h2>
 <p>Update /etc/mail/smtpd.conf to contain (changing <i>hostname</i> and
 <i>relay</i> as appropriate):</p>
 <pre class="code">
-pki <i>hostname</i> certificate "/etc/ssl/smtp.crt"
-pki <i>hostname</i> key "/etc/ssl/private/smtp.key"
+pki <i>hostname</i> certificate "/etc/ssl/server.crt"
+pki <i>hostname</i> key "/etc/ssl/private/server.key"
 
 listen on socket
 listen on lo0 port 25 tag Filtered
@@ -131,8 +123,8 @@ DROPPRIVS=yes
 <pre class="code">
 protocols = imap
 ssl = required
-ssl_cert = &lt;/etc/ssl/dovecot.crt
-ssl_key = &lt;/etc/ssl/private/dovecot.key
+ssl_cert = &lt;/etc/ssl/server.crt
+ssl_key = &lt;/etc/ssl/private/server.key
 listen = *
 
 auth_socket_path = /var/dovecot/auth-userdb
