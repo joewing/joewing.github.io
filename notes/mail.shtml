@@ -32,7 +32,7 @@ for spam filtering and <a href="http://dovecot.org/">Dovecot</a>
 is used to provide IMAPS access to mail.
 </p>
 
-<h2>Prepare</h2>
+<h2>Preparation</h2>
 <p>
 You may want to move existing mail to the new server.  Assuming you are
 using maildir, this can be accomplished by copying the existing
@@ -61,17 +61,39 @@ remounting the associated file systems (or rebooting).
 doas pkg_add dovecot procmail spampd
 </pre>
 
-<h2>Generate Keys</h2>
+<h2>Generate the SSL Key</h2>
 <p>
-Run the following commands to generate keys for smtpd and dovecot.
-Note that the "openssl req" command may prompt for input.
+This is only necessary if a private key isn't already set up.
+Run the following command to generate a private key:
 </p>
 <pre class="code">
-doas openssl genrsa -out /etc/ssl/private/server.key 4096
+doas openssl genrsa -out /etc/ssl/private/server.key
+doas chmod 600 /etc/ssl/private/server.key
+</pre>
+
+<p>
+If you are registering with a certificate authority, you will need
+to generate a certificate request.  Note that this will prompt
+for information.
+</p>
+<pre class="code">
+openssl req -new -key /etc/ssl/private/server.key -out request.csr
+</pre>
+
+<p>
+Using the CSR, request a certificate from your certificate authority.
+If wish to self-sign instead, use the following:
+</p>
+<pre class="code">
 doas openssl req -new -x509 -key /etc/ssl/private/server.key \
                  -out /etc/ssl/server.crt
-doas chmod 600 /etc/ssl/server.crt
-doas chmod 600 /etc/ssl/private/server.key
+</pre>
+
+<p>
+Now ensure that the certifiate has the right permissions:
+</p>
+doas chown root:wheel /etc/ssl/server.crt
+doas chmod 644 /etc/ssl/server.crt
 </pre>
 
 <h2>Configure smtpd</h2>
