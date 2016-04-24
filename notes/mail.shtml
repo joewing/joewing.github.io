@@ -92,6 +92,7 @@ doas openssl req -new -x509 -key /etc/ssl/private/server.key \
 <p>
 Now ensure that the certifiate has the right permissions:
 </p>
+<pre class="code">
 doas chown root:wheel /etc/ssl/server.crt
 doas chmod 644 /etc/ssl/server.crt
 </pre>
