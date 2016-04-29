@@ -346,6 +346,10 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <span class="tag">DefaultIcon</span> tag (issue
     <a href="https://github.com/joewing/jwm/issues/310">#310</a>).
     </li>
+    <li>Added the ability to disable move/resize using mod1+drag via
+    the <span class="literal">nodrag</span> group option
+    (issue <a href="https://github.com/joewing/jwm/issues/311">#311</a>).
+    </li>
 </ul>
 </div>
 

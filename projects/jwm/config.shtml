@@ -740,6 +740,11 @@ For a list of changes since JWM v2.2, see the
       <td>Hides the close button for windows in this group.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">nodrag</span></td>
+      <td>Disable mod1+drag for moving/resizing windows in this group.
+      New in v2.3.6.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">nofocus</span></td>
       <td>Prevents windows in this group from grabbing the focus when
       mapped.</td>
