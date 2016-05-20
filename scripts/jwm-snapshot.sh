@@ -22,7 +22,7 @@ NAME="jwm-$VERSION"
 if [ `git tag | grep "s$VERSION"` ] ; then
     echo "Already tagged"
 else
-    git tag -s -a "s$VERSION" -m "Snapshot $VERSION"
+    git tag -a "s$VERSION" -m "Snapshot $VERSION"
     git push --tags
     cd $REPO
     git push --tags
