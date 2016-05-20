@@ -2,7 +2,7 @@
 
 set -e
 
-WWWROOT=/var/www/htdocs/joewing.net
+WWWROOT=/var/www/joewing.net
 JWM_REPO=file:///$HOME/devel/jwm
 JWM_BUILD=/tmp/jwm
 
