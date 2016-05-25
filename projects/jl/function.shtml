@@ -32,7 +32,7 @@ The following functions are predefined within JL.
    </tr>
    <tr class="listing">
       <td><span class="tag">/</span></td>
-      <td>Divide.  This function takes two number arguments and returns
+      <td>Divide.  This function takes two arguments and returns
       the value of the first argument divided by the second.</td>
    </tr>
    <tr class="listing">

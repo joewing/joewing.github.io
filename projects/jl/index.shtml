@@ -202,11 +202,11 @@ greater (filter (<span class="keyword">lambda</span> (a)
 <p>
 This function first checks if <i>lst</i> is empty, returning
 <span class="literal">nil</span> if it is.  Assuming <i>lst</i> is not empty,
-the function starts a new scope using <span class="literal">begin</span>.
-Note that <span class="literal">begin</span> allows one to insert multiple
+the function starts a new scope using <span class="keyword">begin</span>.
+Note that <span class="keyword">begin</span> allows one to insert multiple
 expressions as a single argument to another function.  In this case, we use
-<span class="literal">begin</span> as the second argument to
-<span class="literal">if</span>.
+<span class="keyword">begin</span> as the second argument to
+<span class="keyword">if</span>.
 Within the new scope, we define <i>pivot</i> to be the first item of the
 list.  We then use the <i>filter</i> function to select the items of
 the list smaller than <i>pivot</i> using our <i>filter</i> function (note
