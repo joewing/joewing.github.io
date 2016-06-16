@@ -163,7 +163,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <ul>
     <li>ICCCM 2.0 WM_S selection compliance (patch from Brian Bidulock).</li>
     <li>Fixed client window position after maximize/restore (issue <a href="http://github.com/joewing/jwm/issues/115">#115</a>,
-        patch from Biran Bidulock).</li>
+        patch from Brian Bidulock).</li>
     <li>Fixed window mapping bug with show desktop (issue <a href="http://github.com/joewing/jwm/issues/114">#114</a>).</li>
     <li>Give focus to the top-most window after show desktop (issue <a href="http://github.com/joewing/jwm/issues/64">#64</a>).</li>
     <li>Fix uninitialized memory when loading images
@@ -215,7 +215,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <h2 id="v2.3.2">Changes in 2.3.2 (20150913)</h2>
 <div>
 <ul>
-   <li>Restored the ability to specifiy that windows should not have
+   <li>Restored the ability to specify that windows should not have
    an icon (using the <span class="literal">"icon:"</span> group
    option).</li>
    <li>JWM will now try several common extensions when loading icons.</li>
@@ -338,8 +338,6 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <li>Fixed rendering of gradient highlights on menus.</li>
     <li>Changed the default configuration to explicitly set a 24-hour
     clock format.</li>
-    <li>Added pledge(2) support for
-    <a href="http://www.openbsd.org/">OpenBSD</a></li>
     <li>Made the default window title height match the font size used
     in window titles.</li>
     <li>Added the ability to set a default icon using the
@@ -349,6 +347,17 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <li>Added the ability to disable move/resize using mod1+drag via
     the <span class="literal">nodrag</span> group option
     (issue <a href="https://github.com/joewing/jwm/issues/311">#311</a>).
+    </li>
+    <li>Made JWM raise the selected window when tabbing between
+    windows (issue
+    <a href="https://github.com/joewing/jwm/issues/313">#313</a>).
+    </li>
+    <li>Fixed an issue with some system tray icons not showing up
+    (issue <a href="https://github.com/joewing/jwm/issues/314">#314</a>).
+    </li>
+    <li>Tiled window placement is now confined to the active
+    display (pull request
+    <a href="https://github.com/joewing/jwm/pull/318">#318</a>).
     </li>
 </ul>
 </div>
