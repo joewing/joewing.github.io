@@ -14,16 +14,19 @@ REPO="$HOME/devel/jwm"
 BUILDDIR="/tmp/jwm"
 CONFIG_FLAGS=""
 
-# Update PO files.
+# Make sure the repo is clean.
 cd $REPO
+if [ `git status -s | grep -v "??" | wc -l` -ne 0 ] ; then
+    echo "Working directory not clean"
+    exit -1
+fi
+
+# Update PO files.
 git pull
 make update-po
-git commit -am "Update PO files."
-
-# Check out JWM.
-rm -rf $BUILDDIR
-git clone $REPO $BUILDDIR > /dev/null 2>&1
-cd $BUILDDIR
+if [ `git status -s | grep -v "??" | wc -l` -ne 0 ] ; then
+    git commit -am "Update PO files."
+fi
 
 # Create a tag.
 if [ `git tag | grep "v$VERSION"` ] ; then
@@ -31,10 +34,12 @@ if [ `git tag | grep "v$VERSION"` ] ; then
 else
     git tag -a "v$VERSION" -m "Version $VERSION"
     git push --tags
-    cd $REPO
-    git push --tags
-    cd $BUILDDIR
 fi
+
+# Check out a copy.
+rm -rf $BUILDDIR
+git clone $REPO $BUILDDIR > /dev/null 2>&1
+cd $BUILDDIR
 
 # Configure JWM.
 git log --name-status --decorate > ChangeLog
@@ -49,7 +54,11 @@ make tarball VERSION=$VERSION > /dev/null 2>&1
 cd ..
 rm -rf $BUILDDIR
 
+# Create a signature.
+gpg -sb $NAME.tar.xz --output $NAME.sig
+
 # Update the web page.
+mv $NAME.sig $WEBDIR/projects/jwm/releases
 mv $NAME.tar.xz $WEBDIR/projects/jwm/releases
 cd $WEBDIR
 git pull
