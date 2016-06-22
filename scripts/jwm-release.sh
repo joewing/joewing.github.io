@@ -25,14 +25,14 @@ fi
 git pull
 make update-po
 if [ `git status -s | grep -v "??" | wc -l` -ne 0 ] ; then
-    git commit -am "Update PO files."
+    git commit -S -am "Update PO files."
 fi
 
 # Create a tag.
 if [ `git tag | grep "v$VERSION"` ] ; then
     echo "Already tagged"
 else
-    git tag -a "v$VERSION" -m "Version $VERSION"
+    git tag -s -a "v$VERSION" -m "Version $VERSION"
     git push --tags
 fi
 
@@ -65,5 +65,6 @@ git pull
 REVISION_FILE="$WEBDIR/release-inc.shtml"
 echo "<!--#set var=\"RELEASE\" value=\"$VERSION\"-->" > $REVISION_FILE
 git add releases/$NAME.tar.xz
-git commit -am "JWM release v$VERSION."
+git add releases/$NAME.sig
+git commit -S -am "JWM release v$VERSION."
 git push
