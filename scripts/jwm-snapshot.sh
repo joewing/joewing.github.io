@@ -22,7 +22,7 @@ NAME="jwm-$VERSION"
 if [ `git tag | grep "s$VERSION"` ] ; then
     echo "Already tagged"
 else
-    git tag -a "s$VERSION" -m "Snapshot $VERSION"
+    git tag -s -a "s$VERSION" -m "Snapshot $VERSION"
     git push --tags
     cd $REPO
     git push --tags
@@ -45,11 +45,15 @@ make tarball VERSION=$VERSION > /dev/null 2>&1
 cd ..
 rm -rf $BUILDDIR
 
+# Create a signature.
+gpg -sb --output $NAME.sig $NAME.tar.xz
+
 # Put the snapshot in the right place.
+mv $NAME.sig $WEBDIR/projects/jwm/snapshots
 mv $NAME.tar.xz $WEBDIR/projects/jwm/snapshots
 cd $WEBDIR
 git pull
 REVISION_FILE="$WEBDIR/projects/jwm/snapshot-inc.shtml"
 echo "<!--#set var=\"SNAPSHOT\" value=\"$VERSION\"-->" > $REVISION_FILE
-git commit -am "JWM snapshot $VERSION."
+git commit -S -am "JWM snapshot $VERSION."
 git push

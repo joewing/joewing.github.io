@@ -55,7 +55,7 @@ cd ..
 rm -rf $BUILDDIR
 
 # Create a signature.
-gpg -sb $NAME.tar.xz --output $NAME.sig
+gpg -sb --output $NAME.sig $NAME.tar.xz
 
 # Update the web page.
 mv $NAME.sig $WEBDIR/projects/jwm/releases
