@@ -27,6 +27,20 @@ compiler or interpreter.
     </tr>
 
     <tr class="listing">
+        <td>ARM Assembly Language</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.arm">
+        maze.arm</a></td>
+        <td><a href="http://gcc.gnu.org">GCC</a></td>
+    </tr>
+
+    <tr class="listing">
+        <td>AWK</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.awk">
+        maze.awk</a></td>
+        <td><a href="http://www.gnu.org/software/gawk/">Gawk</a></td>
+    </tr>
+
+    <tr class="listing">
         <td>Bash</td>
         <td><a href="https://raw.github.com/joewing/maze/master/maze.sh">
         maze.sh</a></td>
@@ -105,6 +119,13 @@ compiler or interpreter.
     </tr>
 
     <tr class="listing">
+        <td>Factor</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.factor">
+        maze.factor</a></td>
+        <td><a href="http://factorcode.org/">Factor</a></td>
+    </tr>
+
+    <tr class="listing">
         <td>Forth</td>
         <td><a href="https://raw.github.com/joewing/maze/master/maze.4th">
         maze.4th</a></td>
@@ -176,6 +197,13 @@ compiler or interpreter.
     </tr>
 
     <tr class="listing">
+        <td>Lua</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.lua">
+        maze.lua</a></td>
+        <td><a href="http://www.lua.org/">Lua</a></td>
+    </tr>
+
+    <tr class="listing">
         <td>Nimrod</td>
         <td><a href="https://raw.github.com/joewing/maze/master/maze.nim">
         maze.nim</a></td>
@@ -236,6 +264,13 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.rb">
         maze.rb</a></td>
         <td><a href="http://www.ruby-lang.org/">Ruby</a></td>
+    </tr>
+
+    <tr class="listing">
+        <td>Rust</td>
+        <td><a href="https://raw.github.com/joewing/maze/master/maze.rust">
+        maze.rs</a></td>
+        <td><a href="https://www.rust-lang.org/">Rust</a></td>
     </tr>
 
     <tr class="listing">
