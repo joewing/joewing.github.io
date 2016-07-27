@@ -54,6 +54,9 @@ JWM attempts to conform to the
 <a href="mwm.shtml">MWM</a> hints and
 <a href="ewmh.shtml">Extended Window Manager Hints (EWMH)</a>.
 </p>
+<p>
+JWM is licensed under the <a href="license.shtml">MIT license</a>.
+</p>
 
 <h2 id="download">Download</h2>
 <p>

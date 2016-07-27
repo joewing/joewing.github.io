@@ -359,6 +359,8 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     display (pull request
     <a href="https://github.com/joewing/jwm/pull/318">#318</a>).
     </li>
+    <li>Changed to the MIT license (issue
+    <a href="https://github.com/joewing/jwm/issues/320">#320</a>).
 </ul>
 </div>
 
