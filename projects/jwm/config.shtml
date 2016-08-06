@@ -574,6 +574,13 @@ For a list of changes since JWM v2.2, see the
             <span class="literal">0</span> indicates no maximum.
             The default is <span class="literal">0</span>.
          </li>
+         <li><span class="attribute">labeled</span><br/>
+             Determines if a label is shown for task list items.
+             Possible values are <span class="literal">true</span>
+             and <span class="literal"> false</span>.
+             The default is <span class="literal">true</span>.
+             New as of JWM v2.3.6.
+         </li>
          <li><span class="attribute">height</span><br/>
             The preferred height of items in the task list.
             <span class="literal">0</span> for no preference.

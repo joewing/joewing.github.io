@@ -361,6 +361,9 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     </li>
     <li>Changed to the MIT license (issue
     <a href="https://github.com/joewing/jwm/issues/320">#320</a>).
+    <li>Added the <span class="attribute">labeled</span> option to
+    <span class="tag">TaskListStyle</span> to allow disabling labels
+    for task lists.</li>
 </ul>
 </div>
 
