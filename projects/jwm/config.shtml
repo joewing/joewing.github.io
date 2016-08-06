@@ -82,8 +82,8 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">JWM</span>.
    </li>
    <li><span class="attribute">labeled</span><br/>
-      Determines if a label appears at the top of the menu. Either
-      <span class="literal">true</span> or
+      Determines if a label appears at the top of the menu. Possible values
+      are <span class="literal">true</span> and
       <span class="literal">false</span>. The default is
       <span class="literal">false</span>.
    </li>
@@ -120,6 +120,8 @@ For a list of changes since JWM v2.2, see the
          </li>
          <li><span class="attribute">labeled</span><br/>
             Determines if a label appears at the top of the menu.
+            Possible values are <span class="literal">true</span>
+            and <span class="literal">false</span>.
             The default is <span class="literal">false</span>.
          </li>
       </ul>
@@ -585,7 +587,7 @@ For a list of changes since JWM v2.2, see the
             The preferred height of items in the task list.
             <span class="literal">0</span> for no preference.
             The default is <span class="literal">0</span>.
-            New in JWM v2.3.3.
+            New as of JWM v2.3.3.
          </li>
       </ul>
    </li>
