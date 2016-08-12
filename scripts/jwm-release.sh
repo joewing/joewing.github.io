@@ -65,7 +65,7 @@ cd $WEBDIR
 git pull
 REVISION_FILE="$WEBDIR/projects/jwm/release-inc.shtml"
 echo "<!--#set var=\"RELEASE\" value=\"$VERSION\"-->" > $REVISION_FILE
-git add releases/$NAME.tar.xz
-git add releases/$NAME.sig
+git add $WEBDIR/projects/jwm/releases/$NAME.tar.xz
+git add $WEBDIR/projects/jwm/releases/$NAME.sig
 git commit -S -am "JWM release v$VERSION."
 git push
