@@ -24,6 +24,7 @@ fi
 # Update PO files.
 git pull
 ./autogen.sh
+./configure
 make update-po
 if [ `git status -s | grep -v "??" | wc -l` -ne 0 ] ; then
     git commit -S -am "Update PO files."
