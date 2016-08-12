@@ -4,6 +4,17 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">20160812</div>
+<div class="newsitem">
+<p>
+Today I released <a href="projects/jwm/">JWM</a> v2.3.6!
+This release includes several bug fixes and new features. In addition,
+JWM is now licensed under the MIT license.  See the
+<a href="projects/jwm/release-2.3.shtml#v2.3.6">release notes</a>
+for details.
+</p>
+</div>
+
 <div class="date">20160326</div>
 <div class="newsitem">
 <p>
