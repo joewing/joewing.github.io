@@ -23,6 +23,7 @@ fi
 
 # Update PO files.
 git pull
+./autogen.sh
 make update-po
 if [ `git status -s | grep -v "??" | wc -l` -ne 0 ] ; then
     git commit -S -am "Update PO files."
@@ -62,7 +63,7 @@ mv $NAME.sig $WEBDIR/projects/jwm/releases
 mv $NAME.tar.xz $WEBDIR/projects/jwm/releases
 cd $WEBDIR
 git pull
-REVISION_FILE="$WEBDIR/release-inc.shtml"
+REVISION_FILE="$WEBDIR/projects/jwm/release-inc.shtml"
 echo "<!--#set var=\"RELEASE\" value=\"$VERSION\"-->" > $REVISION_FILE
 git add releases/$NAME.tar.xz
 git add releases/$NAME.sig
