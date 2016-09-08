@@ -1725,18 +1725,26 @@ Within this tag the following tags are supported:
    </tr>
    <tr class="listing">
       <td><span class="tag">MoveMode</span></td>
-      <td>The move mode.
+      <td>The move mode.<br>
+
+      The optional <span class="attribute">mask</span> attribute
+      specifies the key mask that, when held, allows one to move the
+      window by dragging it.  The default is
+      <span class="literal">A</span>. New in v2.3.7.<br>
+
       The optional <span class="attribute">coordinates</span> attribute
       determines the location of the move status window. Possible values
       are <span class="literal">off</span>,
       <span class="literal">corner</span>,
       <span class="literal">window</span>, and
-      <span class="literal">screen</span> (the default).<br/>
+      <span class="literal">screen</span> (the default).<br>
+
       The optional <span class="attribute">delay</span> attribute
       sets the delay in milliseconds before moving a window to a different
       desktop.  Setting this to <span class="literal">0</span> disables
       dragging between desktops.  <span class="literal">1000</span> is
-      the default.
+      the default.<br>
+
       </td>
       <td><span class="literal">opaque</span></td>
       <td><span class="literal">opaque</span>,

@@ -367,6 +367,17 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
+<h2 id="v2.3.7">Changes in 2.3.7 (not yet released)</h2>
+<div>
+<ul>
+    <li>Made the modifier for dragging a window by clicking its
+    contents configurable via the <span class="attribute">mask</span>
+    attribute of the <span class="tag">MoveMode</span> tag (issue
+    <a href="https://github.com/joewing/jwm/issues/324">#324</a>).
+    </li>
+</ul>
+</div>
+
 <p>
 See the <a href="snapshots/ChangeLog">ChangeLog</a> for a complete
 list of changes.
