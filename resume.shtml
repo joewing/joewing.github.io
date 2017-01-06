@@ -25,8 +25,19 @@
 <ul class="nobullet">
 
     <li class="spaced">
+        <span><b>Senior Software Engineer</b></span>
+        <span class="right">October 2016 - present</span>
+        <br/>
+        <ul class="nobullet">
+            <li><i><a href="http://www.cibotechnologies.com/">
+            CiBO Technologies</a>;
+            St. Louis, Missouri</i></li>
+        </ul>
+    </li>
+
+    <li class="spaced">
         <span><b>Software Engineer</b></span>
-        <span class="right">2015-present</span>
+        <span class="right">October 2015 - October 2016</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="https://observable.net/">Observable Networks</a>;
@@ -36,7 +47,7 @@
 
     <li class="spaced">
         <span><b>Senior Software Engineer</b></span>
-        <span class="right">2014-2015</span>
+        <span class="right">November 2014 - October 2015</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="http://velocidata.com/">VelociData, Inc.</a>;
@@ -50,7 +61,7 @@
 
     <li class="spaced">
         <span><b>Contractor</b></span>
-        <span class="right">2013-2014</span>
+        <span class="right">November 2013 - November 2014</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="https://observable.net/">Observable Networks</a>;
@@ -64,12 +75,12 @@
 
     <li class="spaced">
         <span><b>Contractor</b></span>
-        <span class="right">2011-2013</span>
+        <span class="right">January 2011 - October 2013</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="http://exegy.com/">Exegy Inc.</a>;
             St. Louis, Missouri</i></li>
-            <li>Assisted with the design and development of
+            <li>Worked on the design and development of
             improvements to the multi-threaded last-value cache and
             the order-book processor.</li>
             <li>Fixed bugs and implemented new features in the software
@@ -80,7 +91,7 @@
 
     <li class="spaced">
         <span><b>Senior Software Engineer</b></span>
-        <span class="right">2008-2011</span>
+        <span class="right">July 2005 - January 2011</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="http://exegy.com/">Exegy Inc.</a>;
@@ -94,33 +105,23 @@
             <li>Used Infiniband RDMA as an interconnect for connecting clients
             and expanding system capacity by sharing work among multiple compute
             nodes.</li>
-            <li>Debugged hardware problems with custom FPGA accelerator
-            boards.</li>
-        </ul>
-    </li>
-
-    <li class="spaced">
-        <span><b>Software Engineer</b></span>
-        <span class="right">2005-2008</span>
-        <br/>
-        <ul class="nobullet">
-            <li><i><a href="http://exegy.com/">Exegy Inc.</a>;
-            St. Louis, Missouri</i></li>
-            <li>Implemented pre- and post-processing for a hardware-accelerated
-            search engine in C++.</li>
-            <li>Designed and implemented a customer-facing API for interacting
-            with the hardware/FPGA search solution in C.<li>
             <li>Designed and implemented a system for interfacing with a
             hardware-accelerated last-value-cache for high-performance
             proprietary trading by customers.</li>
             <li>Developed the software for configuring a hardware-accelerated
             order-book solution.</li>
+            <li>Debugged hardware problems with custom FPGA accelerator
+            boards.</li>
+            <li>Implemented pre- and post-processing for a hardware-accelerated
+            search engine in C++.</li>
+            <li>Designed and implemented a customer-facing API for interacting
+            with the hardware/FPGA search solution in C.<li>
         </ul>
     </li>
 
     <li class="spaced">
-        <span><b>Associate Analyst</b></span>
-        <span class="right">2004-2005</span>
+        <span><b>Analyst</b></span>
+        <span class="right">May 2004 - July 2005</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="http://att.com/">SBC Services, Inc.</a>;
@@ -135,7 +136,7 @@
 
     <li class="spaced">
         <span><b>Intern</b></span>
-        <span class="right">2003-2004</span>
+        <span class="right">May 2003 - May 2004</span>
         <br/>
         <ul class="nobullet">
             <li><i><a href="http://usgs.gov/">USGS</a>; Rolla, Missouri</i></li>
