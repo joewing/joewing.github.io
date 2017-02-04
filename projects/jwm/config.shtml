@@ -512,17 +512,21 @@ For a list of changes since JWM v2.2, see the
       programs that use the _NET_SYSTEM_TRAY_Sn selection. The size of
       the Dock is dynamic based on the size of the tray and the number
       of items contained. Only one Dock is allowed per instance of JWM.
-      This tag supports the following attribute:
+      This tag supports the following attributes:
       <ul>
-         <li><span class="attribute">width</span><br/>
+         <li><span class="attribute">spacing</span><br>
+         Number of pixels to leave between items in the dock. The default
+         is <span class="literal">0</span>.
+         </li>
+         <li><span class="attribute">width</span><br>
          The minimum width of items in the dock.  The default
          is <span class="literal">0</span>.
       </ul>
    </li>
-   <li><span class="tag">Pager</span><br/>
+   <li><span class="tag">Pager</span><br>
       Add a pager to the tray. This tag supports the following attribute:
       <ul>
-         <li><span class="attribute">labeled</span><br/>
+         <li><span class="attribute">labeled</span><br>
             Determine if the name of the desktop is displayed.
             Possible values are <span class="literal">true</span>
             and <span class="literal">false</span>. The default is
@@ -712,6 +716,11 @@ For a list of changes since JWM v2.2, see the
       desktop.  New in v2.3.5.</td>
    </tr>
    <tr class="listing">
+      <td><span class="literal">height:<i>n</i></span></td>
+      <td>Set the initial height for windows in this group to
+      <i>n</i> (pixels). New in v2.3.7.</td>
+   </tr>
+   <tr class="listing">
       <td><span class="literal">hmax</span></td>
       <td>Make windows in this group maximize horizontally by default.</td>
    </tr>
@@ -830,6 +839,21 @@ For a list of changes since JWM v2.2, see the
    <tr class="listing">
       <td><span class="literal">vmax</span></td>
       <td>Make windows in this group maximize vertically by default.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">width:<i>n</i></span></td>
+      <td>Set the initial width for windows in this group to
+      <i>n</i> (pixels). New in 2.3.7.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">x:<i>n</i></span></td>
+      <td>Set the initial x-coordinate for windows in this group to
+      <i>n</i>. New in 2.3.7.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="literal">y:<i>n</i></span></td>
+      <td>Set the initial y-coordinate for windows in this group to
+      <i>n</i>. New in 2.3.7.</td>
    </tr>
 </table>
 <p></p>
@@ -1023,8 +1047,16 @@ Within this tag the following tags are supported:
 <h2 id="tasklist">Task List Style</h2>
 <p>
    The <span class="tag">TaskListStyle</span> tag controls the look
-   of task lists.  New in v2.3.6.
+   of task lists.  New in v2.3.6.  The following attribute is supported:
 </p>
+<ul>
+   <li><span class="attribute">decorations</span><br/>
+      Determines the decorations to use for task lists.
+      Possible values include <span class="literal">flat</span>
+      and <span class="literal">motif</span>. The default is
+      inherited from <span class="tag">TrayStyle</span>.
+   </li>
+</ul>
 <p>
    Within this tag the following tags are supported:
 </p>
@@ -1288,8 +1320,9 @@ Within this tag the following tags are supported:
 <h2 id="colors">Colors</h2>
 <p>
    Colors for various parts of JWM are specified within specific tags
-   (described above). Colors may either be hex triplets in RGB format
-   (for example, #FF0000 is red) or by a name recognized by the X server.
+   (described above). Colors may be 3-or 6-character hex triplets
+   in RGB format (for example, <i>#F00</i> or <i>#FF0000</i> is red)
+   or by a name recognized by the X server (such as <i>red</i>).
    For components that support gradients, two colors may be specified
    separated by a colon.
 </p>
@@ -1718,10 +1751,27 @@ Within this tag the following tags are supported:
    </tr>
    <tr class="listing">
       <td><span class="tag">FocusModel</span></td>
-      <td>The focus model used by JWM</td>
+      <td>The focus model used by JWM:
+         <ul>
+            <li><span class="literal">click</span> -
+            Click to focus and raise.</li>
+            <li><span class="literal">clicktitle</span> -
+            Click to focus. Click title or border to raise.
+            New in 2.3.7.</li>
+            <li><span class="literal">sloppy</span> -
+            Mouse over to focus. Click to raise.</li>
+            <li><span class="literal">sloppytitle</span> -
+            Mouse over to focus. Click title or border to raise.
+            New in 2.3.7.</li>
+         </ul>
+      </td>
       <td><span class="literal">sloppy</span></td>
-      <td><span class="literal">click</span>,
-      <span class="literal">sloppy</span></td>
+      <td>
+         <span class="literal">click</span>,
+         <span class="literal">clicktitle</span>,
+         <span class="literal">sloppy</span>,
+         <span class="literal">sloppytitle</span>
+      </td>
    </tr>
    <tr class="listing">
       <td><span class="tag">MoveMode</span></td>

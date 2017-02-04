@@ -375,6 +375,49 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     attribute of the <span class="tag">MoveMode</span> tag (issue
     <a href="https://github.com/joewing/jwm/issues/324">#324</a>).
     </li>
+    <li>Added group options for setting initial window position
+    and size (issues
+    <a href="https://github.com/joewing/jwm/issues/79">#79</a> and
+    <a href="https://github.com/joewing/jwm/issues/348">#348</a>).
+    </li>
+    <li>Added the <span class="literal">clicktitle</span> and
+    <span class="literal">sloppytitle</span> options for
+    <span class="tag">FocusModel</span>, which cause windows to be
+    raised only when the title or border of the window is clicked
+    (issue <a href="https://github.com/joewing/jwm/issues/286">#286</a>).
+    </li>
+    <li>Fixed scaling of icons in the task bar (issue
+    <a href="https://github.com/joweing/jwm/issues/328">#328</a>).
+    </li>
+    <li>Added the <span class="attribute">decorations</span> attribute
+    to <span class="tag">TaskListStyle</span> to allow setting different
+    decorations on tray buttons and task list buttons (issue
+    <a href="https://github.com/joewing/jwm/issues/330">#330</a>).
+    </li>
+    <li>Fixed a bug with the <span class="literal">nextstacked</span>
+    key binding (issue
+    <a href="https://github.com/joewing/jwm/issues/335">#335</a>).
+    </li>
+    <li>Improved support for 3-digit hexcode colors (issue
+    <a href="https://github.com/joewing/jwm/issues/336">#336</a>).
+    </li>
+    <li>Better <span class="literal">aerosnap</span> support on
+    multiple monitors (issue
+    <a href="https://github.com/joewing/jwm/issues/342">#342</a>).
+    </li>
+    <li>Fixed a bug with multiple separators in menus (issue
+    <a href="https://github.com/joewing/jwm/issues/343">#343</a>).
+    </li>
+    <li>Fixed a bug with blank trays when there are full screen windows
+    (issue <a href="https://github.com/joewing/jwm/issues/356">#356</a>).
+    </li>
+    <li>Added the <span class="attribute">spacing</span> attribute to
+    <span class="tag">Dock</span> to allow adding space between icons
+    in the dock (issue
+    <a href="https://github.com/joewing/jwm/issues/357">#357</a>).
+    </li>
+    <li>Fixed an issue with 32-bit TrueColor visuals on some platforms.
+    </li>
 </ul>
 </div>
 
