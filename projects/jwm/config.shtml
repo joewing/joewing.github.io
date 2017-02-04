@@ -87,6 +87,13 @@ For a list of changes since JWM v2.2, see the
       <span class="literal">false</span>. The default is
       <span class="literal">false</span>.
    </li>
+   <li><span class="attribute">dynamic</span><br>
+      A file to load for the root menu. If the name begins with "exec:",
+      then the name of an executable can be provided that will output
+      the root menu. Note that the root menu structure must have a
+      <span class="tag">JWM</span> tag at the top level.
+      New in JWM 2.3.7.</li>
+   </li>
 </ul>
 </div>
 <p>

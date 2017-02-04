@@ -416,6 +416,11 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     in the dock (issue
     <a href="https://github.com/joewing/jwm/issues/357">#357</a>).
     </li>
+    <li>Added support for dynamic root menus via the
+    <span class="attribute">dynamic</span> attribute of
+    <span class="tag">RootMenu</span> (issue
+    <a href="https://github.com/joewing/jwm/issues/221">#221</a>).
+    </li>
     <li>Fixed an issue with 32-bit TrueColor visuals on some platforms.
     </li>
 </ul>
