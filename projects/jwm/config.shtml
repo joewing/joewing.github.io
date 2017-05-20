@@ -523,7 +523,7 @@ For a list of changes since JWM v2.2, see the
       <ul>
          <li><span class="attribute">spacing</span><br>
          Number of pixels to leave between items in the dock. The default
-         is <span class="literal">0</span>.
+         is <span class="literal">0</span>.  New in v2.3.7.
          </li>
          <li><span class="attribute">width</span><br>
          The minimum width of items in the dock.  The default
