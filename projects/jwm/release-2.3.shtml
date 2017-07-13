@@ -423,6 +423,9 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     </li>
     <li>Fixed an issue with 32-bit TrueColor visuals on some platforms.
     </li>
+    <li>Fixed an issue with menus and multiple monitors (issue
+    <a href="https://github.com/joewing/jwm/issues/384">#384</a>).
+    </li>
 </ul>
 </div>
 
