@@ -426,6 +426,10 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
     <li>Fixed an issue with menus and multiple monitors (issue
     <a href="https://github.com/joewing/jwm/issues/384">#384</a>).
     </li>
+    <li>It is (once again) possible to disable desktop switching
+    by scrolling on the desktop using an empty root menu (issue
+    <a href="https://github.com/joewing/jwm/issues/366">#366</a>).
+    </li>
 </ul>
 </div>
 
