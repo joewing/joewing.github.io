@@ -4,6 +4,18 @@
 
 <h1><!--#echo var="TITLE"--></h1>
 
+<div class="date">20170721</div>
+<div class="newsitem">
+<p>
+It's been almost a year since the last release, but today I finally released
+<a href="projects/jwm/">JWM</a> v2.3.7!
+See the <a href="projects/jwm/release-2.3.shtml#v2.3.7">release notes</a> for details.
+I have also started working on JWM v2.4, which will have some configuration changes, so
+the next version will hopefully be ready more quickly than v2.3.7.  A v2.3.8 will only
+exist if there are bugs discovered and fixed in v2.3.7 before v2.4 is ready.
+</p>
+</div>
+
 <div class="date">20160812</div>
 <div class="newsitem">
 <p>

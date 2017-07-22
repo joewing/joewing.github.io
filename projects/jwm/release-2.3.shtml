@@ -367,7 +367,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </ul>
 </div>
 
-<h2 id="v2.3.7">Changes in 2.3.7 (not yet released)</h2>
+<h2 id="v2.3.7">Changes in 2.3.7 (20170721)</h2>
 <div>
 <ul>
     <li>Made the modifier for dragging a window by clicking its
