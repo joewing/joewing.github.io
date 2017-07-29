@@ -1590,8 +1590,8 @@ Within this tag the following tags are supported:
    the <span class="attribute">onroot</span> attribute of
    <span class="tag">RootMenu</span>.  Scrolling up on the root window
    switches to the left desktop and scrolling down switches to
-   the right desktop (this can be disable by defining an empty root
-   menu for buttons 4 and 5).
+   the right desktop (as of v2.3.7, this can be disabled by defining an
+   empty root menu for buttons 4 and 5).
 </p>
 <div>
 <ul>
