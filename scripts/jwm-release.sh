@@ -22,7 +22,7 @@ if [ `git status -s | grep -v "??" | wc -l` -ne 0 ] ; then
 fi
 
 # Update PO files.
-git pull
+git pull -r
 ./autogen.sh
 ./configure
 make update-po

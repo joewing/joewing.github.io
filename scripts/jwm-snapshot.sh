@@ -9,7 +9,7 @@ CONFIG_FLAGS=""
 
 # Check out JWM.
 cd $REPO
-git pull
+git pull -r
 rm -rf $BUILDDIR
 git clone $REPO $BUILDDIR > /dev/null 2>&1
 cd $BUILDDIR
