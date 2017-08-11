@@ -92,7 +92,7 @@ For a list of changes since JWM v2.2, see the
       then the name of an executable can be provided that will output
       the root menu. Note that the root menu structure must have a
       <span class="tag">JWM</span> tag at the top level.
-      New in JWM 2.3.7.</li>
+      New in JWM 2.3.7.
    </li>
 </ul>
 </div>
