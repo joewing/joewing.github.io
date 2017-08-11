@@ -36,7 +36,7 @@ mkdir -p $WEBDIR/projects/jwm/snapshots
 git log --name-status --decorate > $WEBDIR/projects/jwm/snapshots/ChangeLog
 mv configure.ac.new configure.ac
 ./autogen.sh
-./configure $CONFIG_FLAGS > /dev/null 2>&1
+./configure $CONFIG_FLAGS
 
 # Create the snapshot.
 make tarball VERSION=$VERSION > /dev/null 2>&1
