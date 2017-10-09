@@ -68,6 +68,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 </p>
 <div>
 <ul>
+<li>TBD</li>
 </ul>
 </div>
 <p>
@@ -78,6 +79,7 @@ jwm-<!--#echo var="SNAPSHOT"-->.tar.xz</a>.
 <h2>Bug Fixes</h2>
 <div>
 <ul>
+<li>TDB</li>
 </ul>
 </div>
 
