@@ -83,7 +83,7 @@ See the <a href="guide.shtml">JWM setup guide</a> for instructions on
 setting up JWM.
 </p>
 <p>
-See the <a href="config.shtml">configuration documentation</a> for
+See the <a href="config-2.3.shtml">configuration documentation</a> for
 comprehensive documentation on configuring JWM.
 JWM also comes with a manual page (run
 <span class="nobr">&quot;man jwm&quot;</span> on the command

@@ -5,10 +5,10 @@
 <h1><!--#echo var="TITLE"--></h1>
 
 <p>
-Configuration settings for JWM v2.4.<br/>
-For JWM v2.3, see <a href="config-2.3.shtml">JWM v2.3 Configuration</a>.<br/>
-For a list of changes since JWM v2.3, see the
-<a href="release-2.4.shtml">JWM v2.4 Release Notes</a>.
+Configuration settings for JWM v2.3.<br/>
+For JWM v2.2, see <a href="config-2.2.shtml">JWM v2.2 Configuration</a>.<br/>
+For a list of changes since JWM v2.2, see the
+<a href="release-2.3.shtml">JWM v2.3 Release Notes</a>.
 </p>
 
 <h2>Contents</h2>
@@ -92,6 +92,7 @@ For a list of changes since JWM v2.3, see the
       then the name of an executable can be provided that will output
       the root menu. Note that the root menu structure must have a
       <span class="tag">JWM</span> tag at the top level.
+      New in JWM 2.3.7.</li>
    </li>
 </ul>
 </div>
@@ -119,6 +120,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             A tooltip to use for this menu. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -145,6 +147,7 @@ For a list of changes since JWM v2.3, see the
       <span class="literal">Include</span> tag.
       This tag supports the same attributes as the
       <span class="tag">Menu</span> tag.
+      (new as of JWM v2.3.1).
    </li>
    <li><span class="tag">Program</span><br/>
       The <span class="tag">Program</span> tag provides a way to start
@@ -156,6 +159,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use. No default.
@@ -177,6 +181,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -195,6 +200,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -212,6 +218,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -229,6 +236,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -246,6 +254,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -263,6 +272,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -280,6 +290,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -297,6 +308,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -314,6 +326,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -331,6 +344,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use for this menu. No default.
@@ -347,6 +361,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use. No default.
@@ -365,6 +380,7 @@ For a list of changes since JWM v2.3, see the
          </li>
          <li><span class="attribute">tooltip</span><br/>
             The tooltip to use. No default.
+            New in v2.3.3.
          </li>
          <li><span class="attribute">icon</span><br/>
             The icon to use. No default.
@@ -507,7 +523,7 @@ For a list of changes since JWM v2.3, see the
       <ul>
          <li><span class="attribute">spacing</span><br>
          Number of pixels to leave between items in the dock. The default
-         is <span class="literal">0</span>.
+         is <span class="literal">0</span>.  New in v2.3.7.
          </li>
          <li><span class="attribute">width</span><br>
          The minimum width of items in the dock.  The default
@@ -576,11 +592,13 @@ For a list of changes since JWM v2.3, see the
              Possible values are <span class="literal">true</span>
              and <span class="literal"> false</span>.
              The default is <span class="literal">true</span>.
+             New as of JWM v2.3.6.
          </li>
          <li><span class="attribute">height</span><br/>
             The preferred height of items in the task list.
             <span class="literal">0</span> for no preference.
             The default is <span class="literal">0</span>.
+            New as of JWM v2.3.3.
          </li>
       </ul>
    </li>
@@ -632,7 +650,8 @@ For a list of changes since JWM v2.3, see the
    be an absolute path. The file at that location is read. If the text
    starts with <span class="literal">exec:</span>, then the specified
    program is run.  The format of the configuration
-   file is the same as the main configuration file.
+   file is the same as the main configuration file.<br>
+   The ability to use the output of a program is new as of JWM v2.3.5.
 </p>
 
 <h2 id="groups">Group Settings</h2>
@@ -672,7 +691,7 @@ For a list of changes since JWM v2.3, see the
    </tr>
    <tr class="listing">
       <td><span class="literal">aerosnap</span></td>
-      <td>Enable auto-maximization.</td>
+      <td>Enable auto-maximization.  New in v2.3.6.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">border</span></td>
@@ -694,19 +713,19 @@ For a list of changes since JWM v2.3, see the
    <tr class="listing">
       <td><span class="literal">drag</span></td>
       <td>Do not pass mouse events to the window. Instead, use the mouse
-      to move/resize the window.</td>
+      to move/resize the window.  New in v2.3.4.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">fixed</span></td>
       <td>Fix the windows in this group to the current desktop.
       This will cause the desktop to change when the window is raised
       rather than the default behavior of moving the window to the current
-      desktop.</td>
+      desktop.  New in v2.3.5.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">height:<i>n</i></span></td>
       <td>Set the initial height for windows in this group to
-      <i>n</i> (pixels).</td>
+      <i>n</i> (pixels). New in v2.3.7.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">hmax</span></td>
@@ -747,7 +766,8 @@ For a list of changes since JWM v2.3, see the
    </tr>
    <tr class="listing">
       <td><span class="literal">nodrag</span></td>
-      <td>Disable mod1+drag for moving/resizing windows in this group.</td>
+      <td>Disable mod1+drag for moving/resizing windows in this group.
+      New in v2.3.6.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">nofocus</span></td>
@@ -830,17 +850,17 @@ For a list of changes since JWM v2.3, see the
    <tr class="listing">
       <td><span class="literal">width:<i>n</i></span></td>
       <td>Set the initial width for windows in this group to
-      <i>n</i> (pixels).</td>
+      <i>n</i> (pixels). New in 2.3.7.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">x:<i>n</i></span></td>
       <td>Set the initial x-coordinate for windows in this group to
-      <i>n</i>.</td>
+      <i>n</i>. New in 2.3.7.</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">y:<i>n</i></span></td>
       <td>Set the initial y-coordinate for windows in this group to
-      <i>n</i>.</td>
+      <i>n</i>. New in 2.3.7.</td>
    </tr>
 </table>
 <p></p>
@@ -938,7 +958,7 @@ For a list of changes since JWM v2.3, see the
 <h2 id="clock">Clock Style</h2>
 <p>
    The <span class="tag">ClockStyle</span> tag controls the look of clocks
-   on the tray.
+   on the tray.  New in v2.3.5.
    Within this tag the following tags are supported:
 </p>
 <div>
@@ -983,6 +1003,7 @@ For a list of changes since JWM v2.3, see the
       are <span class="literal">all</span> (for all windows) and
       <span class="literal">desktop</span> (for the current desktop).
       The default is <span class="literal">desktop</span>.
+      New in v2.3.4.
    </li>
 </ul>
 </div>
@@ -1033,7 +1054,7 @@ Within this tag the following tags are supported:
 <h2 id="tasklist">Task List Style</h2>
 <p>
    The <span class="tag">TaskListStyle</span> tag controls the look
-   of task lists.  The following attribute is supported:
+   of task lists.  New in v2.3.6.  The following attribute is supported:
 </p>
 <ul>
    <li><span class="attribute">decorations</span><br/>
@@ -1096,7 +1117,7 @@ Within this tag the following tags are supported:
 <p>
    The <span class="tag">TrayButtonStyle</span> tag controls the look
    of tray buttons on the tray.  Within this tag, the following tags
-   are supported.
+   are supported.  New in v2.3.6.
 </p>
 <div>
 <ul>
@@ -1476,7 +1497,8 @@ Within this tag the following tags are supported:
    </tr>
    <tr class="listing">
       <td><span class="literal">restore</span></td>
-      <td>Restore maximized or minimized window.</td>
+      <td>Restore maximized or minimized window
+      (new as of version 2.3.3).</td>
    </tr>
    <tr class="listing">
       <td><span class="literal">shade</span></td>
@@ -1502,7 +1524,7 @@ Within this tag the following tags are supported:
    <tr class="listing">
       <td><span class="literal">desktop</span><i>#</i></td>
       <td>Switch to a specific desktop. To use this, <i>#</i> must
-      be specified in the <i>key</i> section. Then numbers from 1 to the 
+      be specified in the <i>key</i> section. Then numbers from 1 to the
       number of desktops configured are substituted for <i>#</i>.</td>
    </tr>
    <tr class="listing">
@@ -1563,66 +1585,48 @@ Within this tag the following tags are supported:
 
 <h2 id="mouse">Mouse Bindings</h2>
 <p>
-   Mouse bindings are configured using <span class="tag">Mouse</span> tags.
-   The <span class="attribute">context</span> attribute determines the
-   context in which the binding applies, the
-   <span class="attribute">button</span> attribute species the mouse
-   button, and the (optional) <span class="attribute">mask</span>
-   attribute species the key mask that must be in effect for the
-   binding to match. Finally, the text of the <span class="tag">Mouse</span>
-   tag determines the action to perform (see <a href="#key">Key Bindings</a>
-   for a list of actions). The <span class="attribute">button</span> is
-   a mouse button number, starting at <span class="literal">1</span>
-   (typically the left button). A positive value for the button indicates
-   that the action applies on mouse press and a negative value
-   indicates that the action applise on release. The button number can be
-   repeated to bind to double clicks. The following mouse contexts are
-   supported:
-</p>
-<div>
-<ul>
-   <li><span class="literal">border</span><br/>
-      The window border.
-   </li>
-   <li><span class="literal">close</span><br/>
-      The close button on a window.
-   </li>
-   <li><span class="literal">icon</span><br/>
-      The icon button on a window.
-   </li>
-   <li><span class="literal">maximize</span><br/>
-      The maximize button on a window.
-   </li>
-   <li><span class="literal">minimize</span><br/>
-      The minimize button on a window.
-   </li>
-   <li><span class="literal">root</span><br/>
-      The root window (or desktop).
-   </li>
-   <li><span class="literal">title</span><br/>
-      The title bar of a window.
-   </li>
-</ul>
-</div>
-<p>
-Other bindings:
+   Any button other than the scroll wheel (buttons 4 and 5) on the
+   root window will bring up the root menu unless otherwise specified via
+   the <span class="attribute">onroot</span> attribute of
+   <span class="tag">RootMenu</span>.  Scrolling up on the root window
+   switches to the left desktop and scrolling down switches to
+   the right desktop (as of v2.3.7, this can be disabled by defining an
+   empty root menu for buttons 4 and 5).
 </p>
 <div>
 <ul>
    <li>Button 1 (typically the left button)<br/>
+      Over the border, dragging resizes the window.  Over the title bar,
+      dragging moves the window and double clicking toggles the maximized
+      state.  Over the menu button, clicking shows the menu.
+      Over the minimize button, clicking minimizes the window.
+      Over the maximize button, clicking toggles between maximized
+      and normal.  Over the close button, clicking closes the window.
       Over a task list, raises or minimizes the window.
       Over a pager, changes the current desktop.
    </li>
    <li>Button 2 (typically the middle button)<br/>
+      Over the maximize button, clicking toggles between vertically
+      maximized and normal.
+      Anywhere else on a window border, dragging while holding button 2
+      will move the window.
+      Over a task list, closes the window.
       Over a pager, changes the current desktop.
    </li>
    <li>Button 3 (typically the right button)<br/>
+      Over the border, clicking shows the window menu.
+      Over the minimize button, clicking toggles between shaded and unshaded.
+      Over the maximize button, clicking toggles between horizontally
+      maximized and normal.
+      Over the close button, clicking closes the window.
       Over a task list, shows the window menu.
       Over a pager, dragging with button 3 will move a window.
    </li>
 </ul>
 </div>
 <p>
+   Scrolling up over the title bar will shade the window and scrolling down
+   will unshade the window.
    When a menu is open, the scroll wheel will move through menu items.
    When over the pager, the scroll wheel will switch desktops.
    When over a task list, the scroll wheel will switch windows.
@@ -1721,7 +1725,7 @@ Other bindings:
       <td><span class="tag">ButtonMenu</span></td>
       <td>An icon to use for the menu button on client windows instead
       of the default.  This is used if the client window does not specify
-      an icon.</td>
+      an icon.  New in v2.3.5.</td>
       <td> </td>
       <td> </td>
    </tr>
@@ -1735,7 +1739,7 @@ Other bindings:
    <tr class="listing">
       <td><span class="tag">DefaultIcon</span></td>
       <td>The default icon to use for windows that do not specify an
-      icon or have one explicitly configured.</td>
+      icon or have one explicitly configured.  New in 2.3.6.</td>
       <td> </td>
       <td> </td>
    </tr>
@@ -1760,11 +1764,13 @@ Other bindings:
             <li><span class="literal">click</span> -
             Click to focus and raise.</li>
             <li><span class="literal">clicktitle</span> -
-            Click to focus. Click title or border to raise.</li>
+            Click to focus. Click title or border to raise.
+            New in 2.3.7.</li>
             <li><span class="literal">sloppy</span> -
             Mouse over to focus. Click to raise.</li>
             <li><span class="literal">sloppytitle</span> -
-            Mouse over to focus. Click title or border to raise.</li>
+            Mouse over to focus. Click title or border to raise.
+            New in 2.3.7.</li>
          </ul>
       </td>
       <td><span class="literal">sloppy</span></td>
@@ -1782,7 +1788,7 @@ Other bindings:
       The optional <span class="attribute">mask</span> attribute
       specifies the key mask that, when held, allows one to move the
       window by dragging it.  The default is
-      <span class="literal">A</span>.<br>
+      <span class="literal">A</span>. New in v2.3.7.<br>
 
       The optional <span class="attribute">coordinates</span> attribute
       determines the location of the move status window. Possible values
