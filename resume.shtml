@@ -32,6 +32,15 @@
             <li><i><a href="http://www.cibotechnologies.com/">
             CiBO Technologies</a>;
             St. Louis, Missouri</i></li>
+            <li>Optimized and ported a ~30k LOC C++ codebase to Scala.</li>
+            <li>Implemented several algorithms to perform Bayesian inference,
+            including MC^3 (Metropolis-Coupled Markov-Chain Monte-Carlo) and a
+            novel adaptive multivariate proposer.</li>
+            <li>Created a Scala interface to the Stan probabilistic programming
+            language
+            (<a href="https://github.com/cibotech/ScalaStan">ScalaStan</a>)
+            and presented it at StanCon 2018.</li>
+            <li>Designed a novel plotting API in Scala.</li>
         </ul>
     </li>
 
@@ -42,6 +51,12 @@
         <ul class="nobullet">
             <li><i><a href="https://observable.net/">Observable Networks</a>;
             St. Louis, Missouri</i></li>
+            <li>Created visualizations of AWS services and their
+            interactions.</li>
+            <li>Modeled AWS services to uncover malicious behavior in AWS VPCs
+            using Amazon Inspector, CloudWatch, and other other AWS APIs.</li>
+            <li>Used unsupervised machine learning techniques to find similar
+            devices on networks and report anomalies.</li>
         </ul>
     </li>
 
@@ -53,9 +68,9 @@
             <li><i><a href="http://velocidata.com/">VelociData, Inc.</a>;
             St. Louis, Missouri</i></li>
             <li>Ported C++ code to z/OS and AIX.</li>
-            <li>Designed and implemented high-performance, multi-threaded
-            engines in C++ to perform aggregation and other operations
-            on streaming data.</li>
+            <li>Designed and implemented multi-threaded engines to
+            perform aggregation, conversion and other functions in C++ for
+            a high-performance streaming appliance.</li>
         </ul>
     </li>
 
