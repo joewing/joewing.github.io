@@ -40,7 +40,9 @@
             language
             (<a href="https://github.com/cibotech/ScalaStan">ScalaStan</a>)
             and presented it at StanCon 2018.</li>
-            <li>Designed a novel plotting API in Scala.</li>
+            <li>Designed a novel plotting API in Scala
+            (<a href="https://github.com/cibotech/evilplot">EvilPlot</a>).
+            </li>
         </ul>
     </li>
 
@@ -228,6 +230,10 @@
 
 <h2>Projects</h2>
 <ul class="nobullet">
+    <li class="spaced">
+    Implemented <a href="https://github.com/joewing/ScalaCad">ScalaCad</a>,
+    an API in Scala for designing 3D models for printing, etc.
+    </li>
     <li class="spaced">
     Wrote <a href="https://github.com/joewing/ScalaPipe">ScalaPipe</a>,
     a domain-specific language embedded in Scala for writing streaming
