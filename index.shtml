@@ -1,475 +1,59 @@
 
-<!--#set var="TITLE" value="News"-->
+<!--#set var="TITLE" value="Home"-->
 <!--#include virtual="/head.shtml"-->
 
 <h1><!--#echo var="TITLE"--></h1>
 
-<div class="date">20170721</div>
-<div class="newsitem">
 <p>
-It's been almost a year since the last release, but today I finally released
-<a href="projects/jwm/">JWM</a> v2.3.7!
-See the <a href="projects/jwm/release-2.3.shtml#v2.3.7">release notes</a> for details.
-I have also started working on JWM v2.4, which will have some configuration changes, so
-the next version will hopefully be ready more quickly than v2.3.7.  A v2.3.8 will only
-exist if there are bugs discovered and fixed in v2.3.7 before v2.4 is ready.
-</p>
-</div>
-
-<div class="date">20160812</div>
-<div class="newsitem">
+This site is mostly a collection of projects I've worked on in my spare
+time over the years. Some of my recent and active projects include:
 <p>
-Today I released <a href="projects/jwm/">JWM</a> v2.3.6!
-This release includes several bug fixes and new features. In addition,
-JWM is now licensed under the MIT license.  See the
-<a href="projects/jwm/release-2.3.shtml#v2.3.6">release notes</a>
-for details.
-</p>
-</div>
+<ul>
+   <li><a href="projects/jwm/">JWM</a><br>
+   A window manager for X11 written in C.
+   This is perhaps the oldest project I still maintain (started in 2003).
+   </li>
+   <li><a href="https://github.com/joewing/ScalaCad">ScalaCad</a><br>
+   Constructive solid geometry in Scala for creating 3D models
+   to be printed.
+   </li>
+   <li><a href="https://github.com/cibotech/ScalaStan">ScalaStan</a><br>
+   An open-source project I created while working at
+   <a href="http://www.cibotechnologies.com/">CiBO Technologies</a>.
+   ScalaStan is a wrapper and DSL for the
+   <a href="http://mc-stan.org/">Stan</a> probabilistic programming
+   language implemented in Scala.
+   </li>
+   <li><a href="projects/maze/">Maze Generators</a><br>
+   Maze generator implementations in lots of programming languages.
+   </li>
+</ul>
 
-<div class="date">20160326</div>
-<div class="newsitem">
 <p>
-Today I released <a href="projects/jwm/">JWM</a> v2.3.5!  In addition
-to several bug fixes, this version adds better tiled window placement,
-the ability to fix windows to a particular desktop, and
-a new logo.  See the
-<a href="projects/jwm/release-2.3.shtml#v2.3.5">release notes</a>
-for more information.
+Other things I've worked on in the past that may be of interest:
 </p>
-</div>
+<ul>
+   <li><a href="projects/ti83/">TI-83/83+ Assembly Programs</a><br>
+   A collection of TI-83 and TI-83+ programs I wrote in z80 assembly
+   language while in high school, including the
+   <a href="projects/ti83/ion/">Ion</a> shell and several games.
+   </li>
+   <li><a href="projects/q1/">The Q1 Computer</a><br>
+   A computer built almost entirely out of about 3000
+   discrete bipolar transistors.
+   </li>
+   <li><a href="projects/altair680/">Altair 680 on an FPGA</a><br>
+   A complete implementation of the Altair 680 computer system in Verilog
+   capable of running a version of BASIC from 1978.
+   </li>
+</ul>
 
-<div class="date">20151120</div>
-<div class="newsitem">
 <p>
-Due to a few issues discovered in v2.3.3, today I released
-<a href="projects/jwm/">JWM</a> v2.3.4!  In addition to some bug fixes,
-this version includes a few new features.
-See the <a href="projects/jwm/release-2.3.shtml#v2.3.4">release notes</a>
-for more information.
+My <a href="https://github.com/joewing">GitHub</a> has some more
+projects.  For more about me, see the <a href="about.shtml">About</a>
+section, if you're interested in hiring me, please check out
+my <a href="resume.shtml">Resume</a>.
 </p>
-</div>
-
-<div class="date">20151118</div>
-<div class="newsitem">
-<p>
-Today I released <a href="projects/jwm/">JWM</a> v2.3.3!
-This release includes support for menu tool tips as well
-as several bug fixes.
-See the <a href="projects/jwm/release-2.3.shtml#v2.3.3">release notes</a>
-for more information.
-</p>
-</div>
-
-<div class="date">20150913</div>
-<div class="newsitem">
-<p>
-<a href="projects/jwm/">JWM</a> v2.3.2 is now available.
-See the <a href="projects/jwm/release-2.3.shtml#v2.3.2">release notes</a>
-for more information.
-</p>
-</div>
-
-<div class="date">20150709</div>
-<div class="newsitem">
-<p>
-As you may have noticed, <a href="projects/jwm/">JWM</a> v2.3.1 was
-released on 20150628, which fixes some issues in v2.3.0.  See
-the <a href="projects/jwm/release-2.3.shtml#v2.3.1">release notes</a>
-for more information.  JWM v2.3.2 is in the works and will include
-some minor bug fixes as well as a few style changes.
-</p>
-</div>
-
-<div class="date">20150626</div>
-<div class="newsitem">
-<p>
-Due to an issue discovered in <a href="projects/jwm/">JWM</a> v2.3.0,
-I am planning to release 2.3.1 in the next couple of days.
-The particular issue is with how menu includes are parsed.
-Prior to v2.3.0, a menu include would include items directly in
-the menu, in v2.3.0, menu includes create an extra submenu.  This behavior
-will be reverted in v2.3.1 (and is already fixed in the latest snapshots).
-</p>
-</div>
-
-<div class="date">20150618</div>
-<div class="newsitem">
-<p>
-I finally decided to call <a href="projects/jwm/">JWM</a> v2.3.0 finished.
-See the <a href="projects/jwm/release-2.3.shtml">release notes</a> for a
-list of changes. In addition, development on JWM v2.3.1 has started
-with an updated task bar that groups windows.  Feel free to try out
-<a href="projects/jwm/index.shtml#download">snapshot</a> and let me know
-what you think!
-</p>
-</div>
-
-<div class="date">20150409</div>
-<div class="newsitem">
-<p>
-<a href="projects/jwm/">JWM</a> v2.3.0 is nearing completion.
-See the <a href="projects/jwm/release-2.3.shtml">
-release notes</a> for a list of changes.
-If you find any issues with a recent
-<a href="projects/jwm/index.shtml#download">snapshot</a>, please let me know
-via <a href="https://github.com/joewing/jwm/">GitHub</a> or email!
-</p>
-</div>
-
-<div class="date">20140315</div>
-<div class="newsitem">
-<p>
-Today I released
-<a href="projects/jwm/">JWM</a>
-<a href="projects/jwm/releases/jwm-2.2.2.tar.xz">v2.2.2</a>.
-This version has a couple performance improvements as well as a few
-fixes for issues discovered in v2.2.0 and v2.2.1.
-See the <a href="projects/jwm/release-2.2.shtml#v2.2.2">
-release notes</a> for a list of changes.
-</p>
-</div>
-
-<div class="date">20140302</div>
-<div class="newsitem">
-<p>
-<a href="projects/jwm/">JWM</a>
-<a href="projects/jwm/releases/jwm-2.2.1.tar.xz">v2.2.1</a>
-is now available.  This release fixes several bugs that were discovered
-in v2.2.0.  See the <a href="projects/jwm/release-2.2.shtml#v2.2.1">
-release notes</a> for a list of changes.
-</p>
-</div>
-
-<div class="date">20140105</div>
-<div class="newsitem">
-<p>
-I released <a href="projects/jwm/">JWM</a>
-<a href="projects/jwm/releases/jwm-2.2.0.tar.xz">v2.2.0</a>
-today.  See the <a href="projects/jwm/release-2.2.shtml">release notes</a>
-for a list of changes.  This marks over two years since the last release!
-I hope to make releases more often going forward rather than having a
-hopelessly out-of-date release.
-</p>
-</div>
-
-<div class="date">20130901</div>
-<div class="newsitem">
-<p>
-In the interest of supporting complex <a href="projects/jwm/">JWM</a>
-configurations, I've started working on a <a href="projects/jl/">new
-language</a> for JWM configuration files.  Right now I'm calling this
-language JL for &quot;JWM LISP&quot;.
-My goal is to be able to support dynamic menu structures as well as key
-and mouse bindings that can do different things based on program state.
-Currently, I'm planning on completely replacing the XML configuration file
-with this language.  Unfortunately, this will change the configuration file
-format, but I think the end result will be more concise and, hopefully,
-equally readable.  Further, given the Turing-complete
-nature of JL, it should be possible to use JL to parse the old format.
-</p>
-<p>
-Rather than creating a new language and interpreter, I could have used an
-existing language, however, I wanted something that was small yet robust.
-Such an interpreter can not leak memory, for example, and must be easy to
-embedded into another program.  Further, such a language must make it
-easy to describe hierarchical configurations of the type that JWM requires.
-Although such a language may already exist in some form, I was not aware of
-one off-hand and writing JL was a fun project anyway.
-</p>
-<p>
-As far as <a href="projects/jwm/">JWM</a> is concerned, I'm still planning
-on getting JWM v2.2 stable for a release long before switching to
-<a href="projects/jl/">JL</a>.
-JWM v2.2 is taking much longer than I anticipated, but there are a lot of
-good changes and bug fixes (see the current
-<a href="projects/jwm/release-2.2.shtml">release notes</a>).  Once JWM v2.2
-is released, there will likely be maintenance releases before JWM v2.3
-is ready, which is when I plan on switching to the new configuration.
-</p>
-</div>
-
-<div class="date">20130411</div>
-<div class="newsitem">
-   <p>
-   As a result of feedback from my last update,
-   <a href="projects/jwm/">JWM</a> will continue to support
-   desktop switching by dragging windows to the edge of the screen, though
-   the behavior is slightly different.  Also, JWM will continue to support
-   the outline resize/move mode.
-   </p>
-   <p>
-   I'm hoping to make a stable 2.2 release of JWM very soon, so I encourage
-   you to try the
-   <a href="projects/jwm/snapshots/">latest snapshot</a>
-   of JWM and report any bugs either to me
-   <a href="about.shtml">directly</a> or on the
-   <a href="https://github.com/joewing/jwm">GitHub page for JWM</a>.
-   If you are using a previous version of JWM, there are a lot of changes.
-   Some of these changes affect the configuration.  Because of this,
-   I am in the process of putting together an update document.
-   </p>
-</div>
-
-<div class="date">20130105</div>
-<div class="newsitem">
-   <p>
-   I've recently moved <a href="projects/jwm/">JWM</a> to
-   <a href="https://github.com/joewing/jwm">GitHub</a>.  Also, lately
-   I've been making several changes <a href="projects/jwm/">JWM</a>
-   that affect the configuration.
-   </p>
-   <p>With the latest
-   <a href="projects/jwm/snapshots/">snapshot</a>,
-   the number of user-configurable layers has been reduced to
-   three (&quot;above&quot;, &quot;normal&quot;, and &quot;below&quot;).
-   In addition, there is now a configuration option (the &quot;border&quot;
-   attribute on the &quot;TrayButton&quot; tag) to set whether tray
-   buttons have a border rather than the rule where tray buttons that are
-   smaller than 48 pixels are flat.  There are other changes as well that
-   affect the appearance slightly.
-   </p>
-   <p>In the near future, I intend on making some more changes
-   including the removal of the ability to drag windows to different desktops
-   and the options to move/resize windows with outlines.  If there is any
-   demand for any of these features, I'll probably keep them, but I'd rather
-   keep features that I don't use (or find annoying) out of the code since
-   they are sources of bugs.
-   </p>
-</div>
-
-<div class="date">20121214</div>
-<div class="newsitem">
-   I finally got around to working on <a href="projects/jwm/">JWM</a>
-   a bit and fixed a long-standing bug that's affected users of xcompmgr.
-   The latest
-   <a href="http://joewing.net/projects/jwm/snapshots/">
-   snapshot</a> has the fix.
-</div>
-
-<div class="date">20110925</div>
-<div class="newsitem">
-   Given that it's been over four years since the last version of JWM was
-   created, I decided it was time to wrap up all the changes since then
-   into a new version.  <a href="projects/jwm/">JWM</a> v2.1.0 is now
-   available!  Although development has been kind of slow over the last
-   four years, there are a lot of changes since the previous version.
-</div>
-
-<div class="date">20080906</div>
-<div class="newsitem">
-   It's been a really long time updated anything here, but I have a few
-   items to mention. First, I wrote a game called
-   <a href="projects/knockout/">Knockout</a> for the iPhone/iPod Touch
-   that is now on the
-   iPhone App Store.<br/>
-   Also, as of late I've been working on a computer made entirely out
-   of transistors that I call the <a href="hardware/q1/">Q1</a>.
-   There may be no point in it, but I think it's cool.<br/>
-   Lastly, although development on <a href="projects/jwm/">JWM</a> has
-   slowed quite a bit, I am still working on it on and off and I will
-   hopefully have a new release ready one of these days.
-</div>
-
-<div class="date">20070704</div>
-<div class="newsitem">
-   I released <a href="projects/jwm/">JWM</a> v2.0.1. This version
-   fixes a file descriptor leak when JPEG images are enabled.
-</div>
-
-<div class="date">20070624</div>
-<div class="newsitem">
-   I finally released <a href="projects/jwm/">JWM</a> v2.0. This version
-   has a new look, background support, bug fixes, and more!
-   Be sure to check out the example configuration file (example.jwmrc)
-   if upgrading from JWM v1.8 or earlier as a few things changed, most
-   notably the way border colors, etc. are handled.
-</div>
-
-<div class="date">20070602</div>
-<div class="newsitem">
-   I made a few updates to <a href="projects/misc/">XDiamonds</a> and
-   released v0.2. Now it should build easier on Linux and it uses XPM
-   images embedded within the binary instead of external PNGs.
-</div>
-
-<div class="date">20070529</div>
-<div class="newsitem">
-   Since I now own the server behind
-   <a href="http://joewing.net/">joewing.net</a> and have the ability to
-   add more stuff, I've added a nightly
-   <a href="projects/jwm/snapshots/">JWM SVN snapshot</a>.
-   This snapshot comes from my local subversion repository (not the one
-   on <a href="http://sourceforge.net/projects/jwm">SourceForge</a>).
-   I've also added
-   <a href="projects/jwm/doxygen/html">JWM source code documentation</a>
-   that is generated nightly from subversion.
-</div>
-
-<div class="date">20061223</div>
-<div class="newsitem">
-   Today I finally released <a href="projects/jwm/">JWM</a> v1.8!
-   This version has a few bug fixes and other minor updates.
-</div>
-
-<div class="date">20061104</div>
-<div class="newsitem">
-   Today I released yet another release candidate for JWM v1.8,
-   <a href="projects/jwm/">JWM</a> v1.8rc4.
-</div>
-
-<div class="date">20061022</div>
-<div class="newsitem">
-   I released <a href="projects/jwm/">JWM</a> v1.8rc3 today. This version
-   only has a few bug fixes. I'm hoping that this version will become
-   JWM v1.8 final.
-</div>
-
-<div class="date">20061008</div>
-<div class="newsitem">
-   I finally released <a href="projects/jwm/">JWM</a> v1.8rc2. If this version
-   proves to be stable enough, it will become v1.8. This is mostly a
-   bug-fix release, although a couple of minor things have been added.
-</div>
-
-<div class="date">20060813</div>
-<div class="newsitem">
-   Today I released <a href="projects/jwm/">JWM</a> v1.8rc1. This is a release
-   candidate for JWM v1.8. I decided to do release candidates before the
-   final release of v1.8 since a lot of code changed since v1.7.<br/>
-   There are a few minor configuration changes in this version, see the
-   <a href="projects/jwm/history.shtml#v18rc1">history</a> for details.
-</div>
-
-<div class="date">20060427</div>
-<div class="newsitem">
-   Today I released <a href="projects/jwm/">JWM</a> v1.7. This is a bug fix
-   release.
-</div>
-
-<div class="date">20060423</div>
-<div class="newsitem">
-   <a href="projects/jwm/">JWM</a> v1.6 is finally here!
-</div>
-
-<div class="date">20060422</div>
-<div class="newsitem">
-   Since the OSS output plugin for XMMS on HP-UX doesn't really work right
-   and the ESD plugin is annoying, I decided to write a native HP-UX output
-   plugin. Here's the result in case anyone else finds it useful:
-   <a href="projects/misc/xmms-hpux-0.1.tar.bz2">
-   HP-UX XMMS Plugin v0.1</a>.
-</div>
-
-<div class="date">20060312</div>
-<div class="newsitem">
-   <a href="projects/jwm">JWM</a> v1.5 is out! Along with the usual bug
-   fixes, this version should be much faster than v1.4. As usual, check
-   out the <a href="projects/jwm/history.shtml#v15">history</a> for
-   details.
-</div>
-
-<div class="date">20060226</div>
-<div class="newsitem">
-   Here's a <a href="jwm-1.4p1.patch">patch</a> for JWM v1.4 to fix an
-   issue with menu includes. To use the patch copy it to the source
-   directory (&quot;jwm-1.4&quot;) and run
-   &quot;patch -p0 &lt;jwm-1.4p1.patch&quot;. Then rebuild JWM. To get
-   an updated version number, you will also have to run &quot;autoreconf&quot;
-   before rebuilding.
-</div>
-
-<div class="date">20060208</div>
-<div class="newsitem">
-   Today I released <a href="projects/jwm/">JWM</a> v1.4!
-</div>
-
-<div class="date">20060114</div>
-<div class="newsitem">
-   <a href="projects/jwm/">JWM</a> v1.3 is out! This version adds more
-   EWMH support including a &quot;dock&quot; for notifications as well
-   as a few bug fixes.
-</div>
-
-<div class="date">20060110</div>
-<div class="newsitem">
-   I created a mailing list for JWM.
-   This list is mostly for announcements for
-   now. If the need arises I may create another list for discussion.
-</div>
-
-<div class="date">20060101</div>
-<div class="newsitem">
-   Today marks the beginning of a new year and a new version of
-   <a href="projects/jwm/">JWM</a> (v1.2)! No major changes are in this
-   release, but it fixes several bugs that were in v1.1.
-</div>
-<div class="newsitem">
-   Also, as you may have noticed, my message board is no longer available.
-   First there was the spam, so I required that users register to post.
-   Of course, then the spammers simply registered. So then I had
-   it set up so that registered users couldn't post until a moderator
-   enabled their accounts. This solved most of the problems, but apparently
-   there was a security hole in the version of phpBB I was using. So, of
-   course, rather than informing me of the issue, somebody decided to
-   deface the message board. That was the last straw. I'd like to have a
-   message board, but for now there isn't one.<br/>
-   There was a day when I had a very insecure message board where no one
-   had to register and I rarely had problems. Those were the days...
-   It's scary to think what the future may bring.
-</div>
-
-<div class="date">20051120</div>
-<div class="newsitem">
-   Today I released <a href="projects/jwm/">JWM</a> v1.1!
-   This version fixes some bugs and adds some new features.
-</div>
-
-<div class="date">20051113</div>
-<div class="newsitem">
-   <a href="projects/jwm/">JWM</a> is now at version 1.0!
-   This version has many changes and the configuration file for v0.24 or
-   earlier will not work with this version. Notable changes include
-   the ability to use PNG icons and XFT for true type and antialiased
-   fonts (both can be disabled at compile-time). Also, it is now
-   possible to split up the tray and swallow applications into the
-   tray.<br/>
-   For a more complete list of changes, see the
-   <a href="projects/jwm/history.shtml#v10">history</a>.
-</div>
-
-<div class="date">20050922</div>
-<div class="newsitem">
-   I decided that it was past due to put out a new version of JWM, so
-   here is <a href="projects/jwm/">JWM</a> v0.24. There are several new
-   configuration options and bug fixes for this version. See the
-   <a href="projects/jwm/history.shtml#v024">history</a> for a complete
-   list. I haven't tested some of the features very extensively, notably
-   the Xinerama support. If any major bugs show up I'll try to stomp them
-   out with a new release within the next week or so.<br/>
-   Note that this version of JWM does not properly display all icons
-   and will not do antialiased fonts on AMD64.
-</div>
-
-<div class="date">20050522</div>
-<div class="newsitem">
-   <a href="projects/jwm/">JWM</a> v0.23 is here. This version fixes a few
-   minor bugs. See the <a href="projects/jwm/history.shtml#v023">history</a>
-   for a list of changes.
-</div>
-
-<div class="date">20050424</div>
-<div class="newsitem">
-   <a href="projects/jwm/">JWM</a> v0.22 is finally here. See the
-   <a href="projects/jwm/history.shtml#v022">history</a> for a list
-   of changes.
-</div>
-
-<div class="date">20050311</div>
-<div class="newsitem">
-   I redesigned this site. I still have work to do as far as adding back
-   all the content that was previously here.
-</div>
 
 <div class="location">
    <a href="index.shtml">Home</a>
