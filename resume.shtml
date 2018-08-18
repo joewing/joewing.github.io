@@ -192,6 +192,18 @@
 </li>
 </ul>
 
+<h2>Conference Talks</h2>
+<ul class="nobullet">
+   <li class="spaced">
+   "Scala DSLs and Probabistic Programming" to be presented at 
+   <a href="https://thestrangeloop.com/">Strange Loop 2018</a>
+   </li>
+   <li class="spaced">
+   "ScalaStan" presented at
+   <a href="http://mc-stan.org/events/stancon2018/">StanCon 2018</a>.
+   </li>
+</ul>
+
 <h2>Teaching Experience</h2>
 <ul class="nobullet">
     <li class="spaced">
