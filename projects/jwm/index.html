@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<p style="text-align:center">
+<img src="jwm-blue.svg" alt="JWM" width="300">
+</p>
+<br>
+
+<h1>JWM (Joe's Window Manager)</h1>
+
+<p id="description">
+JWM is a light-weight window manager for the X11 Window System. JWM is
+written in C and uses only Xlib at a minimum. Because of its small
+footprint, JWM makes a good window manager for older computers and
+less powerful systems, such as the
+<a href="http://www.raspberrypi.org/">Raspberry Pi</a>, though it is
+perfectly capable of running on modern systems.  JWM is included in
+small Linux distributions such as
+<a href="http://www.puppylinux.com/">Puppy Linux</a> and
+<a href="http://damnsmalllinux.org/">Damn Small Linux</a>, and it is
+available as a separate package in many other distributions.
+</p>
+<p>
+The obligatory screenshot:
+<a href="screenshots/jwm-2.2.png">JWM v2.2</a>.
+</p>
+<p>
+Although JWM does not require them, it can use the following libraries
+if available:
+</p>
+<ul>
+   <li>libXext for the shape extension</li>
+   <li>libXext for the render extension</li>
+   <li>libXmu for drawing rounded windows (shape extension also needed)</li>
+   <li>libXinerama for Xinerama (multi-monitor) support</li>
+   <li>libXpm for XPM backgrounds and icons</li>
+   <li><a href="http://www.ijg.org">libjpeg</a> for JPEG backgrounds
+   and icons</li>
+   <li><a href="http://libpng.org/pub/png/libpng.html">libpng</a>
+   for PNG backgrounds and icons</li>
+   <li><a href="https://live.gnome.org/LibRsvg">libRSVG</a> and
+   <a href="http://cairographics.org">Cairo</a> for SVG backgrounds
+   and icons</li>
+   <li>libxft for antialiased and true type fonts</li>
+   <li><a href="http://fribidi.org">libfribidi</a>
+   for right-to-left language support</li>
+</ul>
+<p>
+JWM attempts to conform to the
+<a href="http://tronche.com/gui/x/icccm/">ICCCM</a> and supports both
+<a href="mwm.html">MWM</a> hints and
+<a href="ewmh.html">Extended Window Manager Hints (EWMH)</a>.
+</p>
+<p>
+As of version 2.3.6, JWM is licensed under the
+<a href="license.html">MIT license</a>.
+</p>
+
+<h2 id="download">Download</h2>
+<p>
+   Current release: <span w3-include-html="release.html"></span><br>
+   See <a href="http://github.com/joewing/jwm/">GitHub</a> for recent updates.
+</p>
+
+<h2 id="documentation">Documentation</h2>
+<p>
+See the <a href="guide.html">JWM setup guide</a> for instructions on
+setting up JWM.
+</p>
+<p>
+See the <a href="config-2.3.html">configuration documentation</a> for
+comprehensive documentation on configuring JWM.
+JWM also comes with a manual page (run
+<span class="nobr">&quot;man jwm&quot;</span> on the command
+line after installing JWM).
+</p>
+
+<h2 id="develop">Developer Information</h2>
+<p>
+JWM is hosted on <a href="http://github.com/joewing/jwm/">GitHub</a>.<br>
+Please feel free to contribute bug reports, suggestions, and patches.
+</p>
+
+<h2 id="support">Support</h2>
+<p>
+Feel free to file bug reports on and request support
+on <a href="http://github.com/joewing/jwm/">GitHub</a> or
+email me directly at
+<a href="mailto:joewing@joewing.net">joewing@joewing.net</a>.<br>
+Note that <a href="http://jwm.sf.net/"> JWM at SourceForge.net</a>
+is no longer active.
+</p>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

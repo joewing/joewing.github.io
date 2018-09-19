@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>JL Programming Language</h1>
+
+<p>
+JL is a small, embeddable LISP-like language.
+The intended use is configuration files where it is desirable to support
+complex configurations (<a href="../jwm/">JWM</a>, for example).
+Although use in configuration files is the primary goal, JL is a
+full-featured language in its own right that can be used to write useful
+programs.
+</p>
+
+<p>
+JL is purely-functional, lexically scoped, and dynamically typed.  Like
+other LISP languages, JL uses
+<a href="http://en.wikipedia.org/wiki/S-expression">s-expressions</a>.
+For example, the following expression calls the &quot;list&quot; function,
+passing it three arguments:
+</p>
+<div class="code">
+(<span class="tag">list</span> <span class="literal">1 2 3</span>)
+</div>
+
+<p>
+There are four value types in JL:
+</p>
+<ul>
+   <li>Numbers</li>
+   <li>Strings</li>
+   <li>Lists</li>
+   <li>Lambdas</li>
+</ul>
+<p>
+<i>Numbers</i> are floating point values.  For example,
+<span class="literal">1</span> or <span class="literal">2.718281828</span>.
+<i>Strings</i> are sequences of characters, which are specified using quote
+characters.  Special characters are specified using escape sequences starting
+with &quot;\&quot;, much like in C, Java, and other languages.  For example,
+<span class="literal">&quot;This is a string\n&quot;</span> would represent
+a string with a trailing new-line character.  <i>Lists</i> are sequences
+(singly-linked) of other values, which can be of any type.  The distinguished
+value, <span class="literal">nil</span>, represents the empty list.  Finally,
+<i>lambdas</i> are anonymous functions, which can take zero or more arguments
+and return a result.
+</p>
+
+<p>
+Because there is no boolean type, by convention,
+<span class="literal">nil</span> and <span class="literal">0</span>
+represent false and any other value represents true.  For functions
+that return a boolean value, <span class="literal">1</span> is returned
+to indicate true and <span class="literal">nil</span> is returned to
+indicate false.
+</p>
+
+<p>
+See the <a href="function.html">JL function reference</a> for a list
+of built-in JL functions and the <a href="api.html">API reference</a>
+for information on embedding JL in another program.
+</p>
+
+
+<h2>Getting Started</h2>
+<p>
+JL is distributed in source form.  The JL source code is hosted on
+<a href="https://github.com/joewing/jl">GitHub</a>.
+After downloading JL, simply run &quot;make&quot; to build the library
+and interpreter.  Note that it may be necessary to modify the Makefile to
+work on some platforms.
+</p>
+<p>
+A REPL (read-evaluate-print loop) comes with JL to allow one to
+experiment with JL from the command line.  After building JL, the
+interpreter will be called <i>jli</i>.  Running
+<i>jli</i> without arguments starts the REPL.  From there you can
+enter JL expressions and see their output.  <i>jli</i> is also
+capable of running programs in a file by supplying the file name on
+the command line.
+</p>
+
+<h2>Quicksort Example</h2>
+<p>
+To demonstrate JL, an implementation of the
+<a href="http://en.wikipedia.org/wiki/Quicksort">Quicksort</a>
+algorithm is presented below.  Quicksort is a simple sorting algorithm
+that works by first selecting a pivot of the list to be sorted.
+The algorithm then sorts the items less than
+the pivot as well as the elements greater than the pivot using the same
+algorithm on the two smaller sublists.  Finally, the results are combined.
+This &quot;divide-and-conquer&quot; technique allows us to sort a list
+of <i>n</i> elements in <i>O(n lg n)</i> time on average.
+Note that for simplicity we use the first element of the list for the pivot,
+though this is not recommended in general.
+</p>
+
+<p>
+The first function we'll define is a function to filter a list
+of elements.  This higher-order function will be used to select the elements
+greater than and less than the pivot in our algorithm.  Note that many
+languages, especially functional languages, have such a function
+predefined.  JL does not currently predefine such a function, though
+its implementation is fairly trivial:
+</p>
+
+<div class="code">
+<span class="comment">
+; Function to return a sublist of lst that contains only<br/>
+; those items for which f returns true.<br/>
+</span>
+(<span class="keyword">define</span> filter
+(<span class="keyword">lambda</span> (f lst)<br/>
+&nbsp;&nbsp;(<span class="keyword">if</span> lst<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>
+(f (<span class="keyword">head</span> lst))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">cons</span>
+(<span class="keyword">head</span> lst)
+(filter f (<span class="keyword">rest</span> lst)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(filter f
+(<span class="keyword">rest</span> lst)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="literal">nil</span>)))
+</div>
+
+<p>
+Note that a semicolon starts a comment that runs to the end of
+the line.
+The first line of code uses <span class="keyword">define</span>
+to insert a binding called <i>filter</i> into the current scope.  The
+second parameter to <span class="keyword">define</span> is a call to
+the <span class="keyword">lambda</span> function, which creates an
+anonymous function.  By using <span class="keyword">define</span>
+and <span class="keyword">lambda</span> in this fashion, we are able
+to define new functions that may be used recursively.
+</p>
+<p>
+The <i>filter</i> function above works by first checking if there is
+anything in lst, returning the empty list (<span class="literal">nil</span>)
+if the list is empty.
+Next it checks if the head of the list should be inserted into the result:
+<span class="code">(f (<span class="keyword">head</span> lst))</span>.
+If so, the head is prepended, using <span class="keyword">cons</span>, to the
+list created by filtering the rest of the list.
+Otherwise, the result of filtering the rest of the list is returned.
+</p>
+
+<p>
+The next function we need is a function to combine two lists.  We
+will use this function after sorting the two sublists to construct
+the sorted result.
+<p>
+
+<div class="code">
+<span class="comment">
+; Combine two lists.<br/>
+</span>
+(<span class="keyword">define</span> combine
+(<span class="keyword">lambda</span> (as bs)<br/>
+&nbsp;&nbsp;(<span class="keyword">if</span> as<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">cons</span>
+(<span class="keyword">head</span> as) (combine
+(<span class="keyword">rest</span> as) bs))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;bs)))
+</div>
+
+<p>
+The <i>combine</i> function above simply prepends the first item
+of the <i>as</i> list to the result of calling itself on the
+rest of the <i>as</i> list and the <i>bs</i> list.  When the <i>as</i>
+list is exhausted, it simply returns the <i>bs</i> list.  The running
+time of this function is, therefore, the length of the <i>as</i> list.
+</p>
+
+<p>
+Finally, we have the <i>qsort</i> function which does the actual work:
+</p>
+
+<div class="code">
+<span class="comment">
+; Sort a list using the Quicksort algorithm.<br/>
+</span>
+(<span class="keyword">define</span> qsort
+(<span class="keyword">lambda</span> (lst)<br/>
+&nbsp;&nbsp;(<span class="keyword">if</span> lst<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">begin</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">define</span> pivot
+(<span class="keyword">head</span> lst))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">define</span> less
+(filter (<span class="keyword">lambda</span> (a)
+(<span class="keyword">&lt;</span> a pivot))
+(<span class="keyword">rest</span> lst)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">define</span>
+greater (filter (<span class="keyword">lambda</span> (a)
+(<span class="keyword">&gt;=</span> a pivot))
+(<span class="keyword">rest</span> lst)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(combine (qsort less)
+(<span class="keyword">cons</span> pivot (qsort greater))))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="literal">nil</span>)))<br/>
+</div>
+
+<p>
+This function first checks if <i>lst</i> is empty, returning
+<span class="literal">nil</span> if it is.  Assuming <i>lst</i> is not empty,
+the function starts a new scope using <span class="keyword">begin</span>.
+Note that <span class="keyword">begin</span> allows one to insert multiple
+expressions as a single argument to another function.  In this case, we use
+<span class="keyword">begin</span> as the second argument to
+<span class="keyword">if</span>.
+Within the new scope, we define <i>pivot</i> to be the first item of the
+list.  We then use the <i>filter</i> function to select the items of
+the list smaller than <i>pivot</i> using our <i>filter</i> function (note
+the use of an anonymous function passed to <i>filter</i>).  Next we
+use the <i>filter</i> function again to select items that are greater or
+equal to the pivot in the rest of the list.  Finally, we sort the sublists
+and combine them for the result.
+</p>
+
+<p>
+Those familiar with other LISP dialects might notice that JL does not
+use <span class="code">let</span>.  Instead,
+<span class="keyword">define</span> is used to insert bindings into the
+current scope.  As soon as the scope goes out of context, the bindings
+are removed.  We can even over-write bindings by using
+<span class="keyword">define</span> with the same name, which will only
+last until the end of the scope.  Note that <span class="keyword">define</span>
+does not change the value of anything; it only inserts bindings (mappings
+from name to value).  Therefore, code using
+<span class="keyword">define</span> in this manner is completely
+functional despite its imperative appearance.
+</p>
+
+<p>
+With this function, we can sort lists of numbers or strings.  For example:
+</p>
+
+<div class="code">
+(print (sort (<span class="keyword">list</span>
+<span class="literal">7 3 2 6 9 1 8 4 5</span>))
+<span class="literal">"\n"</span>)
+</div>
+
+<p>
+Note that <i>print</i> is a function provided by the <i>jli</i>
+interpreter, which comes with JL.
+</p>
+<p>
+This is one of the example programs comes with JL
+(<a href="https://github.com/joewing/jl/blob/master/examples/sort.jl">examples/sort.jl</a>).
+To run the example, specify this file as the first argument <i>jli</i>.
+</p>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

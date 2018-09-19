@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Altair 680</h1>
+
+<p>
+The Altair 680 is a computer kit from the mid-1970s.  It included a
+Motorola 6800 microprocessor running at 500 kHz.
+</p>
+<p>
+This is my project to create a fully functional Altair 680 complete
+with VGA and a PS/2 keyboard driver as well as a UART for connecting
+a terminal.  To download the Verilog source, see my
+<a href="https://github.com/joewing/altair680/">GitHub page</a>.
+The system was developed using
+<a href="http://iverilog.icarus.com/">Icarus Verilog</a> for simulation
+and the <a href="http://gtkwave.sourceforge.net/">GTKWave</a> wave viewer.
+</p>
+<p>
+If you have a <a href="http://www.digilentinc.com/">Digilent</a> Spartan-3E
+development board, the following bitfile can be used for a complete
+Altair 680 system: <a href="altair680.bit">altair680.bit</a>.  This uses
+the PS/2 port for a keyboard and the VGA port for the monitor.  You can also
+connect an RS-232 for a terminal (9600 baud, no parity).  The button under
+the knob on the board will reset the system.  When started, this will load
+the PROM monitor and show the &quot;.&quot; prompt.
+Type &quot;J0000&quot; to enter the BASIC interpreter.
+</p>
+
+<h2>Images</h2>
+<ul>
+   <li><a href="basic-maze.png">Maze Generator</a> - An image of the Altair
+   680 running a maze generator written in BASIC.  Output is via VGA.
+   </li>
+   <li><a href="basic2.jpg">Terminal</a> - A simple BASIC program running in
+   a terminal connected to the serial port.
+   </li>
+   <li><a href="basic3.jpg">VGA</a> - A simple BASIC program running output
+   to the VGA port.
+   </li>
+</ul>
+
+<p>
+<a href="../../">Home</a> /
+<a href="../">Projects</a>
+</p>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

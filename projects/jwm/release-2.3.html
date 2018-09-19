@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>JWM v2.3 Release Notes</h1>
+
+<p>
+This is a collection of major changes between JWM v2.2 and JWM v2.3.<br>
+Version 2.3.0 was released 20150618.
+</p>
+
+<h2>New Features</h2>
+<div>
+<ul>
+    <li>Added support for client requested XRaiseWindow (issue <a href="http://github.com/joewing/jwm/issues/117">#117</a>).</li>
+    <li>Added native language support for the confirm dialog.</li>
+    <li>Added support for _NET_RESTACK_WINDOW (issue <a href="http://github.com/joewing/jwm/issues/118">#118</a>).</li>
+    <li>Added key binding to send the current window to a
+    different desktop (issue <a href="http://github.com/joewing/jwm/issues/119">#119</a>).</li>
+    <li>Support the specification of an alternate configuration
+    file (patch from Brian Bidulock)</li>
+    <li>Added <span class="tag">Corner</span> option to configure the
+    roundedness of windows.</li>
+    <li>Updated the look of borders around menus and trays.</li>
+    <li>Add support for _NET_WM_MOVERESIZE (issue <a href="http://github.com/joewing/jwm/issues/142">#142</a>).</li>
+    <li>Add the <span class="literal">fullscreen</span>
+    group option (patch from George Shaw).</li>
+    <li>Made window style configuration more consistent (may break
+    old configuration files).</li>
+    <li>Add <span class="literal">scale</span> background type.</li>
+    <li>Added group options:
+        <span class="literal">nomin</span>,
+        <span class="literal">nomax</span>,
+        <span class="literal">noclose</span>,
+        <span class="literal">nomove</span>,
+        <span class="literal">noresize</span> (issue <a href="http://github.com/joewing/jwm/issues/152">#152</a>), and
+        <span class="literal">nofullscreen</span> (issue <a href="http://github.com/joewing/jwm/issues/163">#163</a>).
+    </li>
+    <li>Added the <span class="tag">Outline</span> tag to
+        <span class="tag">MenuStyle</span> to specify the color
+        of menu outlines (issue <a href="http://github.com/joewing/jwm/issues/31">#31</a>).</li>
+    <li>Added the <span class="tag">Outline</span> tag to
+        <span class="tag">TrayStyle</span> to specify the color
+        of tray outlines.</li>
+    <li>To conform with GNU standards, running &quot;make&nbsp;install&quot;
+    no longer strips the executable.  To strip the executable,
+    &quot;make&nbsp;install&#8209;strip&quot; can be used instead.</li>
+    <li>Added the ability to swallow the same client into a tray
+    multiple times.</li>
+    <li>Added the ability to specify where the tray is hidden when
+    auto-hide is enabled (issue <a href="http://github.com/joewing/jwm/issues/34">#34</a>).</li>
+    <li>Menu <span class="tag">Include</span>s are now loaded
+    dynamically when a menu is shown rather than when JWM starts.</li>
+    <li>Added the
+        <span class="literal">sendu</span>,
+        <span class="literal">sendd</span>,
+        <span class="literal">sendl</span> and
+        <span class="literal">sendr</span>
+        key bindings to send a window to a different desktop (issue <a href="http://github.com/joewing/jwm/issues/119">#119</a>).
+    </li>
+    <li>Added the
+        <span class="literal">maxh</span>,
+        <span class="literal">maxv</span>,
+        <span class="literal">maxtop</span>,
+        <span class="literal">maxbottom</span>,
+        <span class="literal">maxleft</span> and
+        <span class="literal">maxright</span>
+        key bindings (issues #120 and #157).
+    </li>
+    <li>
+      Added the ability to have separate actions per mouse button for
+      tray buttons (issue <a href="http://github.com/joewing/jwm/issues/171">#171</a>).  This is accomplished using the
+      <span class="tag">Button</span> tag.  For example:
+<div class="code">
+  &lt;<span class="tag">TrayButton</span>&nbsp;<span class="attribute">label</span>=<span class="literal">&quot;My Button&quot;</span>&gt;<br/>
+    &nbsp;&nbsp;&lt;<span class="tag">Button</span>&nbsp;<span class="attribute">mask</span>=<span class="literal">&quot;1&quot;</span>&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;exec:program_for_left_click<br/>
+    &nbsp;&nbsp;&lt;/<span class="tag">Button</span>&gt;<br/>
+    &nbsp;&nbsp;&lt;<span class="tag">Button</span>&nbsp;<span class="attribute">mask</span>=<span class="literal">&quot;45&quot;</span>&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;exec:program_for_scroll_wheel<br/>
+    &nbsp;&nbsp;&lt;/<span class="tag">Button</span>&gt;<br/>
+  &lt;/<span class="tag">TrayButton</span>&gt;<br/>
+</div>
+      The <span class="tag">Button</span> tags are optional.  By default
+      the action will use mouse button mask <span class="literal">123</span>.
+   </li>
+   <li>
+      Add the ability to have separate actions per mouse button for
+      clock tray components (issue <a href="http://github.com/joewing/jwm/issues/171">#171</a>) and the ability to have
+      clock tray components run actions like tray buttons (issue <a href="http://github.com/joewing/jwm/issues/172">#172</a>).
+   </li>
+   <li>
+      Add support for more than 10 menus. Now 26 additional menus can be
+      defined using the letters <span class="literal">a</span>
+      through <span class="literal">z</span>.
+   </li>
+</ul>
+</div>
+
+<h2>Configuration Changes</h2>
+<p>
+    The following XSLT is available to update JWM v2.2 configuration
+    files for use with JWM v2.3:
+    <a href="xslt/jwm-2.3.xslt">jwm-2.3.xslt</a>.
+</p>
+<p>
+    To convert an existing v2.2 configuration file using
+    <a href="http://xmlsoft.org/XSLT/xsltproc2.html">xsltproc</a>,
+    run:
+</p>
+<div class="code">
+    cp ~/.jwmrc ~/.jwmrc.old<br/>
+    xsltproc jwm-2.3.xslt ~/.jwmrc.old &gt; ~/.jwmrc
+</div>
+<p>
+    If you have multiple configuration files, it may be necessary
+    to apply the XSLT to some or all of them depending on what
+    configuration options are stored in the file.
+</p>
+<p>
+    A summary of configuration changes follows.
+</p>
+<div>
+<ul>
+    <li>The <span class="tag">ActiveBackground</span> and
+    <span class="tag">ActiveForeground</span> tags have been replaced
+    by <span class="tag">Background</span> and
+    <span class="tag">Foreground</span> under the
+    <span class="tag">Active</span> tag.  This applies to
+    <span class="tag">TrayStyle</span>,
+    <span class="tag">TaskListStyle</span>,
+    <span class="tag">TrayButtonStyle</span>,
+    <span class="tag">PagerStyle</span>, and
+    <span class="tag">MenuStyle</span>.</li>
+    <li>The <span class="tag">Inactive</span> tag under
+    <span class="tag">WindowStyle</span> has been removed.  The tags
+    that used to go within this tag now go directly under the
+    <span class="tag">WindowStyle</span> tag.</li>
+    <li>The <span class="attribute">autohide</span> attribute in
+    <span class="tag">Tray</span> now determines where the tray should
+    be hidden (<span class="literal">left</span>,
+    <span class="literal">right</span>,
+    <span class="literal">top</span>,
+    <span class="literal">bottom</span>, or
+    <span class="literal">off</span>) instead of
+    <span class="literal">true</span> or <span class="literal">false</span>.
+    </li>
+    <li>Now actions in the <span class="tag">Clock</span> tag must be
+    prefixed with <span class="literal">exec:</span> to run an external
+    program.</li>
+</ul>
+</div>
+<p>
+   See the <a href="config.html">configuration documentation</a>
+   for documentation on all configuration options.
+</p>
+
+<h2>Bug Fixes</h2>
+<div>
+<ul>
+    <li>ICCCM 2.0 WM_S selection compliance (patch from Brian Bidulock).</li>
+    <li>Fixed client window position after maximize/restore (issue <a href="http://github.com/joewing/jwm/issues/115">#115</a>,
+        patch from Brian Bidulock).</li>
+    <li>Fixed window mapping bug with show desktop (issue <a href="http://github.com/joewing/jwm/issues/114">#114</a>).</li>
+    <li>Give focus to the top-most window after show desktop (issue <a href="http://github.com/joewing/jwm/issues/64">#64</a>).</li>
+    <li>Fix uninitialized memory when loading images
+    (patch from Brian Bidulock).</li>
+    <li>Fix overlapping string issue with FriBidi
+    (patch from Brian Bidulock).</li>
+    <li>Fixed non-UTF8 locales (issue <a href="http://github.com/joewing/jwm/issues/56">#56</a>).</li>
+    <li>Fixed transparency issue with some applications (issue <a href="http://github.com/joewing/jwm/issues/130">#130</a>).</li>
+    <li>Fixed focus after key events (patch from Brian Bidulock).</li>
+    <li>Fixed loss of focus after restoring windows (issue <a href="http://github.com/joewing/jwm/issues/131">#131</a>).</li>
+    <li>Fix setting of _NET_WM_STATE_HIDDEN when a window is
+    minimized (issue <a href="http://github.com/joewing/jwm/issues/133">#133</a>, patch from Brian Bidulock).</li>
+    <li>Grab input focus at startup if not already set (issue <a href="http://github.com/joewing/jwm/issues/148">#148</a>).</li>
+</ul>
+</div>
+
+<h2>Updated Translations</h2>
+<div>
+<ul>
+    <li>Russian (Aleksandr Samusenko)</li>
+    <li>French (Pierrick)</li>
+    <li>Italian (Flavio aka Man from Mars)</li>
+    <li>Spanish (Pablo Lezaeta)</li>
+</ul>
+</div>
+
+<h2 id="v2.3.1">Changes in 2.3.1 (20150628)</h2>
+<div>
+<ul>
+   <li>Added an option to group windows by class in the task bar.
+   (the <span class="attribute">group</span> attribute of the
+   <span class="tag">TrayStyle</span> tag).</li>
+   <li>Fixed an issue with menus showing up across monitors when
+   Xinerama is enabled.</li>
+   <li>Added the ability to show Motif-style handles on windows
+   (the <span class="attribute">decorations</span> attribute of
+   <span class="tag">WindowStyle</span>).</li>
+   <li>Fixed an issue where the next/prev key bindings would not
+   advance past a window that does not accept input focus.</li>
+   <li>Fixed the behavior of the <span class="tag">Include</span>
+   tag within menus so that it no longer creates a submenu.</li>
+   <li>Menus included using <span class="tag">Include</span> are no
+   longer loaded each time the menu is accessed.</li>
+   <li>Added a <span class="tag">Dynamic</span> submenu that will
+   re-load its menu contents each time it is accessed.</li>
+</ul>
+</div>
+
+<h2 id="v2.3.2">Changes in 2.3.2 (20150913)</h2>
+<div>
+<ul>
+   <li>Restored the ability to specify that windows should not have
+   an icon (using the <span class="literal">"icon:"</span> group
+   option).</li>
+   <li>JWM will now try several common extensions when loading icons.</li>
+   <li>Fixed the height and default label for dynamic menus
+   (issue <a href="http://github.com/joewing/jwm/issues/188">#188</a>).</li>
+   <li>Improved handling of colormaps for pseudo-color displays.</li>
+   <li>Fixed handling of WM_STATE on big-endian machines.</li>
+   <li>Fixed an issue with menus getting stuck open.</li>
+   <li>Removed the <span class="tag">TaskListStyle</span>,
+   <span class="tag">TrayButtonStyle</span>, and
+   <span class="tag">ClockStyle</span> configuration options.
+   These options are now set from <span class="tag">TrayStyle</span>.</li>
+   <li>Added the Hungarian translation (from Hermit).</li>
+   <li>Added the ability to give a 3D look to menus and trays by specifying
+   <span class="attribute">decorations</span>=&quot;<span
+   class="literal">motif</span>&quot;
+   in <span class="tag">MenuStyle</span> and
+   <span class="tag">TrayStyle</span> respectively.</li>
+   <li>Fixed an issue where JWM key bindings would not be available
+   to applications (issue <a href="http://github.com/joewing/jwm/issues/201">#201</a>).</li>
+   <li>JWM now highlights the first menu item when opening a menu
+   with the keyboard (issue <a href="http://github.com/joewing/jwm/issues/102">#102</a>).</li>
+   <li>Add the ability to selectively enable popups (issue <a href="http://github.com/joewing/jwm/issues/189">#189</a>).</li>
+   <li>Various other fixes.</li>
+</ul>
+</div>
+
+<h2 id="v2.3.3">Changes in 2.3.3 (20151118)</h2>
+<div>
+<ul>
+   <li>JWM windows now set _NET_WM_WINDOW_TYPE (issue <a href="http://github.com/joewing/jwm/issues/223">#223</a>).</li>
+   <li>Added the Chinese translation (from Christopher Meng).</li>
+   <li>Added the <span class="attribute">height</span> attribute
+   to <span class="tag">TaskList</span> (issue <a href="http://github.com/joewing/jwm/issues/227">#227</a>).</li>
+   <li>Fixed tray button mouse bindings for the scroll wheel buttons
+   (issue <a href="http://github.com/joewing/jwm/issues/229">#229</a>).</li>
+   <li>Added the <span class="literal">restore</span> key binding
+   (issue <a href="http://github.com/joewing/jwm/issues/233">#233</a>).</li>
+   <li>Made middle-click on a task list item close the window
+   (issue <a href="http://github.com/joewing/jwm/issues/232">#232</a>).</li>
+   <li>Added support for tooltips in menus (issue <a href="http://github.com/joewing/jwm/issues/111">#111</a>).</li>
+   <li>Added Portuguese (Brazil) translation (from Holmes).</li>
+   <li>Fixed an issue where the dock would change size if its size
+   was not explicitly set (issue <a href="http://github.com/joewing/jwm/issues/238">#238</a>).</li>
+   <li>Fixed the height calculation of vertical trays (issue <a href="http://github.com/joewing/jwm/issues/228">#228</a>).</li>
+</ul>
+</div>
+
+<h2 id="v2.3.4">Changes in 2.3.4 (20151122)</h2>
+<div>
+<ul>
+   <li>Now a negative tray width/height can be specified to subtract
+   from the screen width/height (issue <a href="http://github.com/joewing/jwm/issues/250">#250</a>).</li>
+   <li>Added the <span class="attribute">list</span> configuration option
+   to <span class="tag">TrayStyle</span> to allow displaying windows from
+   all desktops (<span class="literal">all</span>) or only the current
+   desktop (the default, <span class="literal">desktop</span>) in task
+   lists.</li>
+   <li>Improved scaling of JPEG and SVG images (issue <a href="http://github.com/joewing/jwm/issues/253">#253</a>).</li>
+   <li>Fixed the rendering of fixed-aspect background images.</li>
+   <li>Added the <span class="literal">drag</span> group option
+   (issue <a href="http://github.com/joewing/jwm/issues/235">#235</a>).</li>
+   <li>Fixed rendering of window borders without a title bar.</li>
+</ul>
+</div>
+
+<h2 id="v2.3.5">Changes in 2.3.5 (20160326)</h2>
+<div>
+<ul>
+   <li>Faster icon loading (issue
+   <a href="http://github.com/joewing/jwm/issues/258">#258</a>).</li>
+   <li>Configurable default window icon via the
+   <span class="tag">ButtonMenu</span> tag (issue
+   <a href="http://github.com/joewing/jwm/issues/246">#246</a>).</li>
+   <li>Added the <span class="literal">ilist</span> and
+   <span class="literal">ipager</span> group options to ignore
+   program-specified task list and pager settings
+   (issue <a href="https://github.com/joewing/jwm/issues/263">#263</a>).</li>
+   <li>Made it so clicking a submenu does not close the menu
+   (issue <a href="https://github.com/joewing/jwm/issues/264">#264</a>).</li>
+   <li>Made the tray respond to clicks at screen edges
+   (issue <a href="https://github.com/joewing/jwm/issues/270">#270</a>).</li>
+   <li>Made tiled window placement (the <span class="literal">tiled</span>
+   group option) minimize overlap if no window position can be found with
+   no overlap (issue
+   <a href="https://github.com/joewing/jwm/issues/269">#269</a>).</li>
+   <li>Removed exit confirmation when exit is invoked from the command
+   line (issue
+   <a href="https://github.com/joewing/jwm/issues/275">#275</a>).</li>
+   <li>Now maximized windows restore when being dragged.</li>
+   <li>Restored the <span class="tag">ClockStyle</span> tag to allow setting
+   a custom font and color for clocks (issue
+   <a href="https://github.com/joewing/jwm/issues/276">#276</a>).</li>
+   <li>Fixed layout and mouse location tracking of tray items for
+   trays with lots of components.</li>
+   <li>Added the ability to use the output of a program for
+   <span class="tag">Include</span> (issue
+   <a href="https://github.com/joewing/jwm/issues/291">#291</a>).</li>
+   <li>Added the <span class="literal">fixed</span> group option (issue
+   <a href="https://github.com/joewing/jwm/issues/209">#209</a>).</li>
+</ul>
+</div>
+
+<h2 id="v2.3.6">Changes in 2.3.6 (20160812)</h2>
+<div>
+<ul>
+    <li>Auto-maximization of windows when the mouse is brought to the edge
+    of the screen (issue
+    <a href="https://github.com/joewing/jwm/issues/49">#49</a>).  This
+    feature is disabled by default, but can be enabled via the
+    <span class="literal">aerosnap</span> group option.
+    </li>
+    <li>Added Traditional Chinese translation (from Jim Tsai).</li>
+    <li>Added the <span class="tag">TaskListStyle</span> and
+    <span class="tag">TrayButtonStyle</span> tags to control the look
+    of task lists and tray buttons.  These were removed in v2.3.0, but
+    are now back (issue
+    <a href="https://github.com/joewing/jwm/issues/276">#276</a>).
+    </li>
+    <li>Fixed rendering of gradient highlights on menus.</li>
+    <li>Changed the default configuration to explicitly set a 24-hour
+    clock format.</li>
+    <li>Made the default window title height match the font size used
+    in window titles.</li>
+    <li>Added the ability to set a default icon using the
+    <span class="tag">DefaultIcon</span> tag (issue
+    <a href="https://github.com/joewing/jwm/issues/310">#310</a>).
+    </li>
+    <li>Added the ability to disable move/resize using mod1+drag via
+    the <span class="literal">nodrag</span> group option
+    (issue <a href="https://github.com/joewing/jwm/issues/311">#311</a>).
+    </li>
+    <li>Made JWM raise the selected window when tabbing between
+    windows (issue
+    <a href="https://github.com/joewing/jwm/issues/313">#313</a>).
+    </li>
+    <li>Fixed an issue with some system tray icons not showing up
+    (issue <a href="https://github.com/joewing/jwm/issues/314">#314</a>).
+    </li>
+    <li>Tiled window placement is now confined to the active
+    display (pull request
+    <a href="https://github.com/joewing/jwm/pull/318">#318</a>).
+    </li>
+    <li>Changed to the MIT license (issue
+    <a href="https://github.com/joewing/jwm/issues/320">#320</a>).
+    <li>Added the <span class="attribute">labeled</span> option to
+    <span class="tag">TaskListStyle</span> to allow disabling labels
+    for task lists.</li>
+</ul>
+</div>
+
+<h2 id="v2.3.7">Changes in 2.3.7 (20170721)</h2>
+<div>
+<ul>
+    <li>Made the modifier for dragging a window by clicking its
+    contents configurable via the <span class="attribute">mask</span>
+    attribute of the <span class="tag">MoveMode</span> tag (issue
+    <a href="https://github.com/joewing/jwm/issues/324">#324</a>).
+    </li>
+    <li>Added group options for setting initial window position
+    and size (issues
+    <a href="https://github.com/joewing/jwm/issues/79">#79</a> and
+    <a href="https://github.com/joewing/jwm/issues/348">#348</a>).
+    </li>
+    <li>Added the <span class="literal">clicktitle</span> and
+    <span class="literal">sloppytitle</span> options for
+    <span class="tag">FocusModel</span>, which cause windows to be
+    raised only when the title or border of the window is clicked
+    (issue <a href="https://github.com/joewing/jwm/issues/286">#286</a>).
+    </li>
+    <li>Fixed scaling of icons in the task bar (issue
+    <a href="https://github.com/joweing/jwm/issues/328">#328</a>).
+    </li>
+    <li>Added the <span class="attribute">decorations</span> attribute
+    to <span class="tag">TaskListStyle</span> to allow setting different
+    decorations on tray buttons and task list buttons (issue
+    <a href="https://github.com/joewing/jwm/issues/330">#330</a>).
+    </li>
+    <li>Fixed a bug with the <span class="literal">nextstacked</span>
+    key binding (issue
+    <a href="https://github.com/joewing/jwm/issues/335">#335</a>).
+    </li>
+    <li>Improved support for 3-digit hexcode colors (issue
+    <a href="https://github.com/joewing/jwm/issues/336">#336</a>).
+    </li>
+    <li>Better <span class="literal">aerosnap</span> support on
+    multiple monitors (issue
+    <a href="https://github.com/joewing/jwm/issues/342">#342</a>).
+    </li>
+    <li>Fixed a bug with multiple separators in menus (issue
+    <a href="https://github.com/joewing/jwm/issues/343">#343</a>).
+    </li>
+    <li>Fixed a bug with blank trays when there are full screen windows
+    (issue <a href="https://github.com/joewing/jwm/issues/356">#356</a>).
+    </li>
+    <li>Added the <span class="attribute">spacing</span> attribute to
+    <span class="tag">Dock</span> to allow adding space between icons
+    in the dock (issue
+    <a href="https://github.com/joewing/jwm/issues/357">#357</a>).
+    </li>
+    <li>Added support for dynamic root menus via the
+    <span class="attribute">dynamic</span> attribute of
+    <span class="tag">RootMenu</span> (issue
+    <a href="https://github.com/joewing/jwm/issues/221">#221</a>).
+    </li>
+    <li>Fixed an issue with 32-bit TrueColor visuals on some platforms.
+    </li>
+    <li>Fixed an issue with menus and multiple monitors (issue
+    <a href="https://github.com/joewing/jwm/issues/384">#384</a>).
+    </li>
+    <li>It is (once again) possible to disable desktop switching
+    by scrolling on the desktop using an empty root menu (issue
+    <a href="https://github.com/joewing/jwm/issues/366">#366</a>).
+    </li>
+</ul>
+</div>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">JWM</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

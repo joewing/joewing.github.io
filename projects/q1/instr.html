@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Q1 Instruction Set</h1>
+
+<h2>Contents</h2>
+<ul>
+   <li><a href="#registers">Registers</a></li>
+   <li><a href="#jump">Jump Instructions</a></li>
+   <li><a href="#ls">Load/Store Instructions</a></li>
+   <li><a href="#math">Math Instructions</a></li>
+   <li><a href="#misc">Other Instructions</a></li>
+</ul>
+
+<h2 id="registers">Registers</h2>
+
+<p>
+</p>
+
+<table class="listing">
+   <tr class="head">
+      <th>Name</th>
+      <th>Width</th>
+      <th>Description</th>
+   </tr>
+   <tr class="listing">
+      <td>A</td>
+      <td>8 bits</td>
+      <td>ALU result</td>
+   </tr>
+   <tr class="listing">
+      <td>B</td>
+      <td>8 bits</td>
+      <td>First ALU source</td>
+   </tr>
+   <tr class="listing">
+      <td>C</td>
+      <td>8 bits</td>
+      <td>Second ALU source</td>
+   </tr>
+   <tr class="listing">
+      <td>X</td>
+      <td>16 bits</td>
+      <td>Index register (divided into XL and XH)</td>
+   </tr>
+   <tr class="listing">
+      <td>P</td>
+      <td>16 bits</td>
+      <td>Program counter</td>
+   </tr>
+   <tr class="listing">
+      <td>N</td>
+      <td>16 bits</td>
+      <td>Next program counter</td>
+   </tr>
+   <tr class="listing">
+      <td>I</td>
+      <td>8 bits</td>
+      <td>Instruction latch</td>
+   </tr>
+   <tr class="listing">
+      <td>O</td>
+      <td>16 bits</td>
+      <td>Operand latch</td>
+   </tr>
+   <tr class="listing">
+      <td>CF</td>
+      <td>1 bit</td>
+      <td>Carry flag</td>
+   </tr>
+   <tr class="listing">
+      <td>ZF</td>
+      <td>1 bit</td>
+      <td>Zero flag (1 if zero)</td>
+   </tr>
+   <tr class="listing">
+      <td>NF</td>
+      <td>1 bit</td>
+      <td>Sign flag (1 if negative)</td>
+   </tr>
+</table>
+
+<p></p>
+
+<h2 id="jump">Jump Instructions</h2>
+<p>
+All jump instructions are 3 bytes. The first nibble is 0000 to indicate
+a jump instruction. The second nibble is the type of jump. All jumps are
+absolute to the specified address.
+</p>
+<table class="listing">
+   <tr class="head">
+      <th>Opcode</th>
+      <th>Mnemonic</th>
+      <th>Description</th>
+      <th>C</th>
+      <th>Z</th>
+      <th>N</th>
+   </tr>
+   <tr class="listing">
+      <td>0000 0000</td>
+      <td>J addr</td>
+      <td>Jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0001</td>
+      <td>JC addr</td>
+      <td>Jump if CF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0010</td>
+      <td>JZ addr</td>
+      <td>Jump if ZF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0011</td>
+      <td>JCZ addr</td>
+      <td>Jump if CF and ZF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0100</td>
+      <td>JN addr</td>
+      <td>Jump if NF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0101</td>
+      <td>JCN addr</td>
+      <td>Jump if CF and NF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0110</td>
+      <td>JZN addr</td>
+      <td>Jump if ZF and NF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 0111</td>
+      <td>JCZN addr</td>
+      <td>Jump if CF, ZF, and NF to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1000</td>
+      <td>C addr</td>
+      <td>X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1001</td>
+      <td>CC addr</td>
+      <td>If CF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1010</td>
+      <td>CZ addr</td>
+      <td>If ZF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1011</td>
+      <td>CCZ addr</td>
+      <td>If CF and ZF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1100</td>
+      <td>CN addr</td>
+      <td>If NF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1101</td>
+      <td>CCN addr</td>
+      <td>If CF and NF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1110</td>
+      <td>CZN addr</td>
+      <td>If ZF and NF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0000 1111</td>
+      <td>CCZN addr</td>
+      <td>If CF, ZF, and NF, X &lt;- P and jump to addr</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+</table>
+<p></p>
+
+<h2 id="ls">Load/Store Instructions</h2>
+<p>
+All load/store instructions are 3 bytes. The first nibble is 0001 to
+indicate a load/store instruction. The second nibble is the type of
+load/store instruction. All loads and stores are indirect through the
+specified absolute address.
+</p>
+<table class="listing">
+   <tr class="head">
+      <th>Opcode</th>
+      <th>Mnemonic</th>
+      <th>Description</th>
+      <th>C</th>
+      <th>Z</th>
+      <th>N</th>
+   </tr>
+   <tr class="listing">
+      <td>0001 0000</td>
+      <td>LDB addr</td>
+      <td>B &lt;- [addr]</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0001</td>
+      <td>LDC addr</td>
+      <td>C &lt;- [addr]</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0010</td>
+      <td>LXH addr</td>
+      <td>XH &lt;- [addr]</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0011</td>
+      <td>LXL addr</td>
+      <td>XL &lt;- [addr]</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0100</td>
+      <td>STB addr</td>
+      <td>[addr] &lt;- B</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0101</td>
+      <td>STC addr</td>
+      <td>[addr] &lt;- C</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0110</td>
+      <td>SXH addr</td>
+      <td>[addr] &lt;- XH</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 0111</td>
+      <td>SXL addr</td>
+      <td>[addr] &lt;- XL</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0001 1000</td>
+      <td>STA addr</td>
+      <td>[addr] &lt;- A</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+</table>
+
+<p></p>
+
+<h2 id="math">Math Instructions</h2>
+<p>
+All math instructions are 1 byte. The first nibble is 0010 to indicate
+a math instruction. The second nibble specifies the function.
+</p>
+<table class="listing">
+   <tr class="head">
+      <th>Opcode</th>
+      <th>Mnemonic</th>
+      <th>Description</th>
+      <th>C</th>
+      <th>Z</th>
+      <th>N</th>
+   </tr>
+   <tr class="listing">
+      <td>0010 0000</td>
+      <td>AND</td>
+      <td>A &lt;- B AND C</td>
+      <td>0</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0001</td>
+      <td>OR</td>
+      <td>A &lt;- B OR C</td>
+      <td>0</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0010</td>
+      <td>SHL</td>
+      <td>A &lt;- B &lt;&lt; 1</td>
+      <td>*</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0011</td>
+      <td>SHR</td>
+      <td>A &lt;- B &gt;&gt; 1</td>
+      <td>*</td><td>*</td><td>0</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0100</td>
+      <td>ADD</td>
+      <td>A &lt;- B + C</td>
+      <td>*</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0101</td>
+      <td>INC</td>
+      <td>A &lt;- B + 1</td>
+      <td>*</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0110</td>
+      <td>DEC</td>
+      <td>A &lt;- B - 1</td>
+      <td>*</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 0111</td>
+      <td>NOT</td>
+      <td>A &lt;- NOT B</td>
+      <td>0</td><td>*</td><td>*</td>
+   </tr>
+   <tr class="listing">
+      <td>0010 1000</td>
+      <td>CLR</td>
+      <td>A &lt;- 0</td>
+      <td>0</td><td>1</td><td>0</td>
+   </tr>
+</table>
+<p></p>
+
+<h2 id="misc">Other Instructions</h2>
+<p>
+All instructions of this class are 1 byte. The first nibble is 0011. The
+second nibble indicates the function.
+</p>
+<table class="listing">
+   <tr class="head">
+      <th>Opcode</th>
+      <th>Mnemonic</th>
+      <th>Description</th>
+      <th>C</th>
+      <th>Z</th>
+      <th>N</th>
+   </tr>
+   <tr class="listing">
+      <td>0011 0000</td>
+      <td>MAB</td>
+      <td>B &lt;- A</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0001</td>
+      <td>MAC</td>
+      <td>C &lt;- A</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0010</td>
+      <td>SAX</td>
+      <td>[X] &lt;- A</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0011</td>
+      <td>SBX</td>
+      <td>[X] &lt;- B</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0100</td>
+      <td>SCX</td>
+      <td>[X] &lt;- C</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0101</td>
+      <td>LBX</td>
+      <td>B &lt;- [X]</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0110</td>
+      <td>LCX</td>
+      <td>C &lt;- [X]</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 0111</td>
+      <td>RET</td>
+      <td>P &lt;- X (jump to X)</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+   <tr class="listing">
+      <td>0011 1000</td>
+      <td>HLT</td>
+      <td>Halt</td>
+      <td>-</td><td>-</td><td>-</td>
+   </tr>
+</table>
+
+<p>
+</p>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">Q1</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

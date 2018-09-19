@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Q1 Example Programs</h1>
+
+<p/>
+<h2>Contents</h2>
+<ul>
+   <li><a href="#sub">Subtraction Subroutine</a></li>
+   <li><a href="#mult">Multiplication Subroutine</a></li>
+   <li><a href="#gcd">Greatest Common Divisor</a></li>
+   <li><a href="#fib">Fibonacci Sequence</a></li>
+   <li><a href="#sieve">Sieve of Eratosthenes</a></li>
+</ul>
+
+<h2 id="sub">Subtraction Subroutine</h2>
+<p>
+The Q1 doesn't directly support subtraction, but it is pretty easy
+to implement as shown below.
+</p>
+<pre>; Compute A = C - B
+; 6 bytes
+sub:
+   not
+   mab
+   inc
+   mab
+   add
+   ret
+</pre>
+
+<h2 id="mult">Multiplication Subroutine</h2>
+<p>
+Like subtraction, multiplication isn't directly supported.
+Here's one solution.
+</p>
+<pre>; Compute B = B * C
+; 50 bytes
+mult:
+   stb   mult_x
+   stc   mult_y
+   clr
+   sta   mult_result
+mult_loop:
+   ldb   mult_x
+   shr
+   sta   mult_x
+   ldb   mult_y
+   jc    mult_bit_set
+   jz    mult_done
+   j     mult_not_set
+mult_bit_set:
+   ldc   mult_result
+   add
+   sta   mult_result
+mult_not_set:
+   shl
+   sta   mult_y
+   j     mult_loop
+mult_done:
+   ldb   mult_result
+   ret
+mult_x:
+   db    0
+mult_y:
+   db    0
+mult_result:
+   db    0
+</pre>
+
+<h2 id="gcd">Greatest Common Divisor</h2>
+<p>
+This subroutine computes the greatest common divisor of two 8-bit non-zero
+unsigned integers.
+</p>
+<pre>; Compute B = GCD(B, C)
+; 45 bytes
+gcd:
+   stb   gcd_x
+   stc   gcd_y
+gcd_loop:
+   ldb   gcd_y
+   not
+   mab
+   inc
+   mab
+   ldc   gcd_x
+   add
+   jz    gcd_result_x
+   jc    gcd_x_greater
+   mab
+   not
+   mab
+   inc
+   sta   gcd_y
+   j     gcd_loop
+gcd_x_greater:
+   sta   gcd_x
+   j     gcd_loop
+gcd_result_x:
+   ldb   gcd_x
+   ret
+gcd_x:
+   db    0
+gcd_y:
+   db    0
+</pre>
+
+<h2 id="fib">Fibonacci Sequence</h2>
+<p>
+This program computes the largest Fibonacci number that fits in 8 bits
+and then halts.
+</p>
+<pre>; Compute the largest Fibonacci number that fits in 8 bits.
+; 32 bytes
+fib:
+   ldb   fib_init
+   stb   fib_n1
+   stb   fib_n2
+fib_loop:
+   ldb   fib_n1
+   ldc   fib_n2
+   stb   fib_n2
+   add
+   jc    fib_done
+   sta   fib_n1
+   j     fib_loop
+fib_done:
+   hlt
+fib_n1:
+   db    1
+fib_n2:
+   db    1
+fib_init:
+   db    1
+</pre>
+
+<h2 id="sieve">Sieve of Eratosthenes</h2>
+<p>
+This program computes the largest prime number that fits in 8 bits
+and then halts.
+</p>
+<pre>; Sieve of Eratosthenes
+; 85 + 256 bytes
+sieve:
+   ldb   sieve_zero
+   stb   sieve_init_index + 2
+sieve_init_loop:
+   ldb   sieve_zero
+sieve_init_index:
+   stb   sieve_primes
+   ldb   sieve_init_index + 2
+   inc
+   sta   sieve_init_index + 2
+   jc    sieve_init_done
+   j     sieve_init_loop
+sieve_init_done:
+   mab
+   inc
+   sta   sieve_next_test + 2
+sieve_next_num:
+   ldb   sieve_next_test + 2
+   inc
+   jc    sieve_done
+   sta   sieve_next_test + 2
+sieve_next_test:
+   ldb   sieve_primes
+   inc
+   jc    sieve_next_num
+   ldb   sieve_next_test + 2
+   stb   sieve_largest
+   stb   sieve_index + 2
+sieve_loop:
+   ldb   sieve_index + 2
+   ldc   sieve_largest
+   add
+   jc    sieve_next_num
+   sta   sieve_index + 2
+   ldb   sieve_neg1
+sieve_index:
+   stb   sieve_primes
+sieve_zero:
+   j     sieve_loop
+sieve_done:
+   ldb   sieve_largest
+   hlt
+sieve_neg1:
+   db    255
+sieve_largest:
+   db    0
+   org   256
+sieve_primes:
+</pre>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">Q1</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

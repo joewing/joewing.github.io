@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Q1 Schematics</h1>
+<p>
+This is a collection of schematics for the Q1.
+</p>
+
+<ul>
+   <li><a href="images/address.png">Address Selector</a><br/>
+      16 of these are needed for the Address Path module.
+      This is a 2-2 input AND-OR gate with open collector output for the
+      address selection and a NOT gate to drive the inverted address lines
+      (used to simplify several modules).
+   </li>
+   <li><a href="images/clock-generator.png">Clock Generator</a><br/>
+      This is the circuit that generates the clock signal. This is a
+      astable multivibrator connected to a Schmitt trigger and then gated
+      to allow disabling the clock at the correct clock phase. The
+      multivibrator is configured to allow switching between two preset
+      speeds.
+   </li>
+   <li><a href="images/dff.png">D Flip-Flop</a><br/>
+      A positive-edge triggered D Flip-Flop with asynchronous reset.<br/>
+      Two of these are used for clock phases and eight are used for storing
+      the state.
+   </li>
+   <li><a href="images/data.png">Data Path</a><br/>
+      8 of these are needed for the Data Path module.
+   </li>
+   <li><a href="images/input-buffer.png">Input Buffer</a><br/>
+      An input buffer with a push-button to toggle the value.
+      24 of these are used on the Front Panel module.
+   </li>
+</ul>
+
+<p>
+Unless stated otherwise, all transistors are type PN2222A and all resistors
+are 1/4 watt.
+</p>
+
+<p/>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">Q1</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

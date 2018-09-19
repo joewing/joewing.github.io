@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Q1 Front Panel</h1>
+<p>
+The front panel allows one to control the clock and access the memory
+of the Q1. The layout is as follows.
+</p>
+<pre>
++-------------------------------------------+
+| A A A A  A A A A  A A A A  A A A A  IA RN |
+| m m m m  m m m m  m m m m  m m m m        |
+|                                           |
+| RS ST             D D D D  D D D D  DP ID |
+|                   m m m m  m m m m        |
++-------------------------------------------+
+</pre>
+
+<ul>
+   <li>
+      A represents an LED for the address bus. The left-most LED displays
+      the most significant bit. Directly below the address LEDs is a push
+      button to toggle the address bit in the address input buffer.
+   </li>
+   <li>
+      IA is a toggle switch to select between the CPU address bus and the
+      input address buffer. When in the up position the address input buffer
+      is displayed and the address input buffer is used for the RAM address.
+      In the down position the address from the CPU is displayed and used
+      for the RAM address.
+   </li>
+   <li>
+      D represents an LED for the data bus. The left-most LED displays the
+      most significant bit. Directly below the data LEDs is a push button
+      to toggle the data bit in the data input buffer.
+   </li>
+   <li>
+      ID is a toggle switch to select between the data bus and the data
+      input buffer. In the up position the data input buffer is displayed
+      and asserted on the RAM data bus. In the down position the data bus
+      is displayed.
+   </li>
+   <li>
+      RN is a toggle switch to switch between RUN and HALT. When in the RUN
+      (up) position the CPU is run from the clock generator. In the HALT
+      (down) position the CPU may be stepped via the ST button and the
+      memory can be modified. Note that this switch should always be in the
+      HALT position before switching IA or ID up or pressing DP.
+   </li>
+   <li>
+      DP is a push button to deposit the data in the data input buffer at the
+      address shown on the address LEDs.
+   </li>
+   <li>
+      RS is a push button to reset the state machine and program counter.
+   </li>
+   <li>
+      ST is a push button to step the clock (to be used when halted).
+      This will step through one complete clock phase.
+   </li>
+</ul>
+
+<h2>Running a Program</h2>
+<ol>
+   <li>Set the RN switch to "HALT" (down).</li>
+   <li>Set the IA switch to "Input" (up).</li>
+   <li>Set the ID switch to "Input" (up).</li>
+   <li>Set the address and data.</li>
+   <li>Press DP.</li>
+   <li>Repeat 4 and 5 until the program is loaded.</li>
+   <li>Set the IA switch to "View" (down).</li>
+   <li>Set the ID switch to "View" (down).</li>
+   <li>Press RS.</li>
+   <li>Place the RN switch into the "RUN" (up) position.</li>
+</ol>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">Q1</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

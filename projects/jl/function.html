@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>JL Function Reference</h1>
+
+<p>
+The following functions are predefined within JL.
+</p>
+
+<table class="listing">
+   <tr class="head">
+      <th>Function</th><th>Description</th>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">+</span></td>
+      <td>Sum a list of numbers. This function takes zero or
+      more arguments. With zero arguments
+      it returns <span class="literal">0</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">-</span></td>
+      <td>Subtract.  This function takes one or more arguments.
+      The first argument is the value from which to subtract, and the
+      remaining values are subtracted from the first value.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">*</span></td>
+      <td>Multiply.  This function takes zero or more arguments and
+      returns the product.  With zero arguments it returns
+      <span class="literal">1</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">/</span></td>
+      <td>Divide.  This function takes two arguments and returns
+      the value of the first argument divided by the second.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">=</span</td>
+      <td>Test for equality.  This function takes two arguments of any
+      type and returns <span class="literal">1</span> if (structurally)
+      equal, otherwise it returns <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">!=</span</td>
+      <td>Test if not equal.  This function takes two arguments of any
+      type and returns <span class="literal">nil</span> if (structurally)
+      equal, otherwise it returns <span class="literal">1</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">&gt;</span</td>
+      <td>Test if greater than.  This function takes two arguments of any
+      type and returns <span class="literal">1</span> if the first argument
+      is greater than the second, otherwise it returns
+      <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">&gt;=</span</td>
+      <td>Test if greater than or equal.  This function takes two arguments of
+      any type and returns <span class="literal">1</span> if the first
+      argument is greater than or equal to the second, otherwise it returns
+      <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">&lt;</span</td>
+      <td>Test if less than.  This function takes two arguments of
+      any type and returns <span class="literal">1</span> if the first
+      argument is less than the second, otherwise it returns
+      <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">&lt;=</span</td>
+      <td>Test if less than or equal.  This function takes two arguments of
+      any type and returns <span class="literal">1</span> if the first
+      argument is less than or equal to the second, otherwise it returns
+      <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">and</span</td>
+      <td>Logical AND.  This function returns <span class="literal">1</span>
+      if all of its arguments return a true value.  Otherwise it returns
+      <span class="literal">nil</span>.  If no arguments are supplied,
+      it returns <span class="literal">1</span>.  Arguments are evaluated
+      from left to right and evaluation stops as soon as a false value
+      is encountered.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">begin</span</td>
+      <td>Evaluate a sequence of expressions in a new scope and return the
+      result of the last expression.  If no expressions are supplied, this
+      function returns <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">concat</span</td>
+      <td>Concatenate strings.  This function takes one or more strings
+      and concatenates them.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">cons</span</td>
+      <td>Construct a list.  This function two arguments and prepends the
+      first argument to the list in the second argument.  The second
+      argument must be either a list or <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">define</span</td>
+      <td>Insert a binding into the current scope.  This function takes
+      two arguments: the first argument is the name of the binding and
+      the second argument is the value.  Note that new scopes are created
+      using <span class="literal">begin</span> and
+      <span class="literal">lambda</span>.  If a binding has the same name
+      as an existing binding, the existing binding is replaced in the
+      current scope.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">head</span</td>
+      <td>Return the first item of a list.  This function takes a list
+      as its argument.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">if</span</td>
+      <td>Conditional.  This function will evaluate its first parameter.  If
+      the result is true, it returns the result of evaluating its second
+      parameter, otherwise it returns the results of evaluating its third
+      parameter.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">lambda</span</td>
+      <td>Create an anonymous function.  The first argument to this function
+      is a list of parameters to the function.  The remaining arguments
+      are expressions to be evaluated when this lambda is evaulated.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">list</span</td>
+      <td>Create a list.  This function takes zero or more arguments
+      and returns a list containing them.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">list?</span</td>
+      <td>Determine if a value is a list.  This function takes one argument
+      and returns <span class="literal">1</span> if it is a list, otherwise
+      it returns <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">mod</span</td>
+      <td>Modulus.  This function takes two number arguments and returns
+      the remainder after integer division of the first argument divided by
+      the second argument.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">not</span</td>
+      <td>Logical NOT.  This function takes one argument and returns
+      <span class="literal">nil</span> if it is true, otherwise it
+      returns <span class="literal">1</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">null?</span</td>
+      <td>Determine if a value is <span class="literal">nil</span>.  This
+      function takes one argument and returns <span class="literal">1</span>
+      if it is <span class="literal">nil</span>, otherwise it returns
+      <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">number?</span</td>
+      <td>Determine if a value is a number.  This function takes one argument
+      and returns <span class="literal">1</span> if it is a number, otherwise
+      it returns <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">or</span</td>
+      <td>Logical OR.  This function returns <span class="literal">1</span>
+      if any of its arguments return a true value.  Otherwise it returns
+      <span class="literal">nil</span>.  If no arguments are supplied,
+      it returns <span class="literal">nil</span>.  Arguments are evaluated
+      from left to right and evaluation stops as soon as a true value
+      is encountered.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">rest</span</td>
+      <td>Return the rest of the list.  This function takes
+      one list argument and returns all but the first item.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">string?</span</td>
+      <td>Determine if a value is a string.  This function takes one argument
+      and returns <span class="literal">1</span> if it is a string, otherwise
+      it returns <span class="literal">nil</span>.</td>
+   </tr>
+   <tr class="listing">
+      <td><span class="tag">substr</span</td>
+      <td>Substring.  This function takes a string parameter, an optional
+      second (number) parameter, and an optional third (number) parameter.
+      If a second parameter is provided, the second parameter is the start
+      of the string to be returned (zero-based).  If a third parameter is
+      provided, the third parameter provides the maximum length of the
+      string to be returned.</td>
+   </tr>
+</table>
+
+<p>
+</p>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">JL</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

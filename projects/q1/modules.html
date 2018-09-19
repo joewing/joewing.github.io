@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Q1 Modules</h1>
+<p>
+The Q1 is comprised of modules, each on a 13x25 cm board with
+40-pin connectors. Here's a detailed look at each module.
+</p>
+
+<h2>ALU Modules</h2>
+<table class="listing">
+   <tr class="head">
+      <th>Module</th>
+      <th>Description</th>
+      <th>Parts</th>
+      <th>Images</th>
+   </tr>
+   <tr class="listing">
+      <td>Adder</td>
+      <td>
+         8-bit full adder with carry in and carry out. For now the carry in
+         will be tied to ground since the Q1 doesn't make use of it. Also
+         note that I goofed when wiring up the socket: GND and Vcc are in the
+         wrong places and the order of the bits is backwards.<br/>
+Add/Inc/Dec connector:
+<pre>
+GND NC  NC  NC  NC  NC  NC  NC  NC  NC  Co  S7  S6  S5  S4  S3  S2  S1  S0  Ci
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  B7  B6  B5  B4  B3  B2  B1  B0  A7  A6  A5  A4  A3  A2  A1  A0  Vcc
+</pre>
+      </td>
+      <td class="nobr">
+         216 transistors<br/>
+         144 10k resistors<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/adder-top.jpg">Top</a><br/>
+         <a href="images/adder-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>A Register</td>
+      <td>
+         8-bit register with single input and open collector gated output.<br/>
+ALU connector:
+<pre>
+Vcc WR  I0  I1  I2  I3  I4  I5  I6  I7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+RD  O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         104 transistors<br/>
+         64 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/rega-top.jpg">Top</a><br/>
+         <a href="images/rega-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>B Register</td>
+      <td>
+         8-bit register with one positive/negative input, open collector
+         gated output (connected to input), and constant output (connected
+         to the first ALU source).<br/>
+ALU connector:
+<pre>
+Vcc RD  WR  D0  D1  D2  D3  D4  D5  D6  D7 ~D0 ~D1 ~D2 ~D3 ~D4 ~D5 ~D6 ~D7  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+V0  V1  V2  V3  V4  V5  V6  V7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         104 transistors<br/>
+         64 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regb-top.jpg">Top</a><br/>
+         <a href="images/regb-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>C Register</td>
+      <td>
+         8-bit register with one positive/negative input, and two open
+         collector gated outputs. One of the outputs is connected to the
+         input. The other is used for the second ALU source, which is either
+         the C register (read enabled) or 1 (read disabled).<br/>
+ALU connector:
+<pre>
+Vcc RD  WR  D0  D1  D2  D3  D4  D5  D6  D7  ~D0 ~D1 ~D2 ~D3 ~D4 ~D5 ~D6 ~D7 NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+RO  O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         112 transistors<br/>
+         56 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regc-top.jpg">Top</a><br/>
+         <a href="images/regc-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Shifter</td>
+      <td>
+         Left and right shifter with selectors.<br/>
+ALU connector:
+<pre>
+Vcc A0  A1  A2  A3  A4  A5  A6  A7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+SHL SHR O0  O1  O2  O3  O4  O5  O6  O7  CO  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         68 transistors<br/>
+         34 10k resistors<br/>
+         1 socket
+      </td>
+      <td>
+         N/A
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>AND/OR Unit</td>
+      <td>
+         AND and OR unit with selectors.<br/>
+ALU connector:
+<pre>
+Vcc A0  A1  A2  A3  A4  A5  A6  A7  B0  B1  B2  B3  B4  B5  B6  B7  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+AND OR  O0  O1  O2  O3  O4  O5  O6  O7  CO  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         108 transistors<br/>
+         58 10k resistors<br/>
+         1 socket
+      </td>
+      <td>
+         N/A
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>CLR/NOT Unit</td>
+      <td>
+         Clear/NOT unit with selectors.<br/>
+ALU connector:
+<pre>
+Vcc I0  I1  I2  I3  I4  I5  I6  I7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+CLR NOT O0  O1  O2  O3  O4  O5  O6  O7  CO  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         67 transistors<br/>
+         42 10k resistors<br/>
+         1 socket
+      </td>
+      <td>
+         N/A
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Add/Inc/Dec Unit</td>
+      <td>
+         Add/Increment/Decrement unit with selectors.<br/>
+ALU connector:
+<pre>
+Vcc B0  B1  B2  B3  B4  B5  B6  B7  C0  C1  C2  C3  C4  C5  C6  C7  CO  RC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+ADD INC DEC O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+Adder connector:
+<pre>
+GND NC  NC  NC  NC  NC  NC  NC  NC  NC  Co  S7  S6  S5  S4  S3  S2  S1  S0  GND
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  B7  B6  B5  B4  B3  B2  B1  B0  A7  A6  A5  A4  A3  A2  A1  A0  Vcc
+</pre>
+      </td>
+      <td class="nobr">
+         77 transistors<br/>
+         56 10k resistors<br/>
+         2 sockets
+      </td>
+      <td>
+         <a href="images/aid-top.jpg">Top</a><br/>
+         <a href="images/aid-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Flags</td>
+      <td>
+         Zero detect and CF, ZF, and NF registers. Each register has
+         a single input with a constant output. A single write line
+         controls the registers (the same write line that controls the
+         A register). The input is connected to the input to the A
+         register.<br/>
+ALU connector:
+<pre>
+Vcc WR  A0  A1  A2  A3  A4  A5  A6  A7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+CO  ZO  NO  CI  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         52 transistors<br/>
+         36 10k resistors<br/>
+         3 1k resistors<br/>
+         3 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/flag-top.jpg">Top</a><br/>
+         <a href="images/flag-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>ALU</td>
+      <td>
+         ALU board. This connects all the ALU modules together.<br/>
+System connector:
+<pre>
+Vcc D0  D1  D2  D3  D4  D5  D6  D7  ~D0 ~D1 ~D2 ~D3 ~D4 ~D5 ~D6 ~D7 NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+WA  RA  WB  RB  WC  RC  F0  F1  F2  F3  F4  F5  F6  F7  F8  NC  CF  NF  ZF  GND
+</pre>
+      </td>
+      <td class="nobr">
+         9 sockets
+      </td>
+      <td>
+         <a href="images/alu-top.jpg">Top</a><br/>
+         <a href="images/alu-bottom.jpg">Bottom</a><br/>
+         <a href="images/alu-layout.png">Layout</a>
+      </td>
+   </tr>
+</table>
+<p/>
+
+<h2>Control Modules</h2>
+<table class="listing">
+   <tr class="head">
+      <th>Module</th>
+      <th>Description</th>
+      <th>Parts</th>
+      <th>Images</th>
+   </tr>
+   <tr class="listing">
+      <td>Clock Generator</td>
+      <td>
+         Clock phase generator.<br/>
+Control connector:
+<pre>
+Vcc RST HLT STP NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+SC  WC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         87 transistors<br/>
+         48 10k resistors<br/>
+         8 1k resistors<br/>
+         3 LEDs<br/>
+         5 .47uF capacitors<br/>
+         5 500k trimmer resistors<br/>
+         1 500 ohm trimmer resistor<br/>
+         1 DPDT switch<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/clock-top.jpg">Top</a><br/>
+         <a href="images/clock-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>State Machine</td>
+      <td>
+         State machine and next state logic.<br/>
+Control connector:
+<pre>
+Vcc RST SC  C0  C1  C2  C3  F8  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+S0  S1  S2  S3  S4  S5  S6  S7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         198 transistors<br/>
+         ? 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/state-top.jpg">Top</a><br/>
+         <a href="images/state-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Control A</td>
+      <td>
+         Control line decoder and driver for lines 0 through 12<br/>
+Control connector 1:
+<pre>
+Vcc S0  S1  S2  S3  S4  S5  S6  S7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+F0  F1  F2  F3  F4  F5  F6  F7  F8  ~F0 ~F1 ~F2 ~F3 ~F4 ~F5 ~F6 ~F7 ~F8 NC  GND
+</pre>
+Control connector 2:
+<pre>
+Vcc L0  L1  L2  L3  L4  L5  L6  L7  L8  L9  L10 L11 L12 NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+I0  I1  I2  I3  I4  I5  I6  I7  C0  C1  C2  C3  NC  NC  NC  NC  NC  TB  WC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         122 transistors<br/>
+         42 10k resistors<br/>
+         13 1k resistors<br/>
+         13 LEDs<br/>
+         2 sockets
+      </td>
+      <td>
+         <a href="images/controla-top.jpg">Top</a><br/>
+         <a href="images/controla-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Control B</td>
+      <td>
+         Control line decoder and driver for lines 13 through 21<br/>
+Control connector 1:
+<pre>
+Vcc S0  S1  S2  S3  S4  S5  S6  S7  C0  C1  C2  C3  NC  NC  NC  NC  CF  NF  ZF
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+F0  F1  F2  F3  F4  F5  F6  F7  F8  ~F0 ~F1 ~F2 ~F3 ~F4 ~F5 ~F6 ~F7 ~F8 NC  GND
+</pre>
+Control connector 2:
+<pre>
+Vcc L13 L14 L15 L16 L17 L18 L19 L20 L21 I0  I1  I2  I3  I4  I5  I6  I7  TB  WC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         119 transistors<br/>
+         52 10k resistors<br/>
+         10 1k resistors<br/>
+         10 LEDs<br/>
+         2 sockets
+      </td>
+      <td>
+         <a href="images/controlb-top.jpg">Top</a><br/>
+         <a href="images/controlb-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>I Register</td>
+      <td>
+         8-bit register with one positive/negative input and
+         constant output.<br/>
+Control connector:
+<pre>
+Vcc ~I0 ~I1 ~I2 ~I3 ~I4 ~I5 ~I6 ~I7 NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+O0  O1  O2  O3  O4  O5  O6  O7  I0  I1  I2  I3  I4  I5  I6  I7  WR  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         80 transistors<br/>
+         72 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regi-top.jpg">Top</a><br/>
+         <a href="images/regi-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Opcode Decoder</td>
+      <td>
+         One 4-to-4 decoder for the instruction class and one 4-to-9
+         decoder for the function.
+         Positive/negative function outputs are provided to ease
+         control line decoding.<br/>
+Control connector:
+<pre>
+Vcc I0  I1  I2  I3  I4  I5  I6  I7  C0  C1  C2  C3  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+F0  F1  F2  F3  F4  F5  F6  F7  F8  ~F0 ~F1 ~F2 ~F3 ~F4 ~F5 ~F6 ~F7 ~F8 NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         82 transistors<br/>
+         64 10k resistors<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/decoder-top.jpg">Top</a><br/>
+         <a href="images/decoder-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Control</td>
+      <td>
+         Control board. This connects all the control modules together.<br/>
+System connector 1:
+<pre>
+Vcc RST HLT STP D0  D1  D2  D3  D4  D5  D6  D7  ~D0 ~D1 ~D2 ~D3 ~D4 ~D5 ~D6 ~D7
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+CF  NF  ZF  F0  F1  F2  F3  F4  F5  F6  F7  F8  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+System connector 2:
+<pre>
+Vcc L0  L1  L2  L3  L4  L5  L6  L7  L8  L9  L10 L11 L12 L13 L14 L15 L16 L17 L18
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+L19 L20 L21 NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         10 sockets
+      </td>
+      <td>
+         <a href="images/control-top.jpg">Top</a><br/>
+         <a href="images/control-bottom.jpg">Bottom</a><br/>
+         <a href="images/control-layout.png">Layout</a>
+      </td>
+   </tr>
+</table>
+<p/>
+
+<h2>System Modules</h2>
+<table class="listing">
+   <tr class="head">
+      <th>Module</th>
+      <th>Description</th>
+      <th>Parts</th>
+      <th>Images</th>
+   </tr>
+   <tr class="listing">
+      <td>XH Register</td>
+      <td>
+         8-bit register with two positive/negative inputs and two open
+         collector gated outputs (one connected to each of the inputs).<br/>
+System connector:
+<pre>
+Vcc RA  WA  A0  A1  A2  A3  A4  A5  A6  A7 ~A0 ~A1 ~A2 ~A3 ~A4 ~A5 ~A6 ~A7  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+RB  WB  B0  B1  B2  B3  B4  B5  B6  B7 ~B0 ~B1 ~B2 ~B3 ~B4 ~B5 ~B6 ~B7  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         160 transistors<br/>
+         72 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         N/A
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>XL Register</td>
+      <td>
+         8-bit register with two positive/negative inputs and two open
+         collector gated outputs (one connected to each of the inputs).<br/>
+System connector:
+<pre>
+Vcc RA  WA  A0  A1  A2  A3  A4  A5  A6  A7 ~A0 ~A1 ~A2 ~A3 ~A4 ~A5 ~A6 ~A7  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+RB  WB  B0  B1  B2  B3  B4  B5  B6  B7 ~B0 ~B1 ~B2 ~B3 ~B4 ~B5 ~B6 ~B7  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         160 transistors<br/>
+         72 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         N/A
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>P Register</td>
+      <td>
+         16-bit register with one positive/negative input, one open
+         collector gated output connected to the input and reset.<br/>
+System connector:
+<pre>
+Vcc RST RD  WR  A0  A1  A2  A3  A4  A5  A6  A7  A8  A9  A10 A11 A12 A13 A14 A15
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+N0  N1  N2  N3  N4  N5  N6  N7  N8  N9  N10 N11 N12 N13 N14 N15 NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         208 transistors<br/>
+         112 10k resistors<br/>
+         16 1k resistors<br/>
+         16 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regp-top.jpg">Top</a><br/>
+         <a href="images/regp-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>NH Register</td>
+      <td>
+         8-bit buffered incrementor with one input, one open collector gated
+         output tied to the input, and carry in.<br/>
+System connector:
+<pre>
+Vcc RD  WR  CI  A0  A1  A2  A3  A4  A5  A6  A7  NC  NC  NC  NC  NC  NC  NC  RST
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         232 transistors<br/>
+         144 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regnh-top.jpg">Top</a><br/>
+         <a href="images/regnh-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>NL Register</td>
+      <td>
+         8-bit buffered incrementor with one input, open open collector gated
+         output tied to the input, and carry out.<br/>
+System connector:
+<pre>
+Vcc RD  WR  CO  A0  A1  A2  A3  A4  A5  A6  A7  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  RST GND
+</pre>
+      </td>
+      <td class="nobr">
+         232 transistors<br/>
+         144 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regnl-top.jpg">Top</a><br/>
+         <a href="images/regnl-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>OH Register</td>
+      <td>
+         8-bit register with one positive/negative input and one open
+         collector gated output.<br/>
+System connector:
+<pre>
+Vcc O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  WR  RD  I0  I1  I2  I3  I4  I5  I6  I7 ~I0 ~I1 ~I2 ~I3 ~I4 ~I5 ~I6 ~I7 GND
+</pre>
+      </td>
+      <td class="nobr">
+         88 transistors<br/>
+         48 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regoh-top.jpg">Top</a><br/>
+         <a href="images/regoh-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>OL Register</td>
+      <td>
+         8-bit register with one positive/negative input and one open
+         collector gated output.<br/>
+System connector:
+<pre>
+Vcc WR  RD  I0  I1  I2  I3  I4  I5  I6  I7 ~I0 ~I1 ~I2 ~I3 ~I4 ~I5 ~I6 ~I7  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC GND
+</pre>
+      </td>
+      <td class="nobr">
+         88 transistors<br/>
+         48 10k resistors<br/>
+         8 1k resistors<br/>
+         8 LEDs<br/>
+         1 socket
+      </td>
+      <td>
+         <a href="images/regol-top.jpg">Top</a><br/>
+         <a href="images/regol-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Front Panel</td>
+      <td>
+         Front panel<br/>
+Data path connector:
+<pre>
+Vcc RST STP HLT ID  VD  DP  I0  I1  I2  I3  I4  I5  I6  I7  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  NC  VA  IA  GND
+</pre>
+Address path connector:
+<pre>
+Vcc IA  I0  I1  I2  I3  I4  I5  I6  I7  I8  I9  I10 I11 I12 I13 I14 I15 VA  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+O0  O1  O2  O3  O4  O5  O6  O7  O8  O9  O10 O11 O12 O13 O14 O15 NC  NC  NC GND
+</pre>
+      </td>
+      <td class="nobr">
+         54 transistors<br/>
+         204 10k resistors<br/>
+         28 .47uF capacitors<br/>
+         25 1k resistors<br/>
+         25 LEDs<br/>
+         27 push buttons<br/>
+         3 toggle switches<br/>
+         2 sockets
+      </td>
+      <td>
+         <a href="images/frontpanel-top.jpg">Top</a><br/>
+         <a href="images/frontpanel-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>RAM</td>
+      <td>
+         RAM board<br/>
+         Connects to the data path and address bus modules.<br/>
+Address path connector:
+<pre>
+Vcc A0  A1  A2  A3  A4  A5  A6  A7  A8  A9  A10 A11 A12 A13 A14 A15 NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC GND
+</pre>
+Data path connector:
+<pre>
+Vcc ~OE ~WE D0  D1  D2  D3  D4  D5  D6  D7  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         2 transistors<br/>
+         2 10k resistors<br/>
+         2 .47uF capacitors<br/>
+         4 sockets
+      </td>
+      <td>
+         <a href="images/ram-top.jpg">Top</a><br/>
+         <a href="images/ram-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Data path</td>
+      <td>
+         Data path controller.<br/>
+Front panel connector:
+<pre>
+Vcc RST STP HLT ID  VD  DP  I0  I1  I2  I3  I4  I5  I6  I7  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+O0  O1  O2  O3  O4  O5  O6  O7  NC  NC  NC  NC  NC  NC  NC  NC  NC  VA  IA  GND
+</pre>
+System connector:
+<pre>
+Vcc RST STP WR  RD  D0  D1  D2  D3  D4  D5  D6  D7  NC  NC  NC  NC  NC  NC  HLT
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+N0  N1  N2  N3  N3  N4  N5  N6  N7  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+Memory connector:
+<pre>
+Vcc ~OE ~WE D0  D1  D2  D3  D4  D5  D6  D7  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         141 transistors<br/>
+         77 10k resistors<br/>
+         8 diodes<br/>
+         1 .47uF capacitor<br/>
+         3 sockets
+      </td>
+      <td>
+         <a href="images/data-top.jpg">Top</a><br/>
+         <a href="images/data-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Address path</td>
+      <td>
+         Address bus controller.<br/>
+Front panel connector:
+<pre>
+Vcc IA  I0  I1  I2  I3  I4  I5  I6  I7  I8  I9  I10 I11 I12 I13 I14 I15 VA  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+O0  O1  O2  O3  O4  O5  O6  O7  O8  O9  O10 O11 O12 O13 O14 O15 NC  NC  NC GND
+</pre>
+System connector:
+<pre>
+Vcc A0  A1  A2  A3  A4  A5  A6  A7  A8  A9  A10 A11 A12 A13 A14 A15 NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+N0  N1  N2  N3  N4  N5  N6  N7  N8  N9  N10 N11 N12 N13 N14 N15 NC  NC  NC  GND
+</pre>
+Memory connector:
+<pre>
+Vcc NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC  NC
+ 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+
+40  39  38  37  36  35  34  33  32  31  30  29  28  27  26  25  24  23  22  21
+A0  A1  A2  A3  A4  A5  A6  A7  A8  A9  A10 A11 A12 A13 A14 A15 NC  NC  NC  GND
+</pre>
+      </td>
+      <td class="nobr">
+         144 transistors<br/>
+         80 10k resistors<br/>
+         2 .47uF capacitors<br/>
+         3 sockets
+      </td>
+      <td>
+         <a href="images/address-top.jpg">Top</a><br/>
+         <a href="images/address-bottom.jpg">Bottom</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>System</td>
+      <td>
+         System board. This connects the whole thing together.
+      </td>
+      <td class="nobr">
+         12 sockets
+      </td>
+      <td>
+         <a href="images/system-top.jpg">Top</a><br/>
+         <a href="images/system-bottom.jpg">Bottom</a><br/>
+         <a href="images/system-layout.png">Layout</a>
+      </td>
+   </tr>
+   <tr class="listing">
+      <td>Power Supply</td>
+      <td>
+         Power supply. 5 volts, 3.0 amps.
+      </td>
+      <td class="nobr">
+      </td>
+      <td>
+         N/A
+      </td>
+   </tr>
+</table>
+<p/>
+
+<h2>Parts Summary</h2>
+<p/>
+<table class="listing">
+   <tr class="head">
+      <th>Part</th>
+      <th>Number</th>
+   </tr>
+   <tr class="listing">
+      <td>PN2222A NPN transistors</td>
+      <td>3105</td>
+   </tr>
+   <tr class="listing">
+      <td>10k resistors (1/4 watt)</td>
+      <td>1835</td>
+   </tr>
+   <tr class="listing">
+      <td>1k resistors (1/4 watt)</td>
+      <td>163</td>
+   </tr>
+   <tr class="listing">
+      <td>LEDs</td>
+      <td>158</td>
+   </tr>
+   <tr class="listing">
+      <td>40-pin sockets</td>
+      <td>68</td>
+   </tr>
+   <tr class="listing">
+      <td>13x25 cm boards</td>
+      <td>30</td>
+   </tr>
+   <tr class="listing">
+      <td>DS1270Y-100 SRAM</td>
+      <td>1</td>
+   </tr>
+</table>
+<p/>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">Q1</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

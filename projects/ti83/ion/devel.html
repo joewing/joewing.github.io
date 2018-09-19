@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Ion Developer Information</h1>
+
+<ul>
+   <li><a href="#background">Background</a></li>
+   <li><a href="#file">File Formats</a></li>
+   <li><a href="libs.html">Libraries</a></li>
+   <li><a href="#standards">Standards</a></li>
+</ul>
+
+<h2 id="background">Background</h2>
+<p>
+Assembling Ion programs requires that you have TASM and Devpac83. You can
+get these programs a <a href="http://www.ticalc.org">ticalc.org</a>,
+<a href="http://www.calc.org">calc.org</a>, and some <a
+href="../../../links.html">other</a> TI calculator web sites. Instead of
+using the zasm batch file that comes with Devpac83, use the asm batch file,
+which comes with Ion. This program will assemble your code for both the TI-83
+and the TI-83 Plus in one step (asm progname).
+</p>
+<p>
+Ion programs are slightly different from SOS or AShell programs. To call a ROM
+function, you must use bcall(_function). This is required because of the new
+calling conventions on the TI-83 Plus. The rest of this file describes
+specific header information for Ion programs as well as some standards. See
+the <a href="libs.html">library</a> section for more information on libraries.
+Also, check out the source code to my programs if you need some clarification.
+</p>
+
+<h2 id="file">File Formats</h2>
+<p></p>
+<h3>Programs</h3>
+<p>
+All Ion programs must follow the Ion program format in order for Ion to
+display them. The format is as follows:
+</p>
+<pre>
+   .nolist              ;\
+   #include "ion.inc"   ; \
+   .list                ;  \
+#ifdef TI83P            ;   \
+   .org  progstart-2    ;    | Standard Ion
+   .db   $BB,$6D        ;   /  Program Header
+#else                   ;  /
+   .org  progstart      ; /
+#endif                  ;/
+   ret                  ; use xor a if libraries are not used
+   jr    nc,start       ; jump to the start
+                        ; of the program
+   .db   "This is the description",0
+start:
+   ret
+.end
+.end
+</pre>
+<p></p>
+
+<h3>Modules</h3>
+<p>
+Modules are programs that run at Ion startup, shutdown, program selection, and
+when an undefined key is pressed in Ion. The format of an Ion module is as
+follows:
+</p>
+<pre>
+   .nolist              ;\
+   #include "ion.inc"   ; \
+   .list                ;  \
+#ifdef TI83P            ;   \
+   .org  sram-2         ;    | Standard Ion
+   .db   $BB,$6D        ;   /  Module Header
+#else                   ;  /
+   .org  sram           ; /
+#endif                  ;/
+   ret                  ; modules must not run from the TI-OS
+   .db   2              ; identify program type as a module
+                        ; NOTE: This used to be a 1 for
+                        ; versions prior to v1.3
+start:
+   ld    a,1            ; normal return
+   ret                  ; return when finished
+.end
+.end
+</pre>
+<p>
+Ion passes values to modules before running them. These values are:
+</p>
+<ul>
+   <li>Register a holds the keycode (_getk style). Possible values
+      include:
+      <ul>
+         <li>255 - Ion startup</li>
+         <li>1 - Ion restart</li>
+         <li>2 - Program selection</li>
+         <li>55 - Ion shutdown</li>
+         <li>Otherwise the keycode of the key pressed</li>
+      </ul>
+   </li>
+   <li>The op1 memory area holds the name of the highlighted program.
+      Use _chksysvar to get program information.</li>
+   <li>You may use only saferam2 (statram) and the remaining bytes of
+      sram in your module.</li>
+   <li>On return, Ion expects a value in register a to determine
+      whether or not to restart. If register a equals zero on return, Ion
+      will restart immediately. Otherwise, Ion will continue normally.
+      Storing zero to register a is not recommended, although possible,
+      at startup, shutdown, or restart.</li>
+   <li>You cannot use library routines from within modules.</li>
+   <li>Modules cannot exceed 768 bytes!</li>
+</ul>
+<p></p>
+
+<h3>Libraries</h3>
+<p>
+Ion has eight built-in library functions. To use these functions, simply call
+them (they are defined in ion.inc). See the <a href="libs.html">library</a>
+page for more information.
+</p>
+
+<h2 id="standards">Standards</h2>
+<p></p>
+<h3>Memory Areas</h3>
+<p>
+On the TI-83 you may use any memory area for your program except the command
+shadow (except for modules; see the section on modules for more information).
+On the TI-83 Plus you may only use those areas of RAM that are also allowed on
+the TI-83 unless you want to make your program to not be compatible with the
+TI-83. To make things easier, ion.inc includes some safe RAM areas with easy
+names. They are: saferam1 (768 bytes, APD buffer), saferam2 (512 bytes,
+statram), and saferam3 (128 bytes, text memory).
+</p>
+
+<h3>Naming Schemes</h3>
+<p>
+All modules should have the prefix "ZM" at the beginning of the program name.
+Regular programs should be named something as similar as possible to their
+real name or function.
+</p>
+
+<h3>Compatibility Issues (TI-83 vs. TI-83 Plus)</h3>
+<p>
+The TI-83 Plus has more safe memory areas than the TI-83. It is recommended
+that these memory areas not be used unless you plan to do something different
+on each calculator or you do not intend on making a TI-83 version of your
+program. Unless your program is intended as a Flash utility or other utility
+that will only work on one calculator, it is highly recommends that you make
+it assemble for either platform. Ion was designed with compatibility in mind
+for both calculators. Use the asm batch file (included with Ion) to assemble
+your programs. Programs exceeding 8192 bytes may not work properly on the
+TI-83 Plus. I am not aware of an easy way around this.
+Data may go beyond this 8k limit, but not code. If the executable code in your
+program exceeds 8k, try to break it up into segments and load routines into
+safe RAM areas as needed.
+</p>
+
+<h3>Include Files</h3>
+<p>
+Ion is packaged with an include file (ion.inc). It is recommenced that you use
+this file instead of ti83asm.inc, joeti83p.inc, or another include file. The
+Ion include file allows programs to be assembled for both the TI-83 and the
+TI-83 Plus in one step. The naming scheme used in this include file is closely
+related to TI's naming scheme. See the examples given above for using this
+file.
+</p>
+
+<h3>Releasing Programs</h3>
+<p>
+When you release a program, I recommend assembling the program for both the
+TI-83 and the TI-83 Plus even if you do not own both calculators. In most
+cases, this will require no extra work (if you use the asm batch file included
+with Ion). Of course, if your program directly accesses the VAT or another
+resource that is different, more changes will be necessary (use #ifdef in
+these cases). The program should be named *.83p for the TI-83 version and
+*.8xp for the TI-83 Plus version. This is done automatically by asm. I
+recommend including a file with your program with the same name, but with the
+txt extension for documentation. Lastly, if bugs are found in ion.inc, please
+let me know so that I can resolve them.
+</p>
+
+<h3>Grouping Programs</h3>
+<p>
+The asm batch file that comes with Ion does not assemble the TI-83 Plus
+version of programs with the correct TI-83 Plus header. Because of this, you
+must group your programs as TI-83 programs and not TI-83 Plus programs. To do
+this, select "Group TI-83 Programs" and then type *.8* instead of *.83p, which
+appears automatically in the program name box. After grouping, name the file
+*.8xg for the TI-83 Plus version.
+</p>
+
+<p>
+<a href="../../../">Home</a> /
+<a href="../../">Projects</a> /
+<a href="../">TI-83</a> /
+<a href=".">Ion</a>
+</p>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

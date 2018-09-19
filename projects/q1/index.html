@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>Q1 Computer</h1>
+
+<p>
+The Q1 Computer is a project of mine to build a fully functional 8-bit
+computer with 16-bit address bus completely out of transistors. Of course,
+there is some support circuitry required, most notably, I'm using an SRAM
+for the main memory. However, other than the memory, power supply, and LEDs,
+all semiconductors are NPN transistors (PN2222A).<br/>
+Below is a high-level block diagram and a picture of the
+fully-assembled system.
+In its current state, the Q1 does not have an X register and the shift
+and bitwise operators are not yet implemented.
+</p>
+
+<center>
+<img src="images/q1-block.png" alt="Q1 Block Diagram"/>
+<img src="images/q1.jpg" alt="Q1 Computer"/>
+</center>
+
+<p>
+An assembler, simulator, and hardware model for the Q1 are available
+on <a href="https://github.com/joewing/q1/">GitHub</a>.
+</p>
+
+<h2>More Information</h2>
+<ul>
+   <li><a href="instr.html">Instruction Set</a></li>
+   <li><a href="state.html">State Machine</a></li>
+   <li><a href="modules.html">Modules</a></li>
+   <li><a href="front-panel.html">Front Panel</a></li>
+   <li><a href="example.html">Example Programs</a></li>
+   <li><a href="schematics.html">Schematics</a></li>
+</ul>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>

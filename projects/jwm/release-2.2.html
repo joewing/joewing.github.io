@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>joewing.net</title>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script src="/include.js"></script>
+   </head>
+   <body>
+      <div w3-include-html="/nav.html"></div>
+      <div id="content">
+
+<h1>JWM v2.2 Release Notes</h1>
+
+<p>
+This is a collection of major changes between JWM v2.1 and JWM v2.2.<br>
+</p>
+
+<h2>New Features</h2>
+<div>
+<ul>
+   <li>Added support for _NET_SHOWING_DESKTOP, _NET_WM_ACTION_ABOVE,
+   _NET_WM_ACTION_BELOW, _NET_WM_STATE_SKIP_PAGER, and
+   _NET_REQUEST_FRAME_EXTENTS.</li>
+   <li>JWM now uses xrender for image scaling</li>
+   <li>Added native language support using
+   <a href="http://www.gnu.org/software/gettext/">GNU gettext</a>.</li>
+   <li>Added a fullscreen keybinding.</li>
+   <li>Added the &quot;-reload&quot; command line option to force
+   JWM to reload the menus without restarting.</li>
+   <li>Added a <span class="attribute">width</span> attribute to
+   docks.</li>
+   <li>Better tray support for multiple monitors.</li>
+   <li>Added a tray spacer component (<span class="tag">Spacer</span>).</li>
+   <li>Added support for changes in root window resolution/orientation.</li>
+   <li>JWM now supports resizable icons for window border buttons</li>
+   <li>Add support for SVG icons using
+   <a href="https://live.gnome.org/LibRsvg/">libRSVG</a> and
+   <a href="http://cairographics.org">Cairo</a>.</li>
+   <li>Added the <span class="literal">noshade</span> group option</li>
+   <li>Minor changes to mouse bindings on window frames.</li>
+   <li>Added support for the urgency hint as well as a group option,
+   <span class="literal">noturgent</span> to disable it.  JWM will now
+   flash the borders of windows that set the urgency hint set unless the
+   <span class="literal">noturgent</span> option is set.</li>
+   <li>Added <span class="literal">centered</span> and
+   <span class="literal">tiled</span> window placement group options.</li>
+   <li>Added the <span class="literal">iignore</span> group option
+   to ignore increment size hint when maximizing a window.</li>
+   <li>Added support for gradients in trays.</li>
+   <li>Add the <span class="literal">constrain</span> group option
+   to prevent windows from moving themselves off screen.</li>
+   <li>It is now possible to use icons of any type for title bar buttons.</li>
+</ul>
+</div>
+
+<h2>Configuration Changes</h2>
+<div>
+<ul>
+   <li>The way windows are associated with groups has changed.  Now within
+   a <span class="tag">Group</span> tag, if one or more
+   <span class="tag">Name</span> tags is specified, a client window must
+   match at least one to be considered part of the group.  Likewise, if one
+   or more <span class="tag">Class</span> tags is specified, a program must
+   match at least one.  If no tag is specified, all client windows will
+   match.</li>
+   <li>The name and class fields in <span class="tag">Group</span> tags
+   are now treated as POSIX regular expressions.</li>
+   <li>The number of supported window layers has been reduced to 3.
+   Rather than a number between 0 and 12, JWM now uses
+   <span class="literal">above</span>, <span class="literal">normal</span>,
+   and <span class="literal">below</span>.</li>
+   <li>JWM no longer allows custom window buttons.  These buttons are
+   now custom drawn to an appropriate size using X graphics primitives.</li>
+   <li>The information in <span class="tag">TrayButtonStyle</span> is
+   now inherited from <span class="tag">TrayStyle</span> instead of
+   <span class="tag">TaskListStyle</span>.  This means that tray buttons
+   now get defaults from the tray instead of from the task list.
+   In addition, it is now possible to specify
+   <span class="tag">ActiveBackground</span> and
+   <span class="tag">ActiveForeground</span> in
+   <span class="tag">TrayStyle</span>.  This makes it possible to set
+   defaults for both tray buttons and task list buttons in
+   <span class="tag">TrayStyle</span>.</li>
+</ul>
+</div>
+
+<h2>New Translations</h2>
+<div>
+<ul>
+   <li>Dutch (by Bert)</li>
+   <li>French (by Pierrick Pinot)</li>
+   <li>German (by fido &lt;L18L@puppy.forum&gt;)</li>
+   <li>Italian (by Man from Mars)</li>
+   <li>Polish (by Mis Uszatek)</li>
+   <li>Portuguese/Portugal (by Vitor Lopes)</li>
+   <li>Russian (by Aleksandr Samusenko)</li>
+   <li>Spanish (by Víctor Martínez)</li>
+</ul>
+</div>
+
+<h2>Bug Fixes</h2>
+<div>
+<ul>
+   <li>Fixed issues with maximize and fullscreen</li>
+   <li>Fixed issues with input focus</li>
+   <li>Fixed issues with mapping of windows in some applications</li>
+   <li>Fixed some timezone issues</li>
+   <li>Fixed an issue with docks when JWM restarts</li>
+   <li>Windows can now be made larger than the root screen</li>
+   <li>Set _NET_CURRENT_DESKTOP at startup</li>
+   <li>Rendering changes to allow JWM to run in Xnest</li>
+   <li>Fixed a bug with XML entity parsing</li>
+   <li>Fixed bi-directional text rendering</li>
+   <li>Performance improvements</li>
+</ul>
+</div>
+
+<h2 id="v2.2.1">Changes in 2.2.1 (20140302)</h2>
+<div>
+<ul>
+    <li>JWM no longer waits for an X11 event when exiting.  This
+    fixes an issue where Control+C didn't cause JWM to exit
+    immediately (issue #104).</li>
+    <li>Fixed a crash if a window went away while a JWM confirm
+    dialog was active for the window.</li>
+    <li>Fixed some issues related to aspect ratios (issue #106).</li>
+    <li>Fixed handling of window gravity for _NET_MOVERESIZE_WINDOW.</li>
+    <li>Added support for XBM icons (issue #107).</li>
+    <li>Fixed an issue with resizing of dock icons.</li>
+    <li>Fixed an issue with command line argument parsing.</li>
+</ul>
+</div>
+
+<h2 id="v2.2.2">Changes in 2.2.2 (20140315)</h2>
+<div>
+<ul>
+    <li>More efficient handling of gradient backgrounds.</li>
+    <li>Fixed an issue _NET_WM_STATE not being updated (issue #109).</li>
+    <li>Improved the performance of moving/resizing windows.</li>
+    <li>Made it possible to switch desktops immediately while dragging a
+    window if mod1 is pressed (issue #12).</li>
+    <li>Fixed an issue with windows mapping behind other windows
+    (issue #110).</li>
+    <li>Fixed an issue where JWM would attempt to process the last
+    X event multiple times before exiting or restarting.</li>
+    <li>Made newer desktop background settings override older settings.</li>
+    <li>Fixed a memory leak with invalid configuration files.</li>
+</ul>
+</div>
+
+<h2>Acknowledgements</h2>
+<p>
+A special thanks to the <a href="http://murga-linux.com/puppy/">Puppy Linux
+community</a> for their bug reports and valuable suggestions.
+</p>
+
+<div class="location">
+   <a href="../../">Home</a> /
+   <a href="../">Projects</a> /
+   <a href=".">JWM</a>
+</div>
+
+      </div>
+      <script>w3IncludeHTML();</script>
+   </body>
+</html>
