@@ -1,0 +1,58 @@
+
+- authors: "Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain"
+  title: "Superoptimizing Memory Subsystems for Multiple Objectives"
+  link: wcc15b.pdf
+  pub: "in Proc. of 4th Int'l Workshop on On-chip Memory Hierarchies and Interconnects (OMHI)"
+  date: August 2015
+
+- authors: "Joseph G. Wingbermuehle"
+  link: http://dx.doi.org/10.7936/K71V5C3Z
+  title: "Application-Specific Memory Subsystems"
+  pub: "PhD dissertation, Washington University"
+  date: 2015
+
+- authors: "Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain"
+  link: wcc15.pdf
+  title: "Superoptimized Memory Subsystems for Streaming Applications"
+  pub: "in Proc. of ACM/SIGDA International Symposium on Field-Programmable Gate Arrays (FPGA)"
+  date: February 2015
+  pages: pp 126-135
+
+- authors: "Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain"
+  link: wcc14.pdf
+  title: "Superoptimization of Memory Subsystems"
+  pub: "in Proc. of ACM SIGPLAN Conference on Languages, Compilers, and Tools for Embedded Systems (LCTES)"
+  date: June 2014
+  pages: pp 145-154
+
+- authors: "Joseph G. Wingbermuehle, Ron K. Cytron, and Roger D. Chamberlain"
+  link: http://dx.doi.org/10.1016/j.sysarc.2013.05.021
+  title: "Compiling for Power with ScalaPipe"
+  pub: "Journal of Systems Architecture 59(8):615-625"
+  date: September 2013
+
+- authors: "Joseph G. Wingbermuehle, Ron K. Cytron, Roger D. Chamberlain"
+  link: http://doi.ieeecomputersociety.org/10.1109/L-CA.2013.7
+  title: "Optimization of Application-Specific Memories"
+  pub: "IEEE Computer Architecture Letters"
+  date: online April 2013
+
+- authors: "Joseph G. Wingbermuehle, Roger D. Chamberlain, and Ron K. Cytron"
+  link: wcc12.pdf
+  title: "ScalaPipe: A Streaming Application Generator"
+  pub: "in Proc. of Symposium on Application Accelerators in High-Performance Computing (SAAHPC)"
+  date: July 2012
+
+- authors: "Joseph M. Lancaster, Joseph G. Wingbermuehle, Jonathan C. Beard, and Roger D. Chamberlain"
+  link: lwbc11.pdf
+  title: "Crosssing Boundaries in TimeTrial: Monitoring Communications Across Architecturally Diverse Computing Platforms"
+  pub: "in Proc. of Ninth IEEE/IFIP International Conference on Embedded and Ubiquitous Computing (EUC)"
+  date: October 2011
+  pages: pp. 280-287
+
+- authors: "Joseph M. Lancaster, Joseph G. Wingbermuehle, and Roger D. Chamberlain"
+  link: lwc11.pdf
+  title: "Asking for Performance: Exploiting Developer Intuition to Guide Instrumentation with TimeTrial"
+  pub: "in Proc. of 13th International Conference on High Performance Computing and Communications (HPCC)"
+  date: September 2011
+
