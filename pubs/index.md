@@ -4,18 +4,5 @@ title: Publications
 ---
 # Publications
 
-<div>
-  {% for pub in site.data.pubs %}
-    <p>
-      {{ pub.authors }},
-      &quot;<a href="{{ pub.link }}">{{ pub.title }}</a>.&quot;
-      {{ pub.pub }},
-      {% if pub.pages %}
-        {{ pub.date }}, {{ pub.pages }}.
-      {% else %}
-        {{ pub.date }}.
-      {% endif %}
-    </p>
-  {% endfor %}
-</div>
+{% include publist.html %}
 
