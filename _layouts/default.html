@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>joewing.net</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div id="header">&nbsp;&nbsp;<a href="/">joewing.net</a></div>
+    <div id="links">
+      <p><a href="/about.html">About</a></p>
+      <p><a href="/projects/">Projects</a></p>
+      <p><a href="/pubs/">Publications</a></p>
+      <p><a href="https://github.com/joewing/">GitHub</a></p>
+      <p><a href="/resume.html">Resume</a></p>
+    </div>
+    <div id="content">
+      {{ content }}
+      <div id="foot">
+        {% assign categories = page.path | split:"/" %}
+        {% assign filename_without_extension = categories | last | split:"." | first %}
+        {% if filename_without_extension == "index" %}
+          {% assign categories = categories | pop %}
+        {% endif %}
+        {% assign route = "" %}
+        <div id="location">
+          <a href="{{ '/' | absolute_url }}">home</a>
+          {% for category in categories %}
+            <span>/</span>
+            {% assign route = route | append: '/' | append: category %}
+              {% if forloop.last %}
+                {% if page.title %}{{ page.title }}{% else %}{{ category }}{% endif %}
+              {% else %}
+                <a href="{{ route | absolute_url }}">{{ category }}</a> 
+              {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <title>joewing.net</title>
-      <link rel="stylesheet" type="text/css" href="/style.css"/>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <script src="/include.js"></script>
-   </head>
-   <body>
-      <div w3-include-html="/nav.html"></div>
-      <div id="content">
+---
+layout: default
+title: Maze Generators
+---
 
-<h1>Maze Generators</h1>
+<h1>{{ page.title }}</h1>
 
 <p>
 I've written maze generators using many different programming languages.
@@ -25,7 +18,6 @@ compiler or interpreter.
         <th>Language</th>
         <th>File</th>
         <th>Compiler</th>
-        <th>Notes</th>
     </tr>
 
     <tr class="listing">
@@ -33,10 +25,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.adb">
         maze.adb</a></td>
         <td><a href="http://gcc.gnu.org">GCC</a></td>
-        <td>Strongly, statically typed.  Verbose language.  Allows for
-        low-level code, but supports many high-level language features
-        such as threads and dynamic dispatch.
-        </td>
     </tr>
 
     <tr class="listing">
@@ -44,8 +32,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.arm">
         maze.arm</a></td>
         <td><a href="http://gcc.gnu.org">GCC</a></td>
-        <td>Typical RISC-style assembly language.  32-bit load-store
-        architecture with 16 general-purpose registers.</td>
     </tr>
 
     <tr class="listing">
@@ -53,8 +39,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.awk">
         maze.awk</a></td>
         <td><a href="http://www.gnu.org/software/gawk/">Gawk</a></td>
-        <td>Dynamically-typed scripting language.  Often used
-        for one-liners.</td>
     </tr>
 
     <tr class="listing">
@@ -62,8 +46,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.sh">
         maze.sh</a></td>
         <td><a href="http://www.gnu.org/software/bash/">GNU Bash</a></td>
-        <td>The Bourne-Again SHell.  Dynamically-typed scripting language.
-        Often used as an interative shell.</td>
     </tr>
 
     <tr class="listing">
@@ -71,9 +53,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.bas">
         maze.bas</a></td>
         <td><a href="http://www.moria.de/~michael/bas/">Bas</a></td>
-        <td>Beginner's All-Purpose Symbolic Instruction Code.
-        Fairly old and simple programming language with many modern
-        variants.</td>
     </tr>
 
     <tr class="listing">
@@ -81,8 +60,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.c">
         maze.c</a></td>
         <td><a href="http://gcc.gnu.org">GCC</a></td>
-        <td>Statically typed, low-level programming language. Commonly
-        used for system-level code.</td>
     </tr>
 
     <tr class="listing">
@@ -90,8 +67,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.cpp">
         maze.cpp</a></td>
         <td><a href="http://gcc.gnu.org">GCC</a></td>
-        <td>Statically typed.  Objected-oriented version of C with
-        generics (templates) and dynamic dispatch.</td>
     </tr>
 
     <tr class="listing">
@@ -99,7 +74,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.clj">
         maze.clj</a></td>
         <td><a href="http://clojure.org">Clojure</a></td>
-        <td>Dynamically-typed LISP variant that runs on the JVM.</td>
     </tr>
 
     <tr class="listing">
@@ -107,8 +81,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.cob">
         maze.cob</a></td>
         <td><a href="http://www.opencobol.org/">OpenCOBOL</a></td>
-        <td>One of the first &quot;high-level&quot; languages.
-        Statically typed and verbose.</td>
     </tr>
 
     <tr class="listing">
@@ -116,8 +88,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.v">
         maze.v</a></td>
         <td><a href="http://coq.inria.fr/">Coq</a></td>
-        <td>Statically typed with dependent types. Non-turning complete
-        and purely-functional.</td>
     </tr>
 
     <tr class="listing">
@@ -125,8 +95,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.d">
         maze.d</a></td>
         <td><a href="http://dlang.org/">D</a></td>
-        <td>Statically-typed.  An attempt at a better C++, with
-        garbage collection, etc.</td>
     </tr>
 
     <tr class="listing">
@@ -134,7 +102,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.dylan">
         maze.dylan</a></td>
         <td><a href="http://opendylan.org">Open Dylan</a></td>
-        <td>Gradually typed.  Supports multiple dispatch.</td>
     </tr>
 
     <tr class="listing">
@@ -143,8 +110,6 @@ compiler or interpreter.
         maze.e</a></td>
         <td><a href="http://www.gnu.org/software/liberty-eiffel/">
         Liberty Eiffel</a></td>
-        <td>Strongly-typed, object-oriented, garbage collected
-        language emphasizing correctness.</td>
     </tr>
 
     <tr class="listing">
@@ -152,8 +117,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.erl">
         maze.erl</a></td>
         <td><a href="http://www.erlang.org/">Erlang</a></td>
-        <td>Dynamically-typed, functional, concurrent, and fault-tolerant
-        language.</td>
     </tr>
 
     <tr class="listing">
@@ -161,7 +124,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.factor">
         maze.factor</a></td>
         <td><a href="http://factorcode.org/">Factor</a></td>
-        <td>A concatenative, stack-based language similar to Forth.</td>
     </tr>
 
     <tr class="listing">
@@ -170,7 +132,6 @@ compiler or interpreter.
         maze.4th</a></td>
         <td><a href="http://http://www.jwdt.com/~paysan/gforth.html">
         Gforth</a></td>
-        <td>A dynamically-typed stack-based language.</td>
     </tr>
 
     <tr class="listing">
@@ -178,8 +139,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.f90">
         maze.f90</a></td>
         <td><a href="http://gcc.gnu.org">GCC</a></td>
-        <td>An early high-level language emphasizing scientific
-        computing.</td>
     </tr>
 
     <tr class="listing">
@@ -187,8 +146,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.go">
         maze.go</a></td>
         <td><a href="http://golang.org">Go</a></td>
-        <td>Object-oriented, garbage collected language with
-        static types and type inference.</td>
     </tr>
 
     <tr class="listing">
@@ -196,8 +153,6 @@ compiler or interpreter.
         <td><a href="https://raw.github.com/joewing/maze/master/maze.hs">
         maze.hs</a></td>
         <td><a href="http://www.haskell.org/ghc/">GHC</a></td>
-        <td>Purely-functional language with lazy evaluation and type
-        inference.</td>
     </tr>
 
     <tr class="listing">
@@ -383,13 +338,3 @@ compiler or interpreter.
     </tr>
 
 </table>
-
-<p>
-<a href="../../">Home</a> /
-<a href="../">Projects</a>
-</p>
-
-      </div>
-      <script>w3IncludeHTML();</script>
-   </body>
-</html>
