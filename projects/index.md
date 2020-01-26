@@ -5,7 +5,9 @@ title: Projects
 
 # Projects
 
- - [Altair 680](altair680) - An Altair 680 computer implemented in Verilog.
+  - [Altair 680](altair680) - An Altair 680 computer implemented in Verilog.
+
+  - [BFPU](bfpu) - A BF computer made out of 74HC-series ICs.
 
   - [DOS Programs](dos) - Programs in 386 assembly language for DOS.
 
