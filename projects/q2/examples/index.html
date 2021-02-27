@@ -1,0 +1,325 @@
+---
+layout: default
+title: Q2 Computer - Assembler
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+A Q2 assembly language source is stored in a file with a &quot;.q2&quot;
+extension.
+The Q2 assembler (q2asm) reads the source file and generates
+outputs with the following extensions:
+</p>
+
+<ul>
+  <li>&quot;.q2p&quot; - The programming file used with q2prog
+  to load the program onto the Q2 (from a Raspberry Pi).</li>
+  <li>&quot;.lst&quot; - A listing file, which is a human-readable output
+  to see the machine code that was generated.</li>
+  <li>&quot;.hex&quot; - A hex output to be used with the Verilog
+  model for simulating the program.</li>
+</ul>
+
+<h2>Directives</h2>
+
+<p>
+q2asm supports the following directives (a <i>directive</i> is an
+instruction for the assembler rather than an instruction for the Q2):
+</p>
+
+<ul>
+  <li>.align - Aligns the next address to the specified boundary.</li>
+  <li>.bss - Reserves the specified number of words.</li>
+  <li>.def - Defines a constant.</li>
+  <li>.dw - Inserts one or more words.</li>
+  <li>.include - Includes the contents of another file.</li>
+  <li>.org - Sets the next address (origin).</li>
+</ul>
+
+<h2>The Zero Page</h2>
+
+<p>
+The <i>zero page</i> is the first 128 words of memory. The operand
+of each instruction can either be in the same page as the
+instruction or in the zero page (depending on whether the zero-page
+bit in the instruction is set). This makes the zero page convenient
+for storing frequently used constants and for values that can be
+used across pages. Another way to look at the zero page is as if
+the Q2 had 128 general-purpose registers.
+</p>
+
+<p>
+Many of the examples here will assume that some common constants
+and values are available in the zero page:
+</p>
+
+<ul>
+  <li>=zero - The value 0x000.</li>
+  <li>=one - The value 0x001.</li>
+  <li>=neg1 - The value 0xFFF.</li>
+  <li>=x<i>n</i> - A temporary value (with <i>n</i> starting at 0).</li>
+  <li>=sp - The stack pointer (initialized to 0xFFE).</li>
+</ul>
+
+<h2>A Simple Example</h2>
+
+<p>
+To demonstrate a typical Q2 program, here is a simple example to
+compute the largest
+<a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci number</a>
+that fits in 12-bits.
+</p>
+
+<pre class="code">
+; Comments start with a ';' and continue to the end of the line.
+
+; Here we use ".def" to give symbolic names to some memory locations.
+; These will be used as zero-page addresses.
+.def  x0    0
+.def  x1    1
+.def  x2    2
+.def  x3    3
+
+  .org  0x800     ; The entry point to our program will be 0x800.
+
+; Call the "fib" function and output the result.
+
+  ; The following two instructions perform a (page-local) call.
+  lea   $+2       ; '$' references the current address
+                  ; Here we load A with the current address plus 2,
+                  ; which is right after the jmp.
+  jmp   fib       ; Jump to the fib label
+
+  ; The fib function will return here with the result in A.
+
+  sta   @output   ; Store the result to 0xFFF, which is the output device.
+                  ; Since 0xFFF is neither in the zero page nor the
+                  ; current page, we store it at "output" and reference
+                  ; it indirectly with "@".
+
+  jmp   $         ; Loop forever (this causes the simulator to halt).
+
+; Labels start at the beginnig of the line and end with a ":".
+; Note that a label is like a ".def" that gets set to the current address.
+; Here we set aside a word to point to the output device.
+output:
+  .dw   0xFFF     ; Address of the output device
+
+; The "fib" function
+fib:
+  sta   =x3       ; Store A to =x3. This is used as the return address.
+  lea   =1        ; Set A = 1 (the effective address of "=1" is simply "1")
+  sta   =x0       ; Store 1 at =x0
+  sta   =x1       ; Store 1 at =x1
+fib_loop:
+  lda   =x0       ; Load A with the value at =x0
+  add   =x1       ; Now A = =x0 + =x1
+  jfc   fib_cont  ; If the add did not overflow (no carry), jump.
+                  ; If the add overflowed, we're done.
+  lda   =x1       ; Load A with =x1 (the result of the function)
+  jmp   @=x3      ; Return by jumping to the address at =x3
+
+fib_cont:
+  sta   =x2       ; Store =x0 + =x1 to =x2
+  lda   =x1       ; Move x1 to x0 and then =x2 to =x1
+  sta   =x0
+  lda   =x2
+  sta   =x1
+  jmp   fib_loop  ; Loop back to determine the next number in the sequence.
+</pre>
+
+<h2>Common Functions</h2>
+
+<p>
+Here are small examples to demonstrate the instruction set and how to
+accomplish some common tasks.
+<p>
+
+<h3>Arithmetic</h3>
+
+<p>
+The Q2 ALU only supports 4 operations: load, nor, add, and shift-right.
+Other operations can be derived from these.
+</p>
+
+<pre class="code">
+; NOT: A = ~A
+  nor   =zero
+
+; OR: A = A | v
+  nor   v
+  nor   =zero
+
+; AND: A = A &amp; v
+  nor   =zero
+  sta   =x0
+  lda   v
+  nor   =zero
+  nor   =x0
+
+; Negate: A = -A
+  nor   =zero
+  add   =one
+
+; Subtract: A = A - v
+  nor   =zero
+  add   v
+  nor   =zero
+
+; Decrement A
+  add   =neg1
+</pre>
+
+<p>
+Other arithmetic functions require slightly more code:
+</p>
+
+<ul>
+  <li><a href="div.html">Division and Modulus</a></li>
+  <li><a href="isqrt.html">Integer Square Root</a></li>
+  <li><a href="mult.html">Multiplication</a></li>
+</ul>
+
+<h3>Function Calls</h3>
+<p>
+Despite not directly supporting function calls, it is relatively
+easy to implement them using the accumulator as a link register:
+</p>
+
+<pre class="code">
+  lea   $+2   ; Save the return address in A.
+  jmp   func  ; Jump to the function (same page or zero page).
+</pre>
+
+<p>
+Note that this assumes that the return address (&quot;$+2&quot;,
+which stands for the current address plus 2),
+is in the same page as the &quot;lea&quot; instruction.
+The callee is responsible for saving the return address.
+Here we show saving the return address in the zero page (if you need
+recursion, use a stack instead):
+</p>
+
+<pre class="code">
+func:
+  sta   =x0   ; Save the return address in the zero page.
+  ; ...
+  jmp   @=x0  ; Return (indirect jump through =x0)
+</pre>
+
+<p>
+A function pointer can be stored in the zero page to allow calling
+the function from anywhere:
+</p>
+
+<pre class="code">
+  lea   $+2
+  jmp   @=func_ptr
+</pre>
+
+<p>
+Often, functions that we want to call are not in the same page nor are they
+available in the zero page. To call any function anywhere:
+</p>
+
+<pre class="code">
+  lea   $+3   ; Save the return address in A.
+  jmp   @$+1  ; Indirect jump to the next address.
+  .dw   func  ; Pointer to the function to call.
+</pre>
+
+<p>
+Some architectures, such as the PDP-8, have a special instruction
+to jump to a subroutine by storing the return address immediately
+before the first word of the subroutine. Such an approach obviously
+wouldn't work with a ROM (which is why it wasn't considered for
+the Q2 architecture), but it is possible to do something similar
+on the Q2, if desired.
+</p>
+
+<h3>Stacks</h3>
+
+<p>
+There is no dedicated stack pointer, but it is easy to
+use a word in the zero page as a stack pointer. Here
+we assume that &quot;=sp&quot; is the stack pointer and
+it is initialized to the stack (likely 0xFFE).
+To push the accumulator on to the stack:
+</p>
+
+<pre class="code">
+  sta   @=sp    ; Store A to the stack
+  lda   =sp     ; Set sp = sp - 1
+  add   =neg1
+  sta   =sp
+</pre>
+
+<p>
+To pop the accumulator off of the stack:
+</p>
+
+<pre class="code">
+  lea   =1      ; Set sp = sp + 1
+  add   =sp
+  sta   =sp
+  lda   @=sp    ; Load A from the stack
+</pre>
+
+<p>
+To pop a value off the stack and return to it (useful since
+stacks are frequently used for storing return values):
+</p>
+
+<pre class="code">
+  lea   =1
+  add   =sp
+  sta   =sp     ; Set sp = sp + 1
+  lda   @=sp    ; A = return address
+  sta   =x1     ; Now x1 = return address
+  jmp   @=x1    ; Jump to the return address
+</pre>
+
+<h3>Halt and No-operation</h3>
+
+<p>
+The Q2 does not support halt, but a similar effect can be achieved
+using an infinite loop. This instruction will cause the simulator
+to exit and the hardware to loop forever:
+</p>
+
+<pre class="code">
+  jmp   $
+</pre>
+
+<p>
+There is no fully generic way to create a no-operation instruction,
+but depending on the situation, one of the following may work.
+</p>
+
+<p>
+The closest thing to a generic no-operation is jumping to the next
+instruction. Unfortunately, this will not work if the next instruction
+is on a different page:
+</p>
+
+<pre class="code">
+  jmp   $+1
+</pre>
+
+<p>
+If the contents of the flag can be discarded, adding zero to the
+accumulator can be used:
+</p>
+
+<pre class="code">
+  add   =zero
+</pre>
+
+Another approach would be to store to a location of memory that is not used
+(either on the same page or in the zero page):
+
+<pre class="code">
+  sta   unused
+</pre>
+

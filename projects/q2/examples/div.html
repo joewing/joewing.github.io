@@ -1,0 +1,68 @@
+---
+layout: default
+title: Q2 Computer - Division and Modulus
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+This makes some assumptions about values in
+the zero page, like the <a href="index.html">common functions</a>.
+</p>
+
+<pre class="code">
+; Divide x2 = x0 / x1, remainder in x3
+; Destroys x0, x1, x2, x3, x4, x5
+div:
+  sta   =x5
+  lea   =0
+  sta   =x2   ; quotient
+  sta   =x3   ; remainder
+  lea   =11
+div_loop:
+  sta   =x4
+
+  ; x3 &lt;&lt;= 1
+  lda   =x3
+  add   =x3
+  sta   =x3
+
+  ; x2 &lt;&lt;= 1
+  lda   =x2
+  add   =x2
+  sta   =x2
+
+  ; x3 = x3 | x0[x4]
+  lda   =x0
+  add   =x0
+  sta   =x0
+  jfc   div_not_set
+  lda   =x3
+  nor   =one
+  nor   =zero
+  sta   =x3
+div_not_set:
+
+  ; if x3 &lt; x1 goto div_skip
+  lda   =x1
+  nor   =zero
+  add   =one
+  add   =x3
+  jfc   div_skip
+
+  ; x3 -= x1
+  sta   =x3
+
+  ; x2 |= 1
+  lda   =x2
+  nor   =one
+  nor   =zero
+  sta   =x2
+
+div_skip:
+  lda   =x4
+  add   =minus1
+  jfc   @=x5
+  jmp   div_loop
+</pre>
+

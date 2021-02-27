@@ -1,0 +1,162 @@
+---
+layout: default
+title: Q2 Implementation Details
+---
+
+<h1>{{ page.title }}</h1>
+
+<h2>Run Latch</h2>
+
+<p>
+The run latch controls whether the Q2 clock is enabled. The run latch
+consists of a pair of cross-coupled inverters (2 transistors). Pressing
+the &quot;Halt&quot; button pulls the &quot;Run&quot; signal to ground
+and pressing the &quot;Run&quot; button pulls the other side to ground
+causing the RUN signal to go high.
+The &quot;Halt&quot; button is connected to ground through a capacitor,
+which has the effect of pressing &quot;Halt&quot; when power is applied
+so the Q2 comes up halted.
+</p>
+
+<h2>Clock Generation</h2>
+
+<p>
+The clock for the Q2 is generated using a simple relaxation oscillator
+constructed from a Schmitt trigger. The Schmitt trigger itself is
+implemented using 3 2N7002 transistors. The output of the clock is
+fed through two inverters to reduce load on the oscillator and
+preserve the phase, which should be high when not running.
+</p>
+
+<p>
+The clock is divided into two non-overlapping clock phases: a state
+clock (SC) and a write strobe (WS). The phases are generated using
+the CDIV flip-fop and two NOR gates.
+The SC clock is used to advance the state machine and the WS clock
+is used to clock the other flip-flops and write to memory.
+Having two phases simplifies writes to memory and I/O. Further,
+it allows the state machine to be implemented as a simple binary
+ripple counter (otherwise, the ripple would cause glitches).
+</p>
+
+<h2>State Machine</h2>
+
+<p>
+The state machine is advanced on the rising edge of the SC clock.
+There are 16 states. To reduce transistor count, the state machine
+is implemented as a 4-bit binary ripple counter. Since not all
+instructions use all states, the state decoder masks states
+that are not used. This means all instructions take the same
+number of clocks to execute.
+</p>
+
+<p>
+The states are:
+</p>
+
+<ul>
+  <li>FETCH - Fetch the next instruction.</li>
+  <li>DEREF - Dereference the operand if the dereference bit is set.</li>
+  <li>LOAD - Load the operand from memory if this is an ALU instruction.</li>
+  <li>EXEC - Execution the instruction or prepare the ALU.</li>
+  <li>ALU - 12 states to run the 12 bits of A and X through the ALU.</li>
+</ul>
+
+<h2>Arithmetic Logic Unit</h2>
+
+<p>
+The ALU is bit-serial to reduce transistor count. During the 12 ALU
+states, the bits from A and X are shifted through the ALU least-significant
+first, and back to A. Depending on the opcode, the flag register tracks the
+carry or zero status.
+The ALU supports the following operations:
+</p>
+
+<table class="listing">
+  <thead>
+    <tr><th>Opcode</th><th>Name</th><th>Next A</th><th>Next F</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>x00</td><td>LDA</td>
+      <td>X0</td><td>X0 &amp; ~F</td>
+    </tr>
+    <tr>
+      <td>x01</td><td>NOR</td>
+      <td>~(A0 | X0)</td><td>(A0 | X0) &amp; ~F</td>
+    </tr>
+    <tr>
+      <td>x10</td><td>ADD</td>
+      <td>A0 + X0 + F</td><td>(A0 &amp; X0) | (A0 &amp; F) | (X0 &amp; F)</td>
+    </tr>
+    <tr>
+      <td>x11</td><td>SHR</td>
+      <td>X1</td><td>F</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Program Counter (P)</h2>
+
+<p>
+The program counter is made up of 12 positive-edge-triggered D-flip-flops
+configured as a 12-bit binary ripple counter. Incrementing the program
+counter is accomplished by clocking the least-significant bit. To load
+the program counter, either for a jump or at reset, the flip-flops also
+have set/reset inputs.
+</p>
+
+<h2>Power</h2>
+
+<p>
+Since USB adapters are prevalent and provide an easy
+5v power source, the Q2 was designed to use USB for
+power. In general, this limits the power consumption
+to be 500mA.
+It is relatively easy to verify that the Q2 will
+not draw too much power.
+</p>
+
+<p>
+Each LED is driven through a 4.7k resistor. We assume
+a 2v voltage drop through each LED, giving us a power
+draw of 0.64mA per LED.
+Each gate uses either a 10k or a 1k (depending on the
+fanout and required speed) resistor pull-up, so we
+assume 0.5mA for each 10k resistor and 5mA for each
+1k resistor. This provides an absolute worst-case
+estimate since we don't expect all gates and LEDs
+to be drawing power at all times.
+We assume the RAM chips and LCD each use 20mA.
+This gives us:
+</p>
+
+<ul>
+  <li>72 LEDs = 46mA</li>
+  <li>404 10k resistors = 202mA</li>
+  <li>7 1k resistors = 35mA</li>
+  <li>2 RAM chips and 1 LCD = 60mA</li>
+</ul>
+
+<p>
+So we get a total worst-case draw of 343mA or 1.7 Watts.
+</p>
+
+<h2 id="bom">Bill of Materials</h2>
+
+<center><table class="listing">
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>10k resistor</td><td>404</td></tr>
+    <tr><td>4.7k resistor</td><td>72</td></tr>
+    <tr><td>1k resistor</td><td>7</td></tr>
+    <tr><td>2N7002 transistor</td><td>1103</td></tr>
+    </tr>
+  </tbody>
+</table></center>
+

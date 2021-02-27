@@ -25,6 +25,8 @@ title: Projects
 
   - [Q1 Computer](q1) - A computer made out of discrete transistors.
 
+  - [Q2 Computer](q2) - Improved computer made out of discrete transistors.
+
   - [TI-83/83+ Calculator Programs](ti83)
 
   - [TI-89 Calculator Programs](ti89)

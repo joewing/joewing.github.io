@@ -1,0 +1,48 @@
+---
+layout: default
+title: Q2 Computer - Multiplication
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+This makes some assumptions about values in
+the zero page, like the <a href="index.html">common functions</a>.
+</p>
+
+<pre class="code">
+; Multiply x2 = x0 * x1
+; Destroys x0, x1, x2, x3
+mult:
+  sta   =x3
+  lea   =0
+  sta   =x2
+mult_loop:
+  lda   =x0
+  jfc   mult_cont
+
+  ; done when =x0 is 0.
+  jmp  @=x3
+
+mult_cont:
+  nor   neg2    ; zero if bit 1 is set
+  jfc   mult_next
+
+  ; bit is set, update =x2
+  lda   =x1
+  add   =x2
+  sta   =x2
+
+mult_next:
+
+  ; shift =x0 right and =x1 left
+  shr   =x0
+  sta   =x0
+  lda   =x1
+  add   =x1
+  sta   =x1
+
+  jmp   mult_loop
+neg2:
+  .dw   -2
+</pre>

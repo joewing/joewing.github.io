@@ -13,14 +13,11 @@ time over the years. Some of my recent and active projects include:
    Constructive solid geometry in Scala for creating 3D models
    to be printed.
 
-- [ScalaStan](https://github.com/cibotech/ScalaStan)<br>
-   An open-source project I created while working at
-   [CiBO Technologies](http://www.cibotechnologies.com/)
-   ScalaStan is a wrapper and DSL in Scala for the
-   [Stan](http://mc-stan.org/) probabilistic programming language.
-
 - [Maze Generators](projects/maze/)<br>
   Maze generator implementations in lots of programming languages.
+
+- [Q2](projects/q2/)<br>
+  A single-board discrete transistor computer.
 
 Some other things I've worked on in the past that may be of interest:
 
@@ -36,6 +33,12 @@ Some other things I've worked on in the past that may be of interest:
 - [Altair 680 on an FPGA](projects/altair680/)<br>
    A complete implementation of the Altair 680 computer system in Verilog
    capable of running a version of BASIC from 1978.
+
+- [ScalaStan](https://github.com/cibotech/scalastan)<br>
+   An open-source project I created while working at
+   [CiBO Technologies](http://www.cibotechnologies.com/)
+   ScalaStan is a wrapper and DSL in Scala for the
+   [Stan](http://mc-stan.org/) probabilistic programming language.
 
 My [GitHub](https://github.com/joewing) has some more projects.
 

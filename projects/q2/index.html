@@ -1,0 +1,220 @@
+---
+layout: default
+title: Q2 Computer
+---
+
+<h1>{{ page.title }}</h1>
+
+<pre>
+            __       __       
+           /\ \     /\ \                                       000 | LDA | Z | A = [X]
+          /  \ \   /  \ \                                      001 | NOR | Z | A = A NOR [X]
+         / /\ \ \ / /\ \ \      OOO D Z XXXXXXX                010 | ADD | C | A = A + [X]  
+        / / /\ \ \\/_/\ \ \      \  \ \    \____ Operand       011 | SHR | C | A = [X] &gt;&gt; 1 
+       / / /  \ \_\   / / /       \  \ \________ Zero Page     100 | LEA | - | A = X        
+      / / / __/ / /  / / /         \  \_________ Dereference   101 | STA | - | [X] = A      
+     / / / /\ \/ /  / / / __        \___________ Opcode        110 | JMP | - | P = X        
+    / / /__\ \ \/  / / /_/\_\                                  111 | JFC | - | if !F: P = X 
+   / / /____\ \ \ / /_____/ /
+   \/________\_\/ \________/  joewing.net
+</pre>
+
+<p>
+The Q2 computer is a single-board, discrete transistor computer.
+It is my second discrete transistor computer design (the first
+being the <a href="/projects/q1/">Q1</a>). Like the Q1, all active components
+in the CPU proper are transistors, but the similarities end there.
+All transistors in the Q2 are 2N7002 (N-channel MOSFETs).
+The Q2 is implemented on a single PCB using surface mount components,
+allowing the board to be produced and assembled almost entirely by machine.
+</p>
+
+<img src="demo.jpg" width="660" height="865">
+
+<h2 id="architecture">Architecture</h2>
+
+<p>
+The Q2 is inspired by the DEC PDP-8 (the PDP-8/S in particular): it
+is a 12-bit accumulator-based architecture with a small
+instruction set and a bit-serial ALU.
+</p>
+
+<p>
+The Q2 was designed from the ground up to keep the transistor count down
+while keeping the instruction set versatile enough to be usable.
+Unfortunately, this means the Q2 is fairly slow. All instructions take
+32 cycles to complete. Further, to keep both transistor count and
+power consumption down, the maximum clock frequency is somewhere around
+64 kHz (limited both by the ripple carry of the program counter and
+the control line rise time). This means the Q2 is capable of running
+about 2000 instructions per second.
+</p>
+
+<p>
+The Q2 has three user-visible registers:
+</p>
+<ul>
+  <li>A - 12-bit accumulator</li>
+  <li>F - 1-bit flag</li>
+  <li>P - 12-bit program counter</li>
+</ul>
+</p>
+
+<p>
+In addition to these, there is a 12-bit X register that is used
+to hold the operand, a 4-bit state counter, 1-bit clock divider,
+and a 4-bit opcode register. All registers are positive
+edge-triggered D flip-flops.
+</p>
+
+<p>
+For more about the architecture and hardware design see
+<a href="impl.html">Implementation Details</a>.
+See the <a href="revisions.html">Revision History</a> for a timeline.
+</p>
+
+<h2 id="instructions">Instruction Set</h2>
+
+<p>
+All instructions are one 12-bit word and have the following bit pattern:
+</p>
+
+<pre>
+  OOO D Z XXXXXXX
+</pre>
+
+<p>
+Here <i>OOO</i> is the opcode which determines the operation to perform,
+<i>D</i> is the dereference bit, <i>Z</i> is the zero-page bit, and
+<i>XXXXXXX</i> gives the low 7 bits of the operand.
+The high 5 bits of the operand are set to either the high bits of the
+program counter (if <i>Z</i>=0) or 0s (if <i>Z</i>=1).
+If the dereference flag is set, the operand is then loaded from memory
+(X = [X]).
+</p>
+
+<p>
+The zero-page bit allows easy access to the first 128 words of memory.
+These locations can be used much like additional registers (similar to
+the PDP-8 or 6502). The prefix &quot;=&quot; is used to indicate a
+zero-page operand.
+</p>
+
+<p>
+The dereference bit is used to allow indirect access to a memory location.
+This can be used to access memory on other pages or for array
+accesses. The prefix &quot;@&quot; is used to indicate indirect
+access. The dereference bit and zero-page bit can be used together to
+perform an indirect access through the zero page (prefix &quot;@=&quot;).
+This is useful for storing a stack pointer in the zero page, for example.
+</p>
+
+<p>
+The following instructions are supported:
+</p>
+
+<center>
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Opcode</th>
+      <th>Name</th>
+      <th>Flag</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>000</td><td>lda</td><td>Z</td><td>Load: A = [X]</td>
+    </tr>
+    <tr>
+      <td>001</td><td>nor</td><td>Z</td><td>Not OR: A = A NOR [X]</td>
+    </tr>
+    <tr>
+      <td>010</td><td>add</td><td>C</td><td>Add: A = A + [X]</td>
+    </tr>
+    <tr>
+      <td>011</td><td>shr</td><td>C</td><td>Shift right: A = [X] &gt;&gt; 1</td>
+    </tr>
+    <tr>
+      <td>100</td><td>lea</td><td>-</td><td>Load effective address: A = X</td>
+    </tr>
+    <tr>
+      <td>101</td><td>sta</td><td>-</td><td>Store: [X] = A</td>
+    </tr>
+    <tr>
+      <td>110</td><td>jmp</td><td>-</td><td>Jump: P = X</td>
+    </tr>
+    <tr>
+      <td>111</td><td>jfc</td><td>-</td><td>Jump flag clear: if !F: P = X</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+
+<p>
+The flag is set on &quot;lda&quot;, &quot;nor&quot;, &quot;add&quot;,
+and &quot;shr&quot; instructions. Depending on the instruction, it is set
+if A is zero (<i>Z</i> in the above table) or if there is a
+carry out (<i>C</i>).
+</p>
+
+<h2 id="interface">Interface</h2>
+
+<h3>Front Panel</h3>
+
+<p>
+For programming, the Q2 has a simple front-panel interface.
+It has 12 LEDs to show the current address (the address bus,
+which is the P register after reset) and 12 LEDs to show the
+data bus. There are also 12 switches to serve as input and
+the following buttons:
+</p>
+
+<ul>
+  <li>Reset - Set the P register to the value in the
+  switches and reset the Q2.</li>
+  <li>Deposit - Store the value in the switches to the
+  current address.</li>
+  <li>Next - Increment the P register.</li>
+  <li>Start - Start running.</li>
+  <li>Stop - Stop running.</li>
+</ul>
+
+<p>
+The front panel allows one to enter a program and run it.
+However, the process is quite time-consuming and error-prone,
+so the front panel switches are also exposed through
+a 40-pin header. This header just happens to have a pinout that
+lines up with the GPIO pins of a Raspberry Pi, making it
+easy to use a Raspberry Pi to program and backup the Q2
+via the q2prog utility. Note that Raspberry Pis with the
+26-pin header will only be able to write to the Q2, but
+Raspberry Pis with a 40-pin header can both read and write.
+</p>
+
+<h3>LCD and Buttons</h3>
+
+<p>
+To allow one to interact with a running program, the Q2
+includes a 16x2 LCD and 12 push buttons. These are
+exposed to the running program at address 0xFFF.
+Reading from 0xFFF reads the current state of the buttons,
+where a 1 means the button is not pressed and a 0 means
+the button is pressed. The LCD uses the common HD44780
+interface where the low eight bits are data/commands to
+the LCD and bit 8 controls if data (0) or a command (1)
+is being written.
+</p>
+
+<h2 id="examples">Example Code</h2>
+
+<ul>
+  <li><a href="examples/index.html">Syntax and some common functions</li>
+  <li><a href="examples/sort.html">Bubble Sort</li>
+  <li><a href="examples/div.html">Division and modulus</li>
+  <li><a href="examples/isqrt.html">Integer Square Root</li>
+  <li><a href="examples/maze.html">Maze Generator</li>
+  <li><a href="examples/mult.html">Multiplication</li>
+</ul>
+

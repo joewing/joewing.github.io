@@ -1,0 +1,47 @@
+---
+layout: default
+title: Q2 Revision History
+---
+
+<h1>{{ page.title }}</h1>
+
+<ul>
+  <li>Revision 3 (?)
+    <ul>
+      <li>1103 transistors.</li>
+      <li>Uses battery backup for SRAM.</li>
+      <li>No more EEPROM, all addresses are in SRAM except 0xFFF,
+      which is I/O.</li>
+      <li>Programming port for a Raspberry-Pi.</li>
+    </ul>
+    <br>
+  </li>
+  <li>Revision 2 (2021-02-05)
+    <ul>
+      <li>Single board design with 1128 transistors.</li>
+      <li>Issues:
+        <ul>
+          <li>Switches wired upside-down.</li>
+          <li>Silk-screen is missing on the control buttons and have an extra
+          X for the operand.</li>
+          <li>Active-low X11-input tied to GND instead of Vcc
+          causes most-significant bit to be set after shift right
+          (easy to fix with a wire).</li>
+        </ul>
+      </li>
+      <li>Uses two EEPROMs at 0x800 for persistent program storage.</li>
+      <li>16x2 LCD user interface.</li>
+    </ul>
+    <br>
+  </li>
+  <li>Revision 1 (2020-10-04)
+    <ul>
+      <li>Multiple boards.</li>
+      <li>Minor problems with missing connections
+      and a missing inverter.</li>
+      <li>Persistent storage via battery-backed SRAM.</li>
+      <li>No user interface.</li>
+    </ul>
+    <br>
+  </li>
+</ul>
