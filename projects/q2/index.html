@@ -21,9 +21,6 @@ title: Q2 Computer
 
 <p>
 The Q2 computer is a single-board, discrete transistor computer.
-It is my second discrete transistor computer design (the first
-being the <a href="/projects/q1/">Q1</a>). Like the Q1, all active components
-in the CPU proper are transistors, but the similarities end there.
 All transistors in the Q2 are 2N7002 (N-channel MOSFETs).
 The Q2 is implemented on a single PCB using surface mount components,
 allowing the board to be produced and assembled almost entirely by machine.
@@ -34,20 +31,20 @@ allowing the board to be produced and assembled almost entirely by machine.
 <h2 id="architecture">Architecture</h2>
 
 <p>
-The Q2 is inspired by the DEC PDP-8 (the PDP-8/S in particular): it
-is a 12-bit accumulator-based architecture with a small
-instruction set and a bit-serial ALU.
+The Q2 is in many ways a 1960s-style minicomputer on a board.
+Inspired by the <a href="https://en.wikipedia.org/wiki/PDP-8">DEC PDP-8</a>
+(the PDP-8/S in particular), it is a 12-bit accumulator-based architecture
+with a small instruction set and a bit-serial ALU.
 </p>
 
 <p>
 The Q2 was designed from the ground up to keep the transistor count down
 while keeping the instruction set versatile enough to be usable.
 Unfortunately, this means the Q2 is fairly slow. All instructions take
-32 cycles to complete. Further, to keep both transistor count and
-power consumption down, the maximum clock frequency is somewhere around
-64 kHz (limited both by the ripple carry of the program counter and
-the control line rise time). This means the Q2 is capable of running
-about 2000 instructions per second.
+either 8 or 32 cycles to complete. Further, to keep both transistor count
+and power consumption down, the maximum clock frequency is 100 kHz.
+Higher frequencies should be possible at the expense of more power
+(lower valued resistor pull-ups) or more transistors (active pull-up).
 </p>
 
 <p>
@@ -63,12 +60,12 @@ The Q2 has three user-visible registers:
 <p>
 In addition to these, there is a 12-bit X register that is used
 to hold the operand, a 4-bit state counter, 1-bit clock divider,
-and a 4-bit opcode register. All registers are positive
+and a 4-bit opcode register. All 46 registers are positive
 edge-triggered D flip-flops.
 </p>
 
 <p>
-For more about the architecture and hardware design see
+For more about the hardware design see
 <a href="impl.html">Implementation Details</a>.
 See the <a href="revisions.html">Revision History</a> for a timeline.
 </p>
@@ -79,9 +76,13 @@ See the <a href="revisions.html">Revision History</a> for a timeline.
 All instructions are one 12-bit word and have the following bit pattern:
 </p>
 
-<pre>
-  OOO D Z XXXXXXX
-</pre>
+<center><pre>
+OOO D Z XXXXXXX              
+ \  \ \    \____ Operand     
+  \  \ \________ Zero Page   
+   \  \_________ Dereference 
+    \___________ Opcode      
+</pre></center>
 
 <p>
 Here <i>OOO</i> is the opcode which determines the operation to perform,
@@ -153,10 +154,8 @@ The following instructions are supported:
 </center>
 
 <p>
-The flag is set on &quot;lda&quot;, &quot;nor&quot;, &quot;add&quot;,
-and &quot;shr&quot; instructions. Depending on the instruction, it is set
-if A is zero (<i>Z</i> in the above table) or if there is a
-carry out (<i>C</i>).
+The flag is set on carry (<i>C</i>), zero (<i>Z</i>), or left
+unchanged (<i>-</i>).
 </p>
 
 <h2 id="interface">Interface</h2>

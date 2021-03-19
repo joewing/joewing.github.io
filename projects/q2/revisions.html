@@ -6,13 +6,17 @@ title: Q2 Revision History
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Revision 3 (?)
+  <li>Revision 3 (2021-03-14)
     <ul>
-      <li>1103 transistors.</li>
+      <li>1094 transistors.</li>
       <li>Uses battery backup for SRAM.</li>
       <li>No more EEPROM, all addresses are in SRAM except 0xFFF,
       which is I/O.</li>
       <li>Programming port for a Raspberry-Pi.</li>
+      <li>Skip ALU state for non-ALU instructions rather than masking
+      (saves 24 clocks).</li>
+      <li>Resize some pull-up resistors to improve the max clock frequency
+      (up to 100kHz).</li>
     </ul>
     <br>
   </li>
@@ -27,7 +31,10 @@ title: Q2 Revision History
           <li>Active-low X11-input tied to GND instead of Vcc
           causes most-significant bit to be set after shift right
           (easy to fix with a wire).</li>
+          <li>Flag register is updated on LEA instruction (easy
+          to avoid in software).</li>
         </ul>
+        <li>Max clock frequency limited to 30kHz.</li>
       </li>
       <li>Uses two EEPROMs at 0x800 for persistent program storage.</li>
       <li>16x2 LCD user interface.</li>

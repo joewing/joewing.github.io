@@ -294,10 +294,8 @@ to exit and the hardware to loop forever:
 
 <p>
 There is no fully generic way to create a no-operation instruction,
-but depending on the situation, one of the following may work.
-</p>
-
-<p>
+but depending on the situation, it is possible to achieve a similar
+effect.
 The closest thing to a generic no-operation is jumping to the next
 instruction. Unfortunately, this will not work if the next instruction
 is on a different page:
@@ -322,4 +320,5 @@ Another approach would be to store to a location of memory that is not used
 <pre class="code">
   sta   unused
 </pre>
+
 
