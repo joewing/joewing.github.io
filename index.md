@@ -16,7 +16,7 @@ time over the years. Some of my recent and active projects include:
 - [Maze Generators](projects/maze/)<br>
   Maze generator implementations in lots of programming languages.
 
-- [Q2](projects/q2/)<br>
+- [The Q2 Computer](projects/q2/)<br>
   A single-board discrete transistor computer.
 
 Some other things I've worked on in the past that may be of interest:

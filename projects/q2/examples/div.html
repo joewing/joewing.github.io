@@ -18,8 +18,9 @@ div:
   lea   =0
   sta   =x2   ; quotient
   sta   =x3   ; remainder
-  lea   =11
+  lea   =12
 div_loop:
+  add   =neg1
   sta   =x4
 
   ; x3 &lt;&lt;= 1
@@ -37,9 +38,8 @@ div_loop:
   add   =x0
   sta   =x0
   jfc   div_not_set
-  lda   =x3
-  nor   =one
-  nor   =zero
+  lea   =1
+  add   =x3
   sta   =x3
 div_not_set:
 
@@ -54,15 +54,13 @@ div_not_set:
   sta   =x3
 
   ; x2 |= 1
-  lda   =x2
-  nor   =one
-  nor   =zero
+  lea   =1
+  add   =x2
   sta   =x2
 
 div_skip:
   lda   =x4
-  add   =minus1
-  jfc   @=x5
-  jmp   div_loop
+  jfc   div_loop
+  jmp   @=x5
 </pre>
 

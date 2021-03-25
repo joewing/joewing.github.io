@@ -92,6 +92,26 @@ it allows the state machine to be implemented as a simple binary
 ripple counter (otherwise the ripple would cause glitches).
 </p>
 
+<center>
+<img src="phases.png" width="466" height="557">
+</center>
+
+<p>
+The starting sequence of clock phases looks like this:
+</p>
+
+<center><pre>
+  RUN | RST | CLK | Q | WS | SC | Notes                           
+  --- | --- | --- | - | -- | -- | --------------------------------
+   0  |  1  |  1  | 0 |  0 |  0 | Reset button pressed            
+   0  |  0  |  1  | 0 |  0 |  0 | Reset button released           
+   1  |  0  |  0  | 0 |  1 |  0 | Run button pressed (and latched)
+   1  |  0  |  1  | 1 |  0 |  0 |                                 
+   1  |  0  |  0  | 1 |  0 |  1 |                                 
+   1  |  0  |  1  | 0 |  0 |  0 |                                 
+   1  |  0  |  0  | 0 |  1 |  0 |                                 
+</pre></center>
+
 <h2>State Machine</h2>
 
 <p>
@@ -117,13 +137,133 @@ The states are:
   <li>ALU - 12 states to run the 12 bits of A and X through the ALU.</li>
 </ul>
 
+<p>
+The states are decoded using the followoing logic.
+</p>
+
+<center>
+<img src="state-decoder.png" width="709" height="498">
+</center>
+
+<p>
+The S2 flip-flop input is gated using the following logic,
+which enables S2 only for instructions that use the ALU.
+All other flip-flops use their negated output as input to
+form a binary ripple counter.
+</p>
+
+<center>
+<img src="s2in.png" width="574" height="459">
+</center>
+
 <h2>Control Signals</h2>
 
 <p>
 The control signals are driven from the operand register and decoded
 state. The simple instruction encoding makes the logic required to
 drive the control signals fairly small.
+The following control signals are used (the equations are arranged
+to map directly into NMOS).
 </p>
+
+<center>
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Signal</th>
+      <th>Logic</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RDX</td>
+      <td>~STATE_FETCH</td>
+      <td>Read X to the data bus</td>
+    </tr>
+    <tr>
+      <td>XLIN_DBUS</td>
+      <td>~STATE_ALU</td>
+      <td>Set X to the data bus</td>
+    </tr>
+    <tr>
+      <td>RDM</td>
+      <td>~STATE_EXEC</td>
+      <td>Read memory to the data bus</td>
+    </tr>
+    <tr>
+      <td>RDA</td>
+      <td>~~STATE_EXEC</td>
+      <td>Read the A register to the data bus</td>
+    </tr>
+    <tr>
+      <td>WRO</td>
+      <td>~(~STATE_FETCH | ~WS)</td>
+      <td>Write operand (O)</td>
+    </tr>
+    <tr>
+      <td>WRA</td>
+      <td>~(~STATE_ALU | ~WS)</td>
+      <td>Write accumulator (A)</td>
+    </tr>
+    <tr>
+      <td>WRX</td>
+      <td>~((~STATE_ALU &amp; ~STATE_LOAD &amp; ~STATE_DEREF &amp; ~STATE_FETCH) | ~WS)</td>
+      <td>Write operand register (X)</td>
+    </tr>
+    <tr>
+      <td>WRF</td>
+      <td>~((~STATE_ALU &amp; ~STATE_EXEC) | ~WS | O2)</td>
+      <td>Write flag register (F)</td>
+    </tr>
+    <tr>
+      <td>WRM</td>
+      <td>~(~DEP_SW &amp; (~O2 | O1 | ~O0 | ~STATE_EXEC | ~WS))</td>
+      <td>Write memory or output</td>
+    </tr>
+    <tr>
+      <td>RDP</td>
+      <td>~~STATE_FETCH</td>
+      <td>Set ABUS to P for fetch</td>
+    </tr>
+    <tr>
+      <td>XHIN_P</td>
+      <td>~(~STATE_FETCH | DBUS7)</td>
+      <td>Set high 5 bits of X to P (relative)</td>
+    </tr>
+    <tr>
+      <td>XHIN_ZERO</td>
+      <td>~(~STATE_FETCH | XHIN_P)</td>
+      <td>Set high 5 bits of X to 0 (zero-page)</td>
+    </tr>
+    <tr>
+      <td>XHIN_DBUS</td>
+      <td>~(~STATE_LOAD &amp; ~STATE_DEREF)</td>
+      <td>Load X from the data bus</td>
+    </tr>
+    <tr>
+      <td>XIN_SHIFT</td>
+      <td>~~STATE_ALU</td>
+      <td>Shift X right 1 bit</td>
+    </tr>
+    <tr>
+      <td>INCP</td>
+      <td>~((~STATE_FETCH | ~WS) &amp; ~~INCP_SW)</td>
+      <td>Increment program counter (P)</td>
+    </tr>
+    <tr>
+      <td>~WRP</td>
+      <td>~(WS &amp; (~O0 | F) &amp; O1 &amp; RDA</td>
+      <td>Write the program counter (P)</td>
+    </tr>
+    <tr>
+      <td>NEXTF</td>
+      <td>~((~ALU_COUT | ~STATE_ALU) &amp; ((O1 &amp; (~O0 | ~X0)) | ~STATE_EXEC))</td>
+      <td>Next flag</td>
+    </tr>
+  </tbody>
+</table>
+</center>
 
 <h2>Arithmetic Logic Unit</h2>
 
@@ -135,7 +275,7 @@ carry or zero status.
 The ALU supports the following operations:
 </p>
 
-<table class="listing">
+<center><table class="listing">
   <thead>
     <tr><th>Opcode</th><th>Name</th><th>Next A</th><th>Next F</th></tr>
   </thead>
@@ -157,7 +297,50 @@ The ALU supports the following operations:
       <td>X1</td><td>F</td>
     </tr>
   </tbody>
-</table>
+</table></center>
+
+<p>
+The NOR function is easily implemented with two transistors.
+<p>
+
+<center>
+<img src="nor.png" width="402" height="331">
+</center>
+
+<p>
+To compute the sum, a standard binary full-adder made out of NAND
+gates is used. There are a few minor departures to save transistors:
+when two NAND gates share an input on the ground-side, the ground-side
+transistor can be shared. A common NMOS/CMOS adder design would save
+an additional transistor, but at the expense of an increased load on
+the A, X, and F registers, which we want to avoid.
+</p>
+
+<center>
+<img src="adder.png" width="800" height="440">
+</center>
+
+<p>
+The ALU output selection is based on two bits from the opcode
+(note that LEA and LDA both have the same ALU function).
+The ALU uses these two bits to determine which output to use.
+</p>
+
+<center>
+<img src="alu-output.png" width="750" height="536">
+</center>
+
+<p>
+Finally, the ALU flag output also uses two bits from the
+opcode. Here the load and NOR operations clear the flag when
+a non-zero value is detected. The carry from the adder is
+used for ADDs, and the flag is preserved for shift right,
+(the flag will be set to X0 prior to the ALU state for shift right).
+</p>
+
+<center>
+<img src="alu-flag-out.png" width="750" height="505">
+</center>
 
 <h2>Program Counter (P)</h2>
 
