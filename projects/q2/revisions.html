@@ -6,8 +6,23 @@ title: Q2 Revision History
 <h1>{{ page.title }}</h1>
 
 <ul>
+  <li>Revision 4 (?)
+    <ul>
+      <li>I2C interface</li>
+      <li>6 input buttons instead of 12</li>
+      <li>Fixed XHIN_P pull-up</li>
+      <li>Faster transistors (lower gate capacitance)</li>
+    </ul>
+    <br>
+  </li>
   <li>Revision 3 (2021-03-14)
     <ul>
+      <li>
+        <details>
+          <summary>Image</summary>
+          <img src="hello.png" width="458" height="570">
+        </details>
+      </li>
       <li>1094 transistors.</li>
       <li>Uses battery backup for SRAM.</li>
       <li>No more EEPROM, all addresses are in SRAM except 0xFFF,
@@ -16,12 +31,27 @@ title: Q2 Revision History
       <li>Skip ALU state for non-ALU instructions rather than masking
       (saves 24 clocks).</li>
       <li>Resize some pull-up resistors to improve the max clock frequency
-      (up to 100kHz).</li>
+      (up to 80kHz).</li>
+      <li>One known issue:
+        <ul>
+          <li>
+            Wrong size pull-up resistor (10k instead of 1k)
+            on XHIN_P control line limits max frequency. Easy to
+            fix with a new resistor.
+          </li>
+        </ul>
+      </li>
     </ul>
     <br>
   </li>
   <li>Revision 2 (2021-02-05)
     <ul>
+      <li>
+        <details>
+          <summary>Image</summary>
+          <img src="rev2.jpg" width="400" height="524">
+        </details>
+      </li>
       <li>Single board design with 1128 transistors.</li>
       <li>Issues:
         <ul>

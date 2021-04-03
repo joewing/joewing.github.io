@@ -1,0 +1,35 @@
+---
+layout: default
+title: Q2 Computer - Hello Example
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+Small program to display "Hello!" on the LCD.
+</p>
+
+<pre class="code">
+  lea   msg
+  sta   ptr     ; ptr -&gt; message to display
+loop:
+  lda   @ptr    ; Load the character
+  jfc   $+2
+  jmp   $       ; Loop forever when done
+  sta   @neg1   ; Write to the LCD
+  lea   =1      ; Move to the next character
+  add   ptr
+  sta   ptr
+  jmp   loop
+
+neg1:
+  .dw -1
+ptr:
+  .dw 0
+msg:
+  .dw   0x138   ; Function set (8-bits, 2-lines, 5x8)
+  .dw   0x10C   ; Display on, cursor off, blink off
+  .dw   0x106   ; Entry mode, increment, no shift
+  .dw   0x101   ; Clear screen
+  .dw   "Hello!", 0
+</pre>

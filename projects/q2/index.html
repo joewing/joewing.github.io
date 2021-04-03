@@ -26,7 +26,19 @@ The Q2 is implemented on a single PCB using surface mount components,
 allowing the board to be produced and assembled almost entirely by machine.
 </p>
 
-<img src="demo.jpg" width="660" height="865">
+<center>
+<video width="463" height="653" controls>
+  <source src="hello.mp4" type="video/mp4">
+  <img src="hello.png" width="463" height="653">
+</video>
+</center>
+
+<p>
+The video above is a quick demonstration of the Q2.
+First the Q2 is programmed via a Raspberry Pi Zero and then the
+program is run at 80 Hz (the slow clock).
+The program is available <a href="examples/hello.html">here</a>.
+</p>
 
 <h2 id="architecture">Architecture</h2>
 
@@ -43,7 +55,7 @@ while keeping the instruction set versatile enough to be usable.
 Unfortunately, this means the Q2 is fairly slow. All instructions take
 either 8 or 32 cycles to complete. Further, to keep the power consumption
 down without increasing transistor count, the maximum clock frequency is
-100 kHz.
+80 kHz.
 Higher frequencies should be possible at the expense of more power
 (lower valued resistor pull-ups) or more transistors (active pull-up).
 While slow even for a 1960s computer, the Q2 is still fast enough to
