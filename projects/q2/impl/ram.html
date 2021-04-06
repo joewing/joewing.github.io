@@ -1,0 +1,44 @@
+---
+layout: default
+title: Q2 RAM
+---
+
+<h1>{{ page.title }}</h1>
+
+<center>
+<img src="ram.png" width="700" height="483">
+</center>
+
+<p>
+The RAM for the Q2 is the one notable piece that is not
+implemented out of discrete transistors. The goal was to
+have a RAM that could save programs when powered off and
+be implemented without substantially increasing the size or
+power consumption of the Q2.
+A DRAM structure was considered
+(with large enough capacitors, DRAM will persist for a
+reasonable amount of time), but even that would require two
+transistors per bit, not to mention the address decoding logic
+and sense amplifiers.
+An actual core memory would be the most appropriate, but
+such things are hard to find, and the assembly of one does
+not appeal to me.
+So given that an off-the-shelf SRAM already provides
+exactly what we need, the Q2 goes that route.
+</p>
+
+<p>
+The RAM for the Q2 is provided by two 6264 SRAM chips. Each
+of these has an 8-bit data bus and a 13-bit address bus.
+Since we only need 12 bits for the data bus, two of the
+data pins on each are pulled to GND via 100k resistors. This
+provides a stable value for writes and low-current draw during
+reads. The extra address bit is connected to a bank select switch,
+allowing two complete system images to be stored on the Q2.
+</p>
+
+<p>
+An SRAM battery backup is provided for the SRAM to preserve
+any programs when the Q2 is not powered.
+</p>
+

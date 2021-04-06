@@ -21,7 +21,7 @@ title: Q2 Computer
 
 <p>
 The Q2 is a single-board, discrete transistor computer.
-All transistors in the Q2 are 2N7002 (N-channel MOSFETs).
+All transistors in the Q2 are n-channel MOSFETs.
 The Q2 is implemented on a single PCB using surface mount components,
 allowing the board to be produced and assembled almost entirely by machine.
 </p>
@@ -81,10 +81,12 @@ edge-triggered D flip-flops.
 </p>
 
 <p>
-For more about the hardware design see
-<a href="impl.html">Implementation Details</a>.
-See the <a href="revisions.html">Revision History</a> for a timeline.
+For details:
 </p>
+<ul>
+  <li><a href="impl">Implementation Details</a></li>
+  <li><a href="revisions.html">Revision History</a></li>
+</ul>
 
 <h2 id="instructions">Instruction Set</h2>
 
@@ -125,6 +127,24 @@ access. The dereference bit and zero-page bit can be used together to
 perform an indirect access through the zero page (prefix &quot;@=&quot;).
 This is useful for storing a stack pointer in the zero page, for example.
 </p>
+
+<p>
+Combined, the dereference and zero-page bits provide 4 address modes:
+</p>
+
+<center>
+<table class="listing">
+  <thead>
+    <tr><th>DZ</th><th>Notation</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>00</td><td>x</td><td>Current page relative</td></tr>
+    <tr><td>01</td><td>=x</td><td>Zero page relative</td></tr>
+    <tr><td>10</td><td>@x</td><td>Indirect through current page</td></tr>
+    <tr><td>11</td><td>@=x</td><td>Indirect through zero page</td></tr>
+  </tbody>
+</table>
+</center>
 
 <p>
 The following instructions are supported:
@@ -171,7 +191,7 @@ The following instructions are supported:
 
 <p>
 The flag is set on carry (<i>C</i>), zero (<i>Z</i>), or left
-unchanged (<i>-</i>).
+unchanged (<i>-</i>), depending on the instruction.
 </p>
 
 <h2 id="interface">Interface</h2>

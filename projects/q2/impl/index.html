@@ -1,0 +1,95 @@
+---
+layout: default
+title: Q2 Implementation Details
+---
+
+<h1>{{ page.title }}</h1>
+
+<h2>NMOS Logic</h2>
+
+<p>
+All logic in the Q2 is implemented using 2N7002 n-channel MOSFETs with
+resistor pull-ups. Compared to a bipolar logic family like TTL, NMOS is
+nice because it requires fewer components: an NMOS inverter requires only
+a single transistor and a single pull-up resistor. Unfortunately, the
+resistor pull-up presents a trade-off between speed and power, where
+a lower value resistor pull-up will make the gate faster at the expense
+of more power draw when the output is low. The situation is made worse
+by the fact that most modern discrete MOSFETs have a rather high
+gate capacitance (likely because they are made for switching large loads
+rather than implementing logic), making fast logic tricky to implement
+without using excessive power.
+</p>
+
+<p>
+Although NMOS has a nearly unlimited fanout due to the high impedance
+between the input and output, the gate capacitance
+means that as we increase the fanout, the propagation delay increases. For
+the Q2, we try to use mostly 10k pull-up resistors as a compromise between
+speed and power. If we assume a load of 50pF and a Vth of 2.5 (pessimistic
+values for the gate capacitance and threshold voltage of a 2N7002), this
+gives us a propagation delay of around 347ns and a current draw of 0.5mA
+at 5V for a fanout of one. As the fanout increases to, for example, 24 to
+clock the A register, the propagation delay increases to 8.32us just for
+the last level of logic. If we wanted to clock the Q2 at 100kHz, this
+would leave us only 1.68us of slack for all other logic.
+To avoid such issues, we track the fanout and insert 1k resistors instead
+of 10k resistors in strategic locations, which in this case brings the delay
+down to 832ns with a draw of 5mA.
+</p>
+
+<h2>Power</h2>
+
+<p>
+Since USB adapters are prevalent and provide an easy
+5v power source, the Q2 was designed to use USB for
+power. In general, this limits the power consumption
+to be 500mA.
+It is relatively easy to verify that the Q2 will
+not draw too much power.
+</p>
+
+<p>
+Each LED is driven through a 4.7k resistor. We assume
+a 2v voltage drop through each LED, giving us a power
+draw of 0.64mA per LED.
+Each gate uses a 10k, a 1k, or a 100k resistor pull-up
+(depending on the fanout and required speed), so we
+assume 0.5mA for each 10k resistor and 5mA for each
+1k resistor, and 0.05mA for each 100k resistor.
+This provides an absolute worst-case estimate since
+we don't expect all gates and LEDs to be drawing
+power at all times (gates only draw power when the
+output is low). We assume the RAM chips and
+LCD each use 20mA.
+This gives us:
+</p>
+
+<ul>
+  <li>71 LEDs = 45mA</li>
+  <li>376 10k resistors = 188mA</li>
+  <li>19 100k resistors = 1mA</li>
+  <li>17 1k resistors = 85mA</li>
+  <li>2 RAM chips and 1 LCD = 60mA</li>
+</ul>
+
+<p>
+So we get a total worst-case draw of 379mA or 1.9 Watts.
+</p>
+
+<h2>Functional Units</h2>
+
+
+<p>
+The following sections detail the various sections of the Q2.
+</p>
+
+<ul>
+  <li><a href="clock.html">Run Latch and Clock</a></li>
+  <li><a href="state.html">State Machine</a></li>
+  <li><a href="control.html">Control Signals</a></li>
+  <li><a href="alu.html">Arithmetic Logic Unit</a></li>
+  <li><a href="registers.html">Registers</a></li>
+  <li><a href="ram.html">RAM</a></li>
+</ul>
+

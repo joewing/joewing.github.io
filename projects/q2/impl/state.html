@@ -1,0 +1,49 @@
+---
+layout: default
+title: Q2 State Machine
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+The state machine is advanced on the rising edge of the SC clock.
+There are 16 states. To reduce transistor count, the state machine
+is implemented as a 4-bit binary ripple counter. Since not all
+instructions use all states, the state decoder masks the DEREF
+and LOAD states if they are not used. The state machine rolls over
+without entering the ALU state if the ALU is not used.
+This means all instructions take either 8 or 32 cycles to complete
+depending on whether or not they use the ALU.
+</p>
+
+<p>
+The states are:
+</p>
+
+<ul>
+  <li>FETCH - Fetch the next instruction.</li>
+  <li>DEREF - Dereference the operand if the dereference bit is set.</li>
+  <li>LOAD - Load the operand from memory if this is an ALU instruction.</li>
+  <li>EXEC - Execute the instruction or prepare the ALU.</li>
+  <li>ALU - 12 states to run the 12 bits of A and X through the ALU.</li>
+</ul>
+
+<p>
+The states are decoded using the followoing logic.
+</p>
+
+<center>
+<img src="state-decoder.png" width="709" height="498">
+</center>
+
+<p>
+The S2 flip-flop input is gated using the following logic,
+which enables S2 only for instructions that use the ALU.
+All other flip-flops use their negated output as input to
+form a binary ripple counter.
+</p>
+
+<center>
+<img src="s2in.png" width="574" height="459">
+</center>
+

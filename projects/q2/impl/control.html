@@ -1,0 +1,114 @@
+---
+layout: default
+title: Q2 Control Signals
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+The control signals are driven from the operand register and decoded
+state. The simple instruction encoding makes the logic required to
+drive the control signals fairly small.
+The following control signals are used (the equations are arranged
+to map directly into NMOS).
+</p>
+
+<center>
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Signal</th>
+      <th>Logic</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RDX</td>
+      <td>~STATE_FETCH</td>
+      <td>Read X to the data bus</td>
+    </tr>
+    <tr>
+      <td>XLIN_DBUS</td>
+      <td>~STATE_ALU</td>
+      <td>Set X to the data bus</td>
+    </tr>
+    <tr>
+      <td>RDM</td>
+      <td>~STATE_EXEC</td>
+      <td>Read memory to the data bus</td>
+    </tr>
+    <tr>
+      <td>RDA</td>
+      <td>~~STATE_EXEC</td>
+      <td>Read the A register to the data bus</td>
+    </tr>
+    <tr>
+      <td>WRO</td>
+      <td>~(~STATE_FETCH | ~WS)</td>
+      <td>Write operand (O)</td>
+    </tr>
+    <tr>
+      <td>WRA</td>
+      <td>~(~STATE_ALU | ~WS)</td>
+      <td>Write accumulator (A)</td>
+    </tr>
+    <tr>
+      <td>WRX</td>
+      <td>~((~STATE_ALU &amp; ~STATE_LOAD &amp; ~STATE_DEREF &amp; ~STATE_FETCH) | ~WS)</td>
+      <td>Write operand register (X)</td>
+    </tr>
+    <tr>
+      <td>WRF</td>
+      <td>~((~STATE_ALU &amp; ~STATE_EXEC) | ~WS | O2)</td>
+      <td>Write flag register (F)</td>
+    </tr>
+    <tr>
+      <td>WRM</td>
+      <td>~(~DEP_SW &amp; (~O2 | O1 | ~O0 | ~STATE_EXEC | ~WS))</td>
+      <td>Write memory or output</td>
+    </tr>
+    <tr>
+      <td>RDP</td>
+      <td>~~STATE_FETCH</td>
+      <td>Set ABUS to P for fetch</td>
+    </tr>
+    <tr>
+      <td>XHIN_P</td>
+      <td>~(~STATE_FETCH | DBUS7)</td>
+      <td>Set high 5 bits of X to P (relative)</td>
+    </tr>
+    <tr>
+      <td>XHIN_ZERO</td>
+      <td>~(~STATE_FETCH | XHIN_P)</td>
+      <td>Set high 5 bits of X to 0 (zero-page)</td>
+    </tr>
+    <tr>
+      <td>XHIN_DBUS</td>
+      <td>~(~STATE_LOAD &amp; ~STATE_DEREF)</td>
+      <td>Load X from the data bus</td>
+    </tr>
+    <tr>
+      <td>XIN_SHIFT</td>
+      <td>~~STATE_ALU</td>
+      <td>Shift X right 1 bit</td>
+    </tr>
+    <tr>
+      <td>INCP</td>
+      <td>~((~STATE_FETCH | ~WS) &amp; ~~INCP_SW)</td>
+      <td>Increment program counter (P)</td>
+    </tr>
+    <tr>
+      <td>~WRP</td>
+      <td>~(WS &amp; (~O0 | F) &amp; O1 &amp; RDA</td>
+      <td>Write the program counter (P)</td>
+    </tr>
+    <tr>
+      <td>NEXTF</td>
+      <td>~((~ALU_COUT | ~STATE_ALU) &amp; ((O1 &amp; (~O0 | ~X0)) | ~STATE_EXEC))</td>
+      <td>Next flag</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+

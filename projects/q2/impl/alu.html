@@ -1,0 +1,82 @@
+---
+layout: default
+title: Q2 Arithmetic Logic Unit
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+The ALU is bit-serial to reduce transistor count. During the 12 ALU
+states, the bits from A and X are shifted through the ALU least-significant
+first, and back to A. Depending on the opcode, the flag register tracks the
+carry or zero status.
+The ALU supports the following operations:
+</p>
+
+<center><table class="listing">
+  <thead>
+    <tr><th>Opcode</th><th>Name</th><th>Next A</th><th>Next F</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>x00</td><td>LDA</td>
+      <td>X0</td><td>X0 &amp; ~F</td>
+    </tr>
+    <tr>
+      <td>x01</td><td>NOR</td>
+      <td>~(A0 | X0)</td><td>(A0 | X0) &amp; ~F</td>
+    </tr>
+    <tr>
+      <td>x10</td><td>ADD</td>
+      <td>A0 + X0 + F</td><td>(A0 &amp; X0) | (A0 &amp; F) | (X0 &amp; F)</td>
+    </tr>
+    <tr>
+      <td>x11</td><td>SHR</td>
+      <td>X1</td><td>F</td>
+    </tr>
+  </tbody>
+</table></center>
+
+<p>
+The NOR function is easily implemented with two transistors.
+<p>
+
+<center>
+<img src="nor.png" width="402" height="331">
+</center>
+
+<p>
+To compute the sum, a standard binary full-adder made out of NAND
+gates is used. There are a few minor departures to save transistors:
+when two NAND gates share an input on the ground-side, the ground-side
+transistor can be shared. A common NMOS/CMOS adder design would save
+an additional transistor, but at the expense of an increased load on
+the A, X, and F registers, which we want to avoid.
+</p>
+
+<center>
+<img src="adder.png" width="800" height="440">
+</center>
+
+<p>
+The ALU output selection is based on two bits from the opcode
+(note that LEA and LDA both have the same ALU function).
+The ALU uses these two bits to determine which output to use.
+</p>
+
+<center>
+<img src="alu-output.png" width="750" height="536">
+</center>
+
+<p>
+Finally, the ALU flag output also uses two bits from the
+opcode. Here the load and NOR operations clear the flag when
+a non-zero value is detected. The carry from the adder is
+used for ADDs, and the flag is preserved for shift right,
+(the flag will be set to X0 prior to the ALU state for shift right).
+</p>
+
+<center>
+<img src="alu-flag-out.png" width="750" height="505">
+</center>
+
