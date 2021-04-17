@@ -7,10 +7,11 @@ title: Q2 Control Signals
 
 <p>
 The control signals are driven from the operand register and decoded
-state. The simple instruction encoding makes the logic required to
-drive the control signals fairly small.
-The following control signals are used (the equations are arranged
-to map directly into NMOS).
+state. The simple instruction encoding and RISC-like instructions
+make the logic required to drive the control signals fairly small.
+This is in contrast to some architectures which go so far as to use
+a ROM. The following control signals are used (the equations are
+arranged to map directly into NMOS).
 </p>
 
 <center>
@@ -27,11 +28,6 @@ to map directly into NMOS).
       <td>RDX</td>
       <td>~STATE_FETCH</td>
       <td>Read X to the data bus</td>
-    </tr>
-    <tr>
-      <td>XLIN_DBUS</td>
-      <td>~STATE_ALU</td>
-      <td>Set X to the data bus</td>
     </tr>
     <tr>
       <td>RDM</td>
@@ -71,27 +67,32 @@ to map directly into NMOS).
     <tr>
       <td>RDP</td>
       <td>~~STATE_FETCH</td>
-      <td>Set ABUS to P for fetch</td>
+      <td>Read P to the address bus</td>
     </tr>
     <tr>
       <td>XHIN_P</td>
       <td>~(~STATE_FETCH | DBUS7)</td>
-      <td>Set high 5 bits of X to P (relative)</td>
+      <td>Set inputs for the high 5 bits of X to P (relative)</td>
     </tr>
     <tr>
       <td>XHIN_ZERO</td>
       <td>~(~STATE_FETCH | XHIN_P)</td>
-      <td>Set high 5 bits of X to 0 (zero-page)</td>
+      <td>Set inputs for the high 5 bits of X to 0 (zero-page)</td>
     </tr>
     <tr>
       <td>XHIN_DBUS</td>
       <td>~(~STATE_LOAD &amp; ~STATE_DEREF)</td>
-      <td>Load X from the data bus</td>
+      <td>Set inputs for the high 5 bits of X from the data bus</td>
+    </tr>
+    <tr>
+      <td>XLIN_DBUS</td>
+      <td>~STATE_ALU</td>
+      <td>Set inputs for the low 7 bits of X from the data bus</td>
     </tr>
     <tr>
       <td>XIN_SHIFT</td>
       <td>~~STATE_ALU</td>
-      <td>Shift X right 1 bit</td>
+      <td>Set inputs for all bits of X to X shifted right 1 bit</td>
     </tr>
     <tr>
       <td>INCP</td>

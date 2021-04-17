@@ -22,8 +22,9 @@ title: Q2 Computer
 <p>
 The Q2 is a single-board, discrete transistor computer.
 All transistors in the Q2 are n-channel MOSFETs.
-The Q2 is implemented on a single PCB using surface mount components,
-allowing the board to be produced and assembled almost entirely by machine.
+The Q2 is implemented on a single 314mm x 240mm PCB using surface mount
+components, allowing the board to be produced and assembled almost entirely
+by machine.
 </p>
 
 <center>
@@ -86,6 +87,8 @@ For details:
 <ul>
   <li><a href="impl">Implementation Details</a></li>
   <li><a href="revisions.html">Revision History</a></li>
+  <li><a href="https://github.com/joewing/q2">Q2 GitHub page</a></li>
+  <li><a href="https://hackaday.io/project/178788-q2-computer">Q2 Hackaday project</a></li>
 </ul>
 
 <h2 id="instructions">Instruction Set</h2>
@@ -198,6 +201,10 @@ unchanged (<i>-</i>), depending on the instruction.
 
 <h3>Front Panel</h3>
 
+<center>
+<img src="fp.jpg" width="694" height="451">
+</center>
+
 <p>
 For programming, the Q2 has a simple front-panel interface.
 It has 12 LEDs to show the current address (the address bus,
@@ -207,13 +214,13 @@ the following buttons:
 </p>
 
 <ul>
-  <li>Reset - Set the P register to the value in the
-  switches and reset the Q2.</li>
   <li>Deposit - Store the value in the switches to the
   current address.</li>
-  <li>Next - Increment the P register.</li>
-  <li>Start - Start running.</li>
-  <li>Stop - Stop running.</li>
+  <li>Next - Increment the P register (the current address).</li>
+  <li>Reset - Set the P register to the value in the
+  switches and reset the Q2.</li>
+  <li>Halt - Stop the clock.</li>
+  <li>Run - Start the clock.</li>
 </ul>
 
 <p>
@@ -229,6 +236,10 @@ Raspberry Pis with a 40-pin header can both read and write.
 </p>
 
 <h3>LCD and Buttons</h3>
+
+<center>
+<img src="lcd.jpg" width="700" height="580">
+</center>
 
 <p>
 To allow one to interact with a running program, the Q2
