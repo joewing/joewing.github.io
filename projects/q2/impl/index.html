@@ -8,11 +8,46 @@ title: Q2 Implementation Details
 <h2>NMOS Logic</h2>
 
 <p>
-All logic in the Q2 is implemented using 2N7002 n-channel MOSFETs with
+All logic in the Q2 is implemented using n-channel MOSFETs with
 resistor pull-ups. Compared to a bipolar logic family like TTL, NMOS is
 nice because it requires fewer components: an NMOS inverter requires only
-a single transistor and a single pull-up resistor. Unfortunately, the
-resistor pull-up presents a trade-off between speed and power, where
+a single transistor and a single pull-up resistor.
+</p>
+
+<center>
+<img src="not.png" width="274" height="342">
+</center>
+
+<p>
+The idea is pretty simple: a voltage present at the gate (pin 1)
+of the MOSFET exceeding the threshold voltage (Vth) allows current
+to flow from the drain (pin 3) to the source (pin 2). The transistor
+acts as a variable resistor until the gate voltage increases to the
+drain voltage (Vds) minus Vth, at which point the transistor is
+completely on (saturated).
+Since we use NMOS devices, this means that a high voltage at the
+gate will pull the output to ground. On the other hand, a low voltage
+at the gate will turn off the transistor, allowing the pull-up
+resistor to bring the output high.
+</p>
+
+<p>
+A complication of discrete NMOS logic is introduced through the use
+of three-terminal devices where the bulk terminal is tied to the
+source terminal. This creates a parasitic diode between the drain
+in the source. The diode doesn't present too many issues, but it can
+lead to surprises.
+For instance, to make a pass transistor gate you need two transistors
+instead of one.
+Note that when designing an IC you get to tie the bulk to ground
+instead of the source, which eliminates the diode. Thus it is
+important to be wary of circuits that come from a VLSI textbook.
+</p>
+
+<h2>Speed</h2>
+
+<p>
+The resistor pull-up presents a trade-off between speed and power, where
 a lower value resistor pull-up will make the gate faster at the expense
 of more power draw when the output is low. The situation is made worse
 by the fact that most modern discrete MOSFETs have a rather high
