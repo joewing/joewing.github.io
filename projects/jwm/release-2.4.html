@@ -7,7 +7,7 @@ title: JWM v2.4 Release Notes
 
 <p>
 This is a collection of major changes between JWM v2.3 and JWM v2.4.<br>
-Version 2.4.0 has yet to be released.<br>
+Version 2.4.0 was released 20211107.
 </p>
 
 <h2>New Features</h2>
@@ -38,6 +38,9 @@ Version 2.4.0 has yet to be released.<br>
    <li>Added key bindings to resize a window from a specific corner or side
    (issue
    <a href="http://github.com/joewing/jwm/issues/409">#409</a>).</li>
+   <li>Add Type tag to Group (issue
+   <a href="http://github.com/joewing/jwm/issues/453">#453</a>,
+   patch from rdnvndr).</li>
 </ul>
 </div>
 
@@ -66,7 +69,9 @@ Version 2.4.0 has yet to be released.<br>
 </p>
 <div>
 <ul>
-<li>TBD</li>
+  <li>The <span class="attribute">group</span> and
+   <span class="attribute">list</span> attributes have moved
+   to the <span class="tag">TaskListStyle</span> tag.</li>
 </ul>
 </div>
 <p>
@@ -77,12 +82,29 @@ Version 2.4.0 has yet to be released.<br>
 <h2>Bug Fixes</h2>
 <div>
 <ul>
-<li>TDB</li>
+  <li>Don't SetDefaultCursor in AddClientToWindow (issue
+  <a href="http://github.com/joewing/jwm/issue/521">#521</a>).</li>
+  <li>Use pango to address font fixes (issues
+  <a href="http://github.com/joewing/jwm/issue/502">#502</a>,
+  <a href="http://github.com/joewing/jwm/issue/498">#498</a>, and
+  <a href="http://github.com/joewing/jwm/issue/337">#337</a>).
+  </li>
+  <li>Fix for large titles that are centered or right aligned (issue
+  <a href="http://github.com/joewing/jwm/issues/479">#479</a>,
+  patch from rdnvndr).</li>
+  <li>Fix tooltip delay (issue
+  <a href="http://github.com/joewing/jwm/issue/431">#431</a>).</li>
 </ul>
 </div>
 
 <h2>Updated Translations</h2>
 <div>
 <ul>
+  <li>Portuguese (Hugo Carvalho)</li>
+  <li>Portuguese Brazil (marcelo cripe)</li>
+  <li>Turkish (Cihan Alkan)</li>
+  <li>Spanish (PAblo Roberto Francisco Lezaeta Reyes)</li>
+  <li>Danish (scootergrisen)</li>
+  <li>Lithuanian (Moo)</li>
 </ul>
 </div>
