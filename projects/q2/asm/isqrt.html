@@ -5,15 +5,10 @@ title: Q2 Computer - Integer Square Root
 
 <h1>{{ page.title }}</h1>
 
-<p>
-This makes some assumptions about values in
-the zero page, like the <a href="index.html">common functions</a>.
-</p>
-
 <pre class="code">
 ; Compute the integer square root of x0
 ; Returns the result in x0.
-; Destroys x0, x1, x2, x3
+; Destroys x0, x1, x2, x3 (assumed to be in the zero page).
 isqrt:
   sta   =x3
   lea   =1
@@ -22,11 +17,11 @@ isqrt:
   sta   =x2       ; x2 = 3
 isqrt_loop:
   lda   =x0
-  nor   =zero
+  nor   #0
   add   =x1
   jfc   isqrt_cont  ; if x0 &gt;= x1 continue
   shr   =x2         ; return x0 = (x2 / 2) - 1
-  add   =neg1
+  add   #-1
   sta   =x0
   jmp   @=x3
 isqrt_cont:

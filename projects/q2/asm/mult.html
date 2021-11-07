@@ -5,14 +5,9 @@ title: Q2 Computer - Multiplication
 
 <h1>{{ page.title }}</h1>
 
-<p>
-This makes some assumptions about values in
-the zero page, like the <a href="index.html">common functions</a>.
-</p>
-
 <pre class="code">
 ; Multiply x2 = x0 * x1
-; Destroys x0, x1, x2, x3
+; Destroys x0, x1, x2, x3 (assumed to be in the zero page).
 mult:
   sta   =x3
   lea   =0

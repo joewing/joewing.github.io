@@ -1,0 +1,106 @@
+---
+layout: default
+title: Q2 Language
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+Q2L is a programming language designed for the Q2 computer.
+The goal of Q2L is to make writing programs for the Q2 easier
+without introducing features that would be expensive to implement.
+Some features of Q2L:
+</p>
+
+<ul>
+  <li>All values are 12-bit words.</li>
+  <li>All data is statically allocated.</li>
+  <li>Recursive functions are not supported.</li>
+</ul>
+
+<p>
+Here is a small example:
+</p>
+
+<pre class="code">
+fun main()
+  clear();          # Reset and clear the LCD.
+  puts("Hello!");   # Display a message.
+end
+</pre>
+
+<p>
+Execution starts in the <i>main</i> function, which is declared using
+the <i>fun</i> keyword. This program then goes on to call the
+&quot;clear&quot; built-in function and then the &quot;puts&quot;
+built-in function to output the message in quotes.  Statements
+are terminated with ';' and comments start with '#' and continue
+to the end of the line.
+</p>
+
+<p>
+Here's an example to display a count down:
+</p>
+
+<pre class="code">
+fun main()
+  clear();            # Reset and clear the LCD.
+  var i = 100;        # Local variable set to 100.
+  while @i != 0 do    # While the value at i is not zero...
+    OUTPUT = 0x180;   # Move the cursor to the top-left.
+    putint(@i);       # Output the value at i.
+    i = @i - 1;       # Decrement the value at i and store it to i.
+  end
+end
+</pre>
+
+<p>
+In the above example, notice that we have to explicitly dereference
+variables using the '@' operator to get their value. Without the
+'@' operator, the variable would return its address. The assignment operator
+('=') stores the value computed on the right-hand side at the address
+computed on the left-hand side.
+</p>
+
+<p>
+This explicit dereferencing is perhaps somewhat unusual, but it makes
+it easy to pass around pointers and modify data structures without
+the need for a reference operator (like '&amp;' in C).
+Note that the BLISS programming language is similar in this regard.
+</p>
+
+<p>
+Here's a slightly longer example to demonstrate array manipulation:
+</p>
+
+<pre class="code">
+# This is a program to output prime numbers using a sieve.
+
+const MAX_VALUE = 256;    # Constant to for the max value to consider.
+
+fun show_primes()
+  puts("Primes: ");               # Display header.
+  const RESULTS = :MAX_VALUE;     # Allocate space for the array.
+  memset(RESULTS, MAX_VALUE, 1);  # Initialize with 1s (prime indicators).
+  var p = 2;                      # First prime to consider is 2.
+  while @p &lt; MAX_VALUE do
+    if @(RESULTS + @p) then       # If this entry is prime...
+      OUTPUT = 0x180 + 8;         # Move cursor
+      putint(@p);                 # Output the value.
+      var i = @p;
+      while @i &lt; MAX_VALUE do     # Loop to clear prime indicators
+        RESULTS + @i = 0;
+        i = @i + @p;
+      end
+    end
+    p = @p + 1;                   # Check the next value.
+  end
+end
+
+fun main()
+  clear();
+  show_primes();
+end
+</pre>
+
+

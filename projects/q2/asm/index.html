@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Q2 Computer - Assembler
+title: Q2 Assembler
 ---
 
 <h1>{{ page.title }}</h1>
@@ -28,13 +28,57 @@ q2asm supports the following directives:
 </p>
 
 <ul>
-  <li>.align - Aligns the next address to the specified boundary.</li>
+  <li>.align - Aligns the next address to the specified word boundary
+  (128 by default).</li>
   <li>.bss - Reserves the specified number of words.</li>
   <li>.def - Defines a constant.</li>
   <li>.dw - Inserts one or more words.</li>
   <li>.include - Includes the contents of another file.</li>
   <li>.org - Sets the next address (origin).</li>
 </ul>
+
+<h2>Address Modes</h2>
+
+<p>
+The Q2 is a single-address architecture, meaning all instructions have 
+a single operand representing an address. The Q2 supports four address
+modes to determine this address:
+</p>
+
+<ul>
+  <li><span class="code">x</span>
+  - Relative (a value in the same 128-word page).</li>
+  <li><span class="code">=x</span>
+  - Zero-page (a value in the first 128 words;
+  the zero page).</li>
+  <li><span class="code">@x</span>
+  - Indirect (an address in the same 128-word page
+  to a word).</li>
+  <li><span class="code">@=x</span>
+  - Indirect through the zero page (an address in the
+  zero page to a word).</li>
+</ul>
+
+<p>
+For convenience, q2asm supports two additional address modes to
+support 12-bit immediates:
+</p>
+
+<ul>
+  <li><span class="code">#x</span>
+  - Immediate. The assembler will store &quot;x&quot;
+  at the end of the current page and replace the operand with a relative
+  address to reference &quot;x&quot;.</li>
+  <li><span class="code">@#x</span>
+  - Immediate indirect. The assembler will store
+  &quot;x&quot; at the end of the current page and replace the operand with
+  an indirect address to reference a value at &quot;x&quot;.</li>
+</ul>
+
+These immediate address modes require that an additional word is
+stored at the end of the current page. This word is emitted either
+at the end of the program or when an &quot;.align&quot; or
+&quot;.org&quot; directive is encountered.
 
 <h2>The Zero Page</h2>
 
@@ -47,19 +91,6 @@ for storing frequently used constants and for values that can be
 used across pages. Another way to look at the zero page is as if
 the Q2 had 128 general-purpose registers.
 </p>
-
-<p>
-Many of the examples here will assume that some common constants
-and values are available in the zero page:
-</p>
-
-<ul>
-  <li>=zero - The value 0x000.</li>
-  <li>=one - The value 0x001.</li>
-  <li>=neg1 - The value 0xFFF.</li>
-  <li>=x<i>n</i> - A temporary value (with <i>n</i> starting at 0).</li>
-  <li>=sp - The stack pointer (initialized to 0xFFE).</li>
-</ul>
 
 <h2>A Simple Example</h2>
 
@@ -84,28 +115,27 @@ that fits in 12-bits.
 
 ; Call the "fib" function and output the result.
 
-  ; The following two instructions perform a (page-local) call.
-  lea   $+2       ; '$' references the current address
-                  ; Here we load A with the current address plus 2,
+  ; The following performs a (page-local) call.
+  jal   fib       ; "jal" (jump and link) is a psuedo-instruction,
+                  ; which is equivalent to "lea $+2" followed by "jmp fib".
+                  ; Note that '$' references the current address.
+                  ; Here the "lea" loads A with the current address plus 2,
                   ; which is right after the jmp.
-  jmp   fib       ; Jump to the fib label
 
   ; The fib function will return here with the result in A.
 
-  sta   @output   ; Store the result to 0xFFF, which is the output device.
+  sta   @#0xFFF   ; Store the result to 0xFFF, which is the output device.
                   ; Since 0xFFF is neither in the zero page nor the
-                  ; current page, we store it at "output" and reference
-                  ; it indirectly with "@".
+                  ; current page, we use "#" to ask the assembler to
+                  ; insert 0xFFF at the end of the current page and give
+                  ; us a pointer to it, and then we access it indirectly
+                  ; with "@".
 
   jmp   $         ; Loop forever (this causes the simulator to halt).
 
+; The "fib" function
 ; Labels start at the beginnig of the line and end with a ":".
 ; Note that a label is like a ".def" that gets set to the current address.
-; Here we set aside a word to point to the output device.
-output:
-  .dw   0xFFF     ; Address of the output device
-
-; The "fib" function
 fib:
   sta   =x3       ; Store A to =x3. This is used as the return address.
   lea   =1        ; Set A = 1 (the effective address of "=1" is simply "1")
@@ -144,30 +174,30 @@ Other operations can be derived from these.
 
 <pre class="code">
 ; NOT: A = ~A
-  nor   =zero
+  nor   #0
 
 ; OR: A = A | v
   nor   v
-  nor   =zero
+  nor   #0
 
 ; AND: A = A &amp; v
-  nor   =zero
+  nor   #0
   sta   =x0
   lda   v
-  nor   =zero
+  nor   #0
   nor   =x0
 
 ; Negate: A = -A
-  nor   =zero
-  add   =one
+  nor   #0
+  add   #1
 
 ; Subtract: A = A - v
-  nor   =zero
+  nor   #0
   add   v
-  nor   =zero
+  nor   #0
 
 ; Decrement A
-  add   =neg1
+  add   #-1
 </pre>
 
 <p>
@@ -219,13 +249,25 @@ the function from anywhere:
 
 <p>
 Often, functions that we want to call are not in the same page nor are they
-available in the zero page. To call any function anywhere:
+available in the zero page. To call any function, one option is:
 </p>
 
 <pre class="code">
   lea   $+3   ; Save the return address in A.
   jmp   @$+1  ; Indirect jump to the next address.
   .dw   func  ; Pointer to the function to call.
+</pre>
+
+<p>
+Since this sequence is so common, q2asm supports a <i>jal</i>
+pseudo-instruction. <i>jal</i> stands for &quot;jump and link&quot;
+and is equivalent to &quot;lea $+2&quot; followed by &quot;jmp target&quot;.
+Combining <i>jal</i> with immediate addressing makes calling functions
+outside of the current page easy and relatively efficient:
+</p>
+
+<pre class="code">
+  jal   @#func
 </pre>
 
 <p>
@@ -250,7 +292,7 @@ To push the accumulator on to the stack:
 <pre class="code">
   sta   @=sp    ; Store A to the stack
   lda   =sp     ; Set sp = sp - 1
-  add   =neg1
+  add   #-1
   sta   =sp
 </pre>
 
@@ -310,7 +352,7 @@ accumulator can be used:
 </p>
 
 <pre class="code">
-  add   =zero
+  add   #0
 </pre>
 
 Another approach would be to store to a location of memory that is not used
@@ -320,4 +362,14 @@ Another approach would be to store to a location of memory that is not used
   sta   unused
 </pre>
 
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li><a href="sort.html">Bubble Sort</li>
+  <li><a href="div.html">Division and modulus</li>
+  <li><a href="hello.html">Display "Hello"</li>
+  <li><a href="isqrt.html">Integer Square Root</li>
+  <li><a href="maze.html">Maze Generator</li>
+  <li><a href="mult.html">Multiplication</li>
+</ul>
 

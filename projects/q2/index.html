@@ -20,11 +20,11 @@ title: Q2 Computer
 </pre>
 
 <p>
-The Q2 is a single-board, discrete transistor computer.
+The Q2 is a 12-bit single-board bit-serial discrete transistor computer.
 All transistors in the Q2 are n-channel MOSFETs.
-The Q2 is implemented on a single 314mm x 240mm PCB using surface mount
-components, allowing the board to be produced and assembled almost entirely
-by machine.
+The Q2 is implemented on a single dual-layer PCB using
+surface mount components, allowing the board to be produced and assembled
+almost entirely by machine.
 </p>
 
 <center>
@@ -38,230 +38,16 @@ by machine.
 The video above is a quick demonstration of the Q2.
 First the Q2 is programmed via a Raspberry Pi Zero and then the
 program is run at 80 Hz (the slow clock).
-The program is available <a href="examples/hello.html">here</a>.
+The program is available <a href="asm/hello.html">here</a>.
 </p>
 
-<h2 id="architecture">Architecture</h2>
-
-<p>
-The Q2 is, in many ways, a 1960s-style minicomputer on a board.
-Inspired by the <a href="https://en.wikipedia.org/wiki/PDP-8">DEC PDP-8</a>
-(the PDP-8/S in particular), it is a 12-bit accumulator-based architecture
-with a small instruction set and a bit-serial ALU.
-</p>
-
-<p>
-The Q2 was designed to keep the transistor count down
-while keeping the instruction set versatile enough to be usable.
-Unfortunately, this means the Q2 is fairly slow. All instructions take
-either 8 or 32 cycles to complete. Further, to keep the power consumption
-down without increasing transistor count, the maximum clock frequency is
-80 kHz.
-Higher frequencies should be possible at the expense of more power
-(lower valued resistor pull-ups) or more transistors (active pull-up).
-While slow even for a 1960s computer, the Q2 is still fast enough to
-run many interesting programs including those that require interaction,
-such as games.
-</p>
-
-<p>
-The Q2 has three user-visible registers:
-</p>
 <ul>
-  <li>A - 12-bit accumulator</li>
-  <li>F - 1-bit flag</li>
-  <li>P - 12-bit program counter</li>
-</ul>
-</p>
-
-<p>
-In addition to these, there is a 12-bit X register that is used
-to hold the operand, a 4-bit state counter, 1-bit clock divider,
-and a 4-bit opcode register. All 46 registers are positive
-edge-triggered D flip-flops.
-</p>
-
-<p>
-For details:
-</p>
-<ul>
+  <li><a href="arch.html">Architecture and Instruction Set</a></li>
+  <li><a href="asm/index.html">Q2 Assembler</a></li>
+  <li><a href="q2l.html">Q2 Language</a></li>
   <li><a href="impl">Implementation Details</a></li>
   <li><a href="revisions.html">Revision History</a></li>
   <li><a href="https://github.com/joewing/q2">Q2 GitHub page</a></li>
   <li><a href="https://hackaday.io/project/178788-q2-computer">Q2 Hackaday project</a></li>
-</ul>
-
-<h2 id="instructions">Instruction Set</h2>
-
-<p>
-All instructions are one 12-bit word and have the following bit pattern:
-</p>
-
-<center><pre>
-OOO D Z XXXXXXX              
- \  \ \    \____ Operand     
-  \  \ \________ Zero Page   
-   \  \_________ Dereference 
-    \___________ Opcode      
-</pre></center>
-
-<p>
-Here <i>OOO</i> is the opcode which determines the operation to perform,
-<i>D</i> is the dereference bit, <i>Z</i> is the zero-page bit, and
-<i>XXXXXXX</i> gives the low 7 bits of the operand.
-The high 5 bits of the operand are set to either the high bits of the
-program counter (if <i>Z</i>=0) or 0s (if <i>Z</i>=1).
-If the dereference flag is set, the operand is then loaded from memory
-(X = [X]).
-</p>
-
-<p>
-The zero-page bit allows easy access to the first 128 words of memory.
-These locations can be used much like additional registers (similar to
-the PDP-8 or 6502). The prefix &quot;=&quot; is used to indicate a
-zero-page operand.
-</p>
-
-<p>
-The dereference bit is used to allow indirect access to a memory location.
-This can be used to access memory on other pages or for array
-accesses. The prefix &quot;@&quot; is used to indicate indirect
-access. The dereference bit and zero-page bit can be used together to
-perform an indirect access through the zero page (prefix &quot;@=&quot;).
-This is useful for storing a stack pointer in the zero page, for example.
-</p>
-
-<p>
-Combined, the dereference and zero-page bits provide 4 address modes:
-</p>
-
-<center>
-<table class="listing">
-  <thead>
-    <tr><th>DZ</th><th>Notation</th><th>Meaning</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>00</td><td>x</td><td>Current page relative</td></tr>
-    <tr><td>01</td><td>=x</td><td>Zero page relative</td></tr>
-    <tr><td>10</td><td>@x</td><td>Indirect through current page</td></tr>
-    <tr><td>11</td><td>@=x</td><td>Indirect through zero page</td></tr>
-  </tbody>
-</table>
-</center>
-
-<p>
-The following instructions are supported:
-</p>
-
-<center>
-<table class="listing">
-  <thead>
-    <tr>
-      <th>Opcode</th>
-      <th>Name</th>
-      <th>Flag</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>000</td><td>lda</td><td>Z</td><td>Load: A = [X]</td>
-    </tr>
-    <tr>
-      <td>001</td><td>nor</td><td>Z</td><td>Not OR: A = A NOR [X]</td>
-    </tr>
-    <tr>
-      <td>010</td><td>add</td><td>C</td><td>Add: A = A + [X]</td>
-    </tr>
-    <tr>
-      <td>011</td><td>shr</td><td>C</td><td>Shift right: A = [X] &gt;&gt; 1</td>
-    </tr>
-    <tr>
-      <td>100</td><td>lea</td><td>-</td><td>Load effective address: A = X</td>
-    </tr>
-    <tr>
-      <td>101</td><td>sta</td><td>-</td><td>Store: [X] = A</td>
-    </tr>
-    <tr>
-      <td>110</td><td>jmp</td><td>-</td><td>Jump: P = X</td>
-    </tr>
-    <tr>
-      <td>111</td><td>jfc</td><td>-</td><td>Jump flag clear: if !F: P = X</td>
-    </tr>
-  </tbody>
-</table>
-</center>
-
-<p>
-The flag is set on carry (<i>C</i>), zero (<i>Z</i>), or left
-unchanged (<i>-</i>), depending on the instruction.
-</p>
-
-<h2 id="interface">Interface</h2>
-
-<h3>Front Panel</h3>
-
-<center>
-<img src="fp.jpg" width="694" height="451">
-</center>
-
-<p>
-For programming, the Q2 has a simple front-panel interface.
-It has 12 LEDs to show the current address (the address bus,
-which is the P register after reset) and 12 LEDs to show the
-data bus. There are also 12 switches to serve as input and
-the following buttons:
-</p>
-
-<ul>
-  <li>Deposit - Store the value in the switches to the
-  current address.</li>
-  <li>Next - Increment the P register (the current address).</li>
-  <li>Reset - Set the P register to the value in the
-  switches and reset the Q2.</li>
-  <li>Halt - Stop the clock.</li>
-  <li>Run - Start the clock.</li>
-</ul>
-
-<p>
-The front panel allows one to enter a program and run it.
-However, the process is quite time-consuming and error-prone,
-so the front panel switches are also exposed through
-a 40-pin header. This header just happens to have a pinout that
-lines up with the GPIO pins of a Raspberry Pi, making it
-easy to use a Raspberry Pi to program and backup the Q2
-via the q2prog utility. Note that Raspberry Pis with the
-26-pin header will only be able to write to the Q2, but
-Raspberry Pis with a 40-pin header can both read and write.
-</p>
-
-<h3>LCD and Buttons</h3>
-
-<center>
-<img src="lcd.jpg" width="700" height="580">
-</center>
-
-<p>
-To allow one to interact with a running program, the Q2
-includes a 16x2 LCD and 12 push buttons. These are
-exposed via address 0xFFF.
-Reading from 0xFFF reads the current state of the buttons,
-where a 1 means the button is not pressed and a 0 means
-the button is pressed. The LCD uses the common
-<a href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">
-HD44780 interface</a> where the low eight bits are data/commands to
-the LCD and bit 8 controls if data (0) or a command (1)
-is being written.
-</p>
-
-<h2 id="examples">Example Code</h2>
-
-<ul>
-  <li><a href="examples/index.html">Syntax and some common functions</li>
-  <li><a href="examples/sort.html">Bubble Sort</li>
-  <li><a href="examples/div.html">Division and modulus</li>
-  <li><a href="examples/isqrt.html">Integer Square Root</li>
-  <li><a href="examples/maze.html">Maze Generator</li>
-  <li><a href="examples/mult.html">Multiplication</li>
 </ul>
 
