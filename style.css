@@ -28,8 +28,8 @@ html, body {
 
 #links {
    position: absolute;
-   background-color: #EED;
-   border: 1px dashed #888;
+   background-color: #DDD;
+   border: 1px solid #888;
    top: 60px;
    left: 0px;
    margin: 8px 8px 8px 8px;
@@ -134,23 +134,6 @@ div.newsitem {
    margin-bottom: 16px;
 }
 
-div.code {
-   border: dashed black 1px;
-   padding: 2px 5px 2px 5px;
-   font-family: courier;
-   color: black;
-   background-color: #EEE;
-   white-space:nowrap;
-}
-
-pre.code {
-   border: dashed black 1px;
-   padding: 2px 5px 2px 5px;
-   font-family: courier;
-   color: black;
-   background-color: #EEE;
-}
-
 thead {
   background: #248;
   color: white;
@@ -183,33 +166,36 @@ td {
   padding-top: 3px;
 }
 
+pre.code, div.code {
+  border: solid grey 1px;
+  color: black;
+  background-color: #DDD;
+  font-family: courier;
+  padding: 2px 5px 2px 5px;
+  font-weight: bold;
+}
+
 span.code {
-   font-family: courier;
+  font-family: courier;
+  font-weight: bold;
 }
 
 span.comment {
-   font-family: courier;
-   color: blue;
+  font-family: courier;
+  font-weight: bold;
+  color: #048;
 }
 
-span.keyword {
-   font-family: courier;
-   color: green;
+span.keyword, span.tag, span.attribute {
+  font-family: courier;
+  font-weight: bold;
+  color: #070;
 }
 
 span.literal {
-   font-family: courier;
-   color: red;
-}
-
-span.tag {
-   font-family: courier;
-   color: #060;
-}
-
-span.attribute {
-   font-family: courier;
-   color: #060;
+  font-family: courier;
+  font-weight: bold;
+  color: #A00;
 }
 
 span.right {
@@ -521,14 +507,6 @@ img.formulaDsp {
 img.formulaInl {
    vertical-align: middle;
 }
-
-span.keyword       { color: #008000 }
-span.keywordtype   { color: #604020 }
-span.keywordflow   { color: #e08000 }
-span.comment       { color: #800000 }
-span.preprocessor  { color: #806020 }
-span.stringliteral { color: #002080 }
-span.charliteral   { color: #008080 }
 
 .mdescLeft {
    padding: 0px 8px 4px 8px;

@@ -6,101 +6,479 @@ title: Q2 Language
 <h1>{{ page.title }}</h1>
 
 <p>
-Q2L is a programming language designed for the Q2 computer.
-The goal of Q2L is to make writing programs for the Q2 easier
-without introducing features that would be expensive to implement.
-Some features of Q2L:
+Q2L is a small language designed to make programming the Q2 easier
+without introducing features that are expensive to implement. To that
+end, all values in Q2L are 12-bit words and Q2L does not support
+recursive function calls.
 </p>
 
-<ul>
-  <li>All values are 12-bit words.</li>
-  <li>All data is statically allocated.</li>
-  <li>Recursive functions are not supported.</li>
-</ul>
+<p>
+A compiler for Q2L (written in Rust) is available on Github:
+<a href="https://github.com/joewing/q2/tree/master/q2lc">q2lc</a>.<br>
+The compiler outputs Q2 assembly language for use with
+<a href="asm/">q2asm</a>.
+</p>
+
+<h2>Program Structure</h2>
+
+<p>
+Q2L programs are organized into functions. Execution starts in the
+<span class="code">main</span> function.
+All functions must be defined before use.
+</p>
 
 <p>
 Here is a small example:
 </p>
 
 <pre class="code">
-fun main()
-  clear();          # Reset and clear the LCD.
-  puts("Hello!");   # Display a message.
-end
+<span class="comment"># The main function. Execution starts here.</span>
+<span class="keyword">fun</span> main()
+  puts(<span class="literal">"Hello!"</span>);   <span class="comment"># Call the "puts" function with a pointer to a string.</span>
+<span class="keyword">end</span>
 </pre>
 
-<p>
-Execution starts in the <i>main</i> function, which is declared using
-the <i>fun</i> keyword. This program then goes on to call the
-&quot;clear&quot; built-in function and then the &quot;puts&quot;
-built-in function to output the message in quotes.  Statements
-are terminated with ';' and comments start with '#' and continue
-to the end of the line.
-</p>
+<h2>Variables</h2>
 
 <p>
-Here's an example to display a count down:
+A variable is created using the <span class="keyword">var</span> keyword.
+This statically allocates one word of memory. Here are some examples.
 </p>
 
 <pre class="code">
-fun main()
-  clear();            # Reset and clear the LCD.
-  var i = 100;        # Local variable set to 100.
-  while @i != 0 do    # While the value at i is not zero...
-    OUTPUT = 0x180;   # Move the cursor to the top-left.
-    putint(@i);       # Output the value at i.
-    i = @i - 1;       # Decrement the value at i and store it to i.
-  end
-end
+<span class="comment"># Allocate a word and leave it uninitialized:</span>
+<span class="keyword">var</span> x;
+
+<span class="comment"># Allocate a word and initialize it with 5:</span>
+<span class="keyword">var</span> x = <span class="literal">5</span>;
+
+<span class="comment"># Allocate a word and initialize it with a pointer to an array of 15 (uninitialized) words:</span>
+<span class="keyword">var</span> y = :<span class="literal">15</span>;
+
+<span class="comment"># Allocate a word and initialize it with a pointer to a null-terminated string:</span>
+<span class="keyword">var</span> ptr = <span class="literal">"asdf"</span>;
+
+<span class="comment"># Allocate a word and initialize it with a pointer to an array of 3 words:</span>
+<span class="keyword">var</span> values = [<span class="literal">1</span>, <span class="literal">2</span>, <span class="literal">3</span>];
 </pre>
 
 <p>
-In the above example, notice that we have to explicitly dereference
-variables using the '@' operator to get their value. Without the
-'@' operator, the variable would return its address. The assignment operator
-('=') stores the value computed on the right-hand side at the address
-computed on the left-hand side.
+Variables can be declared either outside a function (globally),
+or inside a function (locally). All variables are statically
+allocated, however, the storage for variables that are declared locally is
+re-used in other functions or scopes if their use does not overlap.
+Function parameters behave in the same way as local variables, but
+are initialized with a value when the function is invoked.
 </p>
 
 <p>
-This explicit dereferencing is perhaps somewhat unusual, but it makes
-it easy to pass around pointers and modify data structures without
-the need for a reference operator (like '&amp;' in C).
-Note that the BLISS programming language is similar in this regard.
+Unlike most familiar languages (though similar to the
+<a href="https://en.wikipedia.org/wiki/BLISS">BLISS</a>
+programming language), when a variable is referenced its address is
+returned. Thus, to load the value from a variable, it is necessary to
+use the <span class="code">@</span> (dereference) operator.
 </p>
 
 <p>
-Here's a slightly longer example to demonstrate array manipulation:
+The assignment operator (<span class="code">=</span>), stores the value
+computed from the right-hand side at the address computed on the
+left-hand side. Thus, to increment the variable <span class="code">x</span>,
+one would do:
 </p>
 
 <pre class="code">
-# This is a program to output prime numbers using a sieve.
-
-const MAX_VALUE = 256;    # Constant to for the max value to consider.
-
-fun show_primes()
-  puts("Primes: ");               # Display header.
-  const RESULTS = :MAX_VALUE;     # Allocate space for the array.
-  memset(RESULTS, MAX_VALUE, 1);  # Initialize with 1s (prime indicators).
-  var p = 2;                      # First prime to consider is 2.
-  while @p &lt; MAX_VALUE do
-    if @(RESULTS + @p) then       # If this entry is prime...
-      OUTPUT = 0x180 + 8;         # Move cursor
-      putint(@p);                 # Output the value.
-      var i = @p;
-      while @i &lt; MAX_VALUE do     # Loop to clear prime indicators
-        RESULTS + @i = 0;
-        i = @i + @p;
-      end
-    end
-    p = @p + 1;                   # Check the next value.
-  end
-end
-
-fun main()
-  clear();
-  show_primes();
-end
+x = @x + 1;
 </pre>
 
+<p>
+Because variables return their address rather than their value,
+it is easy to pass around references to variables for manipulation in
+other functions. For example, the following will replace the values
+at <span class="code">x</span> and <span class="code">y</span> with
+the result from calling <span class="code">divmod</span>:
+</p>
 
+<pre class="code">
+<span class="keyword">var</span> x = <span class="literal">12</span>;
+<span class="keyword">var</span> y = <span class="literal">5</span>;
+divmod(@x, @y, x, y);
+</pre>
+
+<h2>Constants</h2>
+
+<p>
+Constants are values computed at compile-time. Unlike variables, there
+is no address associated with a constant. Instead, its value is
+substituted whenever the constant is referenced.
+</p>
+
+<p>
+A constant is introduced using the <span class="keyword">const</span>
+keyword:
+</p>
+
+<pre class="code">
+<span class="keyword">const</span> THREE = <span class="literal">1</span> + <span class="literal">2</span>;
+</pre>
+
+<p>
+It is often convenient to use const to point to the beginning of an
+array:
+</p>
+
+<pre class="code">
+<span class="keyword">const</span> ARRAY = :<span class="literal">256</span>;   <span class="comment"># Get a pointer to an array of 256 words.</span>
+ARRAY + <span class="literal">1</span> = <span class="literal">3</span>;        <span class="comment"># Set the second element of the array to 3.</span>
+</pre>
+
+<h2>Functions</h2>
+
+<p>
+Functions are declared using the <span class="keyword">fun</span> keyword.
+A function may take zero or more arguments and can return a single value.
+Here is an example that takes two arguments, adds them together,
+and then returns the result:
+</p>
+
+<pre class="code">
+<span class="keyword">fun</span> add2(x, y)
+  <span class="keyword">return</span> @x + @y;
+<span class="keyword">end</span>
+</pre>
+
+<p>
+Functions are invoked by referencing their name and providing the
+necessary arguments between <span class="code">(</span> and
+<span class="code">)</span>:
+</p>
+
+<pre class="code">
+<span class="keyword">var</span> result = add2(<span class="literal">2</span>, <span class="literal">3</span>);
+</pre>
+
+<p>
+Functions may be called directly or as part of an expression.
+</p>
+
+<h2>Function Pointers</h2>
+
+<p>
+The name of a function returns a pointer to the function and can be
+used in lookup tables, etc. For example:
+</p>
+
+<pre class="code">
+<span class="keyword">fun</span> zero()
+  puts(<span class="literal">"zero"</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">fun</span> one()
+  puts(<span class="literal">"one"</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">fun</span> main()
+  <span class="keyword">const</span> FUNS = [zero, one];
+  <span class="keyword">var</span> i = <span class="literal">1</span>;
+  (@(FUNS + @i))();  <span class="comment"># Calls "one"</span>
+<span class="keyword">end</span>
+</pre>
+
+<p>
+Due to the static nature of Q2L, it is not possible to use function
+pointers for functions that receive arguments, though communication
+through global variables or local variables in the same scope is
+possible. Also note that using function pointers to recursively call
+a function is not supported.
+</p>
+
+<h2>Nested Functions</h2>
+
+<p>
+Functions may be nested. Nested functions are able to access
+the parameters of the outer function as well as any values or
+functions defined earlier in the function:
+</p>
+
+<pre class="code">
+<span class="keyword">fun</span> outer(x)
+
+  <span class="keyword">fun</span> nested(y);
+    putint(@x + @y);
+  <span class="keyword">end</span>
+
+  nested(<span class="literal">1</span>);  <span class="comment"># @x + 1</span>
+  nested(<span class="literal">2</span>);  <span class="comment"># @x + 2</span>
+<span class="keyword">end</span>
+</pre>
+
+<p>
+Mixing nested functions and function pointers is also possible:
+</p>
+
+<pre class="code">
+<span class="keyword">fun</span> doit(x, zero_or_one)
+
+  <span class="keyword">fun</span> zero(@x);
+    putint(@x);
+  <span class="keyword">end</span>
+
+  <span class="keyword">fun</span> one()
+    putint(@x + <span class="literal">1</span>);
+  <span class="keyword">end</span>
+
+  <span class="keyword">const</span> FUNS = [zero, one];
+  (@(FUNS + @zero_or_one))();
+
+<span class="keyword">end</span>
+</pre>
+
+<h2>Operators</h2>
+
+<p>
+The following operators are supported:
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Precedence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="code">~</span></td>
+      <td>Unary bitwise NOT</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><span class="code">-</span></td>
+      <td>Unary negation   </td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><span class="code">!</span></td>
+      <td>Unary logical NOT</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><span class="code">@</span></td>
+      <td>Dereference</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><span class="code">*</span></td>
+      <td>Multiply</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><span class="code">/</span></td>
+      <td>Divide</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><span class="code">%</span></td>
+      <td>Modulus</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><span class="code">&amp;</span></td>
+      <td>Bitwise AND</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><span class="code">^</span></td>
+      <td>Bitwise XOR</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><span class="code">|</span></td>
+      <td>Bitwise OR</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><span class="code">&lt;&lt;</span></td>
+      <td>Shift left</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><span class="code">&gt;&gt;</span></td>
+      <td>Shift right</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><span class="code">==</span></td>
+      <td>Equal</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><span class="code">!=</span></td>
+      <td>Not equal</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><span class="code">&lt;=</span></td>
+      <td>Less or equal</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><span class="code">&gt;=</span></td>
+      <td>Greater or equal</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><span class="code">&lt;</span></td>
+      <td>Less than</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><span class="code">&gt;</span></td>
+      <td>Greater than</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><span class="code">&amp;&amp;</span></td>
+      <td>Logical AND</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><span class="code">||</span></td>
+      <td>Logical OR</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+Some notes:
+</p>
+
+<ul>
+  <li>All numbers are assumed to be unsigned.</li>
+  <li>Comparison operators return 0 if false and a non-zero, but
+  unspecified value if true.</li>
+  <li>Logical AND and OR are short-circuiting.</li>
+</ul>
+
+<h2>Conditionals</h2>
+
+<p>
+The usual &quot;if-then-else&quot; is supported as follows:
+</p>
+
+<pre class="code">
+<span class="keyword">if</span> condition <span class="keyword">then</span>
+  <span class="comment"># body</span>
+<span class="keyword">else</span>
+  <span class="comment"># else part</span>
+<span class="keyword">end</span>
+</pre>
+
+<p>
+The <span class="keyword">else</span> portion is optional.
+It is also possible to add more branches using one or more
+<span class="keyword">elseif</span> sections:
+</p>
+
+<pre class="code">
+<span class="keyword">if</span> cond1 <span class="keyword">then</span>
+  <span class="comment"># body 1</span>
+<span class="keyword">elseif</span> cond2 <span class="keyword">then</span>
+  <span class="comment"># body 2</span>
+<span class="keyword">elseif</span> cond3 <span class="keyword">then</span>
+  <span class="comment"># body 3</span>
+<span class="keyword">else</span>
+  <span class="comment"># body 4</span>
+<span class="keyword">end</span>
+</pre>
+
+<p>
+Zero is false and any non-zero value is true.
+</p>
+
+<p>
+To enable more efficient code using the flag,
+<span class="keyword">ifcarry</span> can be used to execute
+conditional on the flag being set.
+</p>
+
+<h2>Loops</h2>
+
+<p>
+The only supported loop construct is the
+<span class="keyword">while</span> loop:
+</p>
+
+<pre class="code">
+<span class="keyword">while</span> condition <span class="keyword">do</span>
+  <span class="comment"># body</span>
+<span class="keyword">end</span>
+</pre>
+
+<p>
+This will execute the body of the loop until the condition
+evaluates to <span class="literal">0</span>. The
+<span class="keyword">break</span> keyword can be used to exit the
+inner-most loop.
+</p>
+
+<h2>Builtins</h2>
+
+<p>
+The following functions are pre-defined:
+</p>
+
+<ul>
+  <li><span class="code">divmod(x, y, a, b)</span> -
+  Computes <span class="code">a = @x / @y</span>
+   and <span class="code">b = @x % @y</span>.</li>
+  <li><span class="code">memset(dest, count, value)</span> -
+  Sets <span class="code">count</span> words at <span class="code">dest</span> to <span class="code">value</span>.</li>
+  <li><span class="code">memcpy(dest, src, count)</span> -
+  Copy <span class="code">count</span> words from <span class="code">src</span> to <span class="code">dest</span>.</li>
+  <li><span class="code">itoa(i)</span> -
+  Return a pointer to a 5 word zero-terminated ASCII string representing
+  <span class="code">i</span>.</li>
+  <li><span class="code">clear()</span> -
+  Reset and clear the LCD.</li>
+  <li><span class="code">puts(s)</span> -
+  Write a zero-terminated string to the output device.</li>
+  <li><span class="code">putint(i)</span> -
+  Write the word <span class="code">i</span> to the output device (<span class="code">puts(itoa(i))</span>).</li>
+  <li><span class="code">rand()</span> -
+  Return a random number between <span class="literal">0x000</span> and
+  <span class="literal">0xFFF</span> inclusive.</li>
+  <li><span class="code">i2c_start()</span> -
+  Start an I2C transaction.</li>
+  <li><span class="code">i2c_stop()</span> -
+  Stop an I2C transaction.</li>
+  <li><span class="code">i2c_write(v)</span> -
+  Write byte <span class="code">v</span> to the I2C interface.</li>
+  <li><span class="code">i2c_read()</span> -
+  Read a byte from the I2C interface.</li>
+</ul>
+
+<h2>Include Files</h2>
+
+<p>
+Include files are supported using the
+<span class="keyword">include</span> keyword:
+</p>
+
+<pre class="code">
+<span class="keyword">include</span> <span class="literal">"path/file.q2l"</span>;
+</pre>
+
+<h2>Examples</h2>
+
+<p>
+Here are some longer examples:
+</p>
+
+<ul>
+  <li><a href="https://github.com/joewing/q2/blob/master/examples/sieve.q2l">
+  sieve.q2l</a> - Prime number sieve.</li>
+  <li><a href="https://github.com/joewing/q2/blob/master/examples/wump.q2l">
+  wump.q2l</a> - Hunt the Wumpus.</li>
+</ul>
