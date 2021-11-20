@@ -6,13 +6,28 @@ title: Q2 Registers
 <h1>{{ page.title }}</h1>
 
 <p>
-All 46 register bits are implemented using positive-edge triggered
-D-flip-flops. These have the following structure.
+All 48 register bits are implemented using positive-edge triggered
+D-flip-flops. These have the following structure:
 </p>
 
 <center>
-<img src="dff.png" width="700" height="651">
+<img src="dff.png" width="700" height="725">
 </center>
+
+<p>
+This is the classic NAND gate implementation of an edge-triggered
+flip-flop with a few modifications to save transistors. Note that
+the &quot;SET&quot; and &quot;CLR&quot; inputs have an inverted
+polarity when compared to the usual implementation.
+</p>
+
+<p>
+The flip-flop includes an LED on the inverted output to show the
+state of the flip-flop. The voltage drop of this LED is important
+and must be kept small (here we assume 2 volts) to ensure proper
+operation at speed. A yellow LED is indicated here since red and yellow
+LEDs typically have low voltage drops.
+</p>
 
 <h2>Program Counter (P)</h2>
 
@@ -20,8 +35,8 @@ D-flip-flops. These have the following structure.
 The program counter is made up of 12 flip-flops
 configured as a 12-bit binary ripple counter. Incrementing the program
 counter is accomplished by clocking the least-significant bit. To load
-the program counter, either for a jump or at reset, the flip-flops also
-have set/reset inputs.
+the program counter, either for a jump or at reset, the set and clr
+inputs of the flip-flops are used.
 </p>
 
 <p>

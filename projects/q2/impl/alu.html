@@ -10,52 +10,16 @@ The ALU is bit-serial to reduce transistor count. During the 12 ALU
 states, the bits from A and X are shifted through the ALU least-significant
 first, and back to A. Depending on the opcode, the flag register tracks the
 carry or zero status.
-The ALU supports the following operations:
 </p>
 
-<center><table class="listing">
-  <thead>
-    <tr><th>Opcode</th><th>Name</th><th>Next A</th><th>Next F</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>x00</td><td>LDA</td>
-      <td>X0</td><td>X0 &amp; ~F</td>
-    </tr>
-    <tr>
-      <td>x01</td><td>NOR</td>
-      <td>~(A0 | X0)</td><td>(A0 | X0) &amp; ~F</td>
-    </tr>
-    <tr>
-      <td>x10</td><td>ADD</td>
-      <td>A0 + X0 + F</td><td>(A0 &amp; X0) | (A0 &amp; F) | (X0 &amp; F)</td>
-    </tr>
-    <tr>
-      <td>x11</td><td>SHR</td>
-      <td>X1</td><td>F</td>
-    </tr>
-  </tbody>
-</table></center>
-
 <p>
-The NOR function is easily implemented with two transistors.
-<p>
-
-<center>
-<img src="nor.png" width="402" height="331">
-</center>
-
-<p>
-To compute the sum, a standard binary full-adder made out of NAND
-gates is used. There are a few minor departures to save transistors:
-when two NAND gates share an input on the ground-side, the ground-side
-transistor can be shared. A common NMOS/CMOS adder design would save
-an additional transistor, but at the expense of an increased load on
-the A, X, and F registers, which we want to avoid.
+To compute the sum, a standard binary full-adder made out of NOR
+gates is used. By using the NOR gate implementation, we can re-use
+the first gate for the NOR operation.
 </p>
 
 <center>
-<img src="adder.png" width="800" height="440">
+<img src="adder.png" width="695" height="795">
 </center>
 
 <p>

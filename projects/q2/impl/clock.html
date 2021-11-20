@@ -10,16 +10,17 @@ title: Q2 Clock
 <p>
 The run latch controls whether the Q2 clock is enabled. The run latch
 consists of a pair of cross-coupled inverters (2 transistors). Pressing
-the &quot;Halt&quot; button pulls the &quot;Run&quot; signal to ground
-and pressing the &quot;Run&quot; button pulls the other side to ground
-causing the RUN signal to go high.
+the &quot;Halt&quot; button pulls the <span class="not">STOP</span> signal
+to ground and pressing the &quot;Run&quot; button pulls the
+<span class="not">START</span> signal to ground causing the
+<span class="not">STOP</span> signal to go high.
 The &quot;Halt&quot; button is connected to ground through a capacitor,
 which has the effect of pressing &quot;Halt&quot; when power is applied
 so the Q2 comes up halted.
 </p>
 
 <center>
-<img src="run.png" width="419" height="257">
+<img src="run.png" width="454" height="442">
 </center>
 
 <h2>Clock Generation</h2>
@@ -27,21 +28,21 @@ so the Q2 comes up halted.
 <p>
 The clock for the Q2 is generated using a simple relaxation oscillator
 constructed from a Schmitt trigger. The Schmitt trigger itself is
-implemented using 3 2N7002 transistors. The output of the clock is
+implemented using 3 transistors. The output of the clock is
 fed through two inverters to reduce load on the oscillator and
 preserve the phase, which should be high when not running. To halt
 the clock, an additional transistor gates the Schmitt trigger.
 </p>
 
 <center>
-<img src="clock.png" width="753" height="461">
+<img src="clock.png" width="558" height="256">
 </center>
 
 <p>
 Being implemented using only NMOS transistors, the Schmitt
 trigger is identical to the pull-down half of the traditional
-CMOS Schmitt trigger design with a pull up resistor (R128).
-An additional resistor (R132) is used to control the hysteresis
+CMOS Schmitt trigger design with a pull up resistor.
+An additional resistor is used to control the hysteresis
 window. Larger value resistors will reduce the size of the
 hysteresis window and conserve power. A smaller window
 allows the oscillator to run faster, though too small of

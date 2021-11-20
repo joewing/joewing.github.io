@@ -1,0 +1,51 @@
+---
+layout: default
+title: Q2 Simulator
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+Online simulator for the <a href="../">Q2</a> computer.
+</p>
+
+<canvas id="canvas" width="702" height="981"></canvas>
+
+<p>
+</p>
+
+<div class="box">
+  <div>
+    Select a program to run:<br>
+    <select id="example"></select>
+    <button id="run-example">Run</button>
+    <br>
+    <input id="custom" type="file" accept=".q2p"></input>
+  </div>
+  <div>
+    Since the silk screen is hard to see, the<br>
+    control button layout is:
+    <pre>
+      [Deposit] [ Next  ] (running)
+      [ Reset ] [ Stop  ] [ Start ]
+    </pre>
+  </div>
+</div>
+
+<div>
+Inputs are indicated with red boxes above. To make interaction
+easier, the up/left/down/right buttons are mapped to WASD and the
+select button is mapped to space.
+The simulator is initially halted with the speed switch
+set to fast. Click the &quot;Start&quot; button to start the
+currently loaded program.
+Click the &quot;Fast&quot; switch (located in the center under the
+clock generator) to switch between fast (usable) and slow (blinken-light)
+modes.
+The simulator can be programmed using the switches, though it's
+easier to just use one of the examples (or upload a .q2p from
+<a href="../asm">q2asm</a>) and click &quot;Run&quot;.
+</div>
+
+<script src="dist/main.js"></script>
+
