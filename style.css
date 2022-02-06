@@ -28,7 +28,7 @@ html, body {
 
 #links {
    position: absolute;
-   background-color: #DDD;
+   background-color: #EEE;
    border: 1px solid #888;
    top: 60px;
    left: 0px;
@@ -74,22 +74,24 @@ html, body {
 a {
    color: #04B;
    text-decoration: none;
-   border-bottom: dotted #999 1px;
+   border-bottom: 1px solid #999;
 }
 
 a:hover {
    color: #B44;
    text-decoration: none;
-   border-bottom: solid #B44 1px;
+   border-bottom: 1px solid #B44;
 }
 
 #header a {
    color: white;
+   text-decoration: none;
    border-bottom: none;
 }
 
 #header a:hover {
-   border-bottom: solid white 2px;
+   text-decoration: none;
+   border-bottom: 2px solid white;
 }
 
 h1 {
@@ -99,7 +101,7 @@ h1 {
    padding: 0;
    text-align: left;
    margin: 0 0 0.5em 0;
-   border-bottom: solid black 1px;
+   border-bottom: 1px solid black;
    text-shadow: none;
 }
 
@@ -140,7 +142,7 @@ thead {
 }
 
 tbody tr {
-   background: #DDD;
+   background: #EEE;
    color: black;
 }
 
@@ -150,7 +152,7 @@ tr.head {
 }
 
 tr.listing {
-   background: #DDD;
+   background: #EEE;
    color: black;
 }
 
@@ -167,9 +169,9 @@ td {
 }
 
 pre.code, div.code {
-  border: solid grey 1px;
+  border: 1px solid #888;
   color: black;
-  background-color: #DDD;
+  background-color: #EEE;
   font-family: courier;
   padding: 2px 5px 2px 5px;
   font-weight: bold;

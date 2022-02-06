@@ -490,7 +490,7 @@ class CPU {
   private inputs: Array<Input>;
   private fast: Switch = new Switch(391, 675, 28, 10);
   private switches: SwitchRegister = new SwitchRegister();
-  private last_ms: DOMHighResTimeStamp;
+  private last_ms: number;
 
   constructor() {
     this.fast.set(true);
@@ -631,11 +631,9 @@ class CPU {
     this.xreg.set(nextx);
   }
 
-  tick(): void {
-    if(this.running.get()) {
-      const elapsed_ms = Math.min(
-        performance.now() - this.last_ms, 200000
-      )
+  tick(t: number): void {
+    if(this.last_ms && this.running.get()) {
+      const elapsed_ms = Math.min(t - this.last_ms, 200000);
       const cycles = this.fast.get() ? (100 * elapsed_ms) : 1;
       for(let iter = 0; iter < cycles; iter++) {
         if(this.cdiv.get()) {
@@ -652,7 +650,9 @@ class CPU {
         }
       }
     }
-    this.last_ms = performance.now();
+    this.render(context);
+    this.last_ms = t;
+    window.requestAnimationFrame(t => this.tick(t));
   }
 
   write(addr: number, value: number): void {
@@ -819,10 +819,6 @@ const img = new Image;
 img.src = "board.png";
 img.onload = function() {
   context.drawImage(this, 0, 0);
-  const timer_ms = 50;
-  setInterval( () => {
-    cpu.tick();
-    cpu.render(context);
-  }, timer_ms);
+  window.requestAnimationFrame(t => cpu.tick(t));
 }
 
