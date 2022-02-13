@@ -750,6 +750,7 @@ const context = canvas.getContext('2d');
 const example: any = document.getElementById("example");
 const run_button: any = document.getElementById("run-example");
 const custom_input: any = document.getElementById("custom");
+let custom_data: any = null;
 
 const cpu = new CPU();
 canvas.onclick = function(event) {
@@ -798,11 +799,9 @@ run_button.onclick = (event) => {
   const selected = example.selectedIndex;
   if(selected < EXAMPLES.length) {
     load_example(EXAMPLES[selected], true);
-  } else if(custom_input.files.length > 0) {
-    custom_input.files[0].text().then(data => {
-      cpu.load_program(data);
-      cpu.start();
-    });
+  } else if(custom_data) {
+    cpu.load_program(custom_data);
+    cpu.start();
   }
 };
 custom_input.onchange = (event) => {
@@ -810,6 +809,11 @@ custom_input.onchange = (event) => {
     const index = EXAMPLES.length;
     example[index].innerHTML = custom_input.files[0].name;
     example.selectedIndex = index;
+    custom_input.files[0].text().then(data => {
+      custom_data = data;
+    });
+  } else {
+    custom_data = null;
   }
 };
 
