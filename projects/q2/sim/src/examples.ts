@@ -11,6 +11,7 @@ export class Example {
 
 export const EXAMPLES: Array<Example> = [
   new Example('Hello', 'hello.q2p'),
+  new Example('Invaders', 'invaders.q2p'),
   new Example('Life', 'life.q2p'),
   new Example('Maze', 'maze.q2p'),
   new Example('Pi', 'pi.q2p'),

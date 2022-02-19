@@ -369,8 +369,8 @@ class Memory {
     let result;
     if(addr == 0xFFF) {
       result = 0xC60;
-      result |= this.scl.get() << 9;
-      result |= this.sda.get() << 8;
+      result |= (this.scl.get() ? 0 : 1) << 9;
+      result |= (this.sda.get() ? 0 : 1) << 8;
       result |= this.key_mask & 0x1F;
     } else {
       const full_addr = this.get_full_addr(addr, defer);
@@ -445,8 +445,8 @@ class Memory {
     this.key_mask = 0x01F;
     this.instruction_field.set(0);
     this.data_field.set(0);
-    this.sda.set(1)
-    this.scl.set(1)
+    this.sda.set(0)
+    this.scl.set(0)
   }
 
   press_key(event): void {
@@ -634,7 +634,8 @@ class CPU {
   tick(t: number): void {
     if(this.last_ms && this.running.get()) {
       const elapsed_ms = Math.min(t - this.last_ms, 200000);
-      const cycles = this.fast.get() ? (100 * elapsed_ms) : 1;
+      const fast_khz = 100;
+      const cycles = this.fast.get() ? (fast_khz * elapsed_ms) : 1;
       for(let iter = 0; iter < cycles; iter++) {
         if(this.cdiv.get()) {
           switch(this.state.get()) {

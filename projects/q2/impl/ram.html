@@ -33,12 +33,19 @@ of these has an 8-bit data bus and a 13-bit address bus.
 Since we only need 12 bits for the data bus, two of the
 data pins on each are pulled to GND via 100k resistors. This
 provides a stable value for writes and low-current draw during
-reads. The extra address bit is connected to a bank select switch,
-allowing two complete system images to be stored on the Q2.
+reads. The extra address bit is connected to the
+<a href="mext.html">memory extension device</a>,
+allowing the Q2 to address 8191 words of memory as two
+<i>fields</i>.
 </p>
 
 <p>
 An SRAM battery backup is provided for the SRAM to preserve
 any programs when the Q2 is not powered.
+</p>
+
+<p>
+&lt; <a href="registers.html">Registers</a>
+| <a href="mext.html">Memory Extension</a> &gt;
 </p>
 

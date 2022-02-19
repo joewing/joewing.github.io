@@ -68,15 +68,17 @@ ripple counter (otherwise the ripple would cause glitches).
 The starting sequence of clock phases looks like this:
 </p>
 
-<center><pre>
-  RUN | RST | CLK | Q | WS | SC | Notes                           
-  --- | --- | --- | - | -- | -- | --------------------------------
-   0  |  1  |  1  | 0 |  0 |  0 | Reset button pressed            
-   0  |  0  |  1  | 0 |  0 |  0 | Reset button released           
-   1  |  0  |  0  | 0 |  1 |  0 | Run button pressed (and latched)
-   1  |  0  |  1  | 1 |  0 |  0 |                                 
-   1  |  0  |  0  | 1 |  0 |  1 |                                 
-   1  |  0  |  1  | 0 |  0 |  0 |                                 
-   1  |  0  |  0  | 0 |  1 |  0 |                                 
-</pre></center>
+<center>
+<img src="start.png" width="709" height="228">
+</center>
+
+<p>
+Here the Q2 powers up with the reset button pressed
+(nrst = 0). The reset button is released and then the
+start button is pressed to start the clock (nstart = 0).
+</p>
+
+<p>
+<a href="state.html">State Machine</a> &gt;
+</p>
 
