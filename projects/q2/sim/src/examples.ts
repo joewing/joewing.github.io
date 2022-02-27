@@ -11,6 +11,7 @@ export class Example {
 
 export const EXAMPLES: Array<Example> = [
   new Example('Hello', 'hello.q2p'),
+  new Example('Hunt the Wumpus', 'wump.q2p'),
   new Example('Invaders', 'invaders.q2p'),
   new Example('Life', 'life.q2p'),
   new Example('Maze', 'maze.q2p'),
@@ -18,6 +19,6 @@ export const EXAMPLES: Array<Example> = [
   new Example('Pong', 'pong.q2p'),
   new Example('Sieve', 'sieve.q2p'),
   new Example('Snake', 'snake.q2p'),
-  new Example('Hunt the Wumpus', 'wump.q2p'),
+  new Example('Tetris', 'tetris.q2p'),
 ];
 

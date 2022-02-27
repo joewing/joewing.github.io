@@ -39,8 +39,9 @@ The Q2 has three user-visible registers:
 <p>
 In addition to these, there is a 12-bit X register that is used
 to hold the operand, a 4-bit state counter, 1-bit clock divider,
-and a 4-bit opcode register. All 46 registers are positive
-edge-triggered D flip-flops.
+and a 4-bit opcode register. Two additional flip-flops are used
+for the I2C interface (SDA and SCL). These 48 registers are
+positive edge-triggered D flip-flops.
 </p>
 
 <h2 id="instructions">Instruction Set</h2>
@@ -149,9 +150,10 @@ The flag is set on carry (<i>C</i>), zero (<i>Z</i>), or left
 unchanged (<i>-</i>), depending on the instruction.
 </p>
 
-<h2 id="interface">Interface</h2>
+<h2>Front Panel</h2>
 
-<h3>Front Panel</h3>
+<p>
+</p>
 
 <center>
 <img src="fp.jpg" width="694" height="451">
@@ -187,7 +189,42 @@ via the q2prog utility. Note that Raspberry Pis with the
 Raspberry Pis with a 40-pin header can both read and write.
 </p>
 
+<h2>Input/Output</h2>
+
+<p>
+The Q2 exposes the LCD, buttons, an I2C interface, and a memory
+extension device through address 0xFFF:
+</p>
+
+<pre>
+  Writes to 0xFFF:
+
+      00 0 C DDDDDDDD
+       \    \    \____ Data
+        \    \________ 1 if a command, 0 for data
+         \____________ LCD device
+
+      10 C D 00000000
+       \  \ \_________ SDA
+        \  \__________ SCL
+         \____________ I2C device
+
+      11 0 0 0000000F
+       \         \____ Field
+        \_____________ Memory extension device
+
+  Reads from 0xFFF:
+
+      11 C D 111KKKKK
+          \ \     \___ Keys (0 for pressed, 1 if not pressed)
+           \ \________ SDA
+            \_________ SCL
+</pre>
+
 <h3>LCD and Buttons</h3>
+
+<p>
+</p>
 
 <center>
 <img src="lcd.jpg" width="700" height="580">
@@ -195,15 +232,44 @@ Raspberry Pis with a 40-pin header can both read and write.
 
 <p>
 To allow one to interact with a running program, the Q2
-includes a 16x2 LCD and 12 push buttons. These are
-exposed via address 0xFFF.
-Reading from 0xFFF reads the current state of the buttons,
-where a 1 means the button is not pressed and a 0 means
+includes a 16x2 LCD and five push buttons (older revisions had 12).
+The LCD and buttons are exposed via address 0xFFF.
+Reading from 0xFFF reads the current state of the buttons in
+the low 5 bits, where a 1 means the button is not pressed and a 0 means
 the button is pressed. The LCD uses the common
 <a href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">
 HD44780 interface</a> where the low eight bits are data/commands to
-the LCD and bit 8 controls if data (0) or a command (1)
+the LCD and the 9th bit controls if data (0) or a command (1)
 is being written.
+</p>
+
+<h3>I2C Interface</h3>
+
+<p>
+An <a href="https://en.wikipedia.org/wiki/I²C">I2C</a> interface is
+provided to make it possible to connect sensors, EEPROM, etc. to the
+Q2. The SCL and SDA bits can be set by writing to 0xFFF with the top
+bit set. Bit 9 controls SCL and bit 8 controls SDA. Reads from 0xFFF
+return the state of the SCL and SDA bits. Note that I2C is an
+open-collector protocol, so SDA should be set high to enable reads.
+</p>
+
+<h3>Memory Extension</h3>
+
+<p>
+The memory extension device allows the Q2 to address more than 4096
+words of memory. This is accomplished through the use of two additional
+latches: the data field (DF) and the instruction field (IF). Memory
+accesses for indirect loads or stores have the data field appended to
+the address. All other accesses have the instruction field appended.
+</p>
+
+<p>
+On reset, both the data and instruction fields are set to 0. The
+data field can be set by writing 0xCXX to address 0xFFF (the field
+is ignored ofr I/O). This will set the data field to XX. The data
+field is copied to the instruction field when a jump takes place.
+Note that the current version of the Q2 has two fields (0 and 1).
 </p>
 
 <p>

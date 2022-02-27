@@ -85,31 +85,33 @@ not draw too much power.
 </p>
 
 <p>
-Each LED is driven through a 4.7k resistor. We assume
-a 2v voltage drop through each LED, giving us a power
-draw of 0.64mA per LED.
-Each gate uses a 10k, a 1k, or a 100k resistor pull-up
-(depending on the fanout and required speed), so we
-assume 0.5mA for each 10k resistor and 5mA for each
-1k resistor, and 0.05mA for each 100k resistor.
-This provides an absolute worst-case estimate since
-we don't expect all gates and LEDs to be drawing
-power at all times (gates only draw power when the
-output is low). We assume the RAM chips and
-LCD each use 20mA.
-This gives us:
+The primary source of power consumption in the Q2 comes from pull-up
+networks. For simplicity, most of the pull-ups are simply resistors,
+though some of them have an LED in series to show state. We can easily
+compute the worse-case power draw by assuming all the pull-up networks
+are grounded using Ohm's law. The power consumption varies depending on
+the value of the resistor and the presence of the LED:
 </p>
 
 <ul>
-  <li>71 LEDs = 45mA</li>
-  <li>376 10k resistors = 188mA</li>
-  <li>19 100k resistors = 1mA</li>
-  <li>17 1k resistors = 85mA</li>
-  <li>2 RAM chips and 1 LCD = 60mA</li>
+  <li>LED (2V drop) with 1k resistors: (5 - 2) / 1000 = 3mA</li>
+  <li>1k resistor: 5 / 1000 = 5mA</li>
+  <li>4.7k resistor: 5 / 4700 = 1.06mA</li>
+  <li>10k resistor: 5 / 10000 = 0.5mA
+  <li>100k resistor: 5 / 100000 = 0.05mA
 </ul>
 
 <p>
-So we get a total worst-case draw of 379mA or 1.9 Watts.
+From this we get 442mA from pull-up networks.
+This provides an absolute worst-case estimate since
+we don't expect all gates and LEDs to be drawing
+power at all times (gates only draw power when the
+output is low).
+<p>
+
+<p>
+We assume the two RAM chips use a total of 20mA and the LCD uses 25mA.
+So we get a total worst-case draw of 487mA or 2.4 Watts.
 </p>
 
 <h2>Functional Units</h2>
@@ -127,5 +129,6 @@ The following sections detail the various sections of the Q2.
   <li><a href="registers.html">Registers</a></li>
   <li><a href="ram.html">RAM</a></li>
   <li><a href="mext.html">Memory Extension</a></li>
+  <li><a href="frontpanel.html">Front Panel</a></li>
 </ul>
 

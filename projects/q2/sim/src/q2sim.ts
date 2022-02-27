@@ -3,18 +3,20 @@
 import { LCD_FONT } from "./lcd-font";
 import { Example, EXAMPLES } from "./examples"
 
-const REG_X = 45;
-const AREG_Y = 63;
-const XREG_Y = 158;
-const PREG_Y = 330;
-const SREG_Y = 493;
-const REG_SPACING = 49.25;
+const REG_X = 43;
+const AREG_Y = 60;
+const XREG_Y = 157;
+const PREG_Y = 332;
+const SREG_Y = 496;
+const REG_SPACING = 49.6;
 const BIT_WIDTH = 7;
 const BIT_HEIGHT = 5;
 const LCD_X = 445;
-const LCD_Y = 828;
+const LCD_Y = 834;
 const LCD_WIDTH = (16 * 6 + 1) * 2.4;
 const LCD_HEIGHT = (2 * 9 + 1) * 3;
+
+const HEX = "0123456789ABCDEF";
 
 class LCD {
   private offsetx: number;
@@ -32,10 +34,10 @@ class LCD {
     this.offsety = y;
     this.width = width;
     this.height = height;
-    for (let i = 0; i < 40 * 2; i++) {
+    for(let i = 0; i < 40 * 2; i++) {
       this.content[i] = 32;
     }
-    for (let i = 0; i < 8; i++) {
+    for(let i = 0; i < 8; i++) {
       this.glyphs[i] = [0, 0, 0, 0, 0];
     }
   }
@@ -122,7 +124,7 @@ class Bit {
   private y: number;
   private value: number = 0;
   private output: number = 0;
-  private last_output: number = -1;
+  private output_count: number = 1;
 
   constructor(x: number, y: number) {
     this.x = x;
@@ -130,17 +132,26 @@ class Bit {
   }
 
   render(context): void {
-    if(this.output !== this.last_output) {
-      context.fillStyle = this.output ? '#FF1' : '#555'
+    if(this.output_count > 0) {
+      let scale = Math.pow(this.output / this.output_count, 0.1);
+      let base = 4;
+      let rg = HEX[base + Math.floor(scale * (15 - base))];
+      context.fillStyle = '#' + rg + rg + HEX[base];
       context.fillRect(this.x, this.y, BIT_WIDTH, BIT_HEIGHT);
-      this.last_output = this.output;
+      if(this.output_count != this.output) {
+        this.output_count = 1;
+        this.output = this.value ? 1 : 0;
+      } else {
+        this.output_count = 0;
+        this.output = 0;
+      }
     }
-    this.output = this.value;
   }
 
   set(v: number): void {
     this.value = v;
-    this.output |= v;
+    this.output += v ? 1 : 0;
+    this.output_count += 1;
   }
 
   get(): number {
@@ -188,10 +199,10 @@ class Register extends Bits {
 
 class Bus extends Bits {
   constructor(y: number) {
-    const offsetx = 43;
+    const offsetx = 41;
     const bits = new Array<Bit>(12);
     for(let i = 0; i < 12; i++) {
-      const x = i * 17 + ((i >= 8) ? 12 : (i >= 4) ? 6 : 0);
+      const x = i * 17 + ((i >= 8) ? 13 : (i >= 4) ? 7 : 0);
       bits[i] = new Bit(offsetx + x, y);
     }
     super(bits);
@@ -308,8 +319,8 @@ class SwitchRegister {
   switches: Array<Switch> = new Array<Switch>(12);
 
   constructor() {
-    const y = 936;
-    const offsetx = 43;
+    const y = 942;
+    const offsetx = 40;
     for(let i = 0; i < 12; i++) {
       const x = i * 17 + ((i >= 8) ? 12 : (i >= 4) ? 6 : 0);
       this.switches[i] = new Switch(offsetx + x, y, 10, 28);
@@ -340,22 +351,22 @@ class SwitchRegister {
 class Memory {
   private ram: Array<number> = new Array<number>(8192);
   private lcd: LCD = new LCD(LCD_X, LCD_Y, LCD_WIDTH, LCD_HEIGHT);
-  private abus: Bus = new Bus(910);
-  private dbus: Bus = new Bus(922);
+  private abus: Bus = new Bus(917);
+  private dbus: Bus = new Bus(930);
   private scl: Bit = new Bit(REG_X + 10 * REG_SPACING, SREG_Y);
   private sda: Bit = new Bit(REG_X + 11 * REG_SPACING, SREG_Y);
   private key_mask: number;
   private keys: Array<Key>;
-  private data_field: Bit = new Bit(548, 644);
-  private instruction_field: Bit = new Bit(594, 644);
+  private data_field: Bit = new Bit(551, 649);
+  private instruction_field: Bit = new Bit(597, 649);
 
   constructor() {
     this.keys = [
-      new Key(458, 931, 1 << 0),
-      new Key(533, 931, 1 << 1),
-      new Key(495, 917, 1 << 2),
-      new Key(495, 944, 1 << 3),
-      new Key(620, 931, 1 << 4),
+      new Key(460, 939, 1 << 0),
+      new Key(535, 939, 1 << 1),
+      new Key(497, 924, 1 << 2),
+      new Key(497, 950, 1 << 3),
+      new Key(623, 939, 1 << 4),
     ];
     this.reset(0);
   }
@@ -485,21 +496,21 @@ class CPU {
   private flag: Register = new Register(REG_X + 4 * REG_SPACING, SREG_Y, 1);
   private state: Register = new Register(REG_X + 5 * REG_SPACING, SREG_Y, 4);
   private cdiv: Register = new Register(REG_X + 9 * REG_SPACING, SREG_Y, 1);
-  private running: Bit = new Bit(360, 919);
+  private running: Bit = new Bit(361, 926);
   private mem: Memory = new Memory();
   private inputs: Array<Input>;
-  private fast: Switch = new Switch(391, 675, 28, 10);
+  private fast: Switch = new Switch(386, 680, 28, 10);
   private switches: SwitchRegister = new SwitchRegister();
   private last_ms: number;
 
   constructor() {
     this.fast.set(true);
     this.inputs = [
-      new Button(275, 944, (cpu) => cpu.reset()),
-      new Button(312, 944, (cpu) => cpu.stop()),
-      new Button(351, 944, (cpu) => cpu.start()),
-      new Button(275, 912, (cpu) => cpu.deposit()),
-      new Button(312, 912, (cpu) => cpu.incp()),
+      new Button(275, 951, (cpu) => cpu.reset()),
+      new Button(312, 951, (cpu) => cpu.stop()),
+      new Button(351, 951, (cpu) => cpu.start()),
+      new Button(275, 918, (cpu) => cpu.deposit()),
+      new Button(312, 918, (cpu) => cpu.incp()),
       this.fast,
     ].concat(this.switches.switches);
   }

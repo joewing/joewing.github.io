@@ -1,0 +1,53 @@
+---
+layout: default
+title: Q2 Front Panel
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>
+The front panel occupies the lower left side of the Q2 PCB.
+There are 12 address LEDs, 12 data LEDs, and 12 switches to
+allow one to view and input addresses and data:
+</p>
+
+<center>
+<img src="../fp.jpg" width="694" height="451">
+</center>
+
+<p>
+The address LEDs simply show the state of the address bus:
+</p>
+
+<center>
+<img src="addr-out.png" width="231" height="321">
+</center>
+
+<p>
+Likewise, the data LEDs show the state of data bus:
+</p>
+
+<center>
+<img src="data-out.png" width="254" height="342">
+</center>
+
+<p>
+The switches allow loading data on to the data bus
+when the &quot;deposit&quot; button is pressed or load the
+program counter on reset.
+</p>
+
+<p>
+Although a classic interface for an old minicomputer, the
+front panel interface is not very practical for loading
+programs. Thus, the pins are exposed through a 40-pin header
+to allow a Raspberry Pi to be used as a programmer:
+</p>
+
+<center>
+<img src="pi.png" width="800" height="433">
+</center>
+
+<p>
+&lt; <a href="mext.html">Memory Extension</a>
+</p>
