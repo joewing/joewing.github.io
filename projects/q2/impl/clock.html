@@ -26,28 +26,16 @@ so the Q2 comes up halted.
 <h2>Clock Generation</h2>
 
 <p>
-The clock for the Q2 is generated using a simple relaxation oscillator
-constructed from a Schmitt trigger. The Schmitt trigger itself is
-implemented using 3 transistors. The output of the clock is
-fed through two inverters to reduce load on the oscillator and
-preserve the phase, which should be high when not running. To halt
-the clock, an additional transistor gates the Schmitt trigger.
+The clock for the Q2 is generated using a 3-stage ring
+oscillator with a variable delay. The output of the clock is fed
+through an inverter to reduce load on the oscillator and preserve the
+phase, which should be high when not running. To halt
+the clock, an additional transistor gates the first stage.
 </p>
 
 <center>
-<img src="clock.png" width="558" height="256">
+<img src="clock.png" width="800" height="389">
 </center>
-
-<p>
-Being implemented using only NMOS transistors, the Schmitt
-trigger is identical to the pull-down half of the traditional
-CMOS Schmitt trigger design with a pull up resistor.
-An additional resistor is used to control the hysteresis
-window. Larger value resistors will reduce the size of the
-hysteresis window and conserve power. A smaller window
-allows the oscillator to run faster, though too small of
-a window and it will become unstable and eventually stop working.
-</p>
 
 <p>
 The clock is divided into two non-overlapping clock phases: a state
