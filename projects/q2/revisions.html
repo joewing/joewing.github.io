@@ -8,6 +8,12 @@ title: Q2 Revision History
 <ul>
   <li>Revision 4b (2022-03-14)
     <ul>
+      <li>
+        <details>
+          <summary style="cursor: pointer;">Image</summary>
+          <img src="q2r4b.jpg" width="720" height="1001">
+        </details>
+      </li>
       <li>1018 transistors.</li>
       <li>I2C interface.</li>
       <li>Memory extension (instruction field and data field registers).</li>
@@ -20,6 +26,14 @@ title: Q2 Revision History
       <li>Smaller footprint.</li>
       <li>Improved the clock oscillator design.</li>
       <li>Improved power distribution and decoupling.</li>
+      <li>One known issue:
+        <ul>
+          <li>RAM is not disabled fast enough at power down causing
+          memory corruption. This can be easily fixed by attaching
+          a MCP100 supervisor.
+          </li>
+        </ul>
+      </li>
     </ul>
     <br>
   </li>
@@ -27,8 +41,8 @@ title: Q2 Revision History
     <ul>
       <li>
         <details>
-          <summary>Image</summary>
-          <img src="hello.png" width="458" height="570">
+          <summary style="cursor: pointer;">Image</summary>
+          <img src="q2r3.png" width="458" height="570">
         </details>
       </li>
       <li>1094 transistors.</li>
@@ -56,7 +70,7 @@ title: Q2 Revision History
     <ul>
       <li>
         <details>
-          <summary>Image</summary>
+          <summary style="cursor: pointer;">Image</summary>
           <img src="rev2.jpg" width="400" height="524">
         </details>
       </li>
