@@ -11,8 +11,8 @@ const SREG_Y = 496;
 const REG_SPACING = 49.6;
 const BIT_WIDTH = 7;
 const BIT_HEIGHT = 5;
-const LCD_X = 445;
-const LCD_Y = 834;
+const LCD_X = 444;
+const LCD_Y = 832;
 const LCD_WIDTH = (16 * 6 + 1) * 2.4;
 const LCD_HEIGHT = (2 * 9 + 1) * 3;
 
@@ -362,11 +362,11 @@ class Memory {
 
   constructor() {
     this.keys = [
-      new Key(460, 939, 1 << 0),
-      new Key(535, 939, 1 << 1),
-      new Key(497, 924, 1 << 2),
-      new Key(497, 950, 1 << 3),
-      new Key(623, 939, 1 << 4),
+      new Key(458, 936, 1 << 0),
+      new Key(534, 936, 1 << 1),
+      new Key(496, 923, 1 << 2),
+      new Key(496, 948, 1 << 3),
+      new Key(622, 936, 1 << 4),
     ];
     this.reset(0);
   }
@@ -499,18 +499,18 @@ class CPU {
   private running: Bit = new Bit(361, 926);
   private mem: Memory = new Memory();
   private inputs: Array<Input>;
-  private fast: Switch = new Switch(386, 680, 28, 10);
+  private fast: Switch = new Switch(395, 942, 10, 28);
   private switches: SwitchRegister = new SwitchRegister();
   private last_ms: number;
 
   constructor() {
     this.fast.set(true);
     this.inputs = [
-      new Button(275, 951, (cpu) => cpu.reset()),
-      new Button(312, 951, (cpu) => cpu.stop()),
-      new Button(351, 951, (cpu) => cpu.start()),
-      new Button(275, 918, (cpu) => cpu.deposit()),
-      new Button(312, 918, (cpu) => cpu.incp()),
+      new Button(274, 949, (cpu) => cpu.reset()),
+      new Button(311, 949, (cpu) => cpu.stop()),
+      new Button(349, 949, (cpu) => cpu.start()),
+      new Button(274, 917, (cpu) => cpu.deposit()),
+      new Button(311, 917, (cpu) => cpu.incp()),
       this.fast,
     ].concat(this.switches.switches);
   }
