@@ -1,0 +1,12 @@
+### setuplist.txt first line must be a comment
++Basics
+not.txt NMOS Inverter
+nand.txt NMOS NAND Gate
+nor.txt NMOS NOR Gate
+-
++Clock
+q2-run.txt Run Latch
+q2-clock.txt Oscillator
+q2-phases.txt Phases
+-
+q2-dff.txt Flip-Flop 
