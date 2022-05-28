@@ -1,12 +1,23 @@
 ### setuplist.txt first line must be a comment
-+Basics
-not.txt NMOS Inverter
-nand.txt NMOS NAND Gate
-nor.txt NMOS NOR Gate
++CMOS
+cmos-not.txt CMOS Inverter
 -
-+Clock
++NMOS
+nmos-not.txt NMOS Inverter
+nmos-nand.txt NMOS NAND Gate
+nmos-nor.txt NMOS NOR Gate
+-
++RTL
+rtl-not.txt RTL Inverter
+rtl-nor.txt RTL NOR Gate
+-
++TTL
+ttl-not.txt TTL Inverter
+ttl-nand.txt TTL NAND Gate
+-
++Q2 Circuits
 q2-run.txt Run Latch
 q2-clock.txt Oscillator
 q2-phases.txt Phases
--
 q2-dff.txt Flip-Flop 
+-
